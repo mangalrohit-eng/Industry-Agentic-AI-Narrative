@@ -84,60 +84,6 @@ function getIndustryMedia(process: Process) {
         'Real-time performance optimization',
       ],
     },
-    'Order to Service Activation': {
-      title: 'Service Activation Excellence',
-      stats: [
-        { label: 'Activation Time', value: '2-5 days', change: '-70%' },
-        { label: 'First-Time-Right', value: '96%', change: '+24%' },
-        { label: 'Customer Satisfaction', value: '4.6/5', change: '+0.8' },
-      ],
-      insights: [
-        'Service activation delays cost telecom providers $1.8B annually in lost revenue',
-        'Multi-domain service provisioning requires coordination across 5-8 systems',
-        'Automated validation reduces provisioning errors by 85%',
-      ],
-      trends: [
-        'Demand for same-day service activation',
-        'Complexity of 5G and fiber deployments',
-        'Need for real-time order visibility',
-      ],
-    },
-    'Trouble to Resolve': {
-      title: 'Customer Service Excellence',
-      stats: [
-        { label: 'Resolution Time', value: '4-8 hours', change: '-65%' },
-        { label: 'First Contact Resolution', value: '78%', change: '+28%' },
-        { label: 'Customer Satisfaction', value: '4.5/5', change: '+0.7' },
-      ],
-      insights: [
-        'Average telecom customer service ticket takes 4-6 interactions to resolve',
-        'Network issues account for 45% of all service tickets',
-        'AI-powered diagnostics reduce troubleshooting time by 60%',
-      ],
-      trends: [
-        'Rising customer expectations for instant resolution',
-        'Complexity of multi-service troubleshooting',
-        'Need for proactive issue detection',
-      ],
-    },
-    'Service Assurance': {
-      title: 'Network Performance Excellence',
-      stats: [
-        { label: 'Network Uptime', value: '99.95%', change: '+0.3%' },
-        { label: 'MTTR', value: '15 min', change: '-75%' },
-        { label: 'Proactive Detection', value: '82%', change: '+45%' },
-      ],
-      insights: [
-        'Network downtime costs telecom providers $5,600 per minute',
-        'Proactive monitoring prevents 70% of customer-impacting incidents',
-        'AI-driven root cause analysis reduces MTTR by 75%',
-      ],
-      trends: [
-        '5G network complexity requires advanced monitoring',
-        'Edge computing demands distributed assurance',
-        'Real-time performance optimization',
-      ],
-    },
     'Network Planning & Design': {
       title: 'Network Infrastructure Excellence',
       stats: [
