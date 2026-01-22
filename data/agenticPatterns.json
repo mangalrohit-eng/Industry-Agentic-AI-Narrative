@@ -1,0 +1,42 @@
+[
+  {
+    "id": "intake-analyze-configure-validate-approve",
+    "name": "Intake → Analyze → Configure → Validate → Approve",
+    "description": "End-to-end orchestration from request intake through automated configuration, validation, and human approval"
+  },
+  {
+    "id": "monitor-detect-analyze-recommend-act",
+    "name": "Monitor → Detect → Analyze → Recommend → Act",
+    "description": "Continuous monitoring with intelligent detection, analysis, recommendation generation, and automated action"
+  },
+  {
+    "id": "collect-validate-enrich-resolve-communicate",
+    "name": "Collect → Validate → Enrich → Resolve → Communicate",
+    "description": "Issue resolution workflow with data collection, validation, enrichment, automated resolution, and customer communication"
+  },
+  {
+    "id": "analyze-optimize-recommend-approve-execute",
+    "name": "Analyze → Optimize → Recommend → Approve → Execute",
+    "description": "Optimization pattern for resource allocation, pricing, and operational decisions"
+  },
+  {
+    "id": "ingest-normalize-reconcile-report",
+    "name": "Ingest → Normalize → Reconcile → Report",
+    "description": "Data processing pattern for billing, revenue assurance, and financial operations"
+  },
+  {
+    "id": "assess-design-quote-approve-provision",
+    "name": "Assess → Design → Quote → Approve → Provision",
+    "description": "Service delivery pattern from assessment through design, pricing, approval, and provisioning"
+  },
+  {
+    "id": "monitor-correlate-diagnose-remediate-verify",
+    "name": "Monitor → Correlate → Diagnose → Remediate → Verify",
+    "description": "Network operations pattern for proactive issue detection and automated remediation"
+  },
+  {
+    "id": "extract-validate-transform-load-analyze",
+    "name": "Extract → Validate → Transform → Load → Analyze",
+    "description": "Data integration pattern for partner operations, compliance, and reporting"
+  }
+]

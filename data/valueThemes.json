@@ -1,0 +1,42 @@
+[
+  {
+    "id": "revenue-growth",
+    "name": "Revenue Growth",
+    "description": "Drive top-line growth through improved conversion, upsell, and retention"
+  },
+  {
+    "id": "cost-optimization",
+    "name": "Cost Optimization",
+    "description": "Reduce operational costs through automation and efficiency gains"
+  },
+  {
+    "id": "customer-experience",
+    "name": "Customer Experience",
+    "description": "Enhance customer satisfaction and loyalty through faster, personalized service"
+  },
+  {
+    "id": "operational-excellence",
+    "name": "Operational Excellence",
+    "description": "Improve process efficiency, accuracy, and reliability"
+  },
+  {
+    "id": "risk-mitigation",
+    "name": "Risk Mitigation",
+    "description": "Reduce compliance, financial, and operational risks"
+  },
+  {
+    "id": "time-to-market",
+    "name": "Time to Market",
+    "description": "Accelerate service delivery and new product launches"
+  },
+  {
+    "id": "workforce-productivity",
+    "name": "Workforce Productivity",
+    "description": "Enable employees to focus on high-value strategic work"
+  },
+  {
+    "id": "data-driven-insights",
+    "name": "Data-Driven Insights",
+    "description": "Leverage analytics for better decision-making and optimization"
+  }
+]

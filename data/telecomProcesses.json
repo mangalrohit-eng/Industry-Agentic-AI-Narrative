@@ -1,0 +1,1135 @@
+[
+  {
+    "id": "lead-to-order-b2b",
+    "name": "Lead to Order (B2B)",
+    "category": "Customer & Revenue",
+    "description": "Transform B2B sales from initial lead qualification through complex order configuration, pricing, and approval. Agentic AI orchestrates multi-agent workflows to qualify leads, configure solutions, generate quotes, validate technical feasibility, and route for approval—reducing sales cycle time while improving accuracy.",
+    "businessGoal": "Accelerate B2B sales cycles, increase win rates, and reduce order errors through intelligent automation of qualification, configuration, and pricing.",
+    "kpis": [
+      "Sales cycle time (days)",
+      "Quote-to-order conversion rate",
+      "Order accuracy rate",
+      "Average deal size",
+      "Sales productivity (deals per rep)"
+    ],
+    "valueThemes": ["revenue-growth", "customer-experience", "time-to-market", "workforce-productivity"],
+    "fourW": {
+      "work": [
+        "Automated lead scoring and qualification based on firmographic and behavioral data",
+        "Intelligent product/service configuration matching customer requirements",
+        "Dynamic pricing with discount approval workflows",
+        "Technical feasibility validation against network inventory and capacity",
+        "Automated quote generation with multi-year TCO analysis",
+        "Order validation and completeness checks before submission"
+      ],
+      "workforce": [
+        "Sales reps focus on relationship building and complex negotiations",
+        "Sales engineers handle only escalated technical challenges",
+        "Pricing analysts review exceptions rather than routine quotes",
+        "Order management team processes pre-validated, error-free orders",
+        "Reduced training time for new sales reps through AI-guided workflows"
+      ],
+      "workbench": [
+        "AI-powered CRM integration (Salesforce, Microsoft Dynamics)",
+        "CPQ (Configure-Price-Quote) systems with agentic orchestration",
+        "Product catalog and configuration engines",
+        "Pricing engines with approval workflows",
+        "Network inventory and capacity management systems",
+        "Document generation and e-signature platforms"
+      ],
+      "digitalCore": [
+        "CRM (Salesforce, Microsoft Dynamics 365)",
+        "CPQ systems (Apttus, Oracle CPQ Cloud)",
+        "Order Management Systems (OMS)",
+        "Product Catalog and Configuration Management",
+        "Pricing and Discount Management",
+        "Network Inventory Systems (Granite, Amdocs)",
+        "Billing and Revenue Management (BRM)",
+        "Customer Data Platform (CDP)"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Lead Qualification Agent",
+        "responsibility": "Analyzes lead data, firmographics, and engagement signals to score and qualify prospects",
+        "humanApproval": false
+      },
+      {
+        "name": "Solution Configuration Agent",
+        "responsibility": "Matches customer requirements to product/service bundles, validates technical compatibility",
+        "humanApproval": false
+      },
+      {
+        "name": "Pricing Agent",
+        "responsibility": "Generates pricing proposals, applies discounts within policy, calculates TCO",
+        "humanApproval": true
+      },
+      {
+        "name": "Feasibility Validation Agent",
+        "responsibility": "Checks network capacity, inventory availability, and service delivery feasibility",
+        "humanApproval": false
+      },
+      {
+        "name": "Quote Generation Agent",
+        "responsibility": "Creates professional quotes with terms, SLAs, and multi-year projections",
+        "humanApproval": false
+      },
+      {
+        "name": "Order Validation Agent",
+        "responsibility": "Validates order completeness, accuracy, and compliance before submission",
+        "humanApproval": true
+      }
+    ],
+    "benefits": [
+      "30-45% reduction in sales cycle time through automated qualification and configuration",
+      "15-25% increase in quote-to-order conversion rates via improved accuracy and speed",
+      "40-60% reduction in order errors and rework",
+      "20-30% improvement in sales rep productivity (more time on high-value activities)",
+      "10-15% increase in average deal size through better upsell recommendations",
+      "50-70% reduction in pricing approval turnaround time"
+    ],
+    "risksAndControls": [
+      "Human approval checkpoints for pricing exceptions and high-value orders (>$100K)",
+      "Audit trail of all agent decisions, configuration changes, and pricing calculations",
+      "Policy grounding: agents reference approved pricing rules, discount policies, and product catalogs",
+      "Validation gates prevent submission of incomplete or non-compliant orders",
+      "Regular review of agent performance metrics and accuracy rates",
+      "Escalation workflows for complex technical requirements or policy exceptions"
+    ]
+  },
+  {
+    "id": "order-capture-orchestration",
+    "name": "Order Capture & Orchestration",
+    "category": "Customer & Revenue",
+    "description": "Orchestrate complex multi-service orders across BSS/OSS systems with intelligent validation, provisioning coordination, and exception handling. Agentic AI ensures order integrity, coordinates dependencies, and proactively identifies and resolves issues before they impact delivery.",
+    "businessGoal": "Ensure accurate, timely order fulfillment across all service types while minimizing manual intervention and order fallout.",
+    "kpis": [
+      "Order fulfillment cycle time",
+      "First-time-right order percentage",
+      "Order fallout rate",
+      "Provisioning success rate",
+      "Customer satisfaction (order experience)"
+    ],
+    "valueThemes": ["operational-excellence", "customer-experience", "time-to-market", "cost-optimization"],
+    "fourW": {
+      "work": [
+        "Intelligent order decomposition into service components and dependencies",
+        "Automated validation against product catalog, inventory, and customer eligibility",
+        "Orchestration of provisioning workflows across multiple OSS/BSS systems",
+        "Real-time exception detection and automated resolution",
+        "Proactive status updates and notifications to customers",
+        "Order reconciliation and completion verification"
+      ],
+      "workforce": [
+        "Order management team handles only exceptions and escalations",
+        "Provisioning engineers focus on complex network configurations",
+        "Customer service receives pre-validated orders with clear status",
+        "Reduced need for manual order tracking and status inquiries",
+        "Operations team monitors agent performance rather than individual orders"
+      ],
+      "workbench": [
+        "Order Management Systems (OMS)",
+        "Service Orchestration Platforms",
+        "Product Catalog Management",
+        "Inventory Management Systems",
+        "Provisioning and Activation Systems",
+        "Customer Communication Platforms"
+      ],
+      "digitalCore": [
+        "Order Management Systems (Amdocs, Netcracker, Oracle)",
+        "Service Orchestration (Ciena Blue Planet, Ericsson OSS)",
+        "Product Catalog (Pega, Salesforce)",
+        "Inventory Management (Granite, Amdocs)",
+        "Provisioning Systems (Ciena, Ericsson, Nokia)",
+        "Billing Systems (Amdocs, Oracle BRM)",
+        "CRM and Customer Portals",
+        "Integration Platforms (MuleSoft, TIBCO)"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Order Validation Agent",
+        "responsibility": "Validates order structure, product eligibility, and customer data completeness",
+        "humanApproval": false
+      },
+      {
+        "name": "Orchestration Agent",
+        "responsibility": "Decomposes orders, sequences provisioning tasks, and coordinates system interactions",
+        "humanApproval": false
+      },
+      {
+        "name": "Inventory Check Agent",
+        "responsibility": "Verifies resource availability, reserves inventory, and checks capacity",
+        "humanApproval": false
+      },
+      {
+        "name": "Exception Handler Agent",
+        "responsibility": "Detects provisioning failures, analyzes root causes, and triggers remediation",
+        "humanApproval": true
+      },
+      {
+        "name": "Status Communication Agent",
+        "responsibility": "Generates customer updates, tracks milestones, and sends notifications",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "35-50% reduction in order fulfillment cycle time",
+      "25-40% improvement in first-time-right order percentage",
+      "50-70% reduction in order fallout and manual rework",
+      "30-45% increase in provisioning automation rates",
+      "20-30% reduction in customer service inquiries related to order status",
+      "15-25% cost reduction in order management operations"
+    ],
+    "risksAndControls": [
+      "Human approval required for high-value orders, complex multi-service bundles, and policy exceptions",
+      "Comprehensive audit log of all order transformations, system calls, and decisions",
+      "Validation rules prevent invalid orders from entering provisioning workflows",
+      "Rollback capabilities for failed provisioning with automatic cleanup",
+      "Real-time monitoring and alerting for order exceptions and SLA breaches",
+      "Regular reconciliation between order systems and billing to catch discrepancies"
+    ]
+  },
+  {
+    "id": "service-provisioning-activation",
+    "name": "Service Provisioning & Activation",
+    "category": "Service & Operations",
+    "description": "Automate end-to-end service provisioning from order receipt through network activation. Agentic AI orchestrates multi-domain provisioning, validates configurations, handles dependencies, and ensures service readiness—dramatically reducing activation time while improving accuracy.",
+    "businessGoal": "Achieve zero-touch provisioning for standard services, reduce activation time from days to hours, and eliminate provisioning errors.",
+    "kpis": [
+      "Service activation time",
+      "Zero-touch provisioning rate",
+      "Provisioning accuracy (first-time success)",
+      "Network resource utilization",
+      "Customer time-to-service"
+    ],
+    "valueThemes": ["operational-excellence", "time-to-market", "customer-experience", "cost-optimization"],
+    "fourW": {
+      "work": [
+        "Automated service design and network path calculation",
+        "Intelligent resource allocation and inventory reservation",
+        "Multi-domain provisioning orchestration (access, transport, core)",
+        "Configuration validation and compliance checking",
+        "Service testing and activation verification",
+        "Automated rollback on failure with cleanup"
+      ],
+      "workforce": [
+        "Network engineers focus on complex designs and exceptions",
+        "Provisioning team handles only escalated cases",
+        "Field technicians receive pre-validated work orders",
+        "Reduced need for manual configuration and testing",
+        "Operations center monitors automation health rather than individual activations"
+      ],
+      "workbench": [
+        "Service Design and Fulfillment Platforms",
+        "Network Inventory Management Systems",
+        "Element Management Systems (EMS)",
+        "Network Configuration Management",
+        "Service Testing and Validation Tools",
+        "Workforce Management Systems"
+      ],
+      "digitalCore": [
+        "Service Fulfillment Platforms (Ciena Blue Planet, Amdocs, Netcracker)",
+        "Network Inventory (Granite, Amdocs, InfoVista)",
+        "Element Management Systems (Ciena, Ericsson, Nokia, Juniper)",
+        "Network Configuration Management (Itential, Anuta Networks)",
+        "OSS Integration Platforms",
+        "Service Assurance and Testing Tools",
+        "Workforce Management (ServiceNow, Salesforce Field Service)",
+        "Network Orchestration (ONAP, ETSI NFV)"
+      ]
+    },
+    "agenticPattern": "assess-design-quote-approve-provision",
+    "agents": [
+      {
+        "name": "Service Design Agent",
+        "responsibility": "Designs service topology, calculates network paths, and determines resource requirements",
+        "humanApproval": false
+      },
+      {
+        "name": "Resource Allocation Agent",
+        "responsibility": "Reserves network resources, checks capacity, and allocates inventory",
+        "humanApproval": false
+      },
+      {
+        "name": "Provisioning Orchestrator Agent",
+        "responsibility": "Coordinates provisioning across access, transport, and core network domains",
+        "humanApproval": false
+      },
+      {
+        "name": "Configuration Agent",
+        "responsibility": "Generates and applies network device configurations, validates compliance",
+        "humanApproval": true
+      },
+      {
+        "name": "Validation Agent",
+        "responsibility": "Tests service connectivity, validates SLAs, and confirms activation readiness",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "60-80% reduction in service activation time (from days to hours)",
+      "40-60% increase in zero-touch provisioning rates",
+      "50-70% reduction in provisioning errors and rework",
+      "30-45% improvement in network resource utilization",
+      "25-35% reduction in field dispatch requirements",
+      "20-30% cost savings in provisioning operations"
+    ],
+    "risksAndControls": [
+      "Human approval required for network configuration changes affecting critical infrastructure",
+      "Configuration validation against network policies and security standards",
+      "Automated rollback on provisioning failures with resource cleanup",
+      "Audit trail of all network changes, configurations, and resource allocations",
+      "Pre-activation testing to verify service connectivity and performance",
+      "Real-time monitoring during provisioning with automatic failure detection"
+    ]
+  },
+  {
+    "id": "trouble-to-resolve",
+    "name": "Trouble to Resolve",
+    "category": "Service & Operations",
+    "description": "Transform customer issue resolution through intelligent triage, root cause analysis, automated remediation, and proactive communication. Agentic AI reduces resolution time, improves first-call resolution, and enhances customer experience.",
+    "businessGoal": "Achieve faster resolution times, higher first-call resolution rates, and improved customer satisfaction through intelligent automation.",
+    "kpis": [
+      "Mean time to resolve (MTTR)",
+      "First-call resolution rate",
+      "Customer satisfaction (CSAT)",
+      "Escalation rate",
+      "Automated resolution rate"
+    ],
+    "valueThemes": ["customer-experience", "operational-excellence", "cost-optimization", "workforce-productivity"],
+    "fourW": {
+      "work": [
+        "Intelligent ticket triage and categorization using NLP",
+        "Automated root cause analysis across network, service, and billing systems",
+        "Self-service diagnostics and guided troubleshooting",
+        "Automated remediation for common issues (password resets, service restarts)",
+        "Proactive issue detection and prevention",
+        "Intelligent escalation routing based on issue complexity and expertise"
+      ],
+      "workforce": [
+        "Customer service agents handle complex, relationship-sensitive issues",
+        "Technical support focuses on escalated cases requiring deep expertise",
+        "Field technicians dispatched only when physical intervention needed",
+        "Reduced repetitive troubleshooting and status updates",
+        "Agents equipped with AI-generated insights and recommended solutions"
+      ],
+      "workbench": [
+        "ITSM Platforms (ServiceNow, Remedy)",
+        "Customer Service Platforms (Zendesk, Salesforce Service Cloud)",
+        "Network Monitoring and Diagnostics",
+        "Service Assurance Tools",
+        "Knowledge Management Systems",
+        "Customer Communication Platforms"
+      ],
+      "digitalCore": [
+        "ITSM (ServiceNow, BMC Remedy, Jira Service Management)",
+        "CRM and Customer Service (Salesforce, Microsoft Dynamics)",
+        "Network Monitoring (SolarWinds, Nagios, custom NMS)",
+        "Service Assurance (Amdocs, Netcracker, Ericsson)",
+        "Billing and Mediation Systems",
+        "Customer Data Platform (CDP)",
+        "Knowledge Base and AI Search",
+        "Communication Platforms (Twilio, Vonage)"
+      ]
+    },
+    "agenticPattern": "collect-validate-enrich-resolve-communicate",
+    "agents": [
+      {
+        "name": "Triage Agent",
+        "responsibility": "Categorizes issues, determines severity, and routes to appropriate resolution path",
+        "humanApproval": false
+      },
+      {
+        "name": "Diagnostic Agent",
+        "responsibility": "Collects diagnostic data, analyzes symptoms, and identifies root causes",
+        "humanApproval": false
+      },
+      {
+        "name": "Remediation Agent",
+        "responsibility": "Executes automated fixes for common issues (restarts, resets, configuration changes)",
+        "humanApproval": true
+      },
+      {
+        "name": "Communication Agent",
+        "responsibility": "Generates customer updates, explains issues and resolutions, manages expectations",
+        "humanApproval": false
+      },
+      {
+        "name": "Escalation Agent",
+        "responsibility": "Determines when escalation is needed and routes to appropriate expert team",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "40-60% reduction in mean time to resolve (MTTR)",
+      "25-35% improvement in first-call resolution rates",
+      "30-50% increase in automated resolution for common issues",
+      "20-30% improvement in customer satisfaction scores",
+      "35-45% reduction in escalation rates",
+      "15-25% cost reduction in customer service operations"
+    ],
+    "risksAndControls": [
+      "Human approval required for service-affecting remediation actions",
+      "Validation of automated fixes before execution to prevent service disruption",
+      "Audit log of all diagnostic steps, root cause analysis, and remediation actions",
+      "Escalation triggers for high-severity issues, VIP customers, and policy exceptions",
+      "Customer communication templates reviewed and approved by service teams",
+      "Regular review of automated resolution accuracy and customer feedback"
+    ]
+  },
+  {
+    "id": "field-service-dispatch",
+    "name": "Field Service Dispatch",
+    "category": "Service & Operations",
+    "description": "Optimize field service operations through intelligent scheduling, route optimization, technician matching, and real-time adjustments. Agentic AI improves first-visit resolution, reduces travel time, and enhances customer experience.",
+    "businessGoal": "Maximize technician productivity, improve first-visit resolution rates, and reduce operational costs through intelligent dispatch and scheduling.",
+    "kpis": [
+      "First-visit resolution rate",
+      "Average travel time per job",
+      "Technician utilization rate",
+      "On-time arrival percentage",
+      "Customer satisfaction (field service)"
+    ],
+    "valueThemes": ["operational-excellence", "cost-optimization", "customer-experience", "workforce-productivity"],
+    "fourW": {
+      "work": [
+        "Intelligent job scheduling based on skills, location, and priority",
+        "Dynamic route optimization considering traffic, weather, and job dependencies",
+        "Real-time schedule adjustments for emergencies and cancellations",
+        "Automated parts and tool provisioning for jobs",
+        "Proactive customer communication with ETAs and technician details",
+        "Post-visit verification and service quality checks"
+      ],
+      "workforce": [
+        "Field technicians receive optimized schedules with required parts and information",
+        "Dispatch coordinators handle only exceptions and complex scheduling",
+        "Warehouse staff prepares parts kits based on AI-generated requirements",
+        "Reduced administrative burden on technicians",
+        "Managers monitor performance metrics rather than micro-managing schedules"
+      ],
+      "workbench": [
+        "Workforce Management Systems (WFM)",
+        "Field Service Management Platforms",
+        "Route Optimization Engines",
+        "Inventory Management Systems",
+        "Mobile Field Applications",
+        "Customer Communication Platforms"
+      ],
+      "digitalCore": [
+        "Field Service Management (Salesforce Field Service, ServiceMax, ClickSoftware)",
+        "Workforce Management (Kronos, Workday, UKG)",
+        "Route Optimization (OptimoRoute, Route4Me, custom solutions)",
+        "Inventory Management (SAP, Oracle, custom warehouse systems)",
+        "Mobile Field Applications",
+        "CRM and Customer Portals",
+        "Service Order Management",
+        "Asset Management Systems"
+      ]
+    },
+    "agenticPattern": "analyze-optimize-recommend-approve-execute",
+    "agents": [
+      {
+        "name": "Scheduling Agent",
+        "responsibility": "Optimizes technician assignments based on skills, location, priority, and availability",
+        "humanApproval": false
+      },
+      {
+        "name": "Route Optimization Agent",
+        "responsibility": "Calculates optimal routes considering traffic, weather, and job dependencies",
+        "humanApproval": false
+      },
+      {
+        "name": "Parts Provisioning Agent",
+        "responsibility": "Determines required parts and tools, checks inventory, and triggers preparation",
+        "humanApproval": false
+      },
+      {
+        "name": "Real-Time Adjuster Agent",
+        "responsibility": "Handles schedule changes, emergencies, and cancellations with minimal disruption",
+        "humanApproval": true
+      },
+      {
+        "name": "Communication Agent",
+        "responsibility": "Sends customer updates, ETAs, and technician information",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "20-30% improvement in first-visit resolution rates",
+      "25-35% reduction in average travel time per job",
+      "15-25% increase in technician utilization",
+      "30-40% improvement in on-time arrival rates",
+      "20-30% reduction in fuel and vehicle costs",
+      "15-20% improvement in customer satisfaction with field service"
+    ],
+    "risksAndControls": [
+      "Human approval for schedule changes affecting high-priority customers or SLA commitments",
+      "Validation of technician skills and certifications before job assignment",
+      "Real-time tracking and monitoring of technician locations and job progress",
+      "Audit trail of all scheduling decisions, route changes, and customer communications",
+      "Escalation workflows for schedule conflicts and resource constraints",
+      "Regular review of optimization algorithms and performance metrics"
+    ]
+  },
+  {
+    "id": "billing-invoicing-disputes",
+    "name": "Billing, Invoicing & Disputes",
+    "category": "Customer & Revenue",
+    "description": "Automate billing accuracy, invoice generation, dispute resolution, and revenue reconciliation. Agentic AI ensures billing integrity, accelerates dispute resolution, and improves cash flow.",
+    "businessGoal": "Eliminate billing errors, reduce dispute resolution time, and improve cash collection through intelligent automation.",
+    "kpis": [
+      "Billing accuracy rate",
+      "Invoice dispute rate",
+      "Dispute resolution time",
+      "Days sales outstanding (DSO)",
+      "Cash collection rate"
+    ],
+    "valueThemes": ["operational-excellence", "revenue-growth", "risk-mitigation", "customer-experience"],
+    "fourW": {
+      "work": [
+        "Automated billing calculation and validation against service usage",
+        "Intelligent invoice generation with personalized formatting",
+        "Automated dispute detection and root cause analysis",
+        "Self-service dispute submission and tracking",
+        "Automated dispute resolution for common billing errors",
+        "Revenue reconciliation and exception reporting"
+      ],
+      "workforce": [
+        "Billing analysts focus on complex disputes and exceptions",
+        "Customer service handles only escalated billing inquiries",
+        "Finance team reviews exception reports rather than all invoices",
+        "Reduced manual invoice generation and error correction",
+        "Collections team receives prioritized, AI-analyzed accounts"
+      ],
+      "workbench": [
+        "Billing and Revenue Management (BRM) Systems",
+        "Mediation and Rating Engines",
+        "Invoice Generation Platforms",
+        "Customer Self-Service Portals",
+        "Dispute Management Systems",
+        "Revenue Assurance Tools"
+      ],
+      "digitalCore": [
+        "Billing Systems (Amdocs, Oracle BRM, Netcracker)",
+        "Mediation Platforms (CSG, DigitalRoute, Openet)",
+        "Rating Engines",
+        "Invoice Generation (DocuSign, custom solutions)",
+        "Customer Portals and Self-Service",
+        "Dispute Management (ServiceNow, custom)",
+        "Revenue Assurance (Subex, WeDo, custom)",
+        "ERP and Financial Systems (SAP, Oracle)"
+      ]
+    },
+    "agenticPattern": "ingest-normalize-reconcile-report",
+    "agents": [
+      {
+        "name": "Billing Calculation Agent",
+        "responsibility": "Calculates charges, applies discounts, validates against usage data",
+        "humanApproval": false
+      },
+      {
+        "name": "Invoice Generation Agent",
+        "responsibility": "Creates invoices, applies formatting rules, and generates customer communications",
+        "humanApproval": false
+      },
+      {
+        "name": "Dispute Analysis Agent",
+        "responsibility": "Analyzes dispute claims, compares against billing data, identifies root causes",
+        "humanApproval": false
+      },
+      {
+        "name": "Dispute Resolution Agent",
+        "responsibility": "Resolves common disputes automatically, generates credit memos, updates accounts",
+        "humanApproval": true
+      },
+      {
+        "name": "Reconciliation Agent",
+        "responsibility": "Reconciles billed revenue with collected revenue, identifies discrepancies",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "50-70% reduction in billing errors through automated validation",
+      "40-60% reduction in dispute resolution time",
+      "30-45% decrease in invoice dispute rates",
+      "15-25% improvement in days sales outstanding (DSO)",
+      "25-35% increase in automated dispute resolution",
+      "20-30% cost reduction in billing operations"
+    ],
+    "risksAndControls": [
+      "Human approval required for credit memos above threshold and complex disputes",
+      "Validation rules prevent billing errors before invoice generation",
+      "Audit trail of all billing calculations, dispute analyses, and resolution actions",
+      "Reconciliation controls to catch discrepancies between billing and collections",
+      "Regular review of automated resolution accuracy and customer feedback",
+      "Compliance with accounting standards and regulatory requirements"
+    ]
+  },
+  {
+    "id": "revenue-assurance-leakage",
+    "name": "Revenue Assurance & Leakage",
+    "category": "Customer & Revenue",
+    "description": "Proactively detect and prevent revenue leakage through intelligent analysis of usage data, billing reconciliation, and exception detection. Agentic AI identifies revenue risks, quantifies impact, and triggers remediation workflows.",
+    "businessGoal": "Minimize revenue leakage, improve billing accuracy, and ensure complete revenue capture across all services and channels.",
+    "kpis": [
+      "Revenue leakage percentage",
+      "Leakage detection time",
+      "Revenue recovery rate",
+      "Billing completeness",
+      "Exception resolution rate"
+    ],
+    "valueThemes": ["revenue-growth", "risk-mitigation", "operational-excellence", "data-driven-insights"],
+    "fourW": {
+      "work": [
+        "Continuous monitoring of usage data, billing records, and revenue streams",
+        "Intelligent pattern detection to identify leakage scenarios",
+        "Automated reconciliation between network usage and billed revenue",
+        "Root cause analysis of revenue discrepancies",
+        "Automated remediation workflows for identified leakage",
+        "Predictive analytics to prevent future leakage"
+      ],
+      "workforce": [
+        "Revenue assurance analysts focus on complex investigations and exceptions",
+        "Finance team reviews exception reports and recovery actions",
+        "Operations team addresses root causes identified by AI",
+        "Reduced manual data analysis and reconciliation",
+        "Management receives prioritized, quantified revenue risk reports"
+      ],
+      "workbench": [
+        "Revenue Assurance Platforms",
+        "Data Analytics and BI Tools",
+        "Billing and Mediation Systems",
+        "Network Usage Data Platforms",
+        "Exception Management Systems",
+        "Reporting and Dashboard Tools"
+      ],
+      "digitalCore": [
+        "Revenue Assurance (Subex, WeDo, cVidya, custom solutions)",
+        "Billing Systems (Amdocs, Oracle BRM, Netcracker)",
+        "Mediation Platforms (CSG, DigitalRoute, Openet)",
+        "Network Usage Data (CDR, IPDR, streaming data)",
+        "Data Warehouses and Analytics Platforms (Snowflake, Databricks)",
+        "BI and Reporting Tools (Tableau, Power BI, Qlik)",
+        "Exception Management (ServiceNow, custom)",
+        "ERP and Financial Systems"
+      ]
+    },
+    "agenticPattern": "monitor-detect-analyze-recommend-act",
+    "agents": [
+      {
+        "name": "Data Collection Agent",
+        "responsibility": "Ingests usage data, billing records, and revenue streams from multiple sources",
+        "humanApproval": false
+      },
+      {
+        "name": "Leakage Detection Agent",
+        "responsibility": "Analyzes data patterns, identifies revenue leakage scenarios, quantifies impact",
+        "humanApproval": false
+      },
+      {
+        "name": "Reconciliation Agent",
+        "responsibility": "Reconciles network usage with billed revenue, identifies discrepancies",
+        "humanApproval": false
+      },
+      {
+        "name": "Root Cause Analysis Agent",
+        "responsibility": "Investigates leakage causes, traces through systems, identifies process gaps",
+        "humanApproval": false
+      },
+      {
+        "name": "Remediation Agent",
+        "responsibility": "Triggers billing corrections, revenue recovery workflows, and process fixes",
+        "humanApproval": true
+      }
+    ],
+    "benefits": [
+      "30-50% reduction in revenue leakage through proactive detection",
+      "60-80% faster leakage detection (from months to days)",
+      "25-40% improvement in revenue recovery rates",
+      "20-30% increase in billing completeness",
+      "15-25% improvement in overall revenue accuracy",
+      "Significant ROI through recovered revenue (typically 2-5% of total revenue)"
+    ],
+    "risksAndControls": [
+      "Human approval required for revenue recovery actions and billing corrections",
+      "Validation of leakage detection algorithms to prevent false positives",
+      "Audit trail of all detection analyses, root cause investigations, and remediation actions",
+      "Regular calibration of detection models against known leakage cases",
+      "Segregation of duties: detection, analysis, and remediation require different approvals",
+      "Compliance with financial controls and regulatory reporting requirements"
+    ]
+  },
+  {
+    "id": "retention-offer-management",
+    "name": "Retention & Offer Management",
+    "category": "Customer & Revenue",
+    "description": "Intelligently identify at-risk customers, design personalized retention offers, and orchestrate multi-channel campaigns. Agentic AI improves retention rates, optimizes offer economics, and enhances customer lifetime value.",
+    "businessGoal": "Reduce churn, improve customer lifetime value, and optimize retention spend through data-driven, personalized offers.",
+    "kpis": [
+      "Customer churn rate",
+      "Retention offer acceptance rate",
+      "Customer lifetime value (CLV)",
+      "Retention cost per saved customer",
+      "Net revenue retention"
+    ],
+    "valueThemes": ["revenue-growth", "customer-experience", "data-driven-insights", "cost-optimization"],
+    "fourW": {
+      "work": [
+        "Predictive churn modeling using behavioral and usage data",
+        "Intelligent offer design based on customer value and risk",
+        "Multi-channel campaign orchestration (email, SMS, in-app, call center)",
+        "Real-time offer optimization based on response rates",
+        "Automated offer delivery and acceptance tracking",
+        "Post-offer performance analysis and learning"
+      ],
+      "workforce": [
+        "Retention specialists handle high-value, complex cases",
+        "Marketing team designs offer templates and campaigns",
+        "Call center agents receive AI-generated talking points and offers",
+        "Analysts review performance metrics rather than manual segmentation",
+        "Management makes strategic decisions based on AI insights"
+      ],
+      "workbench": [
+        "Customer Data Platforms (CDP)",
+        "Campaign Management Tools",
+        "Marketing Automation Platforms",
+        "Predictive Analytics Engines",
+        "Customer Communication Platforms",
+        "CRM Systems"
+      ],
+      "digitalCore": [
+        "Customer Data Platform (CDP) - Segment, Salesforce, Adobe)",
+        "Campaign Management (Salesforce Marketing Cloud, Adobe Campaign)",
+        "Marketing Automation (Marketo, HubSpot, Pardot)",
+        "Predictive Analytics (DataRobot, H2O.ai, custom ML models)",
+        "CRM (Salesforce, Microsoft Dynamics)",
+        "Customer Communication (Twilio, Vonage, SendGrid)",
+        "Billing and Usage Systems",
+        "Customer Portals and Mobile Apps"
+      ]
+    },
+    "agenticPattern": "analyze-optimize-recommend-approve-execute",
+    "agents": [
+      {
+        "name": "Churn Prediction Agent",
+        "responsibility": "Analyzes customer behavior, usage patterns, and signals to predict churn risk",
+        "humanApproval": false
+      },
+      {
+        "name": "Offer Design Agent",
+        "responsibility": "Designs personalized offers based on customer value, risk, and historical response",
+        "humanApproval": true
+      },
+      {
+        "name": "Campaign Orchestrator Agent",
+        "responsibility": "Orchestrates multi-channel campaigns, sequences touchpoints, optimizes timing",
+        "humanApproval": false
+      },
+      {
+        "name": "Optimization Agent",
+        "responsibility": "Continuously optimizes offer parameters based on response rates and economics",
+        "humanApproval": false
+      },
+      {
+        "name": "Performance Analyst Agent",
+        "responsibility": "Analyzes campaign performance, calculates ROI, and generates insights",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "20-30% reduction in customer churn rate",
+      "35-50% improvement in retention offer acceptance rates",
+      "15-25% increase in customer lifetime value (CLV)",
+      "20-30% reduction in retention cost per saved customer",
+      "10-15% improvement in net revenue retention",
+      "30-40% increase in campaign efficiency and ROI"
+    ],
+    "risksAndControls": [
+      "Human approval required for high-value offers and policy exceptions",
+      "Offer economics validation to ensure profitability and prevent over-discounting",
+      "Audit trail of all churn predictions, offer designs, and campaign actions",
+      "Regular review of predictive models and offer performance",
+      "Compliance with marketing regulations and customer consent management",
+      "A/B testing and controlled experiments to validate offer effectiveness"
+    ]
+  },
+  {
+    "id": "network-operations-noc",
+    "name": "Network Operations (NOC)",
+    "category": "Network & Technology",
+    "description": "Transform network operations through intelligent monitoring, automated incident detection, root cause analysis, and proactive remediation. Agentic AI reduces MTTR, prevents outages, and optimizes network performance.",
+    "businessGoal": "Achieve proactive network management, reduce incident resolution time, and improve network reliability and performance.",
+    "kpis": [
+      "Mean time to detect (MTTD)",
+      "Mean time to resolve (MTTR)",
+      "Network availability",
+      "Incident prevention rate",
+      "False positive alarm rate"
+    ],
+    "valueThemes": ["operational-excellence", "customer-experience", "cost-optimization", "risk-mitigation"],
+    "fourW": {
+      "work": [
+        "Continuous network monitoring across all domains (access, transport, core, cloud)",
+        "Intelligent alarm correlation and noise reduction",
+        "Automated root cause analysis using network topology and dependencies",
+        "Proactive issue detection before customer impact",
+        "Automated remediation for common network issues",
+        "Predictive maintenance and capacity planning"
+      ],
+      "workforce": [
+        "NOC engineers focus on complex incidents and strategic initiatives",
+        "Network architects design solutions based on AI-identified patterns",
+        "Field technicians receive pre-diagnosed, prioritized work orders",
+        "Reduced alarm fatigue and false positive handling",
+        "Management receives actionable insights and trend analysis"
+      ],
+      "workbench": [
+        "Network Monitoring Systems (NMS)",
+        "Service Assurance Platforms",
+        "Network Analytics and AIOps Tools",
+        "Incident Management Systems",
+        "Network Configuration Management",
+        "Performance Management Tools"
+      ],
+      "digitalCore": [
+        "Network Monitoring (SolarWinds, Nagios, custom NMS)",
+        "Service Assurance (Amdocs, Netcracker, Ericsson)",
+        "AIOps Platforms (Moogsoft, BigPanda, Splunk)",
+        "Incident Management (ServiceNow, Remedy)",
+        "Network Configuration Management (Itential, Anuta Networks)",
+        "Network Telemetry and Streaming Analytics",
+        "Network Inventory and Topology Systems",
+        "Performance Management (InfoVista, Accedian)"
+      ]
+    },
+    "agenticPattern": "monitor-correlate-diagnose-remediate-verify",
+    "agents": [
+      {
+        "name": "Monitoring Agent",
+        "responsibility": "Continuously monitors network health, performance metrics, and alarm streams",
+        "humanApproval": false
+      },
+      {
+        "name": "Correlation Agent",
+        "responsibility": "Correlates alarms, reduces noise, and identifies root cause events",
+        "humanApproval": false
+      },
+      {
+        "name": "Diagnostic Agent",
+        "responsibility": "Analyzes network topology, dependencies, and configurations to diagnose issues",
+        "humanApproval": false
+      },
+      {
+        "name": "Remediation Agent",
+        "responsibility": "Executes automated fixes for common issues (restarts, reroutes, configuration changes)",
+        "humanApproval": true
+      },
+      {
+        "name": "Verification Agent",
+        "responsibility": "Verifies remediation success, confirms service restoration, updates status",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "50-70% reduction in mean time to detect (MTTD)",
+      "40-60% reduction in mean time to resolve (MTTR)",
+      "30-45% improvement in network availability",
+      "25-35% increase in proactive incident prevention",
+      "60-80% reduction in false positive alarms",
+      "20-30% cost reduction in NOC operations"
+    ],
+    "risksAndControls": [
+      "Human approval required for network-affecting remediation actions",
+      "Validation of automated fixes before execution to prevent service disruption",
+      "Audit trail of all monitoring, diagnostics, and remediation actions",
+      "Escalation triggers for critical incidents, VIP customers, and policy exceptions",
+      "Network change management controls for configuration modifications",
+      "Regular review of AI model accuracy and false positive rates"
+    ]
+  },
+  {
+    "id": "incident-problem-management",
+    "name": "Incident & Problem Management",
+    "category": "Network & Technology",
+    "description": "Streamline incident and problem management through intelligent classification, automated resolution, knowledge management, and proactive problem prevention. Agentic AI accelerates resolution, reduces recurrence, and improves service reliability.",
+    "businessGoal": "Minimize service disruptions, reduce incident recurrence, and improve problem resolution efficiency.",
+    "kpis": [
+      "Incident resolution time",
+      "Problem resolution time",
+      "Incident recurrence rate",
+      "First-time resolution rate",
+      "Knowledge base utilization"
+    ],
+    "valueThemes": ["operational-excellence", "customer-experience", "cost-optimization", "workforce-productivity"],
+    "fourW": {
+      "work": [
+        "Intelligent incident classification and prioritization",
+        "Automated root cause analysis using historical data and knowledge base",
+        "Automated resolution for known issues using runbooks",
+        "Problem identification and trend analysis",
+        "Knowledge base enrichment from resolved incidents",
+        "Proactive problem prevention through pattern detection"
+      ],
+      "workforce": [
+        "IT operations handles only complex, novel incidents",
+        "Problem managers focus on strategic root cause elimination",
+        "Knowledge managers review and approve AI-generated content",
+        "Reduced repetitive incident handling and manual classification",
+        "Engineers receive AI-suggested solutions and relevant knowledge articles"
+      ],
+      "workbench": [
+        "ITSM Platforms (ServiceNow, Remedy)",
+        "Knowledge Management Systems",
+        "AIOps and Analytics Platforms",
+        "Incident Management Tools",
+        "Problem Management Systems",
+        "Configuration Management Databases (CMDB)"
+      ],
+      "digitalCore": [
+        "ITSM (ServiceNow, BMC Remedy, Jira Service Management)",
+        "Knowledge Management (ServiceNow Knowledge, Confluence, custom)",
+        "AIOps (Moogsoft, BigPanda, Splunk)",
+        "CMDB (ServiceNow, Remedy, custom)",
+        "Monitoring and Alerting Systems",
+        "Runbook Automation (Rundeck, Ansible, custom)",
+        "Analytics and Reporting Platforms",
+        "Communication and Collaboration Tools"
+      ]
+    },
+    "agenticPattern": "monitor-correlate-diagnose-remediate-verify",
+    "agents": [
+      {
+        "name": "Classification Agent",
+        "responsibility": "Classifies incidents, determines priority, and routes to appropriate teams",
+        "humanApproval": false
+      },
+      {
+        "name": "Root Cause Analysis Agent",
+        "responsibility": "Analyzes incidents, searches knowledge base, identifies root causes",
+        "humanApproval": false
+      },
+      {
+        "name": "Resolution Agent",
+        "responsibility": "Executes automated resolutions using runbooks and known solutions",
+        "humanApproval": true
+      },
+      {
+        "name": "Problem Identification Agent",
+        "responsibility": "Identifies problem patterns, groups related incidents, triggers problem records",
+        "humanApproval": false
+      },
+      {
+        "name": "Knowledge Enrichment Agent",
+        "responsibility": "Extracts learnings from resolved incidents, updates knowledge base",
+        "humanApproval": true
+      }
+    ],
+    "benefits": [
+      "35-50% reduction in incident resolution time",
+      "40-60% reduction in problem resolution time",
+      "30-45% decrease in incident recurrence rates",
+      "25-35% improvement in first-time resolution rates",
+      "50-70% increase in knowledge base utilization",
+      "20-30% cost reduction in IT operations"
+    ],
+    "risksAndControls": [
+      "Human approval required for service-affecting automated resolutions",
+      "Validation of resolution actions against change management policies",
+      "Audit trail of all incident classifications, analyses, and resolutions",
+      "Knowledge base content review and approval before publication",
+      "Escalation workflows for high-priority incidents and VIP customers",
+      "Regular review of automated resolution accuracy and customer impact"
+    ]
+  },
+  {
+    "id": "partner-supplier-operations",
+    "name": "Partner & Supplier Operations",
+    "category": "Enterprise & Support",
+    "description": "Automate partner onboarding, transaction processing, settlement, and performance management. Agentic AI streamlines partner operations, ensures accurate settlements, and improves partner relationships.",
+    "businessGoal": "Accelerate partner onboarding, ensure accurate settlements, and optimize partner performance through intelligent automation.",
+    "kpis": [
+      "Partner onboarding time",
+      "Settlement accuracy rate",
+      "Transaction processing time",
+      "Partner satisfaction",
+      "Dispute resolution time"
+    ],
+    "valueThemes": ["operational-excellence", "cost-optimization", "time-to-market", "risk-mitigation"],
+    "fourW": {
+      "work": [
+        "Automated partner onboarding with document validation and compliance checks",
+        "Intelligent transaction processing and validation",
+        "Automated settlement calculation and reconciliation",
+        "Partner performance monitoring and analytics",
+        "Dispute detection and automated resolution",
+        "Contract compliance monitoring and reporting"
+      ],
+      "workforce": [
+        "Partner managers focus on relationship building and strategic initiatives",
+        "Finance team reviews exception reports rather than all settlements",
+        "Operations team handles only escalated transactions and disputes",
+        "Reduced manual data entry and reconciliation",
+        "Legal and compliance review AI-identified contract issues"
+      ],
+      "workbench": [
+        "Partner Management Platforms",
+        "Settlement and Billing Systems",
+        "Transaction Processing Platforms",
+        "Contract Management Systems",
+        "Analytics and Reporting Tools",
+        "Document Management Systems"
+      ],
+      "digitalCore": [
+        "Partner Management Platforms (custom, Salesforce Partner Community)",
+        "Settlement Systems (Amdocs, custom solutions)",
+        "Transaction Processing (payment gateways, EDI, API platforms)",
+        "Contract Management (DocuSign, Icertis, custom)",
+        "ERP and Financial Systems (SAP, Oracle)",
+        "Document Management (SharePoint, Box, custom)",
+        "Analytics Platforms (Tableau, Power BI)",
+        "Integration Platforms (MuleSoft, TIBCO)"
+      ]
+    },
+    "agenticPattern": "extract-validate-transform-load-analyze",
+    "agents": [
+      {
+        "name": "Onboarding Agent",
+        "responsibility": "Validates partner documents, checks compliance, initiates onboarding workflows",
+        "humanApproval": true
+      },
+      {
+        "name": "Transaction Processing Agent",
+        "responsibility": "Processes partner transactions, validates data, applies business rules",
+        "humanApproval": false
+      },
+      {
+        "name": "Settlement Agent",
+        "responsibility": "Calculates settlements, reconciles transactions, generates invoices",
+        "humanApproval": true
+      },
+      {
+        "name": "Performance Monitor Agent",
+        "responsibility": "Monitors partner performance metrics, identifies trends, generates reports",
+        "humanApproval": false
+      },
+      {
+        "name": "Dispute Resolution Agent",
+        "responsibility": "Detects settlement disputes, analyzes root causes, proposes resolutions",
+        "humanApproval": true
+      }
+    ],
+    "benefits": [
+      "50-70% reduction in partner onboarding time",
+      "40-60% improvement in settlement accuracy",
+      "35-50% reduction in transaction processing time",
+      "30-45% decrease in settlement disputes",
+      "25-35% cost reduction in partner operations",
+      "20-30% improvement in partner satisfaction"
+    ],
+    "risksAndControls": [
+      "Human approval required for partner onboarding, high-value settlements, and disputes",
+      "Validation of transactions against contract terms and business rules",
+      "Audit trail of all transactions, settlements, and partner interactions",
+      "Reconciliation controls to ensure accurate partner payments",
+      "Compliance monitoring against regulatory requirements and contract terms",
+      "Regular review of settlement calculations and partner performance metrics"
+    ]
+  },
+  {
+    "id": "regulatory-compliance-operations",
+    "name": "Regulatory Compliance Operations",
+    "category": "Enterprise & Support",
+    "description": "Automate compliance monitoring, reporting, risk assessment, and regulatory submissions. Agentic AI ensures continuous compliance, reduces regulatory risk, and streamlines audit processes.",
+    "businessGoal": "Maintain continuous compliance, reduce regulatory risk, and minimize compliance operational costs.",
+    "kpis": [
+      "Compliance violation rate",
+      "Regulatory reporting accuracy",
+      "Audit finding resolution time",
+      "Compliance monitoring coverage",
+      "Regulatory risk score"
+    ],
+    "valueThemes": ["risk-mitigation", "operational-excellence", "cost-optimization", "data-driven-insights"],
+    "fourW": {
+      "work": [
+        "Continuous monitoring of regulatory requirements and policy changes",
+        "Automated compliance assessment against regulations and policies",
+        "Intelligent risk identification and prioritization",
+        "Automated regulatory reporting and submission",
+        "Audit trail generation and evidence collection",
+        "Compliance training and awareness program management"
+      ],
+      "workforce": [
+        "Compliance officers focus on strategic risk management and policy development",
+        "Legal team reviews AI-identified high-risk issues",
+        "Operations teams receive prioritized compliance action items",
+        "Reduced manual compliance checking and reporting",
+        "Auditors access comprehensive, AI-generated compliance evidence"
+      ],
+      "workbench": [
+        "Governance, Risk & Compliance (GRC) Platforms",
+        "Regulatory Intelligence Systems",
+        "Policy Management Systems",
+        "Document Management Systems",
+        "Reporting and Analytics Tools",
+        "Training Management Systems"
+      ],
+      "digitalCore": [
+        "GRC Platforms (ServiceNow GRC, MetricStream, RSA Archer)",
+        "Regulatory Intelligence (LexisNexis, Thomson Reuters, custom)",
+        "Policy Management (PolicyTech, custom solutions)",
+        "Document Management (SharePoint, Box, custom)",
+        "ERP and Financial Systems",
+        "Analytics and Reporting (Tableau, Power BI)",
+        "Training Management (Cornerstone, custom)",
+        "Integration Platforms for data collection"
+      ]
+    },
+    "agenticPattern": "monitor-detect-analyze-recommend-act",
+    "agents": [
+      {
+        "name": "Regulatory Monitor Agent",
+        "responsibility": "Monitors regulatory changes, policy updates, and compliance requirements",
+        "humanApproval": false
+      },
+      {
+        "name": "Compliance Assessment Agent",
+        "responsibility": "Assesses operations against regulations and policies, identifies gaps",
+        "humanApproval": false
+      },
+      {
+        "name": "Risk Analysis Agent",
+        "responsibility": "Analyzes compliance risks, quantifies impact, prioritizes remediation",
+        "humanApproval": false
+      },
+      {
+        "name": "Reporting Agent",
+        "responsibility": "Generates regulatory reports, compiles evidence, prepares submissions",
+        "humanApproval": true
+      },
+      {
+        "name": "Audit Support Agent",
+        "responsibility": "Collects audit evidence, generates compliance documentation, answers queries",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "40-60% reduction in compliance violations",
+      "50-70% improvement in regulatory reporting accuracy",
+      "35-50% reduction in audit finding resolution time",
+      "60-80% increase in compliance monitoring coverage",
+      "25-35% reduction in regulatory risk exposure",
+      "30-40% cost reduction in compliance operations"
+    ],
+    "risksAndControls": [
+      "Human approval required for regulatory submissions and high-risk compliance decisions",
+      "Validation of compliance assessments against legal and regulatory standards",
+      "Comprehensive audit trail of all compliance activities and decisions",
+      "Regular review of AI assessments by compliance and legal teams",
+      "Segregation of duties: monitoring, assessment, and reporting require different approvals",
+      "Compliance with data privacy and security regulations in AI operations"
+    ]
+  }
+]

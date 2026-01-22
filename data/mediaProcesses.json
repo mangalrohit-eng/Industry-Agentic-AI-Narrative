@@ -1,0 +1,1210 @@
+[
+  {
+    "id": "content-acquisition-rights",
+    "name": "Content Acquisition & Rights Management",
+    "category": "Content & Production",
+    "description": "Transform content acquisition from rights discovery through negotiation, contract management, and rights tracking. Agentic AI automates rights research, analyzes licensing terms, generates contract drafts, tracks expiration dates, and ensures compliance—accelerating content acquisition while reducing legal risks.",
+    "businessGoal": "Accelerate content acquisition cycles, optimize licensing costs, and ensure rights compliance through intelligent automation of research, negotiation, and contract management.",
+    "kpis": [
+      "Content acquisition cycle time (days)",
+      "Rights compliance rate",
+      "Licensing cost optimization",
+      "Contract processing time",
+      "Rights expiration visibility"
+    ],
+    "valueThemes": ["revenue-growth", "operational-excellence", "risk-management", "time-to-market"],
+    "fourW": {
+      "work": [
+        "Automated rights research and availability checking across global markets",
+        "Intelligent contract analysis and term extraction from licensing agreements",
+        "Automated contract generation with standard terms and customizations",
+        "Rights expiration tracking and renewal alerts",
+        "Compliance validation against usage rights and restrictions",
+        "Royalty calculation and payment processing automation"
+      ],
+      "workforce": [
+        "Content acquisition managers focus on strategic negotiations and relationships",
+        "Legal teams review exceptions and complex rights structures only",
+        "Rights administrators handle escalated compliance issues",
+        "Finance teams receive pre-calculated royalty reports",
+        "Reduced manual research and data entry tasks"
+      ],
+      "workbench": [
+        "AI-powered rights databases and research tools",
+        "Contract lifecycle management (CLM) systems",
+        "Rights management platforms (FilmTrack, RightsLine)",
+        "Content management systems (CMS)",
+        "Financial systems for royalty tracking",
+        "Document generation and e-signature platforms"
+      ],
+      "digitalCore": [
+        "Rights Management Systems (FilmTrack, RightsLine, RightsLogic)",
+        "Contract Management Systems (DocuSign, Icertis)",
+        "Content Management Systems (Adobe Experience Manager, Sitecore)",
+        "Financial Systems (SAP, Oracle)",
+        "Content Distribution Platforms",
+        "Metadata Management Systems",
+        "Royalty Accounting Systems"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Rights Research Agent",
+        "responsibility": "Researches content rights availability, ownership, and licensing terms across markets",
+        "humanApproval": false
+      },
+      {
+        "name": "Contract Analysis Agent",
+        "responsibility": "Extracts and analyzes contract terms, identifies restrictions and obligations",
+        "humanApproval": false
+      },
+      {
+        "name": "Contract Generation Agent",
+        "responsibility": "Generates contract drafts based on templates and negotiation terms",
+        "humanApproval": true
+      },
+      {
+        "name": "Rights Tracking Agent",
+        "responsibility": "Monitors rights expiration dates, usage compliance, and renewal requirements",
+        "humanApproval": false
+      },
+      {
+        "name": "Royalty Calculation Agent",
+        "responsibility": "Calculates royalties based on usage data and contract terms",
+        "humanApproval": true
+      }
+    ],
+    "benefits": [
+      "40-60% reduction in content acquisition cycle time",
+      "30-50% improvement in rights compliance rates",
+      "20-35% optimization in licensing costs through better negotiation insights",
+      "50-70% reduction in contract processing time",
+      "90% improvement in rights expiration visibility",
+      "60-80% reduction in manual research and data entry"
+    ],
+    "risksAndControls": [
+      "Human approval required for high-value contracts and complex rights structures",
+      "Audit trail of all rights research, contract analysis, and compliance checks",
+      "Policy grounding: agents reference approved contract templates and legal guidelines",
+      "Validation gates prevent non-compliant content usage",
+      "Regular review of rights compliance metrics and expiration alerts",
+      "Escalation workflows for complex legal questions and policy exceptions"
+    ]
+  },
+  {
+    "id": "content-production-workflow",
+    "name": "Content Production Workflow",
+    "category": "Content & Production",
+    "description": "Orchestrate end-to-end content production from pre-production planning through post-production delivery. Agentic AI automates scheduling, resource allocation, asset management, quality checks, and delivery workflows—reducing production time while ensuring quality standards.",
+    "businessGoal": "Accelerate content production cycles, optimize resource utilization, and ensure consistent quality through intelligent automation of planning, coordination, and delivery.",
+    "kpis": [
+      "Production cycle time (days)",
+      "Resource utilization rate",
+      "On-time delivery rate",
+      "Quality compliance rate",
+      "Budget adherence"
+    ],
+    "valueThemes": ["operational-excellence", "cost-optimization", "time-to-market", "quality-assurance"],
+    "fourW": {
+      "work": [
+        "Automated production scheduling and resource allocation",
+        "Intelligent asset management and version control",
+        "Automated quality checks and compliance validation",
+        "Real-time production status tracking and reporting",
+        "Automated delivery workflows to distribution platforms",
+        "Post-production metadata tagging and organization"
+      ],
+      "workforce": [
+        "Production managers focus on creative decisions and complex coordination",
+        "Editors handle only creative review and final approval",
+        "Quality assurance teams review exceptions and edge cases",
+        "Asset managers oversee automated workflows and resolve issues",
+        "Reduced manual coordination and status tracking"
+      ],
+      "workbench": [
+        "Production management systems (Movie Magic, StudioBinder)",
+        "Asset management platforms (Frame.io, Avid MediaCentral)",
+        "Quality control tools (QC Tools, Baton)",
+        "Scheduling and resource management systems",
+        "Collaboration platforms (Slack, Microsoft Teams)",
+        "Distribution platforms (AWS Elemental, Brightcove)"
+      ],
+      "digitalCore": [
+        "Production Management Systems (Movie Magic, StudioBinder, Celtx)",
+        "Media Asset Management (MAM) Systems (Avid, Adobe, Dalet)",
+        "Quality Control Systems (Baton, QC Tools)",
+        "Scheduling Systems (Showbiz, Entertainment Partners)",
+        "Financial Systems (SAP, Oracle)",
+        "Distribution Platforms (AWS Elemental, Brightcove, Vimeo)",
+        "Content Delivery Networks (CDN)"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Production Planning Agent",
+        "responsibility": "Creates production schedules, allocates resources, and optimizes timelines",
+        "humanApproval": false
+      },
+      {
+        "name": "Asset Management Agent",
+        "responsibility": "Organizes assets, manages versions, and tracks dependencies",
+        "humanApproval": false
+      },
+      {
+        "name": "Quality Check Agent",
+        "responsibility": "Performs automated quality checks and compliance validation",
+        "humanApproval": true
+      },
+      {
+        "name": "Delivery Agent",
+        "responsibility": "Orchestrates delivery workflows to distribution platforms",
+        "humanApproval": false
+      },
+      {
+        "name": "Metadata Tagging Agent",
+        "responsibility": "Automatically tags content with metadata for search and organization",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "30-45% reduction in production cycle time",
+      "25-40% improvement in resource utilization",
+      "20-35% increase in on-time delivery rates",
+      "50-70% reduction in quality issues and rework",
+      "15-25% improvement in budget adherence",
+      "60-80% reduction in manual coordination tasks"
+    ],
+    "risksAndControls": [
+      "Human approval required for creative decisions and quality exceptions",
+      "Audit trail of all production decisions, asset changes, and deliveries",
+      "Policy grounding: agents reference approved production standards and workflows",
+      "Validation gates prevent delivery of non-compliant content",
+      "Regular review of production metrics and quality scores",
+      "Escalation workflows for resource conflicts and quality issues"
+    ]
+  },
+  {
+    "id": "content-distribution-delivery",
+    "name": "Content Distribution & Delivery",
+    "category": "Content & Production",
+    "description": "Automate multi-platform content distribution from encoding through delivery to broadcast, streaming, and digital platforms. Agentic AI orchestrates encoding, transcoding, packaging, metadata enrichment, and delivery workflows—ensuring consistent quality across all platforms.",
+    "businessGoal": "Accelerate time-to-market for content releases, ensure consistent quality across platforms, and optimize delivery costs through intelligent automation.",
+    "kpis": [
+      "Time-to-market (hours)",
+      "Multi-platform delivery success rate",
+      "Encoding quality consistency",
+      "Delivery cost per title",
+      "Platform compliance rate"
+    ],
+    "valueThemes": ["time-to-market", "operational-excellence", "cost-optimization", "customer-experience"],
+    "fourW": {
+      "work": [
+        "Automated encoding and transcoding for multiple formats and platforms",
+        "Intelligent packaging and metadata enrichment",
+        "Automated quality validation and compliance checks",
+        "Multi-platform delivery orchestration",
+        "Real-time delivery status tracking and error handling",
+        "Automated retry and recovery workflows"
+      ],
+      "workforce": [
+        "Distribution managers oversee workflows and handle exceptions",
+        "Quality engineers review edge cases and platform-specific issues",
+        "Operations teams monitor delivery health and performance",
+        "Reduced manual encoding and packaging tasks",
+        "Focus on strategic platform relationships and optimization"
+      ],
+      "workbench": [
+        "Encoding platforms (AWS Elemental, Telestream, Harmonic)",
+        "Content delivery networks (CDN)",
+        "Distribution platforms (Brightcove, Vimeo, JW Player)",
+        "Quality control tools",
+        "Metadata management systems",
+        "Monitoring and analytics platforms"
+      ],
+      "digitalCore": [
+        "Encoding Systems (AWS Elemental MediaConvert, Telestream Vantage, Harmonic)",
+        "Content Delivery Networks (Akamai, Cloudflare, Fastly)",
+        "Distribution Platforms (Brightcove, Vimeo, JW Player)",
+        "Media Asset Management (MAM) Systems",
+        "Quality Control Systems",
+        "Monitoring and Analytics Platforms",
+        "Cloud Storage (AWS S3, Azure Blob, Google Cloud Storage)"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Encoding Agent",
+        "responsibility": "Orchestrates encoding and transcoding for target platforms",
+        "humanApproval": false
+      },
+      {
+        "name": "Packaging Agent",
+        "responsibility": "Packages content with metadata and platform-specific requirements",
+        "humanApproval": false
+      },
+      {
+        "name": "Quality Validation Agent",
+        "responsibility": "Validates quality and compliance before delivery",
+        "humanApproval": true
+      },
+      {
+        "name": "Delivery Agent",
+        "responsibility": "Orchestrates multi-platform delivery and tracks status",
+        "humanApproval": false
+      },
+      {
+        "name": "Error Recovery Agent",
+        "responsibility": "Detects delivery failures and triggers retry workflows",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "60-80% reduction in time-to-market for content releases",
+      "40-60% improvement in multi-platform delivery success rates",
+      "30-50% reduction in encoding and delivery costs",
+      "50-70% improvement in quality consistency across platforms",
+      "90% reduction in manual delivery coordination",
+      "25-35% improvement in platform compliance rates"
+    ],
+    "risksAndControls": [
+      "Human approval required for quality exceptions and platform policy violations",
+      "Audit trail of all encoding, packaging, and delivery activities",
+      "Policy grounding: agents reference approved encoding profiles and platform specs",
+      "Validation gates prevent delivery of non-compliant content",
+      "Real-time monitoring and alerting for delivery failures",
+      "Automated rollback capabilities for failed deliveries"
+    ]
+  },
+  {
+    "id": "advertising-sales-operations",
+    "name": "Advertising Sales & Operations",
+    "category": "Revenue & Monetization",
+    "description": "Transform advertising sales from inventory management through proposal generation, campaign execution, and performance optimization. Agentic AI automates inventory forecasting, proposal creation, campaign setup, performance monitoring, and optimization—maximizing ad revenue while improving efficiency.",
+    "businessGoal": "Maximize advertising revenue, improve sales productivity, and optimize campaign performance through intelligent automation of sales and operations workflows.",
+    "kpis": [
+      "Ad revenue yield",
+      "Inventory fill rate",
+      "Sales cycle time (days)",
+      "Campaign performance (CTR, conversion)",
+      "Sales productivity (deals per rep)"
+    ],
+    "valueThemes": ["revenue-growth", "operational-excellence", "workforce-productivity", "customer-experience"],
+    "fourW": {
+      "work": [
+        "Automated inventory forecasting and availability checking",
+        "Intelligent proposal generation with audience targeting",
+        "Automated campaign setup and configuration",
+        "Real-time performance monitoring and optimization",
+        "Automated reporting and insights generation",
+        "Revenue reconciliation and billing automation"
+      ],
+      "workforce": [
+        "Sales reps focus on relationship building and strategic deals",
+        "Campaign managers handle exceptions and optimization",
+        "Operations teams monitor performance and resolve issues",
+        "Reduced manual proposal creation and campaign setup",
+        "More time for client relationship management"
+      ],
+      "workbench": [
+        "Ad serving platforms (Google Ad Manager, FreeWheel)",
+        "Sales CRM systems (Salesforce, HubSpot)",
+        "Programmatic advertising platforms",
+        "Analytics and reporting tools",
+        "Inventory management systems",
+        "Billing and revenue systems"
+      ],
+      "digitalCore": [
+        "Ad Serving Platforms (Google Ad Manager, FreeWheel, SpotX)",
+        "Sales CRM Systems (Salesforce, HubSpot)",
+        "Programmatic Platforms (The Trade Desk, MediaMath)",
+        "Analytics Platforms (Google Analytics, Adobe Analytics)",
+        "Inventory Management Systems",
+        "Billing and Revenue Systems",
+        "Data Management Platforms (DMP)"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Inventory Forecasting Agent",
+        "responsibility": "Forecasts inventory availability and optimizes yield",
+        "humanApproval": false
+      },
+      {
+        "name": "Proposal Generation Agent",
+        "responsibility": "Creates advertising proposals with targeting and pricing",
+        "humanApproval": true
+      },
+      {
+        "name": "Campaign Setup Agent",
+        "responsibility": "Configures campaigns across ad serving platforms",
+        "humanApproval": false
+      },
+      {
+        "name": "Performance Optimization Agent",
+        "responsibility": "Monitors performance and optimizes campaigns in real-time",
+        "humanApproval": false
+      },
+      {
+        "name": "Reporting Agent",
+        "responsibility": "Generates performance reports and insights",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "20-35% increase in ad revenue yield through better inventory optimization",
+      "15-25% improvement in inventory fill rates",
+      "30-45% reduction in sales cycle time",
+      "25-40% improvement in campaign performance",
+      "20-30% increase in sales productivity",
+      "50-70% reduction in manual campaign setup and reporting"
+    ],
+    "risksAndControls": [
+      "Human approval required for high-value proposals and pricing exceptions",
+      "Audit trail of all inventory forecasts, proposals, and campaign changes",
+      "Policy grounding: agents reference approved pricing and targeting policies",
+      "Validation gates prevent invalid campaign configurations",
+      "Real-time monitoring of campaign performance and compliance",
+      "Escalation workflows for performance issues and policy violations"
+    ]
+  },
+  {
+    "id": "audience-analytics-insights",
+    "name": "Audience Analytics & Insights",
+    "category": "Revenue & Monetization",
+    "description": "Transform audience analytics from data collection through analysis, insight generation, and action recommendations. Agentic AI automates data aggregation, audience segmentation, behavior analysis, and insight generation—enabling data-driven content and advertising decisions.",
+    "businessGoal": "Enable data-driven decision making, improve audience engagement, and optimize content and advertising strategies through intelligent analytics automation.",
+    "kpis": [
+      "Audience engagement rate",
+      "Content performance metrics",
+      "Insight generation time",
+      "Data accuracy and completeness",
+      "Actionable insight rate"
+    ],
+    "valueThemes": ["revenue-growth", "customer-experience", "data-driven-decisions", "operational-excellence"],
+    "fourW": {
+      "work": [
+        "Automated data collection and aggregation from multiple sources",
+        "Intelligent audience segmentation and profiling",
+        "Automated behavior analysis and pattern detection",
+        "Real-time insight generation and recommendations",
+        "Automated reporting and dashboard updates",
+        "Predictive analytics for content and audience trends"
+      ],
+      "workforce": [
+        "Data analysts focus on strategic insights and complex analysis",
+        "Content strategists receive actionable recommendations",
+        "Marketing teams leverage automated insights for campaigns",
+        "Reduced manual data collection and basic analysis",
+        "More time for strategic planning and optimization"
+      ],
+      "workbench": [
+        "Analytics platforms (Google Analytics, Adobe Analytics)",
+        "Data warehouses and lakes",
+        "Business intelligence tools (Tableau, Power BI)",
+        "Customer data platforms (CDP)",
+        "Machine learning platforms",
+        "Visualization and reporting tools"
+      ],
+      "digitalCore": [
+        "Analytics Platforms (Google Analytics, Adobe Analytics, Nielsen)",
+        "Data Warehouses (Snowflake, BigQuery, Redshift)",
+        "Business Intelligence Tools (Tableau, Power BI, Looker)",
+        "Customer Data Platforms (CDP)",
+        "Machine Learning Platforms (AWS SageMaker, Azure ML)",
+        "Data Integration Platforms (Informatica, Talend)"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Data Collection Agent",
+        "responsibility": "Aggregates data from multiple sources and ensures quality",
+        "humanApproval": false
+      },
+      {
+        "name": "Audience Segmentation Agent",
+        "responsibility": "Segments audiences based on behavior and attributes",
+        "humanApproval": false
+      },
+      {
+        "name": "Insight Generation Agent",
+        "responsibility": "Generates insights and recommendations from analytics",
+        "humanApproval": false
+      },
+      {
+        "name": "Reporting Agent",
+        "responsibility": "Creates reports and updates dashboards",
+        "humanApproval": false
+      },
+      {
+        "name": "Predictive Analytics Agent",
+        "responsibility": "Predicts trends and forecasts audience behavior",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "50-70% reduction in insight generation time",
+      "30-50% improvement in data accuracy and completeness",
+      "40-60% increase in actionable insights",
+      "25-35% improvement in audience engagement",
+      "20-30% improvement in content performance",
+      "60-80% reduction in manual data analysis"
+    ],
+    "risksAndControls": [
+      "Human review of critical insights and strategic recommendations",
+      "Audit trail of all data processing, analysis, and insights",
+      "Policy grounding: agents reference approved analytics methodologies",
+      "Data privacy compliance validation",
+      "Regular review of insight accuracy and model performance",
+      "Escalation workflows for data quality issues and anomalies"
+    ]
+  },
+  {
+    "id": "content-recommendation-personalization",
+    "name": "Content Recommendation & Personalization",
+    "category": "Customer Experience",
+    "description": "Enhance viewer experience through intelligent content recommendation and personalization. Agentic AI analyzes viewing behavior, preferences, and context to deliver personalized content recommendations, optimize discovery, and improve engagement—increasing viewer satisfaction and retention.",
+    "businessGoal": "Improve viewer engagement, increase content discovery, and boost retention through intelligent personalization and recommendation.",
+    "kpis": [
+      "Viewer engagement rate",
+      "Content discovery rate",
+      "Session duration",
+      "Retention rate",
+      "Recommendation click-through rate"
+    ],
+    "valueThemes": ["customer-experience", "revenue-growth", "data-driven-decisions", "operational-excellence"],
+    "fourW": {
+      "work": [
+        "Real-time viewer behavior analysis and preference learning",
+        "Intelligent content recommendation generation",
+        "Personalized user interface and experience customization",
+        "A/B testing and optimization of recommendation algorithms",
+        "Context-aware content suggestions (time, device, location)",
+        "Automated content curation and playlist generation"
+      ],
+      "workforce": [
+        "Data scientists focus on algorithm optimization and strategy",
+        "Product managers leverage insights for feature development",
+        "Content strategists use recommendations for programming decisions",
+        "Reduced manual curation and playlist creation",
+        "More time for strategic content planning"
+      ],
+      "workbench": [
+        "Recommendation engines (Amazon Personalize, TensorFlow)",
+        "Analytics platforms",
+        "A/B testing platforms",
+        "Content management systems",
+        "User experience platforms",
+        "Machine learning platforms"
+      ],
+      "digitalCore": [
+        "Recommendation Engines (Amazon Personalize, TensorFlow, PyTorch)",
+        "Analytics Platforms (Google Analytics, Adobe Analytics)",
+        "A/B Testing Platforms (Optimizely, VWO)",
+        "Content Management Systems",
+        "User Experience Platforms",
+        "Machine Learning Platforms",
+        "Real-time Data Processing (Kafka, Spark)"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Behavior Analysis Agent",
+        "responsibility": "Analyzes viewer behavior and learns preferences",
+        "humanApproval": false
+      },
+      {
+        "name": "Recommendation Agent",
+        "responsibility": "Generates personalized content recommendations",
+        "humanApproval": false
+      },
+      {
+        "name": "Personalization Agent",
+        "responsibility": "Customizes user experience based on preferences",
+        "humanApproval": false
+      },
+      {
+        "name": "Optimization Agent",
+        "responsibility": "Optimizes recommendation algorithms through A/B testing",
+        "humanApproval": false
+      },
+      {
+        "name": "Curation Agent",
+        "responsibility": "Creates curated playlists and collections",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "25-40% increase in viewer engagement",
+      "30-50% improvement in content discovery",
+      "20-35% increase in session duration",
+      "15-25% improvement in retention rates",
+      "40-60% increase in recommendation click-through rates",
+      "50-70% reduction in manual curation"
+    ],
+    "risksAndControls": [
+      "Human oversight of recommendation algorithms and content policies",
+      "Audit trail of all recommendations and personalization decisions",
+      "Policy grounding: agents reference approved content guidelines",
+      "Bias detection and mitigation in recommendation algorithms",
+      "Regular review of recommendation performance and user feedback",
+      "Escalation workflows for content policy violations and edge cases"
+    ]
+  },
+  {
+    "id": "subscriber-acquisition-retention",
+    "name": "Subscriber Acquisition & Retention",
+    "category": "Customer Experience",
+    "description": "Transform subscriber management from acquisition through onboarding, engagement, and retention. Agentic AI automates lead qualification, personalized onboarding, engagement campaigns, churn prediction, and retention offers—maximizing subscriber lifetime value.",
+    "businessGoal": "Maximize subscriber acquisition, improve retention rates, and optimize lifetime value through intelligent automation of acquisition and retention workflows.",
+    "kpis": [
+      "Subscriber acquisition rate",
+      "Churn rate",
+      "Customer lifetime value (CLV)",
+      "Onboarding completion rate",
+      "Retention rate"
+    ],
+    "valueThemes": ["revenue-growth", "customer-experience", "operational-excellence", "data-driven-decisions"],
+    "fourW": {
+      "work": [
+        "Automated lead qualification and scoring",
+        "Personalized onboarding workflows and content",
+        "Intelligent engagement campaign orchestration",
+        "Churn prediction and risk scoring",
+        "Automated retention offer generation and delivery",
+        "Lifetime value optimization through targeted campaigns"
+      ],
+      "workforce": [
+        "Marketing teams focus on strategy and high-value campaigns",
+        "Customer success handles complex cases and escalations",
+        "Sales teams receive pre-qualified leads",
+        "Reduced manual campaign creation and segmentation",
+        "More time for relationship building"
+      ],
+      "workbench": [
+        "Marketing automation platforms (HubSpot, Marketo)",
+        "Customer relationship management (CRM) systems",
+        "Email and messaging platforms",
+        "Analytics and attribution tools",
+        "A/B testing platforms",
+        "Customer data platforms (CDP)"
+      ],
+      "digitalCore": [
+        "Marketing Automation Platforms (HubSpot, Marketo, Salesforce Marketing Cloud)",
+        "CRM Systems (Salesforce, Microsoft Dynamics)",
+        "Email Platforms (SendGrid, Mailchimp)",
+        "Analytics Platforms",
+        "Customer Data Platforms (CDP)",
+        "Billing and Subscription Systems",
+        "Customer Communication Platforms"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Lead Qualification Agent",
+        "responsibility": "Qualifies leads and scores acquisition potential",
+        "humanApproval": false
+      },
+      {
+        "name": "Onboarding Agent",
+        "responsibility": "Orchestrates personalized onboarding experiences",
+        "humanApproval": false
+      },
+      {
+        "name": "Engagement Agent",
+        "responsibility": "Creates and delivers engagement campaigns",
+        "humanApproval": false
+      },
+      {
+        "name": "Churn Prediction Agent",
+        "responsibility": "Predicts churn risk and triggers retention actions",
+        "humanApproval": false
+      },
+      {
+        "name": "Retention Agent",
+        "responsibility": "Generates and delivers personalized retention offers",
+        "humanApproval": true
+      }
+    ],
+    "benefits": [
+      "30-50% increase in subscriber acquisition rates",
+      "25-40% reduction in churn rates",
+      "20-35% improvement in customer lifetime value",
+      "40-60% increase in onboarding completion rates",
+      "15-25% improvement in retention rates",
+      "50-70% reduction in manual campaign management"
+    ],
+    "risksAndControls": [
+      "Human approval required for high-value retention offers and policy exceptions",
+      "Audit trail of all acquisition, engagement, and retention activities",
+      "Policy grounding: agents reference approved pricing and offer policies",
+      "Data privacy compliance in all customer communications",
+      "Regular review of campaign performance and churn predictions",
+      "Escalation workflows for customer complaints and policy violations"
+    ]
+  },
+  {
+    "id": "content-moderation-compliance",
+    "name": "Content Moderation & Compliance",
+    "category": "Operations & Governance",
+    "description": "Automate content moderation from ingestion through review, classification, and compliance validation. Agentic AI analyzes content for policy violations, inappropriate material, and compliance issues—ensuring brand safety and regulatory compliance while reducing manual review workload.",
+    "businessGoal": "Ensure brand safety, maintain regulatory compliance, and protect audiences through intelligent content moderation automation.",
+    "kpis": [
+      "Moderation accuracy rate",
+      "False positive rate",
+      "Review cycle time",
+      "Compliance rate",
+      "Content safety score"
+    ],
+    "valueThemes": ["risk-management", "operational-excellence", "brand-safety", "compliance"],
+    "fourW": {
+      "work": [
+        "Automated content analysis for policy violations and inappropriate material",
+        "Intelligent classification and tagging of content",
+        "Automated compliance validation against regulations",
+        "Priority-based review queue management",
+        "Real-time moderation for live content",
+        "Automated reporting and audit trail generation"
+      ],
+      "workforce": [
+        "Moderators review edge cases and complex content only",
+        "Compliance officers handle policy exceptions and escalations",
+        "Operations teams monitor moderation performance and accuracy",
+        "Reduced manual review of routine content",
+        "Focus on strategic policy development and training"
+      ],
+      "workbench": [
+        "Content moderation platforms (AWS Rekognition, Google Cloud Video Intelligence)",
+        "AI-powered classification tools",
+        "Review and workflow management systems",
+        "Compliance tracking systems",
+        "Reporting and analytics tools",
+        "Policy management systems"
+      ],
+      "digitalCore": [
+        "Content Moderation Platforms (AWS Rekognition, Google Cloud Video Intelligence, Microsoft Content Moderator)",
+        "Workflow Management Systems",
+        "Compliance Tracking Systems",
+        "Content Management Systems",
+        "Analytics and Reporting Platforms",
+        "Policy Management Systems",
+        "Audit and Logging Systems"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Content Analysis Agent",
+        "responsibility": "Analyzes content for violations and inappropriate material",
+        "humanApproval": false
+      },
+      {
+        "name": "Classification Agent",
+        "responsibility": "Classifies and tags content based on policies",
+        "humanApproval": false
+      },
+      {
+        "name": "Compliance Validation Agent",
+        "responsibility": "Validates content against regulatory requirements",
+        "humanApproval": false
+      },
+      {
+        "name": "Review Queue Agent",
+        "responsibility": "Prioritizes and routes content for human review",
+        "humanApproval": false
+      },
+      {
+        "name": "Reporting Agent",
+        "responsibility": "Generates moderation reports and audit trails",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "60-80% reduction in manual moderation workload",
+      "40-60% improvement in moderation accuracy",
+      "50-70% reduction in false positive rates",
+      "30-50% reduction in review cycle time",
+      "90% improvement in compliance rate",
+      "Real-time moderation for live content"
+    ],
+    "risksAndControls": [
+      "Human review required for edge cases and policy exceptions",
+      "Audit trail of all moderation decisions and policy applications",
+      "Policy grounding: agents reference approved content policies and guidelines",
+      "Regular review of moderation accuracy and false positive rates",
+      "Escalation workflows for complex content and policy questions",
+      "Continuous learning from human reviewer feedback"
+    ]
+  },
+  {
+    "id": "royalty-distribution-payments",
+    "name": "Royalty Distribution & Payments",
+    "category": "Operations & Governance",
+    "description": "Automate royalty calculation, distribution, and payment processing from usage data through payment reconciliation. Agentic AI processes usage data, calculates royalties based on contracts, validates payments, and reconciles accounts—ensuring accurate and timely payments to rights holders.",
+    "businessGoal": "Ensure accurate royalty payments, reduce processing time, and improve rights holder satisfaction through intelligent automation of calculation and distribution workflows.",
+    "kpis": [
+      "Payment accuracy rate",
+      "Payment processing time (days)",
+      "Dispute rate",
+      "Rights holder satisfaction",
+      "Reconciliation accuracy"
+    ],
+    "valueThemes": ["operational-excellence", "risk-management", "cost-optimization", "compliance"],
+    "fourW": {
+      "work": [
+        "Automated usage data collection and aggregation",
+        "Intelligent royalty calculation based on contract terms",
+        "Automated payment validation and reconciliation",
+        "Dispute detection and resolution workflows",
+        "Automated payment distribution and reporting",
+        "Compliance validation against contract terms"
+      ],
+      "workforce": [
+        "Finance teams review exceptions and complex calculations",
+        "Rights administrators handle disputes and escalations",
+        "Operations teams monitor payment accuracy and performance",
+        "Reduced manual calculation and data entry",
+        "Focus on strategic contract negotiations"
+      ],
+      "workbench": [
+        "Royalty accounting systems",
+        "Financial systems (SAP, Oracle)",
+        "Contract management systems",
+        "Payment processing platforms",
+        "Reporting and analytics tools",
+        "Data integration platforms"
+      ],
+      "digitalCore": [
+        "Royalty Accounting Systems (FilmTrack, RightsLine)",
+        "Financial Systems (SAP, Oracle)",
+        "Contract Management Systems",
+        "Payment Processing Platforms (Stripe, PayPal, ACH)",
+        "Data Integration Platforms",
+        "Reporting and Analytics Platforms",
+        "Banking and Treasury Systems"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Usage Data Agent",
+        "responsibility": "Collects and aggregates usage data from multiple sources",
+        "humanApproval": false
+      },
+      {
+        "name": "Royalty Calculation Agent",
+        "responsibility": "Calculates royalties based on contract terms and usage",
+        "humanApproval": true
+      },
+      {
+        "name": "Payment Validation Agent",
+        "responsibility": "Validates payment accuracy and compliance",
+        "humanApproval": false
+      },
+      {
+        "name": "Reconciliation Agent",
+        "responsibility": "Reconciles payments and identifies discrepancies",
+        "humanApproval": false
+      },
+      {
+        "name": "Distribution Agent",
+        "responsibility": "Processes payments and generates reports",
+        "humanApproval": true
+      }
+    ],
+    "benefits": [
+      "50-70% reduction in payment processing time",
+      "40-60% improvement in payment accuracy",
+      "30-50% reduction in dispute rates",
+      "60-80% reduction in manual calculation and data entry",
+      "25-35% improvement in rights holder satisfaction",
+      "90% improvement in reconciliation accuracy"
+    ],
+    "risksAndControls": [
+      "Human approval required for high-value payments and complex calculations",
+      "Audit trail of all calculations, validations, and payments",
+      "Policy grounding: agents reference approved contract terms and payment policies",
+      "Validation gates prevent incorrect payments",
+      "Regular reconciliation and discrepancy detection",
+      "Escalation workflows for disputes and payment exceptions"
+    ]
+  },
+  {
+    "id": "intellectual-property-protection",
+    "name": "Intellectual Property Protection",
+    "category": "Operations & Governance",
+    "description": "Protect intellectual property through automated monitoring, detection, and enforcement of copyright violations. Agentic AI monitors digital platforms, detects unauthorized content usage, validates copyright ownership, and initiates enforcement actions—protecting content assets and revenue.",
+    "businessGoal": "Protect intellectual property, prevent revenue loss from piracy, and ensure copyright compliance through intelligent monitoring and enforcement automation.",
+    "kpis": [
+      "Piracy detection rate",
+      "Enforcement success rate",
+      "Revenue recovery",
+      "Response time (hours)",
+      "Copyright compliance rate"
+    ],
+    "valueThemes": ["risk-management", "revenue-protection", "compliance", "operational-excellence"],
+    "fourW": {
+      "work": [
+        "Automated monitoring of digital platforms for unauthorized content",
+        "Intelligent copyright violation detection and validation",
+        "Automated takedown request generation and submission",
+        "Real-time alerting for high-priority violations",
+        "Enforcement workflow orchestration",
+        "Reporting and analytics on piracy trends"
+      ],
+      "workforce": [
+        "Legal teams handle complex cases and strategic enforcement",
+        "Operations teams monitor detection accuracy and performance",
+        "Reduced manual monitoring and detection tasks",
+        "Focus on strategic IP protection and policy development",
+        "More time for revenue recovery and negotiations"
+      ],
+      "workbench": [
+        "Content fingerprinting and monitoring platforms",
+        "Copyright management systems",
+        "Legal workflow management systems",
+        "Analytics and reporting tools",
+        "Notification and alerting systems",
+        "Enforcement platforms"
+      ],
+      "digitalCore": [
+        "Content Fingerprinting Platforms (Vobile, Irdeto, Audible Magic)",
+        "Copyright Management Systems",
+        "Legal Workflow Management Systems",
+        "Analytics and Reporting Platforms",
+        "Notification Systems",
+        "Enforcement Platforms (DMCA, legal)",
+        "Content Identification Systems"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Monitoring Agent",
+        "responsibility": "Monitors platforms for unauthorized content usage",
+        "humanApproval": false
+      },
+      {
+        "name": "Detection Agent",
+        "responsibility": "Detects and validates copyright violations",
+        "humanApproval": false
+      },
+      {
+        "name": "Takedown Agent",
+        "responsibility": "Generates and submits takedown requests",
+        "humanApproval": true
+      },
+      {
+        "name": "Enforcement Agent",
+        "responsibility": "Orchestrates enforcement workflows and tracks status",
+        "humanApproval": false
+      },
+      {
+        "name": "Reporting Agent",
+        "responsibility": "Generates piracy reports and trend analysis",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "80-90% improvement in piracy detection rates",
+      "50-70% increase in enforcement success rates",
+      "30-50% increase in revenue recovery",
+      "60-80% reduction in response time",
+      "40-60% improvement in copyright compliance",
+      "70-85% reduction in manual monitoring"
+    ],
+    "risksAndControls": [
+      "Human approval required for takedown requests and legal actions",
+      "Audit trail of all detections, validations, and enforcement actions",
+      "Policy grounding: agents reference approved copyright policies and procedures",
+      "Validation gates prevent false positive takedowns",
+      "Regular review of detection accuracy and enforcement effectiveness",
+      "Escalation workflows for complex cases and legal questions"
+    ]
+  },
+  {
+    "id": "content-licensing-negotiations",
+    "name": "Content Licensing & Negotiations",
+    "category": "Revenue & Monetization",
+    "description": "Streamline content licensing from opportunity identification through negotiation, contract execution, and relationship management. Agentic AI automates market research, opportunity scoring, contract analysis, negotiation support, and relationship tracking—accelerating licensing deals while optimizing terms.",
+    "businessGoal": "Accelerate licensing deals, optimize licensing terms, and maximize revenue through intelligent automation of research, negotiation, and contract management.",
+    "kpis": [
+      "Licensing deal cycle time (days)",
+      "Deal value optimization",
+      "Contract processing time",
+      "Relationship management efficiency",
+      "Revenue from licensing"
+    ],
+    "valueThemes": ["revenue-growth", "time-to-market", "operational-excellence", "workforce-productivity"],
+    "fourW": {
+      "work": [
+        "Automated market research and opportunity identification",
+        "Intelligent opportunity scoring and prioritization",
+        "Contract analysis and term extraction",
+        "Negotiation support and recommendation generation",
+        "Automated contract generation and execution workflows",
+        "Relationship tracking and management automation"
+      ],
+      "workforce": [
+        "Licensing managers focus on strategic negotiations and relationships",
+        "Legal teams review complex contracts and exceptions",
+        "Business development teams receive prioritized opportunities",
+        "Reduced manual research and contract processing",
+        "More time for high-value relationship building"
+      ],
+      "workbench": [
+        "CRM systems (Salesforce, Microsoft Dynamics)",
+        "Contract management systems",
+        "Market research platforms",
+        "Analytics and reporting tools",
+        "Document generation platforms",
+        "Relationship management tools"
+      ],
+      "digitalCore": [
+        "CRM Systems (Salesforce, Microsoft Dynamics)",
+        "Contract Management Systems (DocuSign, Icertis)",
+        "Market Research Platforms",
+        "Analytics Platforms",
+        "Document Generation Platforms",
+        "Financial Systems",
+        "Relationship Management Systems"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Market Research Agent",
+        "responsibility": "Researches market opportunities and potential partners",
+        "humanApproval": false
+      },
+      {
+        "name": "Opportunity Scoring Agent",
+        "responsibility": "Scores and prioritizes licensing opportunities",
+        "humanApproval": false
+      },
+      {
+        "name": "Contract Analysis Agent",
+        "responsibility": "Analyzes contracts and extracts key terms",
+        "humanApproval": false
+      },
+      {
+        "name": "Negotiation Support Agent",
+        "responsibility": "Generates negotiation recommendations and strategies",
+        "humanApproval": false
+      },
+      {
+        "name": "Contract Generation Agent",
+        "responsibility": "Generates contract drafts based on templates and terms",
+        "humanApproval": true
+      }
+    ],
+    "benefits": [
+      "40-60% reduction in licensing deal cycle time",
+      "20-35% improvement in deal value optimization",
+      "50-70% reduction in contract processing time",
+      "30-50% improvement in relationship management efficiency",
+      "25-40% increase in revenue from licensing",
+      "60-80% reduction in manual research and contract work"
+    ],
+    "risksAndControls": [
+      "Human approval required for high-value contracts and strategic negotiations",
+      "Audit trail of all research, analysis, and contract activities",
+      "Policy grounding: agents reference approved contract templates and legal guidelines",
+      "Validation gates prevent non-compliant contract terms",
+      "Regular review of opportunity scoring and negotiation effectiveness",
+      "Escalation workflows for complex negotiations and legal questions"
+    ]
+  },
+  {
+    "id": "platform-operations-monitoring",
+    "name": "Platform Operations & Monitoring",
+    "category": "Operations & Governance",
+    "description": "Ensure platform reliability and performance through automated monitoring, incident detection, and resolution. Agentic AI monitors system health, detects anomalies, predicts failures, and orchestrates remediation—minimizing downtime and ensuring optimal viewer experience.",
+    "businessGoal": "Maximize platform uptime, ensure optimal performance, and minimize viewer impact through intelligent monitoring and automated incident resolution.",
+    "kpis": [
+      "Platform uptime",
+      "Mean time to resolution (MTTR)",
+      "Incident detection time",
+      "Performance optimization",
+      "Viewer experience metrics"
+    ],
+    "valueThemes": ["operational-excellence", "customer-experience", "cost-optimization", "risk-management"],
+    "fourW": {
+      "work": [
+        "Real-time system health monitoring and alerting",
+        "Intelligent anomaly detection and root cause analysis",
+        "Automated incident response and remediation",
+        "Performance optimization and capacity planning",
+        "Predictive failure detection and prevention",
+        "Automated reporting and dashboard updates"
+      ],
+      "workforce": [
+        "Operations engineers handle complex incidents and escalations",
+        "SRE teams focus on strategic improvements and architecture",
+        "Reduced manual monitoring and basic troubleshooting",
+        "More time for proactive optimization and planning",
+        "Focus on high-value engineering work"
+      ],
+      "workbench": [
+        "Monitoring platforms (Datadog, New Relic, Splunk)",
+        "Incident management systems (PagerDuty, Opsgenie)",
+        "APM tools (Application Performance Monitoring)",
+        "Logging and analytics platforms",
+        "Automation and orchestration tools",
+        "Cloud management platforms"
+      ],
+      "digitalCore": [
+        "Monitoring Platforms (Datadog, New Relic, Splunk, Prometheus)",
+        "Incident Management Systems (PagerDuty, Opsgenie)",
+        "APM Tools (New Relic, AppDynamics, Dynatrace)",
+        "Logging Platforms (ELK Stack, Splunk, CloudWatch)",
+        "Automation Platforms (Ansible, Terraform, Kubernetes)",
+        "Cloud Platforms (AWS, Azure, GCP)",
+        "CDN and Performance Systems"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Monitoring Agent",
+        "responsibility": "Monitors system health and performance metrics",
+        "humanApproval": false
+      },
+      {
+        "name": "Anomaly Detection Agent",
+        "responsibility": "Detects anomalies and predicts potential failures",
+        "humanApproval": false
+      },
+      {
+        "name": "Incident Response Agent",
+        "responsibility": "Orchestrates incident response and remediation",
+        "humanApproval": false
+      },
+      {
+        "name": "Optimization Agent",
+        "responsibility": "Optimizes performance and capacity",
+        "humanApproval": false
+      },
+      {
+        "name": "Reporting Agent",
+        "responsibility": "Generates operational reports and insights",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "99.9% platform uptime through proactive monitoring",
+      "60-80% reduction in mean time to resolution",
+      "70-90% improvement in incident detection time",
+      "25-40% improvement in performance optimization",
+      "30-50% improvement in viewer experience metrics",
+      "50-70% reduction in manual monitoring and troubleshooting"
+    ],
+    "risksAndControls": [
+      "Human approval required for critical system changes and escalations",
+      "Audit trail of all monitoring, detection, and remediation activities",
+      "Policy grounding: agents reference approved operational procedures",
+      "Validation gates prevent unsafe automated actions",
+      "Real-time alerting for critical incidents",
+      "Escalation workflows for complex incidents and policy violations"
+    ]
+  },
+  {
+    "id": "advertising-campaign-optimization",
+    "name": "Advertising Campaign Optimization",
+    "category": "Revenue & Monetization",
+    "description": "Optimize advertising campaigns through real-time performance monitoring, audience targeting refinement, and budget allocation. Agentic AI analyzes performance data, identifies optimization opportunities, adjusts targeting and bidding, and reallocates budgets—maximizing ROI and campaign effectiveness.",
+    "businessGoal": "Maximize advertising ROI, improve campaign performance, and optimize budget allocation through intelligent real-time optimization.",
+    "kpis": [
+      "Campaign ROI",
+      "Click-through rate (CTR)",
+      "Conversion rate",
+      "Cost per acquisition (CPA)",
+      "Budget utilization efficiency"
+    ],
+    "valueThemes": ["revenue-growth", "operational-excellence", "data-driven-decisions", "cost-optimization"],
+    "fourW": {
+      "work": [
+        "Real-time performance monitoring and analysis",
+        "Intelligent audience targeting optimization",
+        "Automated bid adjustment and budget reallocation",
+        "A/B testing and creative optimization",
+        "Predictive performance forecasting",
+        "Automated reporting and insights generation"
+      ],
+      "workforce": [
+        "Campaign managers focus on strategy and high-value optimizations",
+        "Analysts review insights and strategic recommendations",
+        "Reduced manual bid management and budget adjustments",
+        "More time for creative strategy and audience insights",
+        "Focus on strategic campaign planning"
+      ],
+      "workbench": [
+        "Ad serving platforms (Google Ad Manager, FreeWheel)",
+        "Programmatic platforms (The Trade Desk, MediaMath)",
+        "Analytics platforms",
+        "A/B testing platforms",
+        "Budget management tools",
+        "Reporting and visualization tools"
+      ],
+      "digitalCore": [
+        "Ad Serving Platforms (Google Ad Manager, FreeWheel, SpotX)",
+        "Programmatic Platforms (The Trade Desk, MediaMath, DV360)",
+        "Analytics Platforms (Google Analytics, Adobe Analytics)",
+        "A/B Testing Platforms",
+        "Budget Management Systems",
+        "Data Management Platforms (DMP)",
+        "Attribution Platforms"
+      ]
+    },
+    "agenticPattern": "intake-analyze-configure-validate-approve",
+    "agents": [
+      {
+        "name": "Performance Monitoring Agent",
+        "responsibility": "Monitors campaign performance in real-time",
+        "humanApproval": false
+      },
+      {
+        "name": "Optimization Agent",
+        "responsibility": "Identifies and implements optimization opportunities",
+        "humanApproval": false
+      },
+      {
+        "name": "Budget Allocation Agent",
+        "responsibility": "Reallocates budgets based on performance",
+        "humanApproval": true
+      },
+      {
+        "name": "Targeting Agent",
+        "responsibility": "Refines audience targeting based on performance",
+        "humanApproval": false
+      },
+      {
+        "name": "Insights Agent",
+        "responsibility": "Generates performance insights and recommendations",
+        "humanApproval": false
+      }
+    ],
+    "benefits": [
+      "25-40% improvement in campaign ROI",
+      "30-50% increase in click-through rates",
+      "20-35% improvement in conversion rates",
+      "15-25% reduction in cost per acquisition",
+      "30-45% improvement in budget utilization efficiency",
+      "60-80% reduction in manual optimization tasks"
+    ],
+    "risksAndControls": [
+      "Human approval required for significant budget reallocations and strategy changes",
+      "Audit trail of all optimizations, adjustments, and performance changes",
+      "Policy grounding: agents reference approved optimization strategies and budgets",
+      "Validation gates prevent unsafe budget allocations",
+      "Regular review of optimization effectiveness and ROI",
+      "Escalation workflows for performance issues and policy exceptions"
+    ]
+  }
+]
