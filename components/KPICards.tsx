@@ -1,35 +1,58 @@
-import { Process } from '@/lib/types';
+import { Process, KPI } from '@/lib/types';
 
 interface KPICardsProps {
-  kpis: string[];
+  kpis: string[] | KPI[];
 }
 
-// Categorize KPIs by keywords
-function categorizeKPI(kpi: string): { category: string; color: string } {
-  const lower = kpi.toLowerCase();
+// Categorize KPIs by keywords or category
+function categorizeKPI(kpi: string | KPI): { category: string; color: string; name: string; baseline?: number; target?: number; improvement?: string } {
+  // Handle enhanced KPI object
+  if (typeof kpi === 'object' && 'name' in kpi) {
+    const categoryMap: Record<string, string> = {
+      'efficiency': 'blue',
+      'quality': 'green',
+      'revenue': 'purple',
+      'customer-satisfaction': 'orange',
+      'financial': 'purple',
+    };
+    const color = categoryMap[kpi.category] || 'gray';
+    return {
+      category: kpi.category.charAt(0).toUpperCase() + kpi.category.slice(1).replace('-', ' '),
+      color,
+      name: kpi.name,
+      baseline: kpi.baseline,
+      target: kpi.target,
+      improvement: kpi.improvement,
+    };
+  }
+  
+  // Handle string KPI (legacy)
+  const lower = (kpi as string).toLowerCase();
+  let category = 'Performance';
+  let color = 'gray';
   
   if (lower.includes('time') || lower.includes('cycle') || lower.includes('duration')) {
-    return { category: 'Efficiency', color: 'blue' };
-  }
-  if (lower.includes('rate') || lower.includes('percentage') || lower.includes('%')) {
-    return { category: 'Quality', color: 'green' };
-  }
-  if (lower.includes('cost') || lower.includes('revenue') || lower.includes('savings')) {
-    return { category: 'Financial', color: 'purple' };
-  }
-  if (lower.includes('satisfaction') || lower.includes('experience') || lower.includes('csat')) {
-    return { category: 'Customer', color: 'orange' };
-  }
-  if (lower.includes('accuracy') || lower.includes('error') || lower.includes('quality')) {
-    return { category: 'Quality', color: 'green' };
+    category = 'Efficiency';
+    color = 'blue';
+  } else if (lower.includes('rate') || lower.includes('percentage') || lower.includes('%')) {
+    category = 'Quality';
+    color = 'green';
+  } else if (lower.includes('cost') || lower.includes('revenue') || lower.includes('savings')) {
+    category = 'Financial';
+    color = 'purple';
+  } else if (lower.includes('satisfaction') || lower.includes('experience') || lower.includes('csat')) {
+    category = 'Customer';
+    color = 'orange';
+  } else if (lower.includes('accuracy') || lower.includes('error') || lower.includes('quality')) {
+    category = 'Quality';
+    color = 'green';
   }
   
-  return { category: 'Performance', color: 'gray' };
+  return { category, color, name: kpi as string };
 }
 
 export default function KPICards({ kpis }: KPICardsProps) {
   const categorizedKPIs = kpis.map(kpi => ({
-    kpi,
     ...categorizeKPI(kpi),
   }));
 
@@ -55,7 +78,24 @@ export default function KPICards({ kpis }: KPICardsProps) {
                 {item.category}
               </span>
             </div>
-            <p className="text-sm font-medium leading-relaxed text-primary-900">{item.kpi}</p>
+            <p className="mb-2 text-sm font-medium leading-relaxed text-primary-900">{item.name}</p>
+            {item.baseline !== undefined && item.target !== undefined && (
+              <div className="mt-3 space-y-1">
+                <div className="flex items-baseline justify-between text-xs">
+                  <span className="text-primary-600">Baseline:</span>
+                  <span className="font-semibold text-primary-900">{item.baseline} {typeof kpis[0] === 'object' && 'unit' in kpis[0] ? (kpis[0] as KPI).unit : ''}</span>
+                </div>
+                <div className="flex items-baseline justify-between text-xs">
+                  <span className="text-primary-600">Target:</span>
+                  <span className="font-semibold text-accent">{item.target} {typeof kpis[0] === 'object' && 'unit' in kpis[0] ? (kpis[0] as KPI).unit : ''}</span>
+                </div>
+                {item.improvement && (
+                  <div className="mt-2 text-xs font-semibold text-accent">
+                    {item.improvement}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         ))}
       </div>

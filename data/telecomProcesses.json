@@ -6,11 +6,51 @@
     "description": "Transform B2B sales from initial lead qualification through complex order configuration, pricing, and approval. Agentic AI orchestrates multi-agent workflows to qualify leads, configure solutions, generate quotes, validate technical feasibility, and route for approval—reducing sales cycle time while improving accuracy.",
     "businessGoal": "Accelerate B2B sales cycles, increase win rates, and reduce order errors through intelligent automation of qualification, configuration, and pricing.",
     "kpis": [
-      "Sales cycle time (days)",
-      "Quote-to-order conversion rate",
-      "Order accuracy rate",
-      "Average deal size",
-      "Sales productivity (deals per rep)"
+      {
+        "name": "Sales cycle time",
+        "baseline": 60,
+        "target": 35,
+        "improvement": "30-45% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Quote-to-order conversion rate",
+        "baseline": 25,
+        "target": 35,
+        "improvement": "15-25% increase",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "primary"
+      },
+      {
+        "name": "Order accuracy rate",
+        "baseline": 75,
+        "target": 95,
+        "improvement": "40-60% reduction in errors",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Average deal size",
+        "baseline": 50000,
+        "target": 57500,
+        "improvement": "10-15% increase",
+        "unit": "dollars",
+        "category": "revenue",
+        "priority": "secondary"
+      },
+      {
+        "name": "Sales productivity",
+        "baseline": 8,
+        "target": 12,
+        "improvement": "20-30% increase",
+        "unit": "deals per rep per quarter",
+        "category": "efficiency",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["revenue-growth", "customer-experience", "time-to-market", "workforce-productivity"],
     "fourW": {
@@ -90,13 +130,251 @@
       "50-70% reduction in pricing approval turnaround time"
     ],
     "risksAndControls": [
-      "Human approval checkpoints for pricing exceptions and high-value orders (>$100K)",
-      "Audit trail of all agent decisions, configuration changes, and pricing calculations",
-      "Policy grounding: agents reference approved pricing rules, discount policies, and product catalogs",
-      "Validation gates prevent submission of incomplete or non-compliant orders",
-      "Regular review of agent performance metrics and accuracy rates",
-      "Escalation workflows for complex technical requirements or policy exceptions"
-    ]
+      {
+        "description": "Incorrect pricing or discount application for high-value orders",
+        "category": "financial",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Human approval required for orders >$100K and discount exceptions",
+        "monitoringApproach": "Audit pricing decisions monthly, track discount approvals",
+        "escalationPath": "Escalate to pricing manager for exceptions",
+        "complianceRequirements": ["Pricing policy compliance", "Audit trail"]
+      },
+      {
+        "description": "Technical feasibility misassessment leading to unfulfillable orders",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Multi-system validation with network inventory checks",
+        "monitoringApproach": "Track order fulfillment success rate, monitor feasibility accuracy",
+        "escalationPath": "Escalate to sales engineering for complex requirements",
+        "complianceRequirements": ["Network capacity validation", "Inventory checks"]
+      },
+      {
+        "description": "Order configuration errors causing customer dissatisfaction",
+        "category": "customer-experience",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated validation gates and completeness checks",
+        "monitoringApproach": "Monitor order error rates and customer complaints",
+        "escalationPath": "Escalate to order management team",
+        "complianceRequirements": ["Order validation rules", "Quality checks"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average B2B Sales Cycle",
+          "value": "45-60 days",
+          "change": "-40%"
+        },
+        {
+          "label": "Quote Accuracy Rate",
+          "value": "75-85%",
+          "change": "+18%"
+        },
+        {
+          "label": "Win Rate",
+          "value": "20-30%",
+          "change": "+12%"
+        },
+        {
+          "label": "Order Error Rate",
+          "value": "15-25%",
+          "change": "-60%"
+        }
+      ],
+      "insights": [
+        "B2B telecom sales cycles average 45-60 days, with 30% of time spent on configuration and pricing",
+        "Order errors cost telecom providers $2.3B annually in rework and customer dissatisfaction",
+        "AI-powered CPQ systems reduce quote generation time from 4 hours to 15 minutes",
+        "Incorrect product configuration accounts for 40% of order errors"
+      ],
+      "trends": [
+        "Growing demand for personalized enterprise solutions",
+        "Increasing complexity in multi-product bundles",
+        "Rising customer expectations for faster response times",
+        "Shift toward self-service configuration and quoting"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Lead Qualification & Research",
+        "description": "Manual lead research and qualification",
+        "time": "2-4 hours",
+        "actions": ["Research company information", "Review firmographic data", "Assess lead fit", "Score lead manually"],
+        "inputs": ["Lead data", "CRM records", "External databases"],
+        "outputs": ["Qualified lead", "Lead score", "Research notes"],
+        "dependencies": [],
+        "decisionPoints": ["Lead qualification threshold", "Fit assessment"],
+        "errorHandling": "Manual review if unclear fit"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Requirements Gathering",
+        "description": "Manual customer requirements collection",
+        "time": "4-8 hours",
+        "actions": ["Schedule discovery call", "Conduct needs assessment", "Document requirements", "Identify technical constraints"],
+        "inputs": ["Qualified lead", "Customer input", "Historical data"],
+        "outputs": ["Requirements document", "Technical specifications"],
+        "dependencies": ["Lead Qualification & Research"],
+        "decisionPoints": ["Service type selection", "Technical feasibility"],
+        "errorHandling": "Follow-up calls for clarification"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Solution Configuration",
+        "description": "Manual product configuration",
+        "time": "4-8 hours",
+        "actions": ["Select products from catalog", "Configure service parameters", "Check compatibility", "Build solution bundle"],
+        "inputs": ["Requirements document", "Product catalog", "Pricing rules"],
+        "outputs": ["Configured solution", "Product list"],
+        "dependencies": ["Requirements Gathering"],
+        "decisionPoints": ["Product selection", "Bundle composition"],
+        "errorHandling": "Rework configuration if incompatible"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Pricing & Quote Generation",
+        "description": "Manual pricing calculation and quote creation",
+        "time": "2-6 hours",
+        "actions": ["Calculate base pricing", "Apply discounts manually", "Generate TCO analysis", "Create quote document"],
+        "inputs": ["Configured solution", "Pricing rules", "Discount policies"],
+        "outputs": ["Quote document", "Pricing breakdown"],
+        "dependencies": ["Solution Configuration"],
+        "decisionPoints": ["Discount approval", "Pricing exceptions"],
+        "errorHandling": "Manual correction if pricing errors"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Technical Feasibility Check",
+        "description": "Manual network and inventory validation",
+        "time": "1-2 days",
+        "actions": ["Check network capacity", "Verify inventory availability", "Assess service delivery feasibility", "Coordinate with network team"],
+        "inputs": ["Quote document", "Network inventory", "Capacity data"],
+        "outputs": ["Feasibility assessment", "Network confirmation"],
+        "dependencies": ["Pricing & Quote Generation"],
+        "decisionPoints": ["Capacity availability", "Delivery timeline"],
+        "errorHandling": "Rework solution if not feasible"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Order Validation & Submission",
+        "description": "Manual order review and submission",
+        "time": "2-4 hours",
+        "actions": ["Review order completeness", "Validate customer data", "Check compliance", "Submit to order management"],
+        "inputs": ["Validated quote", "Customer information", "Compliance rules"],
+        "outputs": ["Submitted order", "Order confirmation"],
+        "dependencies": ["Technical Feasibility Check"],
+        "decisionPoints": ["Order completeness", "Compliance check"],
+        "errorHandling": "Return for correction if incomplete"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Lead Qualification Agent",
+        "description": "Automated lead scoring and qualification",
+        "time": "< 2 min",
+        "actions": ["Analyze firmographic data", "Score lead using ML model", "Qualify based on criteria", "Enrich lead data"],
+        "inputs": ["Lead data", "CRM records", "External data sources"],
+        "outputs": ["Qualified lead", "Lead score", "Enrichment data"],
+        "dependencies": [],
+        "decisionPoints": ["Qualification threshold (score > 70)"],
+        "errorHandling": "Escalate to sales rep if confidence < 80%"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Solution Configuration Agent",
+        "description": "AI-powered solution configuration",
+        "time": "< 5 min",
+        "actions": ["Match requirements to products", "Configure service parameters", "Validate compatibility", "Suggest upsells"],
+        "inputs": ["Requirements", "Product catalog", "Historical configurations"],
+        "outputs": ["Configured solution", "Product recommendations"],
+        "dependencies": ["Lead Qualification Agent"],
+        "decisionPoints": ["Product matching", "Compatibility validation"],
+        "errorHandling": "Escalate to sales engineer for complex requirements"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Pricing Agent",
+        "description": "Automated pricing calculation",
+        "time": "< 3 min",
+        "actions": ["Calculate base pricing", "Apply approved discounts", "Generate TCO analysis", "Check pricing policies"],
+        "inputs": ["Configured solution", "Pricing rules", "Customer tier"],
+        "outputs": ["Pricing proposal", "TCO analysis"],
+        "dependencies": ["Solution Configuration Agent"],
+        "decisionPoints": ["Discount eligibility", "Pricing approval threshold"],
+        "errorHandling": "Route to pricing analyst if exception needed"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Feasibility Validation Agent",
+        "description": "Automated network and inventory validation",
+        "time": "< 5 min",
+        "actions": ["Check network capacity", "Verify inventory", "Assess delivery feasibility", "Calculate timelines"],
+        "inputs": ["Solution configuration", "Network inventory", "Capacity data"],
+        "outputs": ["Feasibility confirmation", "Delivery timeline"],
+        "dependencies": ["Pricing Agent"],
+        "decisionPoints": ["Capacity availability", "Feasibility threshold"],
+        "errorHandling": "Flag for network team review if capacity issues"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Quote Generation Agent",
+        "description": "Automated professional quote creation",
+        "time": "< 2 min",
+        "actions": ["Generate quote document", "Apply formatting rules", "Include terms and SLAs", "Create multi-year projections"],
+        "inputs": ["Pricing proposal", "Feasibility confirmation", "Quote templates"],
+        "outputs": ["Professional quote", "Supporting documents"],
+        "dependencies": ["Feasibility Validation Agent"],
+        "decisionPoints": ["Quote format selection", "Document completeness"],
+        "errorHandling": "Regenerate if formatting errors"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Order Validation Agent",
+        "description": "Automated order validation and submission",
+        "time": "< 1 min",
+        "actions": ["Validate order completeness", "Check data accuracy", "Verify compliance", "Submit to OMS"],
+        "inputs": ["Quote", "Customer data", "Compliance rules"],
+        "outputs": ["Validated order", "Order confirmation"],
+        "dependencies": ["Quote Generation Agent"],
+        "decisionPoints": ["Completeness check", "Compliance validation"],
+        "errorHandling": "Block submission if validation fails"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "15-30 days",
+        "steps": [
+          {"stepName": "Lead Qualification & Research", "time": "2-4 hours"},
+          {"stepName": "Requirements Gathering", "time": "4-8 hours"},
+          {"stepName": "Solution Configuration", "time": "4-8 hours"},
+          {"stepName": "Pricing & Quote Generation", "time": "2-6 hours"},
+          {"stepName": "Technical Feasibility Check", "time": "1-2 days"},
+          {"stepName": "Order Validation & Submission", "time": "2-4 hours"}
+        ],
+        "bottlenecks": ["Manual configuration (4-8 hours)", "Feasibility check (1-2 days)", "Pricing approval delays"]
+      },
+      "agenticProcess": {
+        "totalTime": "25-35 days",
+        "steps": [
+          {"stepName": "Lead Qualification Agent", "time": "< 2 min"},
+          {"stepName": "Solution Configuration Agent", "time": "< 5 min"},
+          {"stepName": "Pricing Agent", "time": "< 3 min"},
+          {"stepName": "Feasibility Validation Agent", "time": "< 5 min"},
+          {"stepName": "Quote Generation Agent", "time": "< 2 min"},
+          {"stepName": "Order Validation Agent", "time": "< 1 min"}
+        ],
+        "bottlenecks": ["Human approval for pricing exceptions", "Complex technical requirements"]
+      },
+      "savings": {
+        "absolute": "12-27 days",
+        "percentage": "44-58%"
+      }
+    }
   },
   {
     "id": "order-capture-orchestration",
@@ -105,11 +383,51 @@
     "description": "Orchestrate complex multi-service orders across BSS/OSS systems with intelligent validation, provisioning coordination, and exception handling. Agentic AI ensures order integrity, coordinates dependencies, and proactively identifies and resolves issues before they impact delivery.",
     "businessGoal": "Ensure accurate, timely order fulfillment across all service types while minimizing manual intervention and order fallout.",
     "kpis": [
-      "Order fulfillment cycle time",
-      "First-time-right order percentage",
-      "Order fallout rate",
-      "Provisioning success rate",
-      "Customer satisfaction (order experience)"
+      {
+        "name": "Order fulfillment cycle time",
+        "baseline": 7,
+        "target": 3,
+        "improvement": "35-50% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "First-time-right order percentage",
+        "baseline": 65,
+        "target": 85,
+        "improvement": "25-40% increase",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Order fallout rate",
+        "baseline": 20,
+        "target": 8,
+        "improvement": "50-70% reduction",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Provisioning success rate",
+        "baseline": 75,
+        "target": 92,
+        "improvement": "30-45% increase",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Customer satisfaction",
+        "baseline": 3.5,
+        "target": 4.3,
+        "improvement": "20-30% improvement",
+        "unit": "rating out of 5",
+        "category": "customer-satisfaction",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["operational-excellence", "customer-experience", "time-to-market", "cost-optimization"],
     "fourW": {
@@ -184,13 +502,251 @@
       "15-25% cost reduction in order management operations"
     ],
     "risksAndControls": [
-      "Human approval required for high-value orders, complex multi-service bundles, and policy exceptions",
-      "Comprehensive audit log of all order transformations, system calls, and decisions",
-      "Validation rules prevent invalid orders from entering provisioning workflows",
-      "Rollback capabilities for failed provisioning with automatic cleanup",
-      "Real-time monitoring and alerting for order exceptions and SLA breaches",
-      "Regular reconciliation between order systems and billing to catch discrepancies"
-    ]
+      {
+        "description": "Orchestration failures causing order delays or service disruptions",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated rollback on failures, comprehensive error handling",
+        "monitoringApproach": "Monitor orchestration success rate, track exception patterns",
+        "escalationPath": "Escalate to operations manager for critical failures",
+        "complianceRequirements": ["Audit trail", "Error logging"]
+      },
+      {
+        "description": "Invalid orders entering provisioning causing customer impact",
+        "category": "customer-experience",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Multi-layer validation gates before provisioning",
+        "monitoringApproach": "Track order validation accuracy, monitor customer complaints",
+        "escalationPath": "Block invalid orders, notify order management",
+        "complianceRequirements": ["Order validation rules", "Quality gates"]
+      },
+      {
+        "description": "System integration failures disrupting order flow",
+        "category": "technical",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Retry logic, circuit breakers, fallback mechanisms",
+        "monitoringApproach": "Monitor system health, track integration errors",
+        "escalationPath": "Alert IT operations for system issues",
+        "complianceRequirements": ["System monitoring", "Integration health checks"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Order Fulfillment Time",
+          "value": "5-10 days",
+          "change": "-50%"
+        },
+        {
+          "label": "Order Fallout Rate",
+          "value": "15-25%",
+          "change": "-60%"
+        },
+        {
+          "label": "First-Time-Right Rate",
+          "value": "60-70%",
+          "change": "+30%"
+        },
+        {
+          "label": "Multi-System Coordination Time",
+          "value": "2-4 days",
+          "change": "-70%"
+        }
+      ],
+      "insights": [
+        "Order orchestration across BSS/OSS systems requires coordination of 5-8 different systems",
+        "Order errors cost telecom providers $1.8B annually in rework and customer dissatisfaction",
+        "Manual order management limits real-time response to exceptions and delays",
+        "System integration failures account for 30% of order delays"
+      ],
+      "trends": [
+        "Demand for real-time order visibility and status updates",
+        "Increasing complexity of multi-service bundles",
+        "Shift toward zero-touch order fulfillment",
+        "Integration of AI for predictive order management"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Order Receipt & Initial Validation",
+        "description": "Manual order receipt and basic validation",
+        "time": "2-4 hours",
+        "actions": ["Receive order from sales", "Review order structure", "Validate basic data", "Check order format"],
+        "inputs": ["Sales order", "Order template", "Validation rules"],
+        "outputs": ["Received order", "Initial validation result"],
+        "dependencies": [],
+        "decisionPoints": ["Order format valid", "Basic data complete"],
+        "errorHandling": "Return to sales for correction"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Order Decomposition & Analysis",
+        "description": "Manual order breakdown and dependency analysis",
+        "time": "4-8 hours",
+        "actions": ["Break down order into components", "Identify service dependencies", "Map to product catalog", "Determine provisioning sequence"],
+        "inputs": ["Validated order", "Product catalog", "Service dependencies"],
+        "outputs": ["Decomposed order", "Dependency map", "Provisioning sequence"],
+        "dependencies": ["Order Receipt & Initial Validation"],
+        "decisionPoints": ["Service dependencies", "Provisioning order"],
+        "errorHandling": "Manual review if complex dependencies"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Inventory & Capacity Validation",
+        "description": "Manual inventory and capacity checks",
+        "time": "1-2 days",
+        "actions": ["Check inventory availability", "Verify network capacity", "Reserve resources", "Coordinate with network team"],
+        "inputs": ["Decomposed order", "Inventory systems", "Capacity data"],
+        "outputs": ["Inventory confirmation", "Capacity validation"],
+        "dependencies": ["Order Decomposition & Analysis"],
+        "decisionPoints": ["Resource availability", "Capacity sufficient"],
+        "errorHandling": "Delay order if resources unavailable"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Provisioning Workflow Coordination",
+        "description": "Manual coordination across provisioning systems",
+        "time": "2-5 days",
+        "actions": ["Create provisioning tasks", "Sequence system interactions", "Monitor provisioning progress", "Handle exceptions"],
+        "inputs": ["Validated order", "Provisioning systems", "Workflow templates"],
+        "outputs": ["Provisioning tasks", "System interactions"],
+        "dependencies": ["Inventory & Capacity Validation"],
+        "decisionPoints": ["Task sequencing", "Exception handling"],
+        "errorHandling": "Manual intervention for failures"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Exception Detection & Resolution",
+        "description": "Manual exception monitoring and resolution",
+        "time": "1-3 days",
+        "actions": ["Monitor for exceptions", "Analyze root causes", "Resolve issues", "Update order status"],
+        "inputs": ["Provisioning status", "Exception alerts", "System logs"],
+        "outputs": ["Resolved exceptions", "Updated status"],
+        "dependencies": ["Provisioning Workflow Coordination"],
+        "decisionPoints": ["Exception severity", "Resolution approach"],
+        "errorHandling": "Escalate if cannot resolve"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Order Completion & Verification",
+        "description": "Manual order completion and verification",
+        "time": "2-4 hours",
+        "actions": ["Verify all services activated", "Reconcile with billing", "Update customer", "Close order"],
+        "inputs": ["Provisioning status", "Billing records", "Customer data"],
+        "outputs": ["Completed order", "Customer notification"],
+        "dependencies": ["Exception Detection & Resolution"],
+        "decisionPoints": ["All services active", "Billing reconciled"],
+        "errorHandling": "Reopen if verification fails"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Order Validation Agent",
+        "description": "Automated order structure and data validation",
+        "time": "< 1 min",
+        "actions": ["Validate order structure", "Check data completeness", "Verify against product catalog", "Validate customer eligibility"],
+        "inputs": ["Sales order", "Product catalog", "Customer data"],
+        "outputs": ["Validated order", "Validation report"],
+        "dependencies": [],
+        "decisionPoints": ["Order validity", "Data completeness"],
+        "errorHandling": "Block order if validation fails"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Orchestration Agent",
+        "description": "Automated order decomposition and orchestration",
+        "time": "< 3 min",
+        "actions": ["Decompose order into components", "Identify dependencies", "Create provisioning sequence", "Generate workflow"],
+        "inputs": ["Validated order", "Service dependencies", "Orchestration rules"],
+        "outputs": ["Decomposed order", "Orchestration plan"],
+        "dependencies": ["Order Validation Agent"],
+        "decisionPoints": ["Dependency resolution", "Workflow optimization"],
+        "errorHandling": "Escalate for complex dependencies"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Inventory Check Agent",
+        "description": "Automated inventory and capacity validation",
+        "time": "< 2 min",
+        "actions": ["Check inventory availability", "Verify capacity", "Reserve resources", "Calculate timelines"],
+        "inputs": ["Orchestration plan", "Inventory systems", "Capacity data"],
+        "outputs": ["Resource reservation", "Capacity confirmation"],
+        "dependencies": ["Orchestration Agent"],
+        "decisionPoints": ["Resource availability", "Capacity threshold"],
+        "errorHandling": "Flag for manual review if unavailable"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Provisioning Orchestrator Agent",
+        "description": "Automated multi-system provisioning coordination",
+        "time": "< 10 min",
+        "actions": ["Coordinate system interactions", "Execute provisioning tasks", "Monitor progress", "Handle dependencies"],
+        "inputs": ["Orchestration plan", "Provisioning systems", "Real-time status"],
+        "outputs": ["Provisioning status", "System interactions"],
+        "dependencies": ["Inventory Check Agent"],
+        "decisionPoints": ["Task sequencing", "Success criteria"],
+        "errorHandling": "Trigger rollback on failures"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Exception Handler Agent",
+        "description": "Automated exception detection and resolution",
+        "time": "< 5 min",
+        "actions": ["Detect exceptions", "Analyze root causes", "Attempt automated resolution", "Escalate if needed"],
+        "inputs": ["Provisioning status", "Exception patterns", "Resolution rules"],
+        "outputs": ["Resolved exceptions", "Exception report"],
+        "dependencies": ["Provisioning Orchestrator Agent"],
+        "decisionPoints": ["Exception severity", "Resolution confidence"],
+        "errorHandling": "Escalate to operations for complex issues"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Status Communication Agent",
+        "description": "Automated customer updates and order completion",
+        "time": "< 1 min",
+        "actions": ["Verify order completion", "Reconcile with billing", "Generate customer update", "Close order"],
+        "inputs": ["Provisioning status", "Billing records", "Customer preferences"],
+        "outputs": ["Order completion", "Customer notification"],
+        "dependencies": ["Exception Handler Agent"],
+        "decisionPoints": ["Completion verification", "Notification timing"],
+        "errorHandling": "Flag for review if reconciliation fails"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "7-14 days",
+        "steps": [
+          {"stepName": "Order Receipt & Initial Validation", "time": "2-4 hours"},
+          {"stepName": "Order Decomposition & Analysis", "time": "4-8 hours"},
+          {"stepName": "Inventory & Capacity Validation", "time": "1-2 days"},
+          {"stepName": "Provisioning Workflow Coordination", "time": "2-5 days"},
+          {"stepName": "Exception Detection & Resolution", "time": "1-3 days"},
+          {"stepName": "Order Completion & Verification", "time": "2-4 hours"}
+        ],
+        "bottlenecks": ["Provisioning coordination (2-5 days)", "Exception resolution (1-3 days)", "Manual system interactions"]
+      },
+      "agenticProcess": {
+        "totalTime": "3-5 days",
+        "steps": [
+          {"stepName": "Order Validation Agent", "time": "< 1 min"},
+          {"stepName": "Orchestration Agent", "time": "< 3 min"},
+          {"stepName": "Inventory Check Agent", "time": "< 2 min"},
+          {"stepName": "Provisioning Orchestrator Agent", "time": "< 10 min"},
+          {"stepName": "Exception Handler Agent", "time": "< 5 min"},
+          {"stepName": "Status Communication Agent", "time": "< 1 min"}
+        ],
+        "bottlenecks": ["Human exception handling", "Complex multi-system dependencies"]
+      },
+      "savings": {
+        "absolute": "4-9 days",
+        "percentage": "35-50%"
+      }
+    }
   },
   {
     "id": "service-provisioning-activation",
@@ -199,11 +755,51 @@
     "description": "Automate end-to-end service provisioning from order receipt through network activation. Agentic AI orchestrates multi-domain provisioning, validates configurations, handles dependencies, and ensures service readiness—dramatically reducing activation time while improving accuracy.",
     "businessGoal": "Achieve zero-touch provisioning for standard services, reduce activation time from days to hours, and eliminate provisioning errors.",
     "kpis": [
-      "Service activation time",
-      "Zero-touch provisioning rate",
-      "Provisioning accuracy (first-time success)",
-      "Network resource utilization",
-      "Customer time-to-service"
+      {
+        "name": "Service activation time",
+        "baseline": 5,
+        "target": 1.5,
+        "improvement": "60-80% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Zero-touch provisioning rate",
+        "baseline": 40,
+        "target": 70,
+        "improvement": "40-60% increase",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Provisioning accuracy",
+        "baseline": 75,
+        "target": 95,
+        "improvement": "50-70% reduction in errors",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Network resource utilization",
+        "baseline": 65,
+        "target": 85,
+        "improvement": "30-45% improvement",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Customer time-to-service",
+        "baseline": 7,
+        "target": 2,
+        "improvement": "60-75% reduction",
+        "unit": "days",
+        "category": "customer-satisfaction",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["operational-excellence", "time-to-market", "customer-experience", "cost-optimization"],
     "fourW": {
@@ -278,13 +874,251 @@
       "20-30% cost savings in provisioning operations"
     ],
     "risksAndControls": [
-      "Human approval required for network configuration changes affecting critical infrastructure",
-      "Configuration validation against network policies and security standards",
-      "Automated rollback on provisioning failures with resource cleanup",
-      "Audit trail of all network changes, configurations, and resource allocations",
-      "Pre-activation testing to verify service connectivity and performance",
-      "Real-time monitoring during provisioning with automatic failure detection"
-    ]
+      {
+        "description": "Network configuration errors causing service disruptions",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human approval for critical infrastructure changes, automated validation",
+        "monitoringApproach": "Monitor provisioning success rate, track configuration errors",
+        "escalationPath": "Escalate to network engineering for critical changes",
+        "complianceRequirements": ["Configuration validation", "Change management"]
+      },
+      {
+        "description": "Resource allocation conflicts causing provisioning failures",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated resource reservation and conflict detection",
+        "monitoringApproach": "Track resource conflicts, monitor allocation accuracy",
+        "escalationPath": "Flag for manual review if conflicts detected",
+        "complianceRequirements": ["Resource management", "Inventory validation"]
+      },
+      {
+        "description": "Multi-domain coordination failures delaying activation",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "low",
+        "mitigationStrategy": "Automated orchestration with retry logic and rollback",
+        "monitoringApproach": "Monitor orchestration success, track domain coordination",
+        "escalationPath": "Alert operations for coordination failures",
+        "complianceRequirements": ["Orchestration monitoring", "Failure handling"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Service Activation Time",
+          "value": "3-7 days",
+          "change": "-70%"
+        },
+        {
+          "label": "Zero-Touch Provisioning Rate",
+          "value": "35-45%",
+          "change": "+60%"
+        },
+        {
+          "label": "Provisioning Error Rate",
+          "value": "20-30%",
+          "change": "-65%"
+        },
+        {
+          "label": "Multi-Domain Coordination Time",
+          "value": "2-4 days",
+          "change": "-75%"
+        }
+      ],
+      "insights": [
+        "Service activation delays cost telecom providers $1.5B annually in lost revenue",
+        "Multi-domain service provisioning requires coordination across 5-8 systems",
+        "Automated validation reduces provisioning errors by 85%",
+        "Manual provisioning processes account for 40% of activation delays"
+      ],
+      "trends": [
+        "Demand for same-day service activation",
+        "Complexity of 5G and fiber deployments",
+        "Need for real-time order visibility",
+        "Shift toward zero-touch provisioning"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Order Analysis & Service Design",
+        "description": "Manual order analysis and service design",
+        "time": "4-8 hours",
+        "actions": ["Analyze order requirements", "Design service topology", "Calculate network paths", "Determine resource needs"],
+        "inputs": ["Service order", "Network topology", "Design templates"],
+        "outputs": ["Service design", "Network path", "Resource requirements"],
+        "dependencies": [],
+        "decisionPoints": ["Service type", "Path selection"],
+        "errorHandling": "Rework design if issues found"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Resource Reservation & Inventory Check",
+        "description": "Manual resource reservation and inventory validation",
+        "time": "1-2 days",
+        "actions": ["Check inventory availability", "Reserve network resources", "Verify capacity", "Coordinate with network team"],
+        "inputs": ["Service design", "Inventory systems", "Capacity data"],
+        "outputs": ["Resource reservation", "Inventory confirmation"],
+        "dependencies": ["Order Analysis & Service Design"],
+        "decisionPoints": ["Resource availability", "Capacity sufficient"],
+        "errorHandling": "Delay if resources unavailable"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Multi-Domain Provisioning Coordination",
+        "description": "Manual coordination across network domains",
+        "time": "2-4 days",
+        "actions": ["Coordinate access domain", "Coordinate transport domain", "Coordinate core domain", "Sequence provisioning tasks"],
+        "inputs": ["Resource reservation", "Domain systems", "Provisioning workflows"],
+        "outputs": ["Provisioning tasks", "Domain coordination"],
+        "dependencies": ["Resource Reservation & Inventory Check"],
+        "decisionPoints": ["Task sequencing", "Domain dependencies"],
+        "errorHandling": "Manual intervention for failures"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Configuration Generation & Application",
+        "description": "Manual configuration creation and application",
+        "time": "4-8 hours",
+        "actions": ["Generate device configurations", "Validate configurations", "Apply to network devices", "Verify application"],
+        "inputs": ["Provisioning tasks", "Device templates", "Configuration rules"],
+        "outputs": ["Device configurations", "Configuration status"],
+        "dependencies": ["Multi-Domain Provisioning Coordination"],
+        "decisionPoints": ["Configuration validation", "Application approval"],
+        "errorHandling": "Rollback if configuration errors"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Service Testing & Validation",
+        "description": "Manual service testing and validation",
+        "time": "2-4 hours",
+        "actions": ["Test service connectivity", "Validate performance", "Check SLA compliance", "Verify activation"],
+        "inputs": ["Applied configurations", "Test tools", "SLA requirements"],
+        "outputs": ["Test results", "Validation status"],
+        "dependencies": ["Configuration Generation & Application"],
+        "decisionPoints": ["Test pass/fail", "SLA compliance"],
+        "errorHandling": "Troubleshoot if tests fail"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Activation & Customer Notification",
+        "description": "Manual activation and customer communication",
+        "time": "1-2 hours",
+        "actions": ["Activate service", "Update service records", "Notify customer", "Close provisioning order"],
+        "inputs": ["Validated service", "Customer data", "Notification templates"],
+        "outputs": ["Activated service", "Customer notification"],
+        "dependencies": ["Service Testing & Validation"],
+        "decisionPoints": ["Activation confirmation", "Notification timing"],
+        "errorHandling": "Delay activation if issues"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Service Design Agent",
+        "description": "Automated service design and path calculation",
+        "time": "< 5 min",
+        "actions": ["Analyze order requirements", "Design service topology", "Calculate optimal paths", "Determine resource needs"],
+        "inputs": ["Service order", "Network topology", "Design algorithms"],
+        "outputs": ["Service design", "Network path", "Resource plan"],
+        "dependencies": [],
+        "decisionPoints": ["Path optimization", "Resource allocation"],
+        "errorHandling": "Escalate to network engineer for complex designs"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Resource Allocation Agent",
+        "description": "Automated resource reservation and allocation",
+        "time": "< 3 min",
+        "actions": ["Check inventory", "Reserve resources", "Verify capacity", "Allocate inventory"],
+        "inputs": ["Service design", "Inventory systems", "Capacity data"],
+        "outputs": ["Resource reservation", "Allocation confirmation"],
+        "dependencies": ["Service Design Agent"],
+        "decisionPoints": ["Resource availability", "Allocation strategy"],
+        "errorHandling": "Flag for manual review if unavailable"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Provisioning Orchestrator Agent",
+        "description": "Automated multi-domain provisioning coordination",
+        "time": "< 15 min",
+        "actions": ["Coordinate access domain", "Coordinate transport domain", "Coordinate core domain", "Execute provisioning"],
+        "inputs": ["Resource allocation", "Domain systems", "Orchestration rules"],
+        "outputs": ["Provisioning status", "Domain coordination"],
+        "dependencies": ["Resource Allocation Agent"],
+        "decisionPoints": ["Task sequencing", "Success criteria"],
+        "errorHandling": "Trigger rollback on failures"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Configuration Agent",
+        "description": "Automated configuration generation and application",
+        "time": "< 10 min",
+        "actions": ["Generate configurations", "Validate against policies", "Apply to devices", "Verify application"],
+        "inputs": ["Provisioning tasks", "Device templates", "Policy rules"],
+        "outputs": ["Device configurations", "Application status"],
+        "dependencies": ["Provisioning Orchestrator Agent"],
+        "decisionPoints": ["Configuration validation", "Policy compliance"],
+        "errorHandling": "Rollback if validation fails"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Validation Agent",
+        "description": "Automated service testing and validation",
+        "time": "< 5 min",
+        "actions": ["Test connectivity", "Validate performance", "Check SLA compliance", "Confirm activation"],
+        "inputs": ["Applied configurations", "Test tools", "SLA requirements"],
+        "outputs": ["Test results", "Validation status"],
+        "dependencies": ["Configuration Agent"],
+        "decisionPoints": ["Test pass threshold", "SLA compliance"],
+        "errorHandling": "Flag for troubleshooting if tests fail"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Activation Agent",
+        "description": "Automated activation and customer notification",
+        "time": "< 2 min",
+        "actions": ["Activate service", "Update records", "Generate customer notification", "Close order"],
+        "inputs": ["Validated service", "Customer data", "Notification templates"],
+        "outputs": ["Activated service", "Customer notification"],
+        "dependencies": ["Validation Agent"],
+        "decisionPoints": ["Activation confirmation", "Notification format"],
+        "errorHandling": "Delay activation if issues detected"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "5-10 days",
+        "steps": [
+          {"stepName": "Order Analysis & Service Design", "time": "4-8 hours"},
+          {"stepName": "Resource Reservation & Inventory Check", "time": "1-2 days"},
+          {"stepName": "Multi-Domain Provisioning Coordination", "time": "2-4 days"},
+          {"stepName": "Configuration Generation & Application", "time": "4-8 hours"},
+          {"stepName": "Service Testing & Validation", "time": "2-4 hours"},
+          {"stepName": "Activation & Customer Notification", "time": "1-2 hours"}
+        ],
+        "bottlenecks": ["Multi-domain coordination (2-4 days)", "Resource reservation (1-2 days)", "Manual configuration"]
+      },
+      "agenticProcess": {
+        "totalTime": "1.5-2.5 days",
+        "steps": [
+          {"stepName": "Service Design Agent", "time": "< 5 min"},
+          {"stepName": "Resource Allocation Agent", "time": "< 3 min"},
+          {"stepName": "Provisioning Orchestrator Agent", "time": "< 15 min"},
+          {"stepName": "Configuration Agent", "time": "< 10 min"},
+          {"stepName": "Validation Agent", "time": "< 5 min"},
+          {"stepName": "Activation Agent", "time": "< 2 min"}
+        ],
+        "bottlenecks": ["Human approval for critical configurations", "Complex multi-domain dependencies"]
+      },
+      "savings": {
+        "absolute": "3.5-7.5 days",
+        "percentage": "60-80%"
+      }
+    }
   },
   {
     "id": "trouble-to-resolve",
@@ -293,11 +1127,51 @@
     "description": "Transform customer issue resolution through intelligent triage, root cause analysis, automated remediation, and proactive communication. Agentic AI reduces resolution time, improves first-call resolution, and enhances customer experience.",
     "businessGoal": "Achieve faster resolution times, higher first-call resolution rates, and improved customer satisfaction through intelligent automation.",
     "kpis": [
-      "Mean time to resolve (MTTR)",
-      "First-call resolution rate",
-      "Customer satisfaction (CSAT)",
-      "Escalation rate",
-      "Automated resolution rate"
+      {
+        "name": "Mean time to resolve (MTTR)",
+        "baseline": 8,
+        "target": 3,
+        "improvement": "40-60% reduction",
+        "unit": "hours",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "First-call resolution rate",
+        "baseline": 55,
+        "target": 75,
+        "improvement": "25-35% increase",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Customer satisfaction (CSAT)",
+        "baseline": 3.2,
+        "target": 4.1,
+        "improvement": "20-30% improvement",
+        "unit": "rating out of 5",
+        "category": "customer-satisfaction",
+        "priority": "primary"
+      },
+      {
+        "name": "Escalation rate",
+        "baseline": 35,
+        "target": 20,
+        "improvement": "35-45% reduction",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Automated resolution rate",
+        "baseline": 25,
+        "target": 55,
+        "improvement": "30-50% increase",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["customer-experience", "operational-excellence", "cost-optimization", "workforce-productivity"],
     "fourW": {
@@ -372,26 +1246,295 @@
       "15-25% cost reduction in customer service operations"
     ],
     "risksAndControls": [
-      "Human approval required for service-affecting remediation actions",
-      "Validation of automated fixes before execution to prevent service disruption",
-      "Audit log of all diagnostic steps, root cause analysis, and remediation actions",
-      "Escalation triggers for high-severity issues, VIP customers, and policy exceptions",
-      "Customer communication templates reviewed and approved by service teams",
-      "Regular review of automated resolution accuracy and customer feedback"
-    ]
+      {
+        "description": "Incorrect automated remediation causing service disruption",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human approval for service-affecting actions, validation before execution",
+        "monitoringApproach": "Monitor remediation success rate, track service disruptions",
+        "escalationPath": "Escalate to operations manager for service-affecting issues",
+        "complianceRequirements": ["Change management", "Audit trail"]
+      },
+      {
+        "description": "Misdiagnosis leading to incorrect resolution attempts",
+        "category": "customer-experience",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Multi-source diagnostic validation, confidence thresholds",
+        "monitoringApproach": "Track diagnostic accuracy, monitor repeat issues",
+        "escalationPath": "Escalate to technical support for low-confidence diagnoses",
+        "complianceRequirements": ["Diagnostic validation", "Quality checks"]
+      },
+      {
+        "description": "Customer communication errors causing dissatisfaction",
+        "category": "customer-experience",
+        "severity": "medium",
+        "likelihood": "low",
+        "mitigationStrategy": "Approved communication templates, human review for sensitive cases",
+        "monitoringApproach": "Monitor customer feedback, track communication quality",
+        "escalationPath": "Review communication templates regularly",
+        "complianceRequirements": ["Communication standards", "Customer feedback"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Resolution Time",
+          "value": "6-10 hours",
+          "change": "-60%"
+        },
+        {
+          "label": "First-Call Resolution Rate",
+          "value": "50-60%",
+          "change": "+30%"
+        },
+        {
+          "label": "Customer Satisfaction",
+          "value": "3.0-3.5/5",
+          "change": "+25%"
+        },
+        {
+          "label": "Escalation Rate",
+          "value": "30-40%",
+          "change": "-40%"
+        }
+      ],
+      "insights": [
+        "Average telecom customer service ticket takes 4-6 interactions to resolve",
+        "Network issues account for 45% of all service tickets",
+        "AI-powered diagnostics reduce troubleshooting time by 60%",
+        "First-call resolution improvements reduce customer churn by 15%"
+      ],
+      "trends": [
+        "Rising customer expectations for instant resolution",
+        "Complexity of multi-service troubleshooting",
+        "Need for proactive issue detection",
+        "Shift toward self-service and automated resolution"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Ticket Intake & Initial Triage",
+        "description": "Manual ticket creation and initial classification",
+        "time": "10-20 minutes",
+        "actions": ["Receive customer contact", "Create service ticket", "Classify issue type", "Assign initial priority"],
+        "inputs": ["Customer contact", "Issue description", "Customer history"],
+        "outputs": ["Service ticket", "Initial classification", "Priority level"],
+        "dependencies": [],
+        "decisionPoints": ["Issue category", "Priority level"],
+        "errorHandling": "Manual clarification if unclear"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Issue Investigation & Diagnosis",
+        "description": "Manual investigation and root cause analysis",
+        "time": "2-4 hours",
+        "actions": ["Gather diagnostic data", "Review service history", "Check network status", "Identify root cause"],
+        "inputs": ["Service ticket", "Network systems", "Service records", "Diagnostic tools"],
+        "outputs": ["Diagnostic data", "Root cause analysis", "Issue identification"],
+        "dependencies": ["Ticket Intake & Initial Triage"],
+        "decisionPoints": ["Root cause identified", "Issue complexity"],
+        "errorHandling": "Escalate if cannot diagnose"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Solution Research & Selection",
+        "description": "Manual solution research and selection",
+        "time": "1-2 hours",
+        "actions": ["Search knowledge base", "Review similar cases", "Identify solution options", "Select best solution"],
+        "inputs": ["Root cause", "Knowledge base", "Historical cases"],
+        "outputs": ["Solution options", "Selected solution"],
+        "dependencies": ["Issue Investigation & Diagnosis"],
+        "decisionPoints": ["Solution fit", "Risk assessment"],
+        "errorHandling": "Escalate if no solution found"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Remediation Execution",
+        "description": "Manual remediation and fix application",
+        "time": "1-3 hours",
+        "actions": ["Execute solution", "Apply fixes", "Test resolution", "Verify service restoration"],
+        "inputs": ["Selected solution", "Service systems", "Test tools"],
+        "outputs": ["Applied fix", "Test results", "Service status"],
+        "dependencies": ["Solution Research & Selection"],
+        "decisionPoints": ["Fix successful", "Service restored"],
+        "errorHandling": "Try alternative solution if failed"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Customer Communication & Follow-up",
+        "description": "Manual customer update and follow-up",
+        "time": "15-30 minutes",
+        "actions": ["Update customer on status", "Explain issue and resolution", "Confirm resolution", "Schedule follow-up if needed"],
+        "inputs": ["Resolution status", "Customer contact", "Communication templates"],
+        "outputs": ["Customer update", "Follow-up schedule"],
+        "dependencies": ["Remediation Execution"],
+        "decisionPoints": ["Communication timing", "Follow-up needed"],
+        "errorHandling": "Retry communication if failed"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Ticket Closure & Documentation",
+        "description": "Manual ticket closure and knowledge capture",
+        "time": "10-20 minutes",
+        "actions": ["Verify resolution", "Update ticket status", "Document solution", "Close ticket"],
+        "inputs": ["Resolution confirmation", "Ticket record", "Knowledge base"],
+        "outputs": ["Closed ticket", "Documentation"],
+        "dependencies": ["Customer Communication & Follow-up"],
+        "decisionPoints": ["Resolution verified", "Documentation complete"],
+        "errorHandling": "Reopen if issues persist"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Triage Agent",
+        "description": "Automated ticket classification and routing",
+        "time": "< 1 min",
+        "actions": ["Analyze ticket text using NLP", "Classify issue type", "Determine priority", "Route to appropriate team"],
+        "inputs": ["Customer contact", "Issue description", "Historical data"],
+        "outputs": ["Classified ticket", "Priority score", "Routing decision"],
+        "dependencies": [],
+        "decisionPoints": ["Issue category", "Priority threshold"],
+        "errorHandling": "Escalate to human if confidence < 80%"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Diagnostic Agent",
+        "description": "Automated diagnostic data collection and analysis",
+        "time": "< 3 min",
+        "actions": ["Collect diagnostic data", "Analyze symptoms", "Search knowledge base", "Identify root cause"],
+        "inputs": ["Service ticket", "Network systems", "Knowledge base", "Historical cases"],
+        "outputs": ["Diagnostic results", "Root cause", "Confidence score"],
+        "dependencies": ["Triage Agent"],
+        "decisionPoints": ["Root cause confidence", "Issue complexity"],
+        "errorHandling": "Escalate to technical support if low confidence"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Remediation Agent",
+        "description": "Automated solution execution and remediation",
+        "time": "< 5 min",
+        "actions": ["Select solution from knowledge base", "Execute automated fix", "Test resolution", "Verify service"],
+        "inputs": ["Root cause", "Solution database", "Service systems"],
+        "outputs": ["Applied fix", "Test results", "Resolution status"],
+        "dependencies": ["Diagnostic Agent"],
+        "decisionPoints": ["Solution confidence", "Fix approval"],
+        "errorHandling": "Escalate to human for service-affecting fixes"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Communication Agent",
+        "description": "Automated customer communication and updates",
+        "time": "< 1 min",
+        "actions": ["Generate status update", "Explain issue and resolution", "Send notification", "Request confirmation"],
+        "inputs": ["Resolution status", "Customer preferences", "Communication templates"],
+        "outputs": ["Customer notification", "Update sent"],
+        "dependencies": ["Remediation Agent"],
+        "decisionPoints": ["Communication channel", "Update timing"],
+        "errorHandling": "Retry with alternative channel if failed"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Escalation Agent",
+        "description": "Automated escalation decision and routing",
+        "time": "< 1 min",
+        "actions": ["Assess issue complexity", "Determine escalation need", "Route to expert team", "Update priority"],
+        "inputs": ["Issue details", "Resolution status", "Escalation rules"],
+        "outputs": ["Escalation decision", "Routing assignment"],
+        "dependencies": ["Diagnostic Agent"],
+        "decisionPoints": ["Escalation threshold", "Expert team selection"],
+        "errorHandling": "Default to highest priority escalation"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Knowledge Enrichment Agent",
+        "description": "Automated knowledge base update and learning",
+        "time": "< 2 min",
+        "actions": ["Extract solution details", "Update knowledge base", "Link related cases", "Improve future matching"],
+        "inputs": ["Resolved ticket", "Solution applied", "Knowledge base"],
+        "outputs": ["Updated knowledge", "Case linkage"],
+        "dependencies": ["Remediation Agent"],
+        "decisionPoints": ["Knowledge value", "Update approval"],
+        "errorHandling": "Flag for human review if low confidence"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "6-10 hours",
+        "steps": [
+          {"stepName": "Ticket Intake & Initial Triage", "time": "10-20 minutes"},
+          {"stepName": "Issue Investigation & Diagnosis", "time": "2-4 hours"},
+          {"stepName": "Solution Research & Selection", "time": "1-2 hours"},
+          {"stepName": "Remediation Execution", "time": "1-3 hours"},
+          {"stepName": "Customer Communication & Follow-up", "time": "15-30 minutes"},
+          {"stepName": "Ticket Closure & Documentation", "time": "10-20 minutes"}
+        ],
+        "bottlenecks": ["Issue investigation (2-4 hours)", "Solution research (1-2 hours)", "Manual remediation"]
+      },
+      "agenticProcess": {
+        "totalTime": "3-5 hours",
+        "steps": [
+          {"stepName": "Triage Agent", "time": "< 1 min"},
+          {"stepName": "Diagnostic Agent", "time": "< 3 min"},
+          {"stepName": "Remediation Agent", "time": "< 5 min"},
+          {"stepName": "Communication Agent", "time": "< 1 min"},
+          {"stepName": "Escalation Agent", "time": "< 1 min"},
+          {"stepName": "Knowledge Enrichment Agent", "time": "< 2 min"}
+        ],
+        "bottlenecks": ["Human approval for service-affecting fixes", "Complex diagnostic cases"]
+      },
+      "savings": {
+        "absolute": "3-5 hours",
+        "percentage": "40-60%"
+      }
+    }
   },
   {
     "id": "field-service-dispatch",
     "name": "Field Service Dispatch",
     "category": "Service & Operations",
-    "description": "Optimize field service operations through intelligent scheduling, route optimization, technician matching, and real-time adjustments. Agentic AI improves first-visit resolution, reduces travel time, and enhances customer experience.",
-    "businessGoal": "Maximize technician productivity, improve first-visit resolution rates, and reduce operational costs through intelligent dispatch and scheduling.",
+    "description": "End-to-end dispatch of field technicians for installation, repair, and maintenance requests",
+    "businessGoal": "Reduce mean time to repair, improve technician utilization, and enhance customer experience through intelligent dispatching",
     "kpis": [
-      "First-visit resolution rate",
-      "Average travel time per job",
-      "Technician utilization rate",
-      "On-time arrival percentage",
-      "Customer satisfaction (field service)"
+      {
+        "name": "Mean Time to Repair (MTTR)",
+        "baseline": 36,
+        "target": 22,
+        "improvement": "35-40% reduction",
+        "unit": "hours",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "First-Time Fix Rate",
+        "baseline": 70,
+        "target": 85,
+        "improvement": "20-25% increase",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Technician Utilization",
+        "baseline": 60,
+        "target": 78,
+        "improvement": "25-30% increase",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Missed Appointment Rate",
+        "baseline": 12,
+        "target": 5,
+        "improvement": "55-60% reduction",
+        "unit": "percentage",
+        "category": "customer-satisfaction",
+        "priority": "primary"
+      }
     ],
     "valueThemes": ["operational-excellence", "cost-optimization", "customer-experience", "workforce-productivity"],
     "fourW": {
@@ -432,47 +1575,491 @@
     "agenticPattern": "analyze-optimize-recommend-approve-execute",
     "agents": [
       {
-        "name": "Scheduling Agent",
-        "responsibility": "Optimizes technician assignments based on skills, location, priority, and availability",
-        "humanApproval": false
+        "name": "Triage & Classification Agent",
+        "responsibility": "Automatically classifies service requests and determines priority",
+        "humanApproval": false,
+        "capabilities": ["Issue classification", "Priority scoring", "Pattern recognition"],
+        "systemsAccessed": ["FSM", "OSS", "CRM"],
+        "decisionLogic": "Classifies based on issue type, customer tier, and SLA requirements",
+        "inputDataSources": ["Service tickets", "Historical data", "Network alarms"],
+        "outputDestinations": ["Dispatch system", "Priority queue"],
+        "errorHandling": "Escalates if confidence < 85%",
+        "performanceMetrics": {
+          "accuracy": "92%",
+          "speed": "< 1 min",
+          "successRate": "94%"
+        },
+        "learningEnabled": true
       },
       {
-        "name": "Route Optimization Agent",
-        "responsibility": "Calculates optimal routes considering traffic, weather, and job dependencies",
-        "humanApproval": false
+        "name": "Intelligent Dispatch Agent",
+        "responsibility": "Automatically assigns the right technician to the right job at the right time",
+        "humanApproval": false,
+        "capabilities": ["Skill-based matching", "Route optimization", "SLA prediction"],
+        "systemsAccessed": ["FSM", "GIS", "OSS"],
+        "decisionLogic": "Optimizes based on skill fit, proximity, SLA urgency, and utilization",
+        "inputDataSources": ["Service tickets", "Technician profiles", "Network alarms"],
+        "outputDestinations": ["Dispatch system", "Technician mobile app"],
+        "errorHandling": "Escalates complex conflicts to dispatcher",
+        "performanceMetrics": {
+          "accuracy": "93%",
+          "speed": "< 2 min",
+          "successRate": "96%"
+        },
+        "learningEnabled": true
       },
       {
-        "name": "Parts Provisioning Agent",
-        "responsibility": "Determines required parts and tools, checks inventory, and triggers preparation",
-        "humanApproval": false
-      },
-      {
-        "name": "Real-Time Adjuster Agent",
-        "responsibility": "Handles schedule changes, emergencies, and cancellations with minimal disruption",
-        "humanApproval": true
-      },
-      {
-        "name": "Communication Agent",
-        "responsibility": "Sends customer updates, ETAs, and technician information",
-        "humanApproval": false
+        "name": "Real-Time Optimization Agent",
+        "responsibility": "Continuously monitors and optimizes schedules based on real-time conditions",
+        "humanApproval": true,
+        "capabilities": ["Dynamic rescheduling", "Traffic monitoring", "SLA tracking"],
+        "systemsAccessed": ["FSM", "GIS", "Traffic APIs"],
+        "decisionLogic": "Re-optimizes when delays detected or SLA at risk",
+        "inputDataSources": ["Real-time telemetry", "Traffic data", "Technician status"],
+        "outputDestinations": ["Updated schedules", "Alert system"],
+        "errorHandling": "Notifies operations manager for major disruptions",
+        "performanceMetrics": {
+          "accuracy": "88%",
+          "speed": "Continuous",
+          "successRate": "91%"
+        },
+        "learningEnabled": true
       }
     ],
     "benefits": [
-      "20-30% improvement in first-visit resolution rates",
-      "25-35% reduction in average travel time per job",
-      "15-25% increase in technician utilization",
-      "30-40% improvement in on-time arrival rates",
-      "20-30% reduction in fuel and vehicle costs",
-      "15-20% improvement in customer satisfaction with field service"
+      {
+        "description": "35-40% reduction in MTTR through intelligent dispatch and routing",
+        "baseline": "36 hours",
+        "target": "22 hours",
+        "confidence": "high",
+        "timeToRealize": "6-9 months",
+        "prerequisites": ["FSM integration", "Technician skill taxonomy"],
+        "measurementMethod": "Track MTTR across all service tickets",
+        "examples": ["Tier-1 telecom reduced MTTR by 38% in 7 months"]
+      },
+      {
+        "description": "20-25% increase in first-time fix rate through better skill matching",
+        "baseline": "70%",
+        "target": "85%",
+        "confidence": "high",
+        "timeToRealize": "6-9 months",
+        "prerequisites": ["Skill taxonomy", "Parts inventory system"],
+        "measurementMethod": "Track first-visit resolution rate",
+        "examples": []
+      },
+      {
+        "description": "25-30% increase in technician utilization through optimized scheduling",
+        "baseline": "60%",
+        "target": "78%",
+        "confidence": "medium",
+        "timeToRealize": "9-12 months",
+        "prerequisites": ["Real-time tracking", "Route optimization"],
+        "measurementMethod": "Track technician billable hours",
+        "examples": []
+      },
+      {
+        "description": "55-60% reduction in missed appointments through proactive scheduling",
+        "baseline": "12%",
+        "target": "5%",
+        "confidence": "high",
+        "timeToRealize": "3-6 months",
+        "prerequisites": ["Customer communication system"],
+        "measurementMethod": "Track appointment no-show rate",
+        "examples": []
+      }
     ],
     "risksAndControls": [
-      "Human approval for schedule changes affecting high-priority customers or SLA commitments",
-      "Validation of technician skills and certifications before job assignment",
-      "Real-time tracking and monitoring of technician locations and job progress",
-      "Audit trail of all scheduling decisions, route changes, and customer communications",
-      "Escalation workflows for schedule conflicts and resource constraints",
-      "Regular review of optimization algorithms and performance metrics"
-    ]
+      {
+        "description": "Incorrect automated dispatch for complex service issues",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human override for low-confidence decisions",
+        "monitoringApproach": "Monitor repeat truck rolls",
+        "escalationPath": "Escalate to service operations manager",
+        "complianceRequirements": ["Audit trail", "Change management"]
+      },
+      {
+        "description": "Human approval for schedule changes affecting high-priority customers or SLA commitments",
+        "category": "business",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Automated approval workflow with human override",
+        "monitoringApproach": "Track SLA breaches and customer complaints",
+        "escalationPath": "Escalate to operations manager",
+        "complianceRequirements": ["SLA tracking", "Customer communication"]
+      },
+      {
+        "description": "Validation of technician skills and certifications before job assignment",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Automated skill matching with certification verification",
+        "monitoringApproach": "Audit skill assignments monthly",
+        "escalationPath": "Block assignment if certification expired",
+        "complianceRequirements": ["Certification database", "Audit logs"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Mean Time to Repair (MTTR)",
+          "value": "24-48 hours",
+          "change": "-35%"
+        },
+        {
+          "label": "Truck Roll Cost",
+          "value": "$150-$300 per visit",
+          "change": "-25%"
+        },
+        {
+          "label": "First-Time Fix Rate",
+          "value": "65-75%",
+          "change": "+20%"
+        },
+        {
+          "label": "Technician Utilization",
+          "value": "55-65%",
+          "change": "+30%"
+        }
+      ],
+      "insights": [
+        "Dispatch inefficiencies account for up to 20% of total field service operational costs",
+        "Incorrect skill matching is responsible for nearly 30% of repeat truck rolls",
+        "Customers are 2x more likely to churn after two or more missed appointments",
+        "Manual scheduling limits real-time response to outages and SLA breaches"
+      ],
+      "trends": [
+        "AI-driven workforce scheduling and routing",
+        "Predictive maintenance using network telemetry",
+        "Shift toward appointment-based, customer-centric field service",
+        "Integration of OSS data into dispatch decisioning"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Service Request Intake",
+        "description": "Manual request logging and classification",
+        "time": "10-20 minutes",
+        "actions": ["Capture customer issue", "Validate service address", "Classify issue type", "Determine priority"],
+        "inputs": ["Customer call", "Service ticket", "Customer history"],
+        "outputs": ["Logged service request", "Issue classification", "Priority level"],
+        "dependencies": [],
+        "decisionPoints": ["Repair vs install", "Priority level"],
+        "errorHandling": "Manual clarification with customer"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Technician Selection & Scheduling",
+        "description": "Manual technician matching and scheduling",
+        "time": "1-2 hours",
+        "actions": ["Review technician availability", "Match skills to job", "Check geographic proximity", "Assign technician", "Schedule appointment"],
+        "inputs": ["Service request", "Technician roster", "Skill database", "Schedule calendar"],
+        "outputs": ["Dispatch assignment", "Scheduled appointment"],
+        "dependencies": ["Service Request Intake"],
+        "decisionPoints": ["Skill match", "Geography", "Availability"],
+        "errorHandling": "Rework schedule if conflict or skill mismatch"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Parts & Tools Preparation",
+        "description": "Manual parts inventory and kit preparation",
+        "time": "30-60 minutes",
+        "actions": ["Identify required parts", "Check inventory availability", "Prepare parts kit", "Assign tools"],
+        "inputs": ["Dispatch assignment", "Parts inventory", "Job requirements"],
+        "outputs": ["Parts kit", "Tool assignment"],
+        "dependencies": ["Technician Selection & Scheduling"],
+        "decisionPoints": ["Parts availability", "Tool requirements"],
+        "errorHandling": "Order parts if unavailable, delay dispatch"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Customer Communication",
+        "description": "Manual customer notification",
+        "time": "10-20 minutes",
+        "actions": ["Notify customer of appointment", "Provide technician details", "Send ETA", "Confirm appointment"],
+        "inputs": ["Scheduled appointment", "Technician details", "Customer contact info"],
+        "outputs": ["Customer notification", "Appointment confirmation"],
+        "dependencies": ["Technician Selection & Scheduling"],
+        "decisionPoints": ["Communication channel", "Confirmation required"],
+        "errorHandling": "Retry notification if failed"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Field Execution & Resolution",
+        "description": "Field service execution and completion",
+        "time": "2-4 hours",
+        "actions": ["Travel to customer location", "Perform service/repair", "Test solution", "Update ticket", "Obtain customer signature"],
+        "inputs": ["Dispatch order", "Parts kit", "Service history"],
+        "outputs": ["Completed service", "Updated ticket", "Customer signature"],
+        "dependencies": ["Parts & Tools Preparation", "Customer Communication"],
+        "decisionPoints": ["Issue resolved", "Additional work needed"],
+        "errorHandling": "Create repeat ticket if unresolved"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Post-Service Verification",
+        "description": "Manual quality check and closure",
+        "time": "15-30 minutes",
+        "actions": ["Verify service quality", "Update service records", "Close ticket", "Schedule follow-up if needed"],
+        "inputs": ["Completed service", "Service records"],
+        "outputs": ["Closed ticket", "Service verification"],
+        "dependencies": ["Field Execution & Resolution"],
+        "decisionPoints": ["Service quality", "Follow-up needed"],
+        "errorHandling": "Reopen ticket if quality issues"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Triage & Classification Agent",
+        "description": "Automated issue classification and prioritization",
+        "time": "< 1 min",
+        "actions": ["Analyze ticket text using NLP", "Classify issue type", "Determine priority", "Score urgency"],
+        "inputs": ["Service request", "Historical tickets", "Customer tier"],
+        "outputs": ["Issue category", "Priority score", "Urgency level"],
+        "dependencies": [],
+        "decisionPoints": ["Severity threshold", "Customer tier impact"],
+        "errorHandling": "Escalate to dispatcher if confidence < 85%"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Intelligent Dispatch Agent",
+        "description": "AI-based technician matching and scheduling",
+        "time": "< 2 min",
+        "actions": ["Match technician skills to job", "Optimize routing using GIS", "Schedule appointment", "Reserve time slot"],
+        "inputs": ["Issue category", "Technician profiles", "GIS data", "Real-time availability"],
+        "outputs": ["Optimized dispatch plan", "Scheduled appointment"],
+        "dependencies": ["Triage & Classification Agent"],
+        "decisionPoints": ["SLA breach risk", "Skill match threshold"],
+        "errorHandling": "Fallback to dispatcher for complex conflicts"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Parts & Inventory Agent",
+        "description": "Automated parts identification and provisioning",
+        "time": "< 1 min",
+        "actions": ["Identify required parts from job type", "Check inventory availability", "Generate parts list", "Reserve parts"],
+        "inputs": ["Job requirements", "Parts inventory", "Historical parts usage"],
+        "outputs": ["Parts list", "Inventory reservation"],
+        "dependencies": ["Intelligent Dispatch Agent"],
+        "decisionPoints": ["Parts availability", "Alternative parts"],
+        "errorHandling": "Alert warehouse if parts unavailable"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Customer Communication Agent",
+        "description": "Automated customer notification and updates",
+        "time": "< 1 min",
+        "actions": ["Generate appointment notification", "Send technician details", "Provide ETA", "Request confirmation"],
+        "inputs": ["Scheduled appointment", "Technician details", "Customer preferences"],
+        "outputs": ["Customer notification", "Appointment confirmation"],
+        "dependencies": ["Intelligent Dispatch Agent"],
+        "decisionPoints": ["Communication channel preference", "Confirmation required"],
+        "errorHandling": "Retry with alternative channel if failed"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Real-Time Optimization Agent",
+        "description": "Continuous schedule optimization and monitoring",
+        "time": "Continuous",
+        "actions": ["Monitor technician progress", "Track traffic conditions", "Re-optimize routes if delays", "Update ETAs"],
+        "inputs": ["Real-time telemetry", "Traffic data", "Technician status", "Customer feedback"],
+        "outputs": ["Updated schedules", "Revised ETAs", "Optimization alerts"],
+        "dependencies": ["Intelligent Dispatch Agent"],
+        "decisionPoints": ["Delay threshold", "SLA risk level"],
+        "errorHandling": "Notify operations manager for major disruptions"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Service Verification Agent",
+        "description": "Automated post-service quality check",
+        "time": "< 1 min",
+        "actions": ["Verify service completion", "Check customer satisfaction", "Update service records", "Trigger follow-up if needed"],
+        "inputs": ["Service completion data", "Customer feedback", "Service history"],
+        "outputs": ["Service verification", "Quality score", "Follow-up trigger"],
+        "dependencies": ["Field Execution & Resolution"],
+        "decisionPoints": ["Quality threshold", "Follow-up criteria"],
+        "errorHandling": "Flag for review if quality issues detected"
+      }
+    ],
+    "workforcePersonas": [
+      {
+        "name": "Mike Rodriguez",
+        "title": "Dispatch Coordinator",
+        "currentRole": "Manually schedules technicians and resolves conflicts",
+        "transformedRole": "Oversees AI-driven dispatch and handles exceptions",
+        "tasksRemoved": ["Manual scheduling", "Route planning"],
+        "tasksAdded": ["Exception handling", "Performance optimization"],
+        "trainingRequirements": ["AI dispatch tools", "Data-driven decision making"],
+        "timeAllocation": {
+          "before": {
+            "routineTasks": "75%",
+            "strategicWork": "25%"
+          },
+          "after": {
+            "routineTasks": "20%",
+            "strategicWork": "80%"
+          }
+        },
+        "careerPathImpact": "Evolves into Service Operations Analyst",
+        "stats": {
+          "routineTaskReduction": "70%",
+          "strategicWorkIncrease": "55%",
+          "timeSaved": "18-22 hours/week"
+        }
+      }
+    ],
+    "systems": [
+      {
+        "name": "Field Service Management System",
+        "type": "OSS",
+        "integrationMethod": "API",
+        "dataExchanged": ["Work orders", "Technician status"],
+        "complexity": "moderate",
+        "criticality": "critical",
+        "vendor": "ServiceNow / Salesforce FSM",
+        "integrationTimeline": "6-8 weeks",
+        "dependencies": ["Identity provider", "GIS"]
+      },
+      {
+        "name": "GIS Platform",
+        "type": "Analytics",
+        "integrationMethod": "Real-time",
+        "dataExchanged": ["Location data", "Traffic data"],
+        "complexity": "complex",
+        "criticality": "important",
+        "vendor": "Esri",
+        "integrationTimeline": "4-6 weeks",
+        "dependencies": ["FSM"]
+      }
+    ],
+    "implementationRoadmap": {
+      "phase1": {
+        "name": "Assessment",
+        "duration": "3-4 weeks",
+        "activities": ["Analyze dispatch data", "Identify bottlenecks"],
+        "stakeholders": ["Operations", "IT", "Field managers"],
+        "deliverables": ["Current-state assessment", "Opportunity map"],
+        "successCriteria": ["Top 5 automation candidates identified"]
+      },
+      "phase2": {
+        "name": "Design & Build",
+        "duration": "8-12 weeks",
+        "activities": ["Build dispatch agents", "Integrate FSM and GIS"],
+        "stakeholders": ["Architects", "Developers"],
+        "deliverables": ["Agent workflows", "Integration APIs"],
+        "successCriteria": ["Agents meet accuracy targets"]
+      },
+      "phase3": {
+        "name": "Pilot",
+        "duration": "4-6 weeks",
+        "activities": ["Pilot in one region", "Collect KPIs"],
+        "stakeholders": ["Dispatchers", "Technicians"],
+        "deliverables": ["Pilot report"],
+        "successCriteria": ["MTTR reduced by 20%+"]
+      },
+      "phase4": {
+        "name": "Scale",
+        "duration": "8-12 weeks",
+        "activities": ["Rollout nationwide", "Continuous optimization"],
+        "stakeholders": ["All operations teams"],
+        "deliverables": ["Full deployment", "Training materials"],
+        "successCriteria": ["Target KPIs achieved"]
+      },
+      "totalTimeline": "23-34 weeks",
+      "resourceRequirements": {
+        "teamSize": "8-10",
+        "skills": ["AI engineers", "FSM specialists", "Process analysts"]
+      },
+      "budgetEstimate": "$600K - $1.1M",
+      "prerequisites": ["Data quality", "Executive sponsorship"]
+    },
+    "roi": {
+      "investment": {
+        "technology": "$250K",
+        "implementation": "$350K",
+        "training": "$50K",
+        "maintenance": "$120K/year",
+        "total": "$650K first year"
+      },
+      "returns": {
+        "costSavings": "$500K/year",
+        "revenueImpact": "$250K/year",
+        "efficiencyGains": "3 FTE equivalent",
+        "timeSavings": "18,000 hours/year"
+      },
+      "paybackPeriod": "10-12 months",
+      "threeYearNPV": "$1.1M",
+      "riskAdjustedROI": "155%"
+    },
+    "context": {
+      "businessImpact": "Directly impacts service reliability, operating costs, and customer satisfaction",
+      "currentPainPoints": [
+        "Manual dispatch delays",
+        "Low first-time fix rates",
+        "High repeat truck rolls"
+      ],
+      "transformationVision": "AI-orchestrated, real-time adaptive field service operations",
+      "competitiveAdvantage": "Faster resolution and lower service costs",
+      "customerImpact": "Faster repairs and fewer missed appointments",
+      "strategicAlignment": "Supports operational excellence and customer-first strategy"
+    },
+    "caseStudies": [
+      {
+        "title": "Telecom Operator Improves MTTR by 38%",
+        "industry": "Telecom",
+        "results": "Reduced MTTR from 40 to 25 hours",
+        "lessonsLearned": "Start with high-volume repair tickets",
+        "bestPractices": ["Phased rollout", "Dispatcher involvement"]
+      }
+    ],
+    "architecture": {
+      "orchestrationPattern": "Event-driven with continuous optimization",
+      "dataFlow": "Service ticket → Triage Agent → Dispatch Agent → Technician",
+      "decisionPoints": ["Severity classification", "SLA risk"],
+      "errorHandling": "Human-in-the-loop for low-confidence decisions",
+      "scalability": "Supports 10,000+ daily work orders",
+      "security": ["RBAC", "Encrypted APIs", "Audit logs"]
+    },
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "24-48 hours",
+        "steps": [
+          {"stepName": "Service Request Intake", "time": "10-20 minutes"},
+          {"stepName": "Technician Selection & Scheduling", "time": "1-2 hours"},
+          {"stepName": "Parts & Tools Preparation", "time": "30-60 minutes"},
+          {"stepName": "Customer Communication", "time": "10-20 minutes"},
+          {"stepName": "Field Execution & Resolution", "time": "2-4 hours"},
+          {"stepName": "Post-Service Verification", "time": "15-30 minutes"}
+        ],
+        "bottlenecks": ["Scheduling conflicts (1-2 hours)", "Skill mismatches", "Parts availability delays"]
+      },
+      "agenticProcess": {
+        "totalTime": "14-24 hours",
+        "steps": [
+          {"stepName": "Triage & Classification Agent", "time": "< 1 min"},
+          {"stepName": "Intelligent Dispatch Agent", "time": "< 2 min"},
+          {"stepName": "Parts & Inventory Agent", "time": "< 1 min"},
+          {"stepName": "Customer Communication Agent", "time": "< 1 min"},
+          {"stepName": "Real-Time Optimization Agent", "time": "Continuous"},
+          {"stepName": "Service Verification Agent", "time": "< 1 min"}
+        ],
+        "bottlenecks": ["Human exception handling", "Parts availability"]
+      },
+      "savings": {
+        "absolute": "10-24 hours",
+        "percentage": "35-50%"
+      }
+    },
+    "dependencies": {
+      "processDependencies": ["Customer Support", "Network Operations"],
+      "systemDependencies": ["FSM", "OSS", "GIS"],
+      "dataDependencies": ["Technician skills", "Network alarms"],
+      "organizationalDependencies": ["Dispatcher training", "Process ownership"],
+      "technologyPrerequisites": ["API access", "AI platform", "Cloud infrastructure"]
+    }
   },
   {
     "id": "billing-invoicing-disputes",
@@ -481,11 +2068,51 @@
     "description": "Automate billing accuracy, invoice generation, dispute resolution, and revenue reconciliation. Agentic AI ensures billing integrity, accelerates dispute resolution, and improves cash flow.",
     "businessGoal": "Eliminate billing errors, reduce dispute resolution time, and improve cash collection through intelligent automation.",
     "kpis": [
-      "Billing accuracy rate",
-      "Invoice dispute rate",
-      "Dispute resolution time",
-      "Days sales outstanding (DSO)",
-      "Cash collection rate"
+      {
+        "name": "Billing accuracy rate",
+        "baseline": 85,
+        "target": 98,
+        "improvement": "50-70% reduction in errors",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Invoice dispute rate",
+        "baseline": 8,
+        "target": 3,
+        "improvement": "30-45% decrease",
+        "unit": "percentage",
+        "category": "customer-satisfaction",
+        "priority": "primary"
+      },
+      {
+        "name": "Dispute resolution time",
+        "baseline": 7,
+        "target": 2,
+        "improvement": "40-60% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Days sales outstanding (DSO)",
+        "baseline": 45,
+        "target": 32,
+        "improvement": "15-25% improvement",
+        "unit": "days",
+        "category": "financial",
+        "priority": "secondary"
+      },
+      {
+        "name": "Cash collection rate",
+        "baseline": 88,
+        "target": 95,
+        "improvement": "25-35% increase in automated resolution",
+        "unit": "percentage",
+        "category": "financial",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["operational-excellence", "revenue-growth", "risk-mitigation", "customer-experience"],
     "fourW": {
@@ -560,13 +2187,251 @@
       "20-30% cost reduction in billing operations"
     ],
     "risksAndControls": [
-      "Human approval required for credit memos above threshold and complex disputes",
-      "Validation rules prevent billing errors before invoice generation",
-      "Audit trail of all billing calculations, dispute analyses, and resolution actions",
-      "Reconciliation controls to catch discrepancies between billing and collections",
-      "Regular review of automated resolution accuracy and customer feedback",
-      "Compliance with accounting standards and regulatory requirements"
-    ]
+      {
+        "description": "Incorrect billing calculations causing revenue loss or customer disputes",
+        "category": "financial",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated validation against usage data, human review for exceptions",
+        "monitoringApproach": "Monitor billing accuracy, track calculation errors",
+        "escalationPath": "Escalate to billing manager for high-value discrepancies",
+        "complianceRequirements": ["Billing validation", "Audit trail"]
+      },
+      {
+        "description": "Automated dispute resolution errors causing incorrect credits",
+        "category": "financial",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Human approval for credits above threshold, validation rules",
+        "monitoringApproach": "Track dispute resolution accuracy, monitor credit amounts",
+        "escalationPath": "Escalate to finance for high-value credits",
+        "complianceRequirements": ["Credit approval", "Financial controls"]
+      },
+      {
+        "description": "Reconciliation failures missing revenue discrepancies",
+        "category": "financial",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated reconciliation with exception reporting",
+        "monitoringApproach": "Monitor reconciliation success, track exceptions",
+        "escalationPath": "Flag for finance team review",
+        "complianceRequirements": ["Reconciliation controls", "Exception reporting"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Billing Error Rate",
+          "value": "10-15%",
+          "change": "-65%"
+        },
+        {
+          "label": "Dispute Resolution Time",
+          "value": "5-10 days",
+          "change": "-60%"
+        },
+        {
+          "label": "Invoice Dispute Rate",
+          "value": "6-10%",
+          "change": "-40%"
+        },
+        {
+          "label": "Days Sales Outstanding",
+          "value": "40-50 days",
+          "change": "-20%"
+        }
+      ],
+      "insights": [
+        "Billing errors cost telecom providers $1.2B annually in rework and customer dissatisfaction",
+        "Dispute resolution averages 5-10 days with manual processes",
+        "Automated validation reduces billing errors by 70%",
+        "Self-service dispute resolution improves customer satisfaction by 25%"
+      ],
+      "trends": [
+        "Demand for real-time billing and invoice visibility",
+        "Increasing complexity of multi-service billing",
+        "Shift toward automated dispute resolution",
+        "Integration of AI for billing accuracy and fraud detection"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Usage Data Collection & Mediation",
+        "description": "Manual usage data collection and processing",
+        "time": "2-4 hours",
+        "actions": ["Collect usage data from systems", "Mediate and normalize data", "Validate data quality", "Process usage records"],
+        "inputs": ["Network usage data", "Service records", "Mediation rules"],
+        "outputs": ["Mediated usage data", "Usage records"],
+        "dependencies": [],
+        "decisionPoints": ["Data quality", "Mediation rules"],
+        "errorHandling": "Manual correction if data errors"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Billing Calculation & Validation",
+        "description": "Manual billing calculation and validation",
+        "time": "4-8 hours",
+        "actions": ["Calculate charges", "Apply discounts", "Validate against usage", "Check for errors"],
+        "inputs": ["Usage data", "Pricing rules", "Discount policies", "Customer data"],
+        "outputs": ["Billing calculations", "Charge details"],
+        "dependencies": ["Usage Data Collection & Mediation"],
+        "decisionPoints": ["Pricing rules", "Discount eligibility"],
+        "errorHandling": "Manual correction if calculation errors"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Invoice Generation & Formatting",
+        "description": "Manual invoice creation and formatting",
+        "time": "2-4 hours",
+        "actions": ["Create invoice document", "Apply formatting", "Add line items", "Generate PDF"],
+        "inputs": ["Billing calculations", "Invoice templates", "Customer preferences"],
+        "outputs": ["Invoice document", "Formatted invoice"],
+        "dependencies": ["Billing Calculation & Validation"],
+        "decisionPoints": ["Invoice format", "Line item detail"],
+        "errorHandling": "Regenerate if formatting errors"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Dispute Receipt & Analysis",
+        "description": "Manual dispute receipt and analysis",
+        "time": "1-2 days",
+        "actions": ["Receive dispute claim", "Review billing data", "Analyze root cause", "Investigate issue"],
+        "inputs": ["Dispute claim", "Billing records", "Usage data", "Customer history"],
+        "outputs": ["Dispute analysis", "Root cause", "Resolution recommendation"],
+        "dependencies": ["Invoice Generation & Formatting"],
+        "decisionPoints": ["Dispute validity", "Root cause"],
+        "errorHandling": "Escalate if complex dispute"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Dispute Resolution & Credit Processing",
+        "description": "Manual dispute resolution and credit processing",
+        "time": "2-5 days",
+        "actions": ["Determine resolution", "Generate credit memo", "Update billing records", "Process credit"],
+        "inputs": ["Dispute analysis", "Resolution rules", "Credit policies"],
+        "outputs": ["Credit memo", "Updated billing", "Resolution confirmation"],
+        "dependencies": ["Dispute Receipt & Analysis"],
+        "decisionPoints": ["Resolution approach", "Credit amount"],
+        "errorHandling": "Manual review if credit exceeds threshold"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Revenue Reconciliation & Reporting",
+        "description": "Manual revenue reconciliation and reporting",
+        "time": "1-2 days",
+        "actions": ["Reconcile billed vs collected", "Identify discrepancies", "Generate reports", "Investigate exceptions"],
+        "inputs": ["Billing records", "Collection data", "Financial systems"],
+        "outputs": ["Reconciliation report", "Exception list"],
+        "dependencies": ["Dispute Resolution & Credit Processing"],
+        "decisionPoints": ["Discrepancy threshold", "Exception priority"],
+        "errorHandling": "Flag for investigation if discrepancies"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Billing Calculation Agent",
+        "description": "Automated billing calculation and validation",
+        "time": "< 5 min",
+        "actions": ["Collect usage data", "Calculate charges", "Apply discounts", "Validate against usage"],
+        "inputs": ["Usage data", "Pricing rules", "Customer data"],
+        "outputs": ["Billing calculations", "Validation results"],
+        "dependencies": [],
+        "decisionPoints": ["Pricing rules", "Validation threshold"],
+        "errorHandling": "Flag for review if validation fails"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Invoice Generation Agent",
+        "description": "Automated invoice creation and formatting",
+        "time": "< 2 min",
+        "actions": ["Generate invoice", "Apply formatting", "Personalize content", "Create PDF"],
+        "inputs": ["Billing calculations", "Invoice templates", "Customer preferences"],
+        "outputs": ["Invoice document", "Formatted invoice"],
+        "dependencies": ["Billing Calculation Agent"],
+        "decisionPoints": ["Template selection", "Formatting rules"],
+        "errorHandling": "Regenerate if formatting errors"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Dispute Analysis Agent",
+        "description": "Automated dispute analysis and root cause identification",
+        "time": "< 5 min",
+        "actions": ["Analyze dispute claim", "Compare with billing data", "Identify root cause", "Assess validity"],
+        "inputs": ["Dispute claim", "Billing records", "Usage data"],
+        "outputs": ["Dispute analysis", "Root cause", "Validity assessment"],
+        "dependencies": ["Invoice Generation Agent"],
+        "decisionPoints": ["Dispute validity", "Root cause confidence"],
+        "errorHandling": "Escalate to human if low confidence"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Dispute Resolution Agent",
+        "description": "Automated dispute resolution and credit processing",
+        "time": "< 3 min",
+        "actions": ["Determine resolution", "Generate credit memo", "Update accounts", "Process credit"],
+        "inputs": ["Dispute analysis", "Resolution rules", "Credit policies"],
+        "outputs": ["Credit memo", "Resolution confirmation"],
+        "dependencies": ["Dispute Analysis Agent"],
+        "decisionPoints": ["Resolution approach", "Credit threshold"],
+        "errorHandling": "Route to human for high-value credits"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Reconciliation Agent",
+        "description": "Automated revenue reconciliation and exception detection",
+        "time": "< 10 min",
+        "actions": ["Reconcile billed vs collected", "Identify discrepancies", "Generate exception report", "Prioritize exceptions"],
+        "inputs": ["Billing records", "Collection data", "Financial systems"],
+        "outputs": ["Reconciliation report", "Exception list"],
+        "dependencies": ["Dispute Resolution Agent"],
+        "decisionPoints": ["Discrepancy threshold", "Exception priority"],
+        "errorHandling": "Flag for finance review if high-value discrepancies"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Customer Communication Agent",
+        "description": "Automated customer notifications and updates",
+        "time": "< 1 min",
+        "actions": ["Send invoice notification", "Update on dispute status", "Notify of resolution", "Request payment"],
+        "inputs": ["Invoice", "Dispute status", "Customer preferences"],
+        "outputs": ["Customer notifications", "Communication log"],
+        "dependencies": ["Invoice Generation Agent", "Dispute Resolution Agent"],
+        "decisionPoints": ["Communication channel", "Notification timing"],
+        "errorHandling": "Retry with alternative channel if failed"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "10-20 days",
+        "steps": [
+          {"stepName": "Usage Data Collection & Mediation", "time": "2-4 hours"},
+          {"stepName": "Billing Calculation & Validation", "time": "4-8 hours"},
+          {"stepName": "Invoice Generation & Formatting", "time": "2-4 hours"},
+          {"stepName": "Dispute Receipt & Analysis", "time": "1-2 days"},
+          {"stepName": "Dispute Resolution & Credit Processing", "time": "2-5 days"},
+          {"stepName": "Revenue Reconciliation & Reporting", "time": "1-2 days"}
+        ],
+        "bottlenecks": ["Dispute resolution (2-5 days)", "Reconciliation (1-2 days)", "Manual validation"]
+      },
+      "agenticProcess": {
+        "totalTime": "2-4 days",
+        "steps": [
+          {"stepName": "Billing Calculation Agent", "time": "< 5 min"},
+          {"stepName": "Invoice Generation Agent", "time": "< 2 min"},
+          {"stepName": "Dispute Analysis Agent", "time": "< 5 min"},
+          {"stepName": "Dispute Resolution Agent", "time": "< 3 min"},
+          {"stepName": "Reconciliation Agent", "time": "< 10 min"},
+          {"stepName": "Customer Communication Agent", "time": "< 1 min"}
+        ],
+        "bottlenecks": ["Human approval for high-value credits", "Complex dispute analysis"]
+      },
+      "savings": {
+        "absolute": "8-16 days",
+        "percentage": "40-60%"
+      }
+    }
   },
   {
     "id": "revenue-assurance-leakage",
@@ -575,11 +2440,51 @@
     "description": "Proactively detect and prevent revenue leakage through intelligent analysis of usage data, billing reconciliation, and exception detection. Agentic AI identifies revenue risks, quantifies impact, and triggers remediation workflows.",
     "businessGoal": "Minimize revenue leakage, improve billing accuracy, and ensure complete revenue capture across all services and channels.",
     "kpis": [
-      "Revenue leakage percentage",
-      "Leakage detection time",
-      "Revenue recovery rate",
-      "Billing completeness",
-      "Exception resolution rate"
+      {
+        "name": "Revenue leakage percentage",
+        "baseline": 3.5,
+        "target": 1.5,
+        "improvement": "30-50% reduction",
+        "unit": "percentage of revenue",
+        "category": "financial",
+        "priority": "primary"
+      },
+      {
+        "name": "Leakage detection time",
+        "baseline": 90,
+        "target": 7,
+        "improvement": "60-80% faster detection",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Revenue recovery rate",
+        "baseline": 60,
+        "target": 80,
+        "improvement": "25-40% improvement",
+        "unit": "percentage",
+        "category": "financial",
+        "priority": "primary"
+      },
+      {
+        "name": "Billing completeness",
+        "baseline": 92,
+        "target": 98,
+        "improvement": "20-30% increase",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "secondary"
+      },
+      {
+        "name": "Exception resolution rate",
+        "baseline": 70,
+        "target": 90,
+        "improvement": "15-25% improvement",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["revenue-growth", "risk-mitigation", "operational-excellence", "data-driven-insights"],
     "fourW": {
@@ -654,13 +2559,251 @@
       "Significant ROI through recovered revenue (typically 2-5% of total revenue)"
     ],
     "risksAndControls": [
-      "Human approval required for revenue recovery actions and billing corrections",
-      "Validation of leakage detection algorithms to prevent false positives",
-      "Audit trail of all detection analyses, root cause investigations, and remediation actions",
-      "Regular calibration of detection models against known leakage cases",
-      "Segregation of duties: detection, analysis, and remediation require different approvals",
-      "Compliance with financial controls and regulatory reporting requirements"
-    ]
+      {
+        "description": "False positive leakage detection causing unnecessary investigations",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Validation algorithms, confidence thresholds, human review",
+        "monitoringApproach": "Track false positive rate, calibrate models regularly",
+        "escalationPath": "Review detection accuracy monthly",
+        "complianceRequirements": ["Model validation", "Accuracy monitoring"]
+      },
+      {
+        "description": "Incorrect revenue recovery actions causing financial errors",
+        "category": "financial",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Human approval for recovery actions, validation rules",
+        "monitoringApproach": "Monitor recovery accuracy, track financial impact",
+        "escalationPath": "Escalate to finance for high-value recoveries",
+        "complianceRequirements": ["Financial controls", "Approval workflows"]
+      },
+      {
+        "description": "Data quality issues affecting detection accuracy",
+        "category": "technical",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Data quality validation, automated data cleansing",
+        "monitoringApproach": "Monitor data quality metrics, track detection accuracy",
+        "escalationPath": "Alert data team for quality issues",
+        "complianceRequirements": ["Data quality standards", "Validation rules"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Revenue Leakage",
+          "value": "2-5% of revenue",
+          "change": "-50%"
+        },
+        {
+          "label": "Leakage Detection Time",
+          "value": "60-120 days",
+          "change": "-85%"
+        },
+        {
+          "label": "Revenue Recovery Rate",
+          "value": "55-65%",
+          "change": "+30%"
+        },
+        {
+          "label": "Billing Completeness",
+          "value": "90-95%",
+          "change": "+25%"
+        }
+      ],
+      "insights": [
+        "Revenue leakage costs telecom providers 2-5% of total revenue annually ($2-5B for large operators)",
+        "Manual detection processes identify leakage 60-120 days after occurrence",
+        "Proactive detection reduces leakage impact by 50-70%",
+        "Automated reconciliation improves billing completeness by 20-30%"
+      ],
+      "trends": [
+        "Shift toward real-time revenue assurance",
+        "Integration of AI/ML for pattern detection",
+        "Demand for predictive leakage prevention",
+        "Automated remediation workflows"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Data Collection & Aggregation",
+        "description": "Manual data collection from multiple sources",
+        "time": "1-2 days",
+        "actions": ["Collect usage data", "Gather billing records", "Aggregate revenue streams", "Validate data quality"],
+        "inputs": ["Network systems", "Billing systems", "Financial systems"],
+        "outputs": ["Aggregated data", "Data quality report"],
+        "dependencies": [],
+        "decisionPoints": ["Data completeness", "Quality threshold"],
+        "errorHandling": "Manual correction if data errors"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Leakage Detection & Analysis",
+        "description": "Manual pattern analysis and leakage identification",
+        "time": "2-4 weeks",
+        "actions": ["Analyze data patterns", "Identify anomalies", "Investigate discrepancies", "Quantify leakage"],
+        "inputs": ["Aggregated data", "Historical patterns", "Detection rules"],
+        "outputs": ["Leakage scenarios", "Impact quantification"],
+        "dependencies": ["Data Collection & Aggregation"],
+        "decisionPoints": ["Leakage threshold", "Investigation priority"],
+        "errorHandling": "Manual review if unclear patterns"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Reconciliation & Validation",
+        "description": "Manual reconciliation and validation",
+        "time": "1-2 weeks",
+        "actions": ["Reconcile usage vs billing", "Validate discrepancies", "Cross-check systems", "Verify leakage"],
+        "inputs": ["Leakage scenarios", "Usage data", "Billing records"],
+        "outputs": ["Reconciliation results", "Validated leakage"],
+        "dependencies": ["Leakage Detection & Analysis"],
+        "decisionPoints": ["Reconciliation accuracy", "Validation threshold"],
+        "errorHandling": "Re-investigate if validation fails"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Root Cause Investigation",
+        "description": "Manual root cause analysis",
+        "time": "1-2 weeks",
+        "actions": ["Trace leakage sources", "Identify process gaps", "Analyze system issues", "Document root causes"],
+        "inputs": ["Validated leakage", "System logs", "Process documentation"],
+        "outputs": ["Root cause analysis", "Process gaps identified"],
+        "dependencies": ["Reconciliation & Validation"],
+        "decisionPoints": ["Root cause confidence", "Investigation depth"],
+        "errorHandling": "Escalate if cannot identify root cause"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Remediation Planning & Execution",
+        "description": "Manual remediation planning and execution",
+        "time": "2-4 weeks",
+        "actions": ["Plan recovery actions", "Design process fixes", "Execute billing corrections", "Implement fixes"],
+        "inputs": ["Root cause analysis", "Recovery rules", "Process documentation"],
+        "outputs": ["Recovery actions", "Process improvements"],
+        "dependencies": ["Root Cause Investigation"],
+        "decisionPoints": ["Recovery approach", "Fix priority"],
+        "errorHandling": "Manual review for high-value recoveries"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting & Monitoring",
+        "description": "Manual reporting and monitoring setup",
+        "time": "3-5 days",
+        "actions": ["Generate reports", "Document findings", "Set up monitoring", "Track recovery"],
+        "inputs": ["Remediation results", "Recovery data", "Reporting templates"],
+        "outputs": ["Assurance reports", "Monitoring dashboards"],
+        "dependencies": ["Remediation Planning & Execution"],
+        "decisionPoints": ["Report format", "Monitoring frequency"],
+        "errorHandling": "Update reports if data issues"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Data Collection Agent",
+        "description": "Automated data ingestion and aggregation",
+        "time": "< 30 min",
+        "actions": ["Ingest usage data", "Collect billing records", "Aggregate revenue streams", "Validate data quality"],
+        "inputs": ["Network systems", "Billing systems", "Financial systems"],
+        "outputs": ["Aggregated data", "Quality metrics"],
+        "dependencies": [],
+        "decisionPoints": ["Data completeness", "Quality threshold"],
+        "errorHandling": "Alert data team if quality issues"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Leakage Detection Agent",
+        "description": "Automated pattern detection and leakage identification",
+        "time": "< 2 hours",
+        "actions": ["Analyze patterns using ML", "Detect anomalies", "Identify leakage scenarios", "Quantify impact"],
+        "inputs": ["Aggregated data", "ML models", "Detection rules"],
+        "outputs": ["Leakage scenarios", "Impact scores"],
+        "dependencies": ["Data Collection Agent"],
+        "decisionPoints": ["Confidence threshold", "Impact threshold"],
+        "errorHandling": "Flag for human review if low confidence"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Reconciliation Agent",
+        "description": "Automated reconciliation and validation",
+        "time": "< 1 hour",
+        "actions": ["Reconcile usage vs billing", "Validate discrepancies", "Cross-check systems", "Verify leakage"],
+        "inputs": ["Leakage scenarios", "Usage data", "Billing records"],
+        "outputs": ["Reconciliation results", "Validated leakage"],
+        "dependencies": ["Leakage Detection Agent"],
+        "decisionPoints": ["Reconciliation threshold", "Validation confidence"],
+        "errorHandling": "Escalate if validation fails"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Root Cause Analysis Agent",
+        "description": "Automated root cause investigation",
+        "time": "< 3 hours",
+        "actions": ["Trace leakage sources", "Analyze system logs", "Identify process gaps", "Document root causes"],
+        "inputs": ["Validated leakage", "System logs", "Process data"],
+        "outputs": ["Root cause analysis", "Gap identification"],
+        "dependencies": ["Reconciliation Agent"],
+        "decisionPoints": ["Root cause confidence", "Analysis depth"],
+        "errorHandling": "Escalate to analysts if complex"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Remediation Agent",
+        "description": "Automated remediation planning and execution",
+        "time": "< 1 day",
+        "actions": ["Plan recovery actions", "Generate billing corrections", "Trigger process fixes", "Execute recovery"],
+        "inputs": ["Root cause analysis", "Recovery rules", "Process templates"],
+        "outputs": ["Recovery actions", "Process improvements"],
+        "dependencies": ["Root Cause Analysis Agent"],
+        "decisionPoints": ["Recovery approach", "Approval threshold"],
+        "errorHandling": "Route to human for high-value recoveries"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting Agent",
+        "description": "Automated reporting and monitoring",
+        "time": "< 30 min",
+        "actions": ["Generate reports", "Create dashboards", "Set up alerts", "Track recovery"],
+        "inputs": ["Remediation results", "Recovery data", "Report templates"],
+        "outputs": ["Assurance reports", "Monitoring dashboards"],
+        "dependencies": ["Remediation Agent"],
+        "decisionPoints": ["Report format", "Alert thresholds"],
+        "errorHandling": "Regenerate if data issues"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "60-120 days",
+        "steps": [
+          {"stepName": "Data Collection & Aggregation", "time": "1-2 days"},
+          {"stepName": "Leakage Detection & Analysis", "time": "2-4 weeks"},
+          {"stepName": "Reconciliation & Validation", "time": "1-2 weeks"},
+          {"stepName": "Root Cause Investigation", "time": "1-2 weeks"},
+          {"stepName": "Remediation Planning & Execution", "time": "2-4 weeks"},
+          {"stepName": "Reporting & Monitoring", "time": "3-5 days"}
+        ],
+        "bottlenecks": ["Leakage detection (2-4 weeks)", "Root cause investigation (1-2 weeks)", "Manual analysis"]
+      },
+      "agenticProcess": {
+        "totalTime": "7-14 days",
+        "steps": [
+          {"stepName": "Data Collection Agent", "time": "< 30 min"},
+          {"stepName": "Leakage Detection Agent", "time": "< 2 hours"},
+          {"stepName": "Reconciliation Agent", "time": "< 1 hour"},
+          {"stepName": "Root Cause Analysis Agent", "time": "< 3 hours"},
+          {"stepName": "Remediation Agent", "time": "< 1 day"},
+          {"stepName": "Reporting Agent", "time": "< 30 min"}
+        ],
+        "bottlenecks": ["Human approval for high-value recoveries", "Complex root cause analysis"]
+      },
+      "savings": {
+        "absolute": "53-106 days",
+        "percentage": "60-80%"
+      }
+    }
   },
   {
     "id": "retention-offer-management",
@@ -669,11 +2812,51 @@
     "description": "Intelligently identify at-risk customers, design personalized retention offers, and orchestrate multi-channel campaigns. Agentic AI improves retention rates, optimizes offer economics, and enhances customer lifetime value.",
     "businessGoal": "Reduce churn, improve customer lifetime value, and optimize retention spend through data-driven, personalized offers.",
     "kpis": [
-      "Customer churn rate",
-      "Retention offer acceptance rate",
-      "Customer lifetime value (CLV)",
-      "Retention cost per saved customer",
-      "Net revenue retention"
+      {
+        "name": "Customer churn rate",
+        "baseline": 2.5,
+        "target": 1.8,
+        "improvement": "20-30% reduction",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "primary"
+      },
+      {
+        "name": "Retention offer acceptance rate",
+        "baseline": 35,
+        "target": 55,
+        "improvement": "35-50% improvement",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "primary"
+      },
+      {
+        "name": "Customer lifetime value (CLV)",
+        "baseline": 1200,
+        "target": 1500,
+        "improvement": "15-25% increase",
+        "unit": "dollars",
+        "category": "revenue",
+        "priority": "secondary"
+      },
+      {
+        "name": "Retention cost per saved customer",
+        "baseline": 150,
+        "target": 105,
+        "improvement": "20-30% reduction",
+        "unit": "dollars",
+        "category": "cost-optimization",
+        "priority": "secondary"
+      },
+      {
+        "name": "Net revenue retention",
+        "baseline": 95,
+        "target": 105,
+        "improvement": "10-15% improvement",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["revenue-growth", "customer-experience", "data-driven-insights", "cost-optimization"],
     "fourW": {
@@ -748,13 +2931,251 @@
       "30-40% increase in campaign efficiency and ROI"
     ],
     "risksAndControls": [
-      "Human approval required for high-value offers and policy exceptions",
-      "Offer economics validation to ensure profitability and prevent over-discounting",
-      "Audit trail of all churn predictions, offer designs, and campaign actions",
-      "Regular review of predictive models and offer performance",
-      "Compliance with marketing regulations and customer consent management",
-      "A/B testing and controlled experiments to validate offer effectiveness"
-    ]
+      {
+        "description": "Over-discounting causing revenue loss or unprofitable retention",
+        "category": "financial",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Offer economics validation, profitability checks, human approval for high-value offers",
+        "monitoringApproach": "Monitor offer economics, track profitability by customer segment",
+        "escalationPath": "Escalate to retention manager for high-value offers",
+        "complianceRequirements": ["Offer approval", "Economics validation"]
+      },
+      {
+        "description": "Incorrect churn prediction leading to unnecessary retention spend",
+        "category": "financial",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Model validation, confidence thresholds, regular calibration",
+        "monitoringApproach": "Track prediction accuracy, monitor false positive rate",
+        "escalationPath": "Review models monthly, adjust thresholds",
+        "complianceRequirements": ["Model validation", "Accuracy monitoring"]
+      },
+      {
+        "description": "Marketing compliance violations in offer delivery",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Compliance checks, consent management, approved templates",
+        "monitoringApproach": "Audit campaigns regularly, track consent compliance",
+        "escalationPath": "Block non-compliant offers, alert legal team",
+        "complianceRequirements": ["Marketing regulations", "Consent management"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Customer Churn Rate",
+          "value": "2.0-3.0%",
+          "change": "-25%"
+        },
+        {
+          "label": "Retention Offer Acceptance",
+          "value": "30-40%",
+          "change": "+50%"
+        },
+        {
+          "label": "Retention Cost per Customer",
+          "value": "$120-$180",
+          "change": "-30%"
+        },
+        {
+          "label": "Customer Lifetime Value",
+          "value": "$1,000-$1,400",
+          "change": "+20%"
+        }
+      ],
+      "insights": [
+        "Customer churn costs telecom providers $2-3B annually in lost revenue",
+        "Predictive churn models improve retention rates by 30-40%",
+        "Personalized offers increase acceptance rates by 50-70%",
+        "Early intervention reduces retention costs by 25-35%"
+      ],
+      "trends": [
+        "Shift toward predictive churn prevention",
+        "Demand for personalized, real-time offers",
+        "Integration of behavioral analytics",
+        "Multi-channel campaign orchestration"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Churn Risk Analysis",
+        "description": "Manual churn risk assessment",
+        "time": "2-4 days",
+        "actions": ["Collect customer data", "Analyze usage patterns", "Review service history", "Assess churn risk"],
+        "inputs": ["Customer data", "Usage records", "Service history", "Churn indicators"],
+        "outputs": ["Churn risk scores", "At-risk customer list"],
+        "dependencies": [],
+        "decisionPoints": ["Churn risk threshold", "Customer segmentation"],
+        "errorHandling": "Manual review if unclear risk"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Offer Design & Economics",
+        "description": "Manual offer design and economics calculation",
+        "time": "1-2 days",
+        "actions": ["Design retention offers", "Calculate offer economics", "Validate profitability", "Approve offers"],
+        "inputs": ["At-risk customers", "Offer templates", "Pricing rules", "Customer value"],
+        "outputs": ["Designed offers", "Economics validation"],
+        "dependencies": ["Churn Risk Analysis"],
+        "decisionPoints": ["Offer type", "Discount level", "Profitability threshold"],
+        "errorHandling": "Rework offer if not profitable"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Campaign Planning & Setup",
+        "description": "Manual campaign planning and setup",
+        "time": "2-3 days",
+        "actions": ["Plan campaign channels", "Create campaign content", "Set up delivery", "Schedule touchpoints"],
+        "inputs": ["Designed offers", "Customer preferences", "Channel templates", "Campaign rules"],
+        "outputs": ["Campaign plan", "Content assets"],
+        "dependencies": ["Offer Design & Economics"],
+        "decisionPoints": ["Channel selection", "Timing strategy"],
+        "errorHandling": "Adjust plan if issues"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Campaign Execution & Delivery",
+        "description": "Manual campaign execution and delivery",
+        "time": "1-2 weeks",
+        "actions": ["Execute campaigns", "Deliver offers", "Track delivery", "Monitor responses"],
+        "inputs": ["Campaign plan", "Customer contacts", "Delivery systems"],
+        "outputs": ["Delivered offers", "Delivery status"],
+        "dependencies": ["Campaign Planning & Setup"],
+        "decisionPoints": ["Delivery timing", "Response tracking"],
+        "errorHandling": "Retry delivery if failed"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Response Tracking & Optimization",
+        "description": "Manual response tracking and optimization",
+        "time": "1-2 weeks",
+        "actions": ["Track offer responses", "Analyze performance", "Optimize offers", "Adjust campaigns"],
+        "inputs": ["Response data", "Performance metrics", "Optimization rules"],
+        "outputs": ["Performance analysis", "Optimization recommendations"],
+        "dependencies": ["Campaign Execution & Delivery"],
+        "decisionPoints": ["Optimization threshold", "Campaign adjustments"],
+        "errorHandling": "Manual review if low performance"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Retention Confirmation & Reporting",
+        "description": "Manual retention confirmation and reporting",
+        "time": "3-5 days",
+        "actions": ["Confirm retentions", "Calculate ROI", "Generate reports", "Update customer records"],
+        "inputs": ["Response data", "Retention confirmations", "Cost data"],
+        "outputs": ["Retention report", "ROI analysis"],
+        "dependencies": ["Response Tracking & Optimization"],
+        "decisionPoints": ["Retention confirmation", "Report format"],
+        "errorHandling": "Verify if retention unclear"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Churn Prediction Agent",
+        "description": "Automated churn risk prediction",
+        "time": "< 5 min",
+        "actions": ["Analyze customer behavior", "Calculate churn risk", "Segment customers", "Prioritize at-risk"],
+        "inputs": ["Customer data", "Usage patterns", "ML models", "Historical churn"],
+        "outputs": ["Churn risk scores", "At-risk customer list"],
+        "dependencies": [],
+        "decisionPoints": ["Risk threshold", "Segmentation rules"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Offer Design Agent",
+        "description": "Automated personalized offer design",
+        "time": "< 3 min",
+        "actions": ["Design personalized offers", "Calculate economics", "Validate profitability", "Optimize value"],
+        "inputs": ["At-risk customers", "Customer value", "Offer templates", "Economics rules"],
+        "outputs": ["Designed offers", "Economics validation"],
+        "dependencies": ["Churn Prediction Agent"],
+        "decisionPoints": ["Offer type", "Discount optimization", "Profitability threshold"],
+        "errorHandling": "Route to human for high-value offers"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Campaign Orchestrator Agent",
+        "description": "Automated multi-channel campaign orchestration",
+        "time": "< 2 min",
+        "actions": ["Select channels", "Sequence touchpoints", "Optimize timing", "Create content"],
+        "inputs": ["Designed offers", "Customer preferences", "Channel rules", "Timing algorithms"],
+        "outputs": ["Campaign plan", "Content assets"],
+        "dependencies": ["Offer Design Agent"],
+        "decisionPoints": ["Channel optimization", "Timing strategy"],
+        "errorHandling": "Adjust if channel issues"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Optimization Agent",
+        "description": "Continuous offer and campaign optimization",
+        "time": "Continuous",
+        "actions": ["Monitor response rates", "Optimize offer parameters", "Adjust campaigns", "A/B test variations"],
+        "inputs": ["Response data", "Performance metrics", "Optimization algorithms"],
+        "outputs": ["Optimized offers", "Campaign adjustments"],
+        "dependencies": ["Campaign Orchestrator Agent"],
+        "decisionPoints": ["Optimization threshold", "A/B test criteria"],
+        "errorHandling": "Revert if performance degrades"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Performance Analyst Agent",
+        "description": "Automated performance analysis and reporting",
+        "time": "< 5 min",
+        "actions": ["Analyze campaign performance", "Calculate ROI", "Generate insights", "Create reports"],
+        "inputs": ["Response data", "Cost data", "Retention confirmations"],
+        "outputs": ["Performance analysis", "ROI report"],
+        "dependencies": ["Optimization Agent"],
+        "decisionPoints": ["ROI calculation", "Report format"],
+        "errorHandling": "Flag for review if data issues"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Customer Communication Agent",
+        "description": "Automated customer communication and follow-up",
+        "time": "< 1 min",
+        "actions": ["Send offer notifications", "Track responses", "Follow up if needed", "Confirm retention"],
+        "inputs": ["Campaign plan", "Customer contacts", "Response data"],
+        "outputs": ["Customer notifications", "Response tracking"],
+        "dependencies": ["Campaign Orchestrator Agent"],
+        "decisionPoints": ["Communication timing", "Follow-up criteria"],
+        "errorHandling": "Retry with alternative channel if failed"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "20-35 days",
+        "steps": [
+          {"stepName": "Churn Risk Analysis", "time": "2-4 days"},
+          {"stepName": "Offer Design & Economics", "time": "1-2 days"},
+          {"stepName": "Campaign Planning & Setup", "time": "2-3 days"},
+          {"stepName": "Campaign Execution & Delivery", "time": "1-2 weeks"},
+          {"stepName": "Response Tracking & Optimization", "time": "1-2 weeks"},
+          {"stepName": "Retention Confirmation & Reporting", "time": "3-5 days"}
+        ],
+        "bottlenecks": ["Campaign execution (1-2 weeks)", "Response tracking (1-2 weeks)", "Manual optimization"]
+      },
+      "agenticProcess": {
+        "totalTime": "5-10 days",
+        "steps": [
+          {"stepName": "Churn Prediction Agent", "time": "< 5 min"},
+          {"stepName": "Offer Design Agent", "time": "< 3 min"},
+          {"stepName": "Campaign Orchestrator Agent", "time": "< 2 min"},
+          {"stepName": "Optimization Agent", "time": "Continuous"},
+          {"stepName": "Performance Analyst Agent", "time": "< 5 min"},
+          {"stepName": "Customer Communication Agent", "time": "< 1 min"}
+        ],
+        "bottlenecks": ["Human approval for high-value offers", "Campaign response time"]
+      },
+      "savings": {
+        "absolute": "15-25 days",
+        "percentage": "50-70%"
+      }
+    }
   },
   {
     "id": "network-operations-noc",
@@ -763,11 +3184,51 @@
     "description": "Transform network operations through intelligent monitoring, automated incident detection, root cause analysis, and proactive remediation. Agentic AI reduces MTTR, prevents outages, and optimizes network performance.",
     "businessGoal": "Achieve proactive network management, reduce incident resolution time, and improve network reliability and performance.",
     "kpis": [
-      "Mean time to detect (MTTD)",
-      "Mean time to resolve (MTTR)",
-      "Network availability",
-      "Incident prevention rate",
-      "False positive alarm rate"
+      {
+        "name": "Mean time to detect (MTTD)",
+        "baseline": 15,
+        "target": 3,
+        "improvement": "50-70% reduction",
+        "unit": "minutes",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Mean time to resolve (MTTR)",
+        "baseline": 45,
+        "target": 15,
+        "improvement": "40-60% reduction",
+        "unit": "minutes",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Network availability",
+        "baseline": 99.5,
+        "target": 99.9,
+        "improvement": "30-45% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Incident prevention rate",
+        "baseline": 25,
+        "target": 45,
+        "improvement": "25-35% increase",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "False positive alarm rate",
+        "baseline": 40,
+        "target": 10,
+        "improvement": "60-80% reduction",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["operational-excellence", "customer-experience", "cost-optimization", "risk-mitigation"],
     "fourW": {
@@ -842,13 +3303,251 @@
       "20-30% cost reduction in NOC operations"
     ],
     "risksAndControls": [
-      "Human approval required for network-affecting remediation actions",
-      "Validation of automated fixes before execution to prevent service disruption",
-      "Audit trail of all monitoring, diagnostics, and remediation actions",
-      "Escalation triggers for critical incidents, VIP customers, and policy exceptions",
-      "Network change management controls for configuration modifications",
-      "Regular review of AI model accuracy and false positive rates"
-    ]
+      {
+        "description": "Incorrect automated remediation causing network service disruption",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human approval for network-affecting actions, validation before execution",
+        "monitoringApproach": "Monitor remediation success rate, track service disruptions",
+        "escalationPath": "Escalate to network engineering for critical fixes",
+        "complianceRequirements": ["Change management", "Audit trail"]
+      },
+      {
+        "description": "False positive alarms causing unnecessary interventions",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Alarm correlation, confidence thresholds, model calibration",
+        "monitoringApproach": "Track false positive rate, monitor alarm accuracy",
+        "escalationPath": "Review correlation rules monthly",
+        "complianceRequirements": ["Model validation", "Accuracy monitoring"]
+      },
+      {
+        "description": "Missed critical incidents due to alarm noise",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Intelligent correlation, priority scoring, escalation triggers",
+        "monitoringApproach": "Monitor incident detection rate, track missed incidents",
+        "escalationPath": "Alert operations manager for critical incidents",
+        "complianceRequirements": ["Incident detection", "Escalation procedures"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Mean Time to Detect",
+          "value": "10-20 minutes",
+          "change": "-70%"
+        },
+        {
+          "label": "Average Mean Time to Resolve",
+          "value": "30-60 minutes",
+          "change": "-60%"
+        },
+        {
+          "label": "Network Availability",
+          "value": "99.5-99.7%",
+          "change": "+0.3%"
+        },
+        {
+          "label": "False Positive Alarm Rate",
+          "value": "35-45%",
+          "change": "-75%"
+        }
+      ],
+      "insights": [
+        "Network downtime costs telecom providers $5,600 per minute",
+        "Proactive monitoring prevents 70% of customer-impacting incidents",
+        "AI-driven root cause analysis reduces MTTR by 75%",
+        "Alarm fatigue reduces NOC engineer productivity by 30-40%"
+      ],
+      "trends": [
+        "5G network complexity requires advanced monitoring",
+        "Edge computing demands distributed assurance",
+        "Real-time performance optimization",
+        "Shift toward predictive network management"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Network Monitoring & Alarm Collection",
+        "description": "Manual monitoring and alarm review",
+        "time": "Continuous",
+        "actions": ["Monitor network systems", "Collect alarms", "Review alarm streams", "Identify issues"],
+        "inputs": ["Network systems", "Monitoring tools", "Alarm streams"],
+        "outputs": ["Collected alarms", "Issue identification"],
+        "dependencies": [],
+        "decisionPoints": ["Alarm priority", "Issue severity"],
+        "errorHandling": "Manual review if unclear"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Alarm Correlation & Noise Reduction",
+        "description": "Manual alarm correlation and filtering",
+        "time": "15-30 minutes",
+        "actions": ["Correlate related alarms", "Filter noise", "Identify root cause events", "Reduce alarm volume"],
+        "inputs": ["Collected alarms", "Network topology", "Correlation rules"],
+        "outputs": ["Correlated alarms", "Root cause events"],
+        "dependencies": ["Network Monitoring & Alarm Collection"],
+        "decisionPoints": ["Correlation rules", "Noise threshold"],
+        "errorHandling": "Manual correlation if complex"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Issue Diagnosis & Root Cause Analysis",
+        "description": "Manual diagnosis and root cause analysis",
+        "time": "30-60 minutes",
+        "actions": ["Analyze network topology", "Review dependencies", "Diagnose root cause", "Identify impact"],
+        "inputs": ["Correlated alarms", "Network topology", "Configuration data", "Historical incidents"],
+        "outputs": ["Diagnosis", "Root cause", "Impact assessment"],
+        "dependencies": ["Alarm Correlation & Noise Reduction"],
+        "decisionPoints": ["Root cause confidence", "Impact severity"],
+        "errorHandling": "Escalate if cannot diagnose"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Remediation Planning & Execution",
+        "description": "Manual remediation planning and execution",
+        "time": "30-90 minutes",
+        "actions": ["Plan remediation", "Validate fix approach", "Execute fix", "Monitor results"],
+        "inputs": ["Diagnosis", "Remediation procedures", "Network systems"],
+        "outputs": ["Remediation plan", "Fix execution"],
+        "dependencies": ["Issue Diagnosis & Root Cause Analysis"],
+        "decisionPoints": ["Fix approach", "Execution approval"],
+        "errorHandling": "Try alternative fix if failed"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Service Verification & Restoration",
+        "description": "Manual service verification and restoration confirmation",
+        "time": "15-30 minutes",
+        "actions": ["Verify service restoration", "Test connectivity", "Confirm resolution", "Update status"],
+        "inputs": ["Fix execution", "Service tests", "Monitoring data"],
+        "outputs": ["Verification results", "Service status"],
+        "dependencies": ["Remediation Planning & Execution"],
+        "decisionPoints": ["Service restoration", "Verification threshold"],
+        "errorHandling": "Re-investigate if not restored"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Incident Documentation & Closure",
+        "description": "Manual incident documentation and closure",
+        "time": "10-20 minutes",
+        "actions": ["Document incident", "Update knowledge base", "Close incident", "Generate report"],
+        "inputs": ["Incident details", "Resolution data", "Knowledge base"],
+        "outputs": ["Incident documentation", "Knowledge update"],
+        "dependencies": ["Service Verification & Restoration"],
+        "decisionPoints": ["Documentation completeness", "Knowledge value"],
+        "errorHandling": "Reopen if issues persist"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Monitoring Agent",
+        "description": "Continuous automated network monitoring",
+        "time": "Real-time",
+        "actions": ["Monitor network health", "Collect performance metrics", "Stream alarm data", "Detect anomalies"],
+        "inputs": ["Network systems", "Monitoring tools", "Performance baselines"],
+        "outputs": ["Network status", "Alarm streams", "Anomaly alerts"],
+        "dependencies": [],
+        "decisionPoints": ["Anomaly threshold", "Alarm priority"],
+        "errorHandling": "Alert operations if monitoring fails"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Correlation Agent",
+        "description": "Automated alarm correlation and noise reduction",
+        "time": "< 2 min",
+        "actions": ["Correlate related alarms", "Reduce noise", "Identify root events", "Prioritize incidents"],
+        "inputs": ["Alarm streams", "Network topology", "Correlation ML models"],
+        "outputs": ["Correlated incidents", "Root cause events"],
+        "dependencies": ["Monitoring Agent"],
+        "decisionPoints": ["Correlation confidence", "Priority threshold"],
+        "errorHandling": "Flag for human review if low confidence"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Diagnostic Agent",
+        "description": "Automated root cause diagnosis",
+        "time": "< 5 min",
+        "actions": ["Analyze topology", "Review dependencies", "Diagnose root cause", "Assess impact"],
+        "inputs": ["Correlated incidents", "Network topology", "Configuration data", "Historical patterns"],
+        "outputs": ["Root cause diagnosis", "Impact assessment"],
+        "dependencies": ["Correlation Agent"],
+        "decisionPoints": ["Diagnosis confidence", "Impact severity"],
+        "errorHandling": "Escalate to engineers if complex"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Remediation Agent",
+        "description": "Automated remediation execution",
+        "time": "< 10 min",
+        "actions": ["Select remediation", "Validate approach", "Execute fix", "Monitor execution"],
+        "inputs": ["Root cause diagnosis", "Remediation procedures", "Network systems"],
+        "outputs": ["Remediation execution", "Fix status"],
+        "dependencies": ["Diagnostic Agent"],
+        "decisionPoints": ["Fix approval", "Execution confidence"],
+        "errorHandling": "Route to human for network-affecting fixes"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Verification Agent",
+        "description": "Automated service verification and restoration",
+        "time": "< 3 min",
+        "actions": ["Verify service restoration", "Test connectivity", "Confirm resolution", "Update status"],
+        "inputs": ["Remediation status", "Service tests", "Monitoring data"],
+        "outputs": ["Verification results", "Service status"],
+        "dependencies": ["Remediation Agent"],
+        "decisionPoints": ["Restoration confirmation", "Verification threshold"],
+        "errorHandling": "Flag for re-investigation if not restored"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Knowledge Enrichment Agent",
+        "description": "Automated knowledge base update",
+        "time": "< 2 min",
+        "actions": ["Extract incident learnings", "Update knowledge base", "Link related incidents", "Improve future matching"],
+        "inputs": ["Resolved incident", "Diagnosis data", "Knowledge base"],
+        "outputs": ["Updated knowledge", "Incident linkage"],
+        "dependencies": ["Verification Agent"],
+        "decisionPoints": ["Knowledge value", "Update approval"],
+        "errorHandling": "Flag for review if low confidence"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "1.5-3 hours",
+        "steps": [
+          {"stepName": "Network Monitoring & Alarm Collection", "time": "Continuous"},
+          {"stepName": "Alarm Correlation & Noise Reduction", "time": "15-30 minutes"},
+          {"stepName": "Issue Diagnosis & Root Cause Analysis", "time": "30-60 minutes"},
+          {"stepName": "Remediation Planning & Execution", "time": "30-90 minutes"},
+          {"stepName": "Service Verification & Restoration", "time": "15-30 minutes"},
+          {"stepName": "Incident Documentation & Closure", "time": "10-20 minutes"}
+        ],
+        "bottlenecks": ["Issue diagnosis (30-60 min)", "Remediation execution (30-90 min)", "Manual correlation"]
+      },
+      "agenticProcess": {
+        "totalTime": "15-30 minutes",
+        "steps": [
+          {"stepName": "Monitoring Agent", "time": "Real-time"},
+          {"stepName": "Correlation Agent", "time": "< 2 min"},
+          {"stepName": "Diagnostic Agent", "time": "< 5 min"},
+          {"stepName": "Remediation Agent", "time": "< 10 min"},
+          {"stepName": "Verification Agent", "time": "< 3 min"},
+          {"stepName": "Knowledge Enrichment Agent", "time": "< 2 min"}
+        ],
+        "bottlenecks": ["Human approval for network-affecting fixes", "Complex root cause analysis"]
+      },
+      "savings": {
+        "absolute": "1-2.5 hours",
+        "percentage": "50-70%"
+      }
+    }
   },
   {
     "id": "incident-problem-management",
@@ -857,11 +3556,51 @@
     "description": "Streamline incident and problem management through intelligent classification, automated resolution, knowledge management, and proactive problem prevention. Agentic AI accelerates resolution, reduces recurrence, and improves service reliability.",
     "businessGoal": "Minimize service disruptions, reduce incident recurrence, and improve problem resolution efficiency.",
     "kpis": [
-      "Incident resolution time",
-      "Problem resolution time",
-      "Incident recurrence rate",
-      "First-time resolution rate",
-      "Knowledge base utilization"
+      {
+        "name": "Incident resolution time",
+        "baseline": 4,
+        "target": 2,
+        "improvement": "35-50% reduction",
+        "unit": "hours",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Problem resolution time",
+        "baseline": 14,
+        "target": 6,
+        "improvement": "40-60% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Incident recurrence rate",
+        "baseline": 25,
+        "target": 12,
+        "improvement": "30-45% decrease",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "First-time resolution rate",
+        "baseline": 60,
+        "target": 80,
+        "improvement": "25-35% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "secondary"
+      },
+      {
+        "name": "Knowledge base utilization",
+        "baseline": 40,
+        "target": 75,
+        "improvement": "50-70% increase",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["operational-excellence", "customer-experience", "cost-optimization", "workforce-productivity"],
     "fourW": {
@@ -936,13 +3675,251 @@
       "20-30% cost reduction in IT operations"
     ],
     "risksAndControls": [
-      "Human approval required for service-affecting automated resolutions",
-      "Validation of resolution actions against change management policies",
-      "Audit trail of all incident classifications, analyses, and resolutions",
-      "Knowledge base content review and approval before publication",
-      "Escalation workflows for high-priority incidents and VIP customers",
-      "Regular review of automated resolution accuracy and customer impact"
-    ]
+      {
+        "description": "Incorrect automated resolution causing service disruption",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human approval for service-affecting resolutions, validation before execution",
+        "monitoringApproach": "Monitor resolution success rate, track service disruptions",
+        "escalationPath": "Escalate to operations manager for service-affecting issues",
+        "complianceRequirements": ["Change management", "Audit trail"]
+      },
+      {
+        "description": "Incorrect knowledge base updates causing future misdiagnosis",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "low",
+        "mitigationStrategy": "Human review and approval of knowledge base content",
+        "monitoringApproach": "Review knowledge accuracy, track usage patterns",
+        "escalationPath": "Review knowledge updates before publication",
+        "complianceRequirements": ["Knowledge validation", "Content approval"]
+      },
+      {
+        "description": "Missed problem patterns leading to recurring incidents",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated pattern detection, regular problem reviews",
+        "monitoringApproach": "Track incident recurrence, monitor pattern detection",
+        "escalationPath": "Alert problem managers for recurring patterns",
+        "complianceRequirements": ["Pattern analysis", "Problem management"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Incident Resolution Time",
+          "value": "3-5 hours",
+          "change": "-50%"
+        },
+        {
+          "label": "Problem Resolution Time",
+          "value": "10-20 days",
+          "change": "-60%"
+        },
+        {
+          "label": "Incident Recurrence Rate",
+          "value": "20-30%",
+          "change": "-45%"
+        },
+        {
+          "label": "Knowledge Base Utilization",
+          "value": "35-45%",
+          "change": "+70%"
+        }
+      ],
+      "insights": [
+        "Incident recurrence costs telecom providers $1.5B annually in repeated work",
+        "Knowledge base utilization improves resolution time by 40-50%",
+        "Automated resolution handles 50-70% of common incidents",
+        "Problem management reduces incident recurrence by 30-45%"
+      ],
+      "trends": [
+        "Shift toward proactive problem prevention",
+        "Integration of AI for pattern detection",
+        "Demand for self-service incident resolution",
+        "Automated knowledge base enrichment"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Incident Receipt & Classification",
+        "description": "Manual incident receipt and classification",
+        "time": "10-20 minutes",
+        "actions": ["Receive incident report", "Classify incident type", "Assign priority", "Route to team"],
+        "inputs": ["Incident report", "Classification rules", "Team assignments"],
+        "outputs": ["Classified incident", "Priority level", "Team assignment"],
+        "dependencies": [],
+        "decisionPoints": ["Incident category", "Priority level"],
+        "errorHandling": "Manual review if unclear classification"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Initial Investigation & Diagnosis",
+        "description": "Manual investigation and diagnosis",
+        "time": "1-2 hours",
+        "actions": ["Gather diagnostic data", "Search knowledge base", "Review similar incidents", "Identify root cause"],
+        "inputs": ["Incident details", "Knowledge base", "Historical incidents", "System data"],
+        "outputs": ["Diagnostic data", "Root cause", "Solution options"],
+        "dependencies": ["Incident Receipt & Classification"],
+        "decisionPoints": ["Root cause confidence", "Solution availability"],
+        "errorHandling": "Escalate if cannot diagnose"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Solution Research & Selection",
+        "description": "Manual solution research and selection",
+        "time": "30-60 minutes",
+        "actions": ["Research solutions", "Review runbooks", "Select best solution", "Validate approach"],
+        "inputs": ["Root cause", "Knowledge base", "Runbooks", "Solution database"],
+        "outputs": ["Selected solution", "Solution plan"],
+        "dependencies": ["Initial Investigation & Diagnosis"],
+        "decisionPoints": ["Solution fit", "Risk assessment"],
+        "errorHandling": "Try alternative if solution not found"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Resolution Execution & Testing",
+        "description": "Manual resolution execution and testing",
+        "time": "1-2 hours",
+        "actions": ["Execute solution", "Apply fix", "Test resolution", "Verify service restoration"],
+        "inputs": ["Selected solution", "System access", "Test tools"],
+        "outputs": ["Applied fix", "Test results", "Service status"],
+        "dependencies": ["Solution Research & Selection"],
+        "decisionPoints": ["Fix success", "Service restored"],
+        "errorHandling": "Try alternative solution if failed"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Problem Identification & Linkage",
+        "description": "Manual problem identification and incident linkage",
+        "time": "1-2 days",
+        "actions": ["Identify problem patterns", "Link related incidents", "Create problem record", "Prioritize problem"],
+        "inputs": ["Resolved incidents", "Historical data", "Pattern analysis"],
+        "outputs": ["Problem record", "Incident linkage"],
+        "dependencies": ["Resolution Execution & Testing"],
+        "decisionPoints": ["Problem pattern", "Linkage confidence"],
+        "errorHandling": "Manual review if pattern unclear"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Knowledge Capture & Incident Closure",
+        "description": "Manual knowledge capture and incident closure",
+        "time": "15-30 minutes",
+        "actions": ["Document solution", "Update knowledge base", "Close incident", "Generate report"],
+        "inputs": ["Resolution details", "Solution applied", "Knowledge base"],
+        "outputs": ["Knowledge article", "Closed incident"],
+        "dependencies": ["Resolution Execution & Testing"],
+        "decisionPoints": ["Knowledge value", "Documentation completeness"],
+        "errorHandling": "Reopen if issues persist"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Classification Agent",
+        "description": "Automated incident classification and routing",
+        "time": "< 1 min",
+        "actions": ["Analyze incident text", "Classify incident type", "Determine priority", "Route to team"],
+        "inputs": ["Incident report", "Classification ML models", "Routing rules"],
+        "outputs": ["Classified incident", "Priority score", "Team assignment"],
+        "dependencies": [],
+        "decisionPoints": ["Classification confidence", "Priority threshold"],
+        "errorHandling": "Escalate to human if confidence < 80%"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Root Cause Analysis Agent",
+        "description": "Automated root cause analysis",
+        "time": "< 3 min",
+        "actions": ["Collect diagnostic data", "Search knowledge base", "Analyze patterns", "Identify root cause"],
+        "inputs": ["Incident details", "Knowledge base", "Historical incidents", "ML models"],
+        "outputs": ["Root cause", "Confidence score", "Solution recommendations"],
+        "dependencies": ["Classification Agent"],
+        "decisionPoints": ["Root cause confidence", "Solution match"],
+        "errorHandling": "Escalate to engineers if low confidence"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Resolution Agent",
+        "description": "Automated resolution execution",
+        "time": "< 5 min",
+        "actions": ["Select solution from knowledge", "Execute automated fix", "Test resolution", "Verify service"],
+        "inputs": ["Root cause", "Knowledge base", "Runbooks", "System access"],
+        "outputs": ["Applied fix", "Test results", "Resolution status"],
+        "dependencies": ["Root Cause Analysis Agent"],
+        "decisionPoints": ["Solution confidence", "Fix approval"],
+        "errorHandling": "Route to human for service-affecting fixes"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Problem Identification Agent",
+        "description": "Automated problem pattern detection",
+        "time": "< 2 min",
+        "actions": ["Analyze incident patterns", "Group related incidents", "Identify problems", "Create problem records"],
+        "inputs": ["Resolved incidents", "Historical data", "Pattern ML models"],
+        "outputs": ["Problem records", "Incident groups"],
+        "dependencies": ["Resolution Agent"],
+        "decisionPoints": ["Pattern confidence", "Problem threshold"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Knowledge Enrichment Agent",
+        "description": "Automated knowledge base enrichment",
+        "time": "< 2 min",
+        "actions": ["Extract solution details", "Update knowledge base", "Link related cases", "Improve matching"],
+        "inputs": ["Resolved incident", "Solution applied", "Knowledge base"],
+        "outputs": ["Updated knowledge", "Case linkage"],
+        "dependencies": ["Resolution Agent"],
+        "decisionPoints": ["Knowledge value", "Update approval"],
+        "errorHandling": "Flag for human review before publication"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Incident Closure Agent",
+        "description": "Automated incident closure and reporting",
+        "time": "< 1 min",
+        "actions": ["Verify resolution", "Update status", "Generate report", "Close incident"],
+        "inputs": ["Resolution status", "Incident data", "Report templates"],
+        "outputs": ["Closed incident", "Incident report"],
+        "dependencies": ["Knowledge Enrichment Agent"],
+        "decisionPoints": ["Resolution verification", "Report format"],
+        "errorHandling": "Reopen if verification fails"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "4-6 hours",
+        "steps": [
+          {"stepName": "Incident Receipt & Classification", "time": "10-20 minutes"},
+          {"stepName": "Initial Investigation & Diagnosis", "time": "1-2 hours"},
+          {"stepName": "Solution Research & Selection", "time": "30-60 minutes"},
+          {"stepName": "Resolution Execution & Testing", "time": "1-2 hours"},
+          {"stepName": "Problem Identification & Linkage", "time": "1-2 days"},
+          {"stepName": "Knowledge Capture & Incident Closure", "time": "15-30 minutes"}
+        ],
+        "bottlenecks": ["Investigation (1-2 hours)", "Solution research (30-60 min)", "Problem identification (1-2 days)"]
+      },
+      "agenticProcess": {
+        "totalTime": "2-3 hours",
+        "steps": [
+          {"stepName": "Classification Agent", "time": "< 1 min"},
+          {"stepName": "Root Cause Analysis Agent", "time": "< 3 min"},
+          {"stepName": "Resolution Agent", "time": "< 5 min"},
+          {"stepName": "Problem Identification Agent", "time": "< 2 min"},
+          {"stepName": "Knowledge Enrichment Agent", "time": "< 2 min"},
+          {"stepName": "Incident Closure Agent", "time": "< 1 min"}
+        ],
+        "bottlenecks": ["Human approval for service-affecting fixes", "Complex root cause analysis"]
+      },
+      "savings": {
+        "absolute": "2-3 hours",
+        "percentage": "35-50%"
+      }
+    }
   },
   {
     "id": "partner-supplier-operations",
@@ -951,11 +3928,51 @@
     "description": "Automate partner onboarding, transaction processing, settlement, and performance management. Agentic AI streamlines partner operations, ensures accurate settlements, and improves partner relationships.",
     "businessGoal": "Accelerate partner onboarding, ensure accurate settlements, and optimize partner performance through intelligent automation.",
     "kpis": [
-      "Partner onboarding time",
-      "Settlement accuracy rate",
-      "Transaction processing time",
-      "Partner satisfaction",
-      "Dispute resolution time"
+      {
+        "name": "Partner onboarding time",
+        "baseline": 30,
+        "target": 10,
+        "improvement": "50-70% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Settlement accuracy rate",
+        "baseline": 85,
+        "target": 98,
+        "improvement": "40-60% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Transaction processing time",
+        "baseline": 2,
+        "target": 0.5,
+        "improvement": "35-50% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Partner satisfaction",
+        "baseline": 3.5,
+        "target": 4.3,
+        "improvement": "20-30% improvement",
+        "unit": "rating out of 5",
+        "category": "customer-satisfaction",
+        "priority": "secondary"
+      },
+      {
+        "name": "Dispute resolution time",
+        "baseline": 10,
+        "target": 3,
+        "improvement": "30-45% decrease",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["operational-excellence", "cost-optimization", "time-to-market", "risk-mitigation"],
     "fourW": {
@@ -1030,13 +4047,251 @@
       "20-30% improvement in partner satisfaction"
     ],
     "risksAndControls": [
-      "Human approval required for partner onboarding, high-value settlements, and disputes",
-      "Validation of transactions against contract terms and business rules",
-      "Audit trail of all transactions, settlements, and partner interactions",
-      "Reconciliation controls to ensure accurate partner payments",
-      "Compliance monitoring against regulatory requirements and contract terms",
-      "Regular review of settlement calculations and partner performance metrics"
-    ]
+      {
+        "description": "Incorrect settlement calculations causing financial losses",
+        "category": "financial",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated validation, human approval for high-value settlements",
+        "monitoringApproach": "Monitor settlement accuracy, track calculation errors",
+        "escalationPath": "Escalate to finance for high-value discrepancies",
+        "complianceRequirements": ["Settlement validation", "Audit trail"]
+      },
+      {
+        "description": "Partner onboarding errors causing compliance issues",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Document validation, compliance checks, human approval",
+        "monitoringApproach": "Track onboarding accuracy, monitor compliance",
+        "escalationPath": "Escalate to legal for compliance issues",
+        "complianceRequirements": ["Document validation", "Compliance checks"]
+      },
+      {
+        "description": "Transaction processing errors causing partner disputes",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated validation, business rule checks",
+        "monitoringApproach": "Monitor transaction accuracy, track disputes",
+        "escalationPath": "Flag for review if validation fails",
+        "complianceRequirements": ["Transaction validation", "Business rules"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Partner Onboarding Time",
+          "value": "25-35 days",
+          "change": "-65%"
+        },
+        {
+          "label": "Settlement Accuracy",
+          "value": "80-90%",
+          "change": "+60%"
+        },
+        {
+          "label": "Transaction Processing Time",
+          "value": "1.5-3 days",
+          "change": "-50%"
+        },
+        {
+          "label": "Settlement Disputes",
+          "value": "8-12%",
+          "change": "-40%"
+        }
+      ],
+      "insights": [
+        "Partner onboarding delays cost telecom providers $500M annually in lost revenue",
+        "Settlement errors account for 15-20% of partner disputes",
+        "Automated processing reduces transaction errors by 70%",
+        "Partner satisfaction improves by 25-35% with faster onboarding"
+      ],
+      "trends": [
+        "Demand for self-service partner portals",
+        "Real-time settlement processing",
+        "Integration of blockchain for settlement transparency",
+        "Automated contract compliance monitoring"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Partner Application & Document Collection",
+        "description": "Manual partner application and document collection",
+        "time": "5-10 days",
+        "actions": ["Receive partner application", "Collect required documents", "Validate document completeness", "Review application"],
+        "inputs": ["Partner application", "Document requirements", "Compliance rules"],
+        "outputs": ["Collected documents", "Application review"],
+        "dependencies": [],
+        "decisionPoints": ["Document completeness", "Application validity"],
+        "errorHandling": "Request missing documents"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Document Validation & Compliance Check",
+        "description": "Manual document validation and compliance verification",
+        "time": "3-5 days",
+        "actions": ["Validate documents", "Check compliance", "Verify credentials", "Review contracts"],
+        "inputs": ["Collected documents", "Compliance rules", "Contract templates"],
+        "outputs": ["Validation results", "Compliance status"],
+        "dependencies": ["Partner Application & Document Collection"],
+        "decisionPoints": ["Validation pass", "Compliance approval"],
+        "errorHandling": "Request corrections if validation fails"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Partner Setup & System Configuration",
+        "description": "Manual partner setup and system configuration",
+        "time": "5-10 days",
+        "actions": ["Create partner account", "Configure systems", "Set up integrations", "Test connections"],
+        "inputs": ["Validated partner", "System configurations", "Integration templates"],
+        "outputs": ["Partner account", "System configuration"],
+        "dependencies": ["Document Validation & Compliance Check"],
+        "decisionPoints": ["Configuration approach", "Integration requirements"],
+        "errorHandling": "Reconfigure if setup fails"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Transaction Processing & Validation",
+        "description": "Manual transaction processing and validation",
+        "time": "1-2 days",
+        "actions": ["Receive transactions", "Validate data", "Apply business rules", "Process transactions"],
+        "inputs": ["Partner transactions", "Business rules", "Validation rules"],
+        "outputs": ["Processed transactions", "Validation results"],
+        "dependencies": ["Partner Setup & System Configuration"],
+        "decisionPoints": ["Validation pass", "Processing rules"],
+        "errorHandling": "Flag for review if validation fails"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Settlement Calculation & Reconciliation",
+        "description": "Manual settlement calculation and reconciliation",
+        "time": "3-5 days",
+        "actions": ["Calculate settlements", "Reconcile transactions", "Validate amounts", "Generate invoices"],
+        "inputs": ["Processed transactions", "Settlement rules", "Contract terms"],
+        "outputs": ["Settlement calculations", "Reconciliation results"],
+        "dependencies": ["Transaction Processing & Validation"],
+        "decisionPoints": ["Settlement rules", "Reconciliation accuracy"],
+        "errorHandling": "Re-calculate if discrepancies"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Payment Processing & Reporting",
+        "description": "Manual payment processing and reporting",
+        "time": "2-3 days",
+        "actions": ["Process payments", "Generate reports", "Update records", "Notify partners"],
+        "inputs": ["Settlement calculations", "Payment systems", "Report templates"],
+        "outputs": ["Processed payments", "Settlement reports"],
+        "dependencies": ["Settlement Calculation & Reconciliation"],
+        "decisionPoints": ["Payment approval", "Report format"],
+        "errorHandling": "Retry payment if failed"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Onboarding Agent",
+        "description": "Automated partner onboarding and document validation",
+        "time": "< 1 day",
+        "actions": ["Collect documents", "Validate completeness", "Check compliance", "Initiate workflows"],
+        "inputs": ["Partner application", "Document requirements", "Compliance rules"],
+        "outputs": ["Validated documents", "Onboarding status"],
+        "dependencies": [],
+        "decisionPoints": ["Document validation", "Compliance approval"],
+        "errorHandling": "Request missing documents automatically"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Transaction Processing Agent",
+        "description": "Automated transaction processing and validation",
+        "time": "< 2 hours",
+        "actions": ["Receive transactions", "Validate data", "Apply business rules", "Process transactions"],
+        "inputs": ["Partner transactions", "Business rules", "Validation ML models"],
+        "outputs": ["Processed transactions", "Validation results"],
+        "dependencies": ["Onboarding Agent"],
+        "decisionPoints": ["Validation confidence", "Processing rules"],
+        "errorHandling": "Flag for review if validation fails"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Settlement Agent",
+        "description": "Automated settlement calculation and reconciliation",
+        "time": "< 4 hours",
+        "actions": ["Calculate settlements", "Reconcile transactions", "Validate amounts", "Generate invoices"],
+        "inputs": ["Processed transactions", "Settlement rules", "Contract data"],
+        "outputs": ["Settlement calculations", "Reconciliation results"],
+        "dependencies": ["Transaction Processing Agent"],
+        "decisionPoints": ["Settlement rules", "Reconciliation threshold"],
+        "errorHandling": "Route to human for high-value settlements"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Performance Monitor Agent",
+        "description": "Automated partner performance monitoring",
+        "time": "Continuous",
+        "actions": ["Monitor metrics", "Identify trends", "Generate alerts", "Create reports"],
+        "inputs": ["Transaction data", "Performance metrics", "Threshold rules"],
+        "outputs": ["Performance reports", "Alerts"],
+        "dependencies": ["Transaction Processing Agent"],
+        "decisionPoints": ["Alert thresholds", "Report frequency"],
+        "errorHandling": "Escalate if critical issues"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Dispute Resolution Agent",
+        "description": "Automated dispute detection and resolution",
+        "time": "< 1 day",
+        "actions": ["Detect disputes", "Analyze root cause", "Propose resolution", "Process resolution"],
+        "inputs": ["Settlement data", "Dispute patterns", "Resolution rules"],
+        "outputs": ["Dispute analysis", "Resolution proposal"],
+        "dependencies": ["Settlement Agent"],
+        "decisionPoints": ["Dispute validity", "Resolution approach"],
+        "errorHandling": "Route to human for complex disputes"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Payment Processing Agent",
+        "description": "Automated payment processing and reporting",
+        "time": "< 1 hour",
+        "actions": ["Process payments", "Generate reports", "Update records", "Notify partners"],
+        "inputs": ["Settlement calculations", "Payment systems", "Report templates"],
+        "outputs": ["Processed payments", "Settlement reports"],
+        "dependencies": ["Settlement Agent"],
+        "decisionPoints": ["Payment approval", "Report format"],
+        "errorHandling": "Retry payment if failed"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "30-40 days",
+        "steps": [
+          {"stepName": "Partner Application & Document Collection", "time": "5-10 days"},
+          {"stepName": "Document Validation & Compliance Check", "time": "3-5 days"},
+          {"stepName": "Partner Setup & System Configuration", "time": "5-10 days"},
+          {"stepName": "Transaction Processing & Validation", "time": "1-2 days"},
+          {"stepName": "Settlement Calculation & Reconciliation", "time": "3-5 days"},
+          {"stepName": "Payment Processing & Reporting", "time": "2-3 days"}
+        ],
+        "bottlenecks": ["Partner setup (5-10 days)", "Settlement calculation (3-5 days)", "Manual validation"]
+      },
+      "agenticProcess": {
+        "totalTime": "10-15 days",
+        "steps": [
+          {"stepName": "Onboarding Agent", "time": "< 1 day"},
+          {"stepName": "Transaction Processing Agent", "time": "< 2 hours"},
+          {"stepName": "Settlement Agent", "time": "< 4 hours"},
+          {"stepName": "Performance Monitor Agent", "time": "Continuous"},
+          {"stepName": "Dispute Resolution Agent", "time": "< 1 day"},
+          {"stepName": "Payment Processing Agent", "time": "< 1 hour"}
+        ],
+        "bottlenecks": ["Human approval for onboarding and high-value settlements", "Complex dispute resolution"]
+      },
+      "savings": {
+        "absolute": "20-25 days",
+        "percentage": "50-70%"
+      }
+    }
   },
   {
     "id": "regulatory-compliance-operations",
@@ -1045,11 +4300,51 @@
     "description": "Automate compliance monitoring, reporting, risk assessment, and regulatory submissions. Agentic AI ensures continuous compliance, reduces regulatory risk, and streamlines audit processes.",
     "businessGoal": "Maintain continuous compliance, reduce regulatory risk, and minimize compliance operational costs.",
     "kpis": [
-      "Compliance violation rate",
-      "Regulatory reporting accuracy",
-      "Audit finding resolution time",
-      "Compliance monitoring coverage",
-      "Regulatory risk score"
+      {
+        "name": "Compliance violation rate",
+        "baseline": 5,
+        "target": 1.5,
+        "improvement": "50-70% reduction",
+        "unit": "percentage",
+        "category": "risk-mitigation",
+        "priority": "primary"
+      },
+      {
+        "name": "Regulatory reporting accuracy",
+        "baseline": 88,
+        "target": 98,
+        "improvement": "40-60% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Audit finding resolution time",
+        "baseline": 30,
+        "target": 10,
+        "improvement": "40-60% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Compliance monitoring coverage",
+        "baseline": 70,
+        "target": 95,
+        "improvement": "30-40% increase",
+        "unit": "percentage",
+        "category": "risk-mitigation",
+        "priority": "secondary"
+      },
+      {
+        "name": "Regulatory risk score",
+        "baseline": 6.5,
+        "target": 3.5,
+        "improvement": "30-45% improvement",
+        "unit": "score out of 10",
+        "category": "risk-mitigation",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["risk-mitigation", "operational-excellence", "cost-optimization", "data-driven-insights"],
     "fourW": {
@@ -1124,12 +4419,250 @@
       "30-40% cost reduction in compliance operations"
     ],
     "risksAndControls": [
-      "Human approval required for regulatory submissions and high-risk compliance decisions",
-      "Validation of compliance assessments against legal and regulatory standards",
-      "Comprehensive audit trail of all compliance activities and decisions",
-      "Regular review of AI assessments by compliance and legal teams",
-      "Segregation of duties: monitoring, assessment, and reporting require different approvals",
-      "Compliance with data privacy and security regulations in AI operations"
-    ]
+      {
+        "description": "Incorrect compliance assessments leading to regulatory violations",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human review of assessments, validation against legal standards",
+        "monitoringApproach": "Monitor assessment accuracy, track compliance violations",
+        "escalationPath": "Escalate to legal team for high-risk assessments",
+        "complianceRequirements": ["Assessment validation", "Legal review"]
+      },
+      {
+        "description": "Regulatory reporting errors causing submission failures",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Human approval for submissions, automated validation",
+        "monitoringApproach": "Track reporting accuracy, monitor submission success",
+        "escalationPath": "Escalate to compliance officer for submissions",
+        "complianceRequirements": ["Report validation", "Submission approval"]
+      },
+      {
+        "description": "Missed regulatory changes leading to non-compliance",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Continuous monitoring, multiple sources, human review",
+        "monitoringApproach": "Track regulatory change detection, monitor coverage",
+        "escalationPath": "Alert compliance team for new regulations",
+        "complianceRequirements": ["Regulatory monitoring", "Change tracking"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Compliance Violation Rate",
+          "value": "4-6%",
+          "change": "-60%"
+        },
+        {
+          "label": "Regulatory Reporting Accuracy",
+          "value": "85-92%",
+          "change": "+60%"
+        },
+        {
+          "label": "Audit Finding Resolution Time",
+          "value": "25-35 days",
+          "change": "-55%"
+        },
+        {
+          "label": "Compliance Monitoring Coverage",
+          "value": "65-75%",
+          "change": "+35%"
+        }
+      ],
+      "insights": [
+        "Compliance violations cost telecom providers $2-3B annually in fines and penalties",
+        "Regulatory reporting errors delay submissions by 2-4 weeks",
+        "Automated monitoring improves compliance coverage by 60-80%",
+        "Proactive risk identification reduces violations by 50-70%"
+      ],
+      "trends": [
+        "Increasing regulatory complexity and frequency",
+        "Demand for real-time compliance monitoring",
+        "Integration of AI for risk assessment",
+        "Automated regulatory reporting"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Regulatory Monitoring & Change Detection",
+        "description": "Manual monitoring of regulatory changes",
+        "time": "2-4 hours daily",
+        "actions": ["Monitor regulatory sources", "Track policy changes", "Review updates", "Assess impact"],
+        "inputs": ["Regulatory sources", "Policy databases", "Change notifications"],
+        "outputs": ["Regulatory changes", "Impact assessment"],
+        "dependencies": [],
+        "decisionPoints": ["Change significance", "Impact level"],
+        "errorHandling": "Manual review if unclear impact"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Compliance Assessment & Gap Analysis",
+        "description": "Manual compliance assessment and gap identification",
+        "time": "1-2 weeks",
+        "actions": ["Assess current state", "Compare with regulations", "Identify gaps", "Document findings"],
+        "inputs": ["Regulatory requirements", "Current operations", "Assessment templates"],
+        "outputs": ["Compliance assessment", "Gap analysis"],
+        "dependencies": ["Regulatory Monitoring & Change Detection"],
+        "decisionPoints": ["Gap severity", "Remediation priority"],
+        "errorHandling": "Re-assess if gaps unclear"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Risk Identification & Prioritization",
+        "description": "Manual risk identification and prioritization",
+        "time": "3-5 days",
+        "actions": ["Identify risks", "Quantify impact", "Assess likelihood", "Prioritize remediation"],
+        "inputs": ["Gap analysis", "Risk frameworks", "Historical data"],
+        "outputs": ["Risk register", "Prioritized risks"],
+        "dependencies": ["Compliance Assessment & Gap Analysis"],
+        "decisionPoints": ["Risk level", "Priority threshold"],
+        "errorHandling": "Escalate if high-risk issues"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Remediation Planning & Execution",
+        "description": "Manual remediation planning and execution",
+        "time": "2-4 weeks",
+        "actions": ["Plan remediation", "Design fixes", "Execute changes", "Monitor progress"],
+        "inputs": ["Prioritized risks", "Remediation templates", "Change management"],
+        "outputs": ["Remediation plan", "Execution status"],
+        "dependencies": ["Risk Identification & Prioritization"],
+        "decisionPoints": ["Remediation approach", "Change approval"],
+        "errorHandling": "Adjust plan if execution issues"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Regulatory Reporting & Submission",
+        "description": "Manual regulatory reporting and submission",
+        "time": "1-2 weeks",
+        "actions": ["Collect data", "Generate reports", "Validate accuracy", "Submit to regulators"],
+        "inputs": ["Compliance data", "Report templates", "Regulatory requirements"],
+        "outputs": ["Regulatory reports", "Submission confirmation"],
+        "dependencies": ["Remediation Planning & Execution"],
+        "decisionPoints": ["Report accuracy", "Submission approval"],
+        "errorHandling": "Re-generate if validation fails"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Audit Support & Evidence Collection",
+        "description": "Manual audit support and evidence collection",
+        "time": "2-4 weeks",
+        "actions": ["Collect evidence", "Generate documentation", "Respond to queries", "Support audit"],
+        "inputs": ["Compliance records", "Evidence templates", "Audit requests"],
+        "outputs": ["Audit evidence", "Documentation"],
+        "dependencies": ["Regulatory Reporting & Submission"],
+        "decisionPoints": ["Evidence completeness", "Documentation quality"],
+        "errorHandling": "Collect additional evidence if needed"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Regulatory Monitor Agent",
+        "description": "Automated regulatory monitoring and change detection",
+        "time": "Continuous",
+        "actions": ["Monitor regulatory sources", "Detect changes", "Assess impact", "Alert compliance team"],
+        "inputs": ["Regulatory sources", "Policy databases", "ML models"],
+        "outputs": ["Regulatory changes", "Impact alerts"],
+        "dependencies": [],
+        "decisionPoints": ["Change significance", "Alert threshold"],
+        "errorHandling": "Alert compliance team if critical changes"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Compliance Assessment Agent",
+        "description": "Automated compliance assessment and gap analysis",
+        "time": "< 1 day",
+        "actions": ["Assess current state", "Compare with regulations", "Identify gaps", "Generate assessment"],
+        "inputs": ["Regulatory requirements", "Operations data", "Assessment ML models"],
+        "outputs": ["Compliance assessment", "Gap analysis"],
+        "dependencies": ["Regulatory Monitor Agent"],
+        "decisionPoints": ["Gap confidence", "Severity threshold"],
+        "errorHandling": "Flag for human review if low confidence"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Risk Analysis Agent",
+        "description": "Automated risk identification and prioritization",
+        "time": "< 4 hours",
+        "actions": ["Identify risks", "Quantify impact", "Assess likelihood", "Prioritize remediation"],
+        "inputs": ["Gap analysis", "Risk frameworks", "Historical data"],
+        "outputs": ["Risk register", "Prioritized risks"],
+        "dependencies": ["Compliance Assessment Agent"],
+        "decisionPoints": ["Risk level", "Priority algorithm"],
+        "errorHandling": "Escalate if high-risk issues"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Reporting Agent",
+        "description": "Automated regulatory reporting and submission",
+        "time": "< 2 days",
+        "actions": ["Collect data", "Generate reports", "Validate accuracy", "Prepare submission"],
+        "inputs": ["Compliance data", "Report templates", "Regulatory requirements"],
+        "outputs": ["Regulatory reports", "Submission package"],
+        "dependencies": ["Risk Analysis Agent"],
+        "decisionPoints": ["Report accuracy", "Submission approval"],
+        "errorHandling": "Route to human for approval before submission"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Audit Support Agent",
+        "description": "Automated audit support and evidence collection",
+        "time": "< 1 week",
+        "actions": ["Collect evidence", "Generate documentation", "Answer queries", "Support audit"],
+        "inputs": ["Compliance records", "Evidence templates", "Audit requests"],
+        "outputs": ["Audit evidence", "Documentation"],
+        "dependencies": ["Reporting Agent"],
+        "decisionPoints": ["Evidence completeness", "Query matching"],
+        "errorHandling": "Flag for human review if complex queries"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Remediation Tracking Agent",
+        "description": "Automated remediation tracking and monitoring",
+        "time": "Continuous",
+        "actions": ["Track remediation progress", "Monitor completion", "Generate status reports", "Alert on delays"],
+        "inputs": ["Remediation plans", "Execution data", "Status updates"],
+        "outputs": ["Remediation status", "Progress reports"],
+        "dependencies": ["Risk Analysis Agent"],
+        "decisionPoints": ["Progress threshold", "Alert criteria"],
+        "errorHandling": "Alert if remediation delayed"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "60-90 days",
+        "steps": [
+          {"stepName": "Regulatory Monitoring & Change Detection", "time": "2-4 hours daily"},
+          {"stepName": "Compliance Assessment & Gap Analysis", "time": "1-2 weeks"},
+          {"stepName": "Risk Identification & Prioritization", "time": "3-5 days"},
+          {"stepName": "Remediation Planning & Execution", "time": "2-4 weeks"},
+          {"stepName": "Regulatory Reporting & Submission", "time": "1-2 weeks"},
+          {"stepName": "Audit Support & Evidence Collection", "time": "2-4 weeks"}
+        ],
+        "bottlenecks": ["Compliance assessment (1-2 weeks)", "Remediation execution (2-4 weeks)", "Manual monitoring"]
+      },
+      "agenticProcess": {
+        "totalTime": "15-25 days",
+        "steps": [
+          {"stepName": "Regulatory Monitor Agent", "time": "Continuous"},
+          {"stepName": "Compliance Assessment Agent", "time": "< 1 day"},
+          {"stepName": "Risk Analysis Agent", "time": "< 4 hours"},
+          {"stepName": "Reporting Agent", "time": "< 2 days"},
+          {"stepName": "Audit Support Agent", "time": "< 1 week"},
+          {"stepName": "Remediation Tracking Agent", "time": "Continuous"}
+        ],
+        "bottlenecks": ["Human approval for submissions", "Complex risk analysis"]
+      },
+      "savings": {
+        "absolute": "45-65 days",
+        "percentage": "50-70%"
+      }
+    }
   }
 ]

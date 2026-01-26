@@ -6,11 +6,51 @@
     "description": "Transform content acquisition from rights discovery through negotiation, contract management, and rights tracking. Agentic AI automates rights research, analyzes licensing terms, generates contract drafts, tracks expiration dates, and ensures compliance—accelerating content acquisition while reducing legal risks.",
     "businessGoal": "Accelerate content acquisition cycles, optimize licensing costs, and ensure rights compliance through intelligent automation of research, negotiation, and contract management.",
     "kpis": [
-      "Content acquisition cycle time (days)",
-      "Rights compliance rate",
-      "Licensing cost optimization",
-      "Contract processing time",
-      "Rights expiration visibility"
+      {
+        "name": "Content acquisition cycle time",
+        "baseline": 45,
+        "target": 20,
+        "improvement": "40-60% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Rights compliance rate",
+        "baseline": 75,
+        "target": 95,
+        "improvement": "30-50% improvement",
+        "unit": "percentage",
+        "category": "risk-mitigation",
+        "priority": "primary"
+      },
+      {
+        "name": "Licensing cost optimization",
+        "baseline": 0,
+        "target": 25,
+        "improvement": "20-35% cost reduction",
+        "unit": "percentage savings",
+        "category": "cost-optimization",
+        "priority": "secondary"
+      },
+      {
+        "name": "Contract processing time",
+        "baseline": 10,
+        "target": 3,
+        "improvement": "50-70% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Rights expiration visibility",
+        "baseline": 40,
+        "target": 90,
+        "improvement": "90% improvement",
+        "unit": "percentage",
+        "category": "risk-mitigation",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["revenue-growth", "operational-excellence", "risk-management", "time-to-market"],
     "fourW": {
@@ -84,13 +124,251 @@
       "60-80% reduction in manual research and data entry"
     ],
     "risksAndControls": [
-      "Human approval required for high-value contracts and complex rights structures",
-      "Audit trail of all rights research, contract analysis, and compliance checks",
-      "Policy grounding: agents reference approved contract templates and legal guidelines",
-      "Validation gates prevent non-compliant content usage",
-      "Regular review of rights compliance metrics and expiration alerts",
-      "Escalation workflows for complex legal questions and policy exceptions"
-    ]
+      {
+        "description": "Incorrect rights research leading to licensing violations",
+        "category": "legal",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human review of high-value contracts, validation against legal guidelines",
+        "monitoringApproach": "Monitor rights compliance, track research accuracy",
+        "escalationPath": "Escalate to legal team for complex rights structures",
+        "complianceRequirements": ["Rights validation", "Legal review"]
+      },
+      {
+        "description": "Contract generation errors causing unfavorable terms",
+        "category": "legal",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Human approval for contracts, template validation",
+        "monitoringApproach": "Review contract terms, track negotiation outcomes",
+        "escalationPath": "Escalate to legal for high-value contracts",
+        "complianceRequirements": ["Contract approval", "Template validation"]
+      },
+      {
+        "description": "Rights expiration missed causing content unavailability",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated tracking, renewal alerts, proactive monitoring",
+        "monitoringApproach": "Monitor expiration dates, track renewal rates",
+        "escalationPath": "Alert content team for upcoming expirations",
+        "complianceRequirements": ["Expiration tracking", "Renewal alerts"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Acquisition Cycle Time",
+          "value": "40-50 days",
+          "change": "-55%"
+        },
+        {
+          "label": "Rights Compliance Rate",
+          "value": "70-80%",
+          "change": "+35%"
+        },
+        {
+          "label": "Contract Processing Time",
+          "value": "8-12 days",
+          "change": "-65%"
+        },
+        {
+          "label": "Rights Expiration Visibility",
+          "value": "35-45%",
+          "change": "+90%"
+        }
+      ],
+      "insights": [
+        "Content acquisition delays cost media companies $500M annually in lost opportunities",
+        "Rights violations result in average $2M per incident in penalties and legal costs",
+        "Automated contract processing reduces errors by 70%",
+        "Proactive rights tracking prevents 60% of expiration-related content gaps"
+      ],
+      "trends": [
+        "Increasing complexity of multi-territory rights",
+        "Demand for real-time rights availability checking",
+        "Shift toward automated contract negotiation",
+        "Integration of blockchain for rights verification"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Rights Research & Availability Check",
+        "description": "Manual rights research and availability checking",
+        "time": "5-10 days",
+        "actions": ["Research content rights", "Check availability across markets", "Identify ownership", "Review licensing history"],
+        "inputs": ["Content request", "Rights databases", "Market requirements"],
+        "outputs": ["Rights research report", "Availability status"],
+        "dependencies": [],
+        "decisionPoints": ["Rights availability", "Market coverage"],
+        "errorHandling": "Manual verification if unclear"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Contract Analysis & Term Extraction",
+        "description": "Manual contract analysis and term extraction",
+        "time": "3-5 days",
+        "actions": ["Review existing contracts", "Extract key terms", "Identify restrictions", "Analyze obligations"],
+        "inputs": ["Contract documents", "Legal guidelines", "Term databases"],
+        "outputs": ["Term analysis", "Restriction summary"],
+        "dependencies": ["Rights Research & Availability Check"],
+        "decisionPoints": ["Term significance", "Restriction level"],
+        "errorHandling": "Legal review if complex terms"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Contract Negotiation & Drafting",
+        "description": "Manual contract negotiation and drafting",
+        "time": "10-15 days",
+        "actions": ["Negotiate terms", "Draft contract", "Review with legal", "Revise based on feedback"],
+        "inputs": ["Term analysis", "Contract templates", "Negotiation history"],
+        "outputs": ["Contract draft", "Negotiation notes"],
+        "dependencies": ["Contract Analysis & Term Extraction"],
+        "decisionPoints": ["Term acceptance", "Contract approval"],
+        "errorHandling": "Re-negotiate if terms rejected"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Contract Review & Approval",
+        "description": "Manual contract review and approval",
+        "time": "3-5 days",
+        "actions": ["Review contract draft", "Validate terms", "Approve or request changes", "Finalize contract"],
+        "inputs": ["Contract draft", "Approval workflows", "Legal guidelines"],
+        "outputs": ["Approved contract", "Final terms"],
+        "dependencies": ["Contract Negotiation & Drafting"],
+        "decisionPoints": ["Contract approval", "Change requests"],
+        "errorHandling": "Revise if changes requested"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Rights Registration & Tracking Setup",
+        "description": "Manual rights registration and tracking setup",
+        "time": "2-3 days",
+        "actions": ["Register rights", "Set up tracking", "Configure alerts", "Update rights database"],
+        "inputs": ["Approved contract", "Rights management system", "Tracking rules"],
+        "outputs": ["Registered rights", "Tracking configuration"],
+        "dependencies": ["Contract Review & Approval"],
+        "decisionPoints": ["Registration completeness", "Alert configuration"],
+        "errorHandling": "Re-register if errors"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Compliance Monitoring & Renewal Management",
+        "description": "Manual compliance monitoring and renewal management",
+        "time": "Ongoing",
+        "actions": ["Monitor usage compliance", "Track expiration dates", "Initiate renewals", "Update records"],
+        "inputs": ["Rights database", "Usage data", "Expiration alerts"],
+        "outputs": ["Compliance reports", "Renewal actions"],
+        "dependencies": ["Rights Registration & Tracking Setup"],
+        "decisionPoints": ["Compliance status", "Renewal timing"],
+        "errorHandling": "Alert if compliance issues"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Rights Research Agent",
+        "description": "Automated rights research and availability checking",
+        "time": "< 1 day",
+        "actions": ["Research content rights", "Check availability across markets", "Identify ownership", "Generate research report"],
+        "inputs": ["Content request", "Rights databases", "ML models"],
+        "outputs": ["Rights research report", "Availability status"],
+        "dependencies": [],
+        "decisionPoints": ["Rights availability", "Research confidence"],
+        "errorHandling": "Flag for human review if low confidence"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Contract Analysis Agent",
+        "description": "Automated contract analysis and term extraction",
+        "time": "< 2 hours",
+        "actions": ["Analyze contracts using NLP", "Extract key terms", "Identify restrictions", "Generate term summary"],
+        "inputs": ["Contract documents", "NLP models", "Term databases"],
+        "outputs": ["Term analysis", "Restriction summary"],
+        "dependencies": ["Rights Research Agent"],
+        "decisionPoints": ["Term extraction confidence", "Restriction severity"],
+        "errorHandling": "Route to legal if complex terms"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Contract Generation Agent",
+        "description": "Automated contract generation and drafting",
+        "time": "< 1 day",
+        "actions": ["Generate contract draft", "Apply templates", "Customize terms", "Validate against guidelines"],
+        "inputs": ["Term analysis", "Contract templates", "Negotiation terms"],
+        "outputs": ["Contract draft", "Term validation"],
+        "dependencies": ["Contract Analysis Agent"],
+        "decisionPoints": ["Template selection", "Term customization"],
+        "errorHandling": "Route to human for high-value contracts"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Rights Tracking Agent",
+        "description": "Automated rights tracking and expiration monitoring",
+        "time": "Continuous",
+        "actions": ["Monitor rights expiration", "Track usage compliance", "Generate alerts", "Update tracking"],
+        "inputs": ["Rights database", "Usage data", "Expiration rules"],
+        "outputs": ["Expiration alerts", "Compliance status"],
+        "dependencies": ["Contract Generation Agent"],
+        "decisionPoints": ["Alert thresholds", "Compliance rules"],
+        "errorHandling": "Alert content team if issues"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Royalty Calculation Agent",
+        "description": "Automated royalty calculation and processing",
+        "time": "< 4 hours",
+        "actions": ["Calculate royalties", "Apply contract terms", "Validate amounts", "Generate reports"],
+        "inputs": ["Usage data", "Contract terms", "Royalty rules"],
+        "outputs": ["Royalty calculations", "Payment reports"],
+        "dependencies": ["Rights Tracking Agent"],
+        "decisionPoints": ["Calculation rules", "Payment approval"],
+        "errorHandling": "Route to finance for high-value payments"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Compliance Validation Agent",
+        "description": "Automated compliance validation and reporting",
+        "time": "< 2 hours",
+        "actions": ["Validate usage against rights", "Check restrictions", "Generate compliance reports", "Flag violations"],
+        "inputs": ["Usage data", "Rights database", "Compliance rules"],
+        "outputs": ["Compliance reports", "Violation alerts"],
+        "dependencies": ["Rights Tracking Agent"],
+        "decisionPoints": ["Compliance threshold", "Violation severity"],
+        "errorHandling": "Alert legal team if violations"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "45-60 days",
+        "steps": [
+          {"stepName": "Rights Research & Availability Check", "time": "5-10 days"},
+          {"stepName": "Contract Analysis & Term Extraction", "time": "3-5 days"},
+          {"stepName": "Contract Negotiation & Drafting", "time": "10-15 days"},
+          {"stepName": "Contract Review & Approval", "time": "3-5 days"},
+          {"stepName": "Rights Registration & Tracking Setup", "time": "2-3 days"},
+          {"stepName": "Compliance Monitoring & Renewal Management", "time": "Ongoing"}
+        ],
+        "bottlenecks": ["Contract negotiation (10-15 days)", "Rights research (5-10 days)", "Manual analysis"]
+      },
+      "agenticProcess": {
+        "totalTime": "20-25 days",
+        "steps": [
+          {"stepName": "Rights Research Agent", "time": "< 1 day"},
+          {"stepName": "Contract Analysis Agent", "time": "< 2 hours"},
+          {"stepName": "Contract Generation Agent", "time": "< 1 day"},
+          {"stepName": "Rights Tracking Agent", "time": "Continuous"},
+          {"stepName": "Royalty Calculation Agent", "time": "< 4 hours"},
+          {"stepName": "Compliance Validation Agent", "time": "< 2 hours"}
+        ],
+        "bottlenecks": ["Human approval for high-value contracts", "Complex rights structures"]
+      },
+      "savings": {
+        "absolute": "25-35 days",
+        "percentage": "40-60%"
+      }
+    }
   },
   {
     "id": "content-production-workflow",
@@ -99,11 +377,51 @@
     "description": "Orchestrate end-to-end content production from pre-production planning through post-production delivery. Agentic AI automates scheduling, resource allocation, asset management, quality checks, and delivery workflows—reducing production time while ensuring quality standards.",
     "businessGoal": "Accelerate content production cycles, optimize resource utilization, and ensure consistent quality through intelligent automation of planning, coordination, and delivery.",
     "kpis": [
-      "Production cycle time (days)",
-      "Resource utilization rate",
-      "On-time delivery rate",
-      "Quality compliance rate",
-      "Budget adherence"
+      {
+        "name": "Production cycle time",
+        "baseline": 90,
+        "target": 50,
+        "improvement": "35-50% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Resource utilization rate",
+        "baseline": 65,
+        "target": 85,
+        "improvement": "25-35% improvement",
+        "unit": "percentage",
+        "category": "cost-optimization",
+        "priority": "primary"
+      },
+      {
+        "name": "On-time delivery rate",
+        "baseline": 75,
+        "target": 92,
+        "improvement": "20-30% improvement",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Quality compliance rate",
+        "baseline": 88,
+        "target": 95,
+        "improvement": "40-60% reduction in defects",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "secondary"
+      },
+      {
+        "name": "Budget adherence",
+        "baseline": 85,
+        "target": 92,
+        "improvement": "30-45% reduction in variance",
+        "unit": "percentage",
+        "category": "cost-optimization",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["operational-excellence", "cost-optimization", "time-to-market", "quality-assurance"],
     "fourW": {
@@ -177,13 +495,251 @@
       "60-80% reduction in manual coordination tasks"
     ],
     "risksAndControls": [
-      "Human approval required for creative decisions and quality exceptions",
-      "Audit trail of all production decisions, asset changes, and deliveries",
-      "Policy grounding: agents reference approved production standards and workflows",
-      "Validation gates prevent delivery of non-compliant content",
-      "Regular review of production metrics and quality scores",
-      "Escalation workflows for resource conflicts and quality issues"
-    ]
+      {
+        "description": "Quality issues in automated checks causing content defects",
+        "category": "quality",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human approval for quality exceptions, multi-stage validation",
+        "monitoringApproach": "Monitor quality scores, track defect rates",
+        "escalationPath": "Escalate to quality team for exceptions",
+        "complianceRequirements": ["Quality validation", "Approval workflows"]
+      },
+      {
+        "description": "Resource allocation conflicts causing production delays",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated conflict detection, optimization algorithms",
+        "monitoringApproach": "Track resource utilization, monitor conflicts",
+        "escalationPath": "Alert production managers for conflicts",
+        "complianceRequirements": ["Resource management", "Conflict resolution"]
+      },
+      {
+        "description": "Delivery failures causing content unavailability",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "low",
+        "mitigationStrategy": "Automated retry logic, delivery validation, monitoring",
+        "monitoringApproach": "Monitor delivery success rates, track failures",
+        "escalationPath": "Alert operations for delivery failures",
+        "complianceRequirements": ["Delivery validation", "Error handling"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Production Cycle Time",
+          "value": "80-100 days",
+          "change": "-45%"
+        },
+        {
+          "label": "Resource Utilization",
+          "value": "60-70%",
+          "change": "+30%"
+        },
+        {
+          "label": "On-Time Delivery Rate",
+          "value": "70-80%",
+          "change": "+25%"
+        },
+        {
+          "label": "Quality Defect Rate",
+          "value": "10-15%",
+          "change": "-55%"
+        }
+      ],
+      "insights": [
+        "Production delays cost media companies $1.2B annually in lost revenue",
+        "Resource underutilization results in 30-40% cost inefficiency",
+        "Automated quality checks reduce defects by 60-70%",
+        "Proactive scheduling improves on-time delivery by 25-35%"
+      ],
+      "trends": [
+        "Demand for faster content production cycles",
+        "Increasing complexity of multi-format delivery",
+        "Shift toward automated quality assurance",
+        "Integration of AI for resource optimization"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Pre-Production Planning & Scheduling",
+        "description": "Manual production planning and scheduling",
+        "time": "5-10 days",
+        "actions": ["Create production plan", "Schedule resources", "Allocate budget", "Set milestones"],
+        "inputs": ["Content requirements", "Resource availability", "Budget constraints"],
+        "outputs": ["Production plan", "Resource schedule"],
+        "dependencies": [],
+        "decisionPoints": ["Resource allocation", "Timeline optimization"],
+        "errorHandling": "Re-plan if conflicts"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Production Execution & Asset Creation",
+        "description": "Manual production execution and asset creation",
+        "time": "30-60 days",
+        "actions": ["Execute production", "Create content assets", "Manage versions", "Track progress"],
+        "inputs": ["Production plan", "Creative assets", "Production tools"],
+        "outputs": ["Content assets", "Production status"],
+        "dependencies": ["Pre-Production Planning & Scheduling"],
+        "decisionPoints": ["Asset quality", "Progress milestones"],
+        "errorHandling": "Re-shoot if quality issues"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Post-Production Editing & Assembly",
+        "description": "Manual post-production editing and assembly",
+        "time": "15-30 days",
+        "actions": ["Edit content", "Assemble final cut", "Add effects", "Review quality"],
+        "inputs": ["Raw assets", "Editing tools", "Quality standards"],
+        "outputs": ["Edited content", "Final cut"],
+        "dependencies": ["Production Execution & Asset Creation"],
+        "decisionPoints": ["Edit approval", "Quality threshold"],
+        "errorHandling": "Re-edit if quality issues"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Quality Control & Compliance Check",
+        "description": "Manual quality control and compliance validation",
+        "time": "3-5 days",
+        "actions": ["Perform quality checks", "Validate compliance", "Test playback", "Fix issues"],
+        "inputs": ["Final content", "Quality standards", "Compliance rules"],
+        "outputs": ["Quality report", "Compliance status"],
+        "dependencies": ["Post-Production Editing & Assembly"],
+        "decisionPoints": ["Quality pass", "Compliance approval"],
+        "errorHandling": "Re-work if quality fails"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Metadata Tagging & Organization",
+        "description": "Manual metadata tagging and organization",
+        "time": "2-3 days",
+        "actions": ["Tag metadata", "Organize assets", "Create catalogs", "Update database"],
+        "inputs": ["Content assets", "Metadata schemas", "Organization rules"],
+        "outputs": ["Tagged assets", "Organized catalog"],
+        "dependencies": ["Quality Control & Compliance Check"],
+        "decisionPoints": ["Metadata completeness", "Organization structure"],
+        "errorHandling": "Re-tag if incomplete"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Delivery Preparation & Distribution",
+        "description": "Manual delivery preparation and distribution",
+        "time": "2-4 days",
+        "actions": ["Prepare delivery packages", "Encode formats", "Upload to platforms", "Verify delivery"],
+        "inputs": ["Final content", "Platform requirements", "Encoding tools"],
+        "outputs": ["Delivery packages", "Distribution status"],
+        "dependencies": ["Metadata Tagging & Organization"],
+        "decisionPoints": ["Format requirements", "Delivery approval"],
+        "errorHandling": "Re-deliver if failures"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Production Planning Agent",
+        "description": "Automated production planning and scheduling",
+        "time": "< 1 day",
+        "actions": ["Create production plan", "Optimize schedule", "Allocate resources", "Set milestones"],
+        "inputs": ["Content requirements", "Resource data", "Optimization algorithms"],
+        "outputs": ["Production plan", "Optimized schedule"],
+        "dependencies": [],
+        "decisionPoints": ["Resource optimization", "Timeline constraints"],
+        "errorHandling": "Alert if conflicts detected"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Asset Management Agent",
+        "description": "Automated asset management and version control",
+        "time": "Continuous",
+        "actions": ["Organize assets", "Manage versions", "Track dependencies", "Update catalog"],
+        "inputs": ["Content assets", "Version control", "Asset metadata"],
+        "outputs": ["Organized assets", "Version history"],
+        "dependencies": ["Production Planning Agent"],
+        "decisionPoints": ["Asset organization", "Version rules"],
+        "errorHandling": "Flag for review if conflicts"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Quality Check Agent",
+        "description": "Automated quality checks and compliance validation",
+        "time": "< 4 hours",
+        "actions": ["Perform quality checks", "Validate compliance", "Test playback", "Generate report"],
+        "inputs": ["Content assets", "Quality standards", "Compliance rules"],
+        "outputs": ["Quality report", "Compliance status"],
+        "dependencies": ["Asset Management Agent"],
+        "decisionPoints": ["Quality threshold", "Compliance rules"],
+        "errorHandling": "Route to human for exceptions"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Metadata Tagging Agent",
+        "description": "Automated metadata tagging and organization",
+        "time": "< 2 hours",
+        "actions": ["Tag metadata automatically", "Organize assets", "Create catalogs", "Update database"],
+        "inputs": ["Content assets", "ML models", "Metadata schemas"],
+        "outputs": ["Tagged assets", "Organized catalog"],
+        "dependencies": ["Quality Check Agent"],
+        "decisionPoints": ["Tagging confidence", "Organization rules"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Delivery Agent",
+        "description": "Automated delivery orchestration and distribution",
+        "time": "< 1 day",
+        "actions": ["Prepare packages", "Encode formats", "Upload to platforms", "Verify delivery"],
+        "inputs": ["Final content", "Platform requirements", "Encoding tools"],
+        "outputs": ["Delivery packages", "Distribution status"],
+        "dependencies": ["Metadata Tagging Agent"],
+        "decisionPoints": ["Format selection", "Platform routing"],
+        "errorHandling": "Retry if delivery fails"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Status Tracking Agent",
+        "description": "Automated production status tracking and reporting",
+        "time": "Continuous",
+        "actions": ["Track production status", "Monitor progress", "Generate reports", "Alert on delays"],
+        "inputs": ["Production data", "Status updates", "Milestone tracking"],
+        "outputs": ["Status reports", "Progress alerts"],
+        "dependencies": ["Production Planning Agent"],
+        "decisionPoints": ["Alert thresholds", "Report frequency"],
+        "errorHandling": "Alert if delays detected"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "90-120 days",
+        "steps": [
+          {"stepName": "Pre-Production Planning & Scheduling", "time": "5-10 days"},
+          {"stepName": "Production Execution & Asset Creation", "time": "30-60 days"},
+          {"stepName": "Post-Production Editing & Assembly", "time": "15-30 days"},
+          {"stepName": "Quality Control & Compliance Check", "time": "3-5 days"},
+          {"stepName": "Metadata Tagging & Organization", "time": "2-3 days"},
+          {"stepName": "Delivery Preparation & Distribution", "time": "2-4 days"}
+        ],
+        "bottlenecks": ["Production execution (30-60 days)", "Post-production (15-30 days)", "Manual coordination"]
+      },
+      "agenticProcess": {
+        "totalTime": "50-70 days",
+        "steps": [
+          {"stepName": "Production Planning Agent", "time": "< 1 day"},
+          {"stepName": "Asset Management Agent", "time": "Continuous"},
+          {"stepName": "Quality Check Agent", "time": "< 4 hours"},
+          {"stepName": "Metadata Tagging Agent", "time": "< 2 hours"},
+          {"stepName": "Delivery Agent", "time": "< 1 day"},
+          {"stepName": "Status Tracking Agent", "time": "Continuous"}
+        ],
+        "bottlenecks": ["Human approval for quality exceptions", "Creative production time"]
+      },
+      "savings": {
+        "absolute": "40-50 days",
+        "percentage": "35-50%"
+      }
+    }
   },
   {
     "id": "content-distribution-delivery",
@@ -192,11 +748,51 @@
     "description": "Automate multi-platform content distribution from encoding through delivery to broadcast, streaming, and digital platforms. Agentic AI orchestrates encoding, transcoding, packaging, metadata enrichment, and delivery workflows—ensuring consistent quality across all platforms.",
     "businessGoal": "Accelerate time-to-market for content releases, ensure consistent quality across platforms, and optimize delivery costs through intelligent automation.",
     "kpis": [
-      "Time-to-market (hours)",
-      "Multi-platform delivery success rate",
-      "Encoding quality consistency",
-      "Delivery cost per title",
-      "Platform compliance rate"
+      {
+        "name": "Time-to-market",
+        "baseline": 48,
+        "target": 12,
+        "improvement": "60-75% reduction",
+        "unit": "hours",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Multi-platform delivery success rate",
+        "baseline": 85,
+        "target": 98,
+        "improvement": "40-60% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Encoding quality consistency",
+        "baseline": 80,
+        "target": 95,
+        "improvement": "30-45% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "secondary"
+      },
+      {
+        "name": "Delivery cost per title",
+        "baseline": 500,
+        "target": 300,
+        "improvement": "30-45% reduction",
+        "unit": "dollars",
+        "category": "cost-optimization",
+        "priority": "secondary"
+      },
+      {
+        "name": "Platform compliance rate",
+        "baseline": 75,
+        "target": 95,
+        "improvement": "35-50% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["time-to-market", "operational-excellence", "cost-optimization", "customer-experience"],
     "fourW": {
@@ -270,13 +866,251 @@
       "25-35% improvement in platform compliance rates"
     ],
     "risksAndControls": [
-      "Human approval required for quality exceptions and platform policy violations",
-      "Audit trail of all encoding, packaging, and delivery activities",
-      "Policy grounding: agents reference approved encoding profiles and platform specs",
-      "Validation gates prevent delivery of non-compliant content",
-      "Real-time monitoring and alerting for delivery failures",
-      "Automated rollback capabilities for failed deliveries"
-    ]
+      {
+        "description": "Encoding quality issues causing platform rejections",
+        "category": "quality",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated quality validation, human approval for exceptions",
+        "monitoringApproach": "Monitor encoding quality, track platform rejections",
+        "escalationPath": "Escalate to quality team for exceptions",
+        "complianceRequirements": ["Quality validation", "Platform compliance"]
+      },
+      {
+        "description": "Delivery failures causing content unavailability",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Automated retry logic, monitoring, rollback capabilities",
+        "monitoringApproach": "Monitor delivery success rates, track failures",
+        "escalationPath": "Alert operations for delivery failures",
+        "complianceRequirements": ["Delivery validation", "Error handling"]
+      },
+      {
+        "description": "Platform compliance violations causing content removal",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Automated compliance checks, validation gates",
+        "monitoringApproach": "Monitor compliance rates, track violations",
+        "escalationPath": "Alert compliance team for violations",
+        "complianceRequirements": ["Compliance validation", "Policy enforcement"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Time-to-Market",
+          "value": "40-60 hours",
+          "change": "-70%"
+        },
+        {
+          "label": "Multi-Platform Delivery Success",
+          "value": "80-90%",
+          "change": "+55%"
+        },
+        {
+          "label": "Encoding Quality Consistency",
+          "value": "75-85%",
+          "change": "+40%"
+        },
+        {
+          "label": "Delivery Cost per Title",
+          "value": "$450-$600",
+          "change": "-40%"
+        }
+      ],
+      "insights": [
+        "Content delivery delays cost media companies $800M annually in lost revenue",
+        "Platform rejections result in 15-20% of content requiring re-encoding",
+        "Automated encoding reduces errors by 70-80%",
+        "Multi-platform delivery automation improves success rates by 50-60%"
+      ],
+      "trends": [
+        "Demand for same-day content releases",
+        "Increasing number of distribution platforms",
+        "Shift toward automated quality assurance",
+        "Integration of AI for encoding optimization"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Content Preparation & Format Analysis",
+        "description": "Manual content preparation and format analysis",
+        "time": "4-8 hours",
+        "actions": ["Prepare source content", "Analyze formats", "Check requirements", "Validate source"],
+        "inputs": ["Source content", "Platform requirements", "Format specs"],
+        "outputs": ["Prepared content", "Format analysis"],
+        "dependencies": [],
+        "decisionPoints": ["Format compatibility", "Quality requirements"],
+        "errorHandling": "Re-prepare if issues"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Encoding & Transcoding",
+        "description": "Manual encoding and transcoding for platforms",
+        "time": "8-16 hours",
+        "actions": ["Encode content", "Transcode formats", "Apply profiles", "Validate output"],
+        "inputs": ["Prepared content", "Encoding profiles", "Platform specs"],
+        "outputs": ["Encoded content", "Multiple formats"],
+        "dependencies": ["Content Preparation & Format Analysis"],
+        "decisionPoints": ["Encoding profiles", "Quality settings"],
+        "errorHandling": "Re-encode if quality issues"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Packaging & Metadata Enrichment",
+        "description": "Manual packaging and metadata enrichment",
+        "time": "2-4 hours",
+        "actions": ["Package content", "Add metadata", "Enrich descriptions", "Validate packages"],
+        "inputs": ["Encoded content", "Metadata schemas", "Platform requirements"],
+        "outputs": ["Packaged content", "Enriched metadata"],
+        "dependencies": ["Encoding & Transcoding"],
+        "decisionPoints": ["Package format", "Metadata completeness"],
+        "errorHandling": "Re-package if errors"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Quality Validation & Compliance Check",
+        "description": "Manual quality validation and compliance checking",
+        "time": "2-4 hours",
+        "actions": ["Validate quality", "Check compliance", "Test playback", "Verify specs"],
+        "inputs": ["Packaged content", "Quality standards", "Compliance rules"],
+        "outputs": ["Quality report", "Compliance status"],
+        "dependencies": ["Packaging & Metadata Enrichment"],
+        "decisionPoints": ["Quality pass", "Compliance approval"],
+        "errorHandling": "Re-work if validation fails"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Multi-Platform Delivery & Upload",
+        "description": "Manual multi-platform delivery and upload",
+        "time": "4-12 hours",
+        "actions": ["Upload to platforms", "Configure settings", "Monitor uploads", "Verify delivery"],
+        "inputs": ["Validated packages", "Platform APIs", "Delivery settings"],
+        "outputs": ["Delivery status", "Platform confirmations"],
+        "dependencies": ["Quality Validation & Compliance Check"],
+        "decisionPoints": ["Platform routing", "Delivery settings"],
+        "errorHandling": "Retry if upload fails"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Delivery Verification & Status Tracking",
+        "description": "Manual delivery verification and status tracking",
+        "time": "2-4 hours",
+        "actions": ["Verify delivery", "Check status", "Monitor performance", "Update records"],
+        "inputs": ["Delivery confirmations", "Platform status", "Monitoring tools"],
+        "outputs": ["Verification report", "Status updates"],
+        "dependencies": ["Multi-Platform Delivery & Upload"],
+        "decisionPoints": ["Verification threshold", "Status accuracy"],
+        "errorHandling": "Re-verify if issues"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Encoding Agent",
+        "description": "Automated encoding and transcoding orchestration",
+        "time": "< 2 hours",
+        "actions": ["Analyze source content", "Select encoding profiles", "Orchestrate encoding", "Validate output"],
+        "inputs": ["Source content", "Encoding profiles", "Platform specs"],
+        "outputs": ["Encoded content", "Multiple formats"],
+        "dependencies": [],
+        "decisionPoints": ["Profile selection", "Quality optimization"],
+        "errorHandling": "Retry with alternative profiles if fails"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Packaging Agent",
+        "description": "Automated packaging and metadata enrichment",
+        "time": "< 1 hour",
+        "actions": ["Package content", "Enrich metadata", "Apply schemas", "Validate packages"],
+        "inputs": ["Encoded content", "Metadata schemas", "ML models"],
+        "outputs": ["Packaged content", "Enriched metadata"],
+        "dependencies": ["Encoding Agent"],
+        "decisionPoints": ["Package format", "Metadata confidence"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Quality Validation Agent",
+        "description": "Automated quality validation and compliance checking",
+        "time": "< 1 hour",
+        "actions": ["Validate quality", "Check compliance", "Test playback", "Generate report"],
+        "inputs": ["Packaged content", "Quality standards", "Compliance rules"],
+        "outputs": ["Quality report", "Compliance status"],
+        "dependencies": ["Packaging Agent"],
+        "decisionPoints": ["Quality threshold", "Compliance rules"],
+        "errorHandling": "Route to human for exceptions"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Delivery Agent",
+        "description": "Automated multi-platform delivery orchestration",
+        "time": "< 3 hours",
+        "actions": ["Orchestrate delivery", "Upload to platforms", "Configure settings", "Monitor progress"],
+        "inputs": ["Validated packages", "Platform APIs", "Delivery workflows"],
+        "outputs": ["Delivery status", "Platform confirmations"],
+        "dependencies": ["Quality Validation Agent"],
+        "decisionPoints": ["Platform routing", "Delivery priority"],
+        "errorHandling": "Trigger retry if delivery fails"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Error Recovery Agent",
+        "description": "Automated error detection and recovery",
+        "time": "Continuous",
+        "actions": ["Detect failures", "Analyze errors", "Trigger retry", "Escalate if needed"],
+        "inputs": ["Delivery status", "Error logs", "Recovery rules"],
+        "outputs": ["Recovery actions", "Error reports"],
+        "dependencies": ["Delivery Agent"],
+        "decisionPoints": ["Error severity", "Retry threshold"],
+        "errorHandling": "Escalate to operations if retry fails"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Status Tracking Agent",
+        "description": "Automated delivery status tracking and reporting",
+        "time": "Continuous",
+        "actions": ["Track delivery status", "Monitor performance", "Generate reports", "Alert on issues"],
+        "inputs": ["Delivery data", "Platform status", "Monitoring tools"],
+        "outputs": ["Status reports", "Performance alerts"],
+        "dependencies": ["Delivery Agent"],
+        "decisionPoints": ["Alert thresholds", "Report frequency"],
+        "errorHandling": "Alert if issues detected"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "48-72 hours",
+        "steps": [
+          {"stepName": "Content Preparation & Format Analysis", "time": "4-8 hours"},
+          {"stepName": "Encoding & Transcoding", "time": "8-16 hours"},
+          {"stepName": "Packaging & Metadata Enrichment", "time": "2-4 hours"},
+          {"stepName": "Quality Validation & Compliance Check", "time": "2-4 hours"},
+          {"stepName": "Multi-Platform Delivery & Upload", "time": "4-12 hours"},
+          {"stepName": "Delivery Verification & Status Tracking", "time": "2-4 hours"}
+        ],
+        "bottlenecks": ["Encoding (8-16 hours)", "Multi-platform delivery (4-12 hours)", "Manual validation"]
+      },
+      "agenticProcess": {
+        "totalTime": "12-18 hours",
+        "steps": [
+          {"stepName": "Encoding Agent", "time": "< 2 hours"},
+          {"stepName": "Packaging Agent", "time": "< 1 hour"},
+          {"stepName": "Quality Validation Agent", "time": "< 1 hour"},
+          {"stepName": "Delivery Agent", "time": "< 3 hours"},
+          {"stepName": "Error Recovery Agent", "time": "Continuous"},
+          {"stepName": "Status Tracking Agent", "time": "Continuous"}
+        ],
+        "bottlenecks": ["Human approval for quality exceptions", "Complex platform requirements"]
+      },
+      "savings": {
+        "absolute": "36-54 hours",
+        "percentage": "60-75%"
+      }
+    }
   },
   {
     "id": "advertising-sales-operations",
@@ -285,11 +1119,51 @@
     "description": "Transform advertising sales from inventory management through proposal generation, campaign execution, and performance optimization. Agentic AI automates inventory forecasting, proposal creation, campaign setup, performance monitoring, and optimization—maximizing ad revenue while improving efficiency.",
     "businessGoal": "Maximize advertising revenue, improve sales productivity, and optimize campaign performance through intelligent automation of sales and operations workflows.",
     "kpis": [
-      "Ad revenue yield",
-      "Inventory fill rate",
-      "Sales cycle time (days)",
-      "Campaign performance (CTR, conversion)",
-      "Sales productivity (deals per rep)"
+      {
+        "name": "Ad revenue yield",
+        "baseline": 85,
+        "target": 105,
+        "improvement": "20-30% improvement",
+        "unit": "CPM index",
+        "category": "revenue",
+        "priority": "primary"
+      },
+      {
+        "name": "Inventory fill rate",
+        "baseline": 70,
+        "target": 88,
+        "improvement": "25-35% improvement",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "primary"
+      },
+      {
+        "name": "Sales cycle time",
+        "baseline": 14,
+        "target": 7,
+        "improvement": "40-60% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Campaign performance (CTR)",
+        "baseline": 0.8,
+        "target": 1.2,
+        "improvement": "30-50% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "secondary"
+      },
+      {
+        "name": "Sales productivity",
+        "baseline": 8,
+        "target": 15,
+        "improvement": "50-70% increase",
+        "unit": "deals per rep per month",
+        "category": "efficiency",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["revenue-growth", "operational-excellence", "workforce-productivity", "customer-experience"],
     "fourW": {
@@ -363,13 +1237,251 @@
       "50-70% reduction in manual campaign setup and reporting"
     ],
     "risksAndControls": [
-      "Human approval required for high-value proposals and pricing exceptions",
-      "Audit trail of all inventory forecasts, proposals, and campaign changes",
-      "Policy grounding: agents reference approved pricing and targeting policies",
-      "Validation gates prevent invalid campaign configurations",
-      "Real-time monitoring of campaign performance and compliance",
-      "Escalation workflows for performance issues and policy violations"
-    ]
+      {
+        "description": "Incorrect pricing in proposals causing revenue loss",
+        "category": "financial",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human approval for high-value proposals, pricing validation",
+        "monitoringApproach": "Monitor proposal pricing, track revenue impact",
+        "escalationPath": "Escalate to sales manager for high-value proposals",
+        "complianceRequirements": ["Pricing validation", "Approval workflows"]
+      },
+      {
+        "description": "Invalid campaign configurations causing delivery failures",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated validation, configuration checks",
+        "monitoringApproach": "Monitor campaign success rates, track configuration errors",
+        "escalationPath": "Alert operations for configuration issues",
+        "complianceRequirements": ["Configuration validation", "Error handling"]
+      },
+      {
+        "description": "Inventory forecasting errors causing overbooking",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "low",
+        "mitigationStrategy": "Automated validation, availability checks",
+        "monitoringApproach": "Monitor forecast accuracy, track booking conflicts",
+        "escalationPath": "Alert sales for availability issues",
+        "complianceRequirements": ["Forecast validation", "Availability checks"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Ad Revenue Yield",
+          "value": "80-90 CPM index",
+          "change": "+25%"
+        },
+        {
+          "label": "Inventory Fill Rate",
+          "value": "65-75%",
+          "change": "+30%"
+        },
+        {
+          "label": "Sales Cycle Time",
+          "value": "12-18 days",
+          "change": "-50%"
+        },
+        {
+          "label": "Campaign Performance (CTR)",
+          "value": "0.7-0.9%",
+          "change": "+40%"
+        }
+      ],
+      "insights": [
+        "Ad revenue optimization increases yield by 20-30%",
+        "Sales cycle reduction improves conversion rates by 25-35%",
+        "Automated proposal generation reduces cycle time by 40-60%",
+        "Campaign optimization improves performance by 30-50%"
+      ],
+      "trends": [
+        "Demand for real-time inventory optimization",
+        "Shift toward programmatic advertising",
+        "Integration of AI for audience targeting",
+        "Automated campaign optimization"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Inventory Forecasting & Availability Check",
+        "description": "Manual inventory forecasting and availability checking",
+        "time": "2-4 hours",
+        "actions": ["Forecast inventory", "Check availability", "Analyze trends", "Update forecasts"],
+        "inputs": ["Historical data", "Booking data", "Forecast models"],
+        "outputs": ["Inventory forecast", "Availability status"],
+        "dependencies": [],
+        "decisionPoints": ["Forecast accuracy", "Availability threshold"],
+        "errorHandling": "Manual adjustment if forecast errors"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Proposal Generation & Customization",
+        "description": "Manual proposal generation and customization",
+        "time": "4-8 hours",
+        "actions": ["Create proposal", "Customize content", "Set pricing", "Add targeting"],
+        "inputs": ["Client requirements", "Proposal templates", "Pricing rules"],
+        "outputs": ["Proposal document", "Pricing details"],
+        "dependencies": ["Inventory Forecasting & Availability Check"],
+        "decisionPoints": ["Pricing strategy", "Targeting approach"],
+        "errorHandling": "Re-work if pricing errors"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Proposal Review & Approval",
+        "description": "Manual proposal review and approval",
+        "time": "1-2 days",
+        "actions": ["Review proposal", "Validate pricing", "Approve or request changes", "Finalize"],
+        "inputs": ["Proposal document", "Approval workflows", "Pricing policies"],
+        "outputs": ["Approved proposal", "Final terms"],
+        "dependencies": ["Proposal Generation & Customization"],
+        "decisionPoints": ["Proposal approval", "Change requests"],
+        "errorHandling": "Revise if changes requested"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Campaign Setup & Configuration",
+        "description": "Manual campaign setup and configuration",
+        "time": "2-4 hours",
+        "actions": ["Set up campaign", "Configure targeting", "Set budgets", "Schedule ads"],
+        "inputs": ["Approved proposal", "Campaign platform", "Targeting rules"],
+        "outputs": ["Campaign configuration", "Setup status"],
+        "dependencies": ["Proposal Review & Approval"],
+        "decisionPoints": ["Targeting configuration", "Budget allocation"],
+        "errorHandling": "Re-configure if setup errors"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Performance Monitoring & Optimization",
+        "description": "Manual performance monitoring and optimization",
+        "time": "Ongoing",
+        "actions": ["Monitor performance", "Analyze metrics", "Optimize campaigns", "Adjust targeting"],
+        "inputs": ["Performance data", "Analytics tools", "Optimization rules"],
+        "outputs": ["Performance reports", "Optimization actions"],
+        "dependencies": ["Campaign Setup & Configuration"],
+        "decisionPoints": ["Performance threshold", "Optimization approach"],
+        "errorHandling": "Manual intervention if performance issues"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting & Revenue Reconciliation",
+        "description": "Manual reporting and revenue reconciliation",
+        "time": "2-4 hours",
+        "actions": ["Generate reports", "Reconcile revenue", "Update records", "Bill clients"],
+        "inputs": ["Performance data", "Revenue data", "Report templates"],
+        "outputs": ["Performance reports", "Revenue reconciliation"],
+        "dependencies": ["Performance Monitoring & Optimization"],
+        "decisionPoints": ["Report format", "Reconciliation accuracy"],
+        "errorHandling": "Re-calculate if discrepancies"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Inventory Forecasting Agent",
+        "description": "Automated inventory forecasting and availability checking",
+        "time": "< 30 min",
+        "actions": ["Forecast inventory using ML", "Check availability", "Analyze trends", "Update forecasts"],
+        "inputs": ["Historical data", "ML models", "Booking data"],
+        "outputs": ["Inventory forecast", "Availability status"],
+        "dependencies": [],
+        "decisionPoints": ["Forecast confidence", "Availability threshold"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Proposal Generation Agent",
+        "description": "Automated proposal generation and customization",
+        "time": "< 1 hour",
+        "actions": ["Generate proposal", "Customize content", "Set pricing", "Add targeting"],
+        "inputs": ["Client requirements", "Proposal templates", "Pricing ML models"],
+        "outputs": ["Proposal document", "Pricing details"],
+        "dependencies": ["Inventory Forecasting Agent"],
+        "decisionPoints": ["Pricing optimization", "Targeting selection"],
+        "errorHandling": "Route to human for high-value proposals"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Campaign Setup Agent",
+        "description": "Automated campaign setup and configuration",
+        "time": "< 1 hour",
+        "actions": ["Set up campaign", "Configure targeting", "Set budgets", "Schedule ads"],
+        "inputs": ["Approved proposal", "Campaign platform", "Configuration rules"],
+        "outputs": ["Campaign configuration", "Setup status"],
+        "dependencies": ["Proposal Generation Agent"],
+        "decisionPoints": ["Configuration validation", "Targeting rules"],
+        "errorHandling": "Flag for review if validation fails"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Performance Optimization Agent",
+        "description": "Automated performance monitoring and optimization",
+        "time": "Continuous",
+        "actions": ["Monitor performance", "Analyze metrics", "Optimize campaigns", "Adjust targeting"],
+        "inputs": ["Performance data", "Optimization algorithms", "ML models"],
+        "outputs": ["Optimization actions", "Performance reports"],
+        "dependencies": ["Campaign Setup Agent"],
+        "decisionPoints": ["Optimization threshold", "Adjustment rules"],
+        "errorHandling": "Alert if performance degrades"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Reporting Agent",
+        "description": "Automated reporting and insights generation",
+        "time": "< 30 min",
+        "actions": ["Generate reports", "Create insights", "Update dashboards", "Send notifications"],
+        "inputs": ["Performance data", "Report templates", "Insight algorithms"],
+        "outputs": ["Performance reports", "Insights"],
+        "dependencies": ["Performance Optimization Agent"],
+        "decisionPoints": ["Report format", "Insight relevance"],
+        "errorHandling": "Regenerate if data issues"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Revenue Reconciliation Agent",
+        "description": "Automated revenue reconciliation and billing",
+        "time": "< 2 hours",
+        "actions": ["Reconcile revenue", "Validate amounts", "Generate invoices", "Update records"],
+        "inputs": ["Performance data", "Revenue data", "Billing rules"],
+        "outputs": ["Revenue reconciliation", "Billing records"],
+        "dependencies": ["Reporting Agent"],
+        "decisionPoints": ["Reconciliation rules", "Billing approval"],
+        "errorHandling": "Flag for review if discrepancies"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "14-20 days",
+        "steps": [
+          {"stepName": "Inventory Forecasting & Availability Check", "time": "2-4 hours"},
+          {"stepName": "Proposal Generation & Customization", "time": "4-8 hours"},
+          {"stepName": "Proposal Review & Approval", "time": "1-2 days"},
+          {"stepName": "Campaign Setup & Configuration", "time": "2-4 hours"},
+          {"stepName": "Performance Monitoring & Optimization", "time": "Ongoing"},
+          {"stepName": "Reporting & Revenue Reconciliation", "time": "2-4 hours"}
+        ],
+        "bottlenecks": ["Proposal review (1-2 days)", "Manual optimization", "Campaign setup"]
+      },
+      "agenticProcess": {
+        "totalTime": "7-10 days",
+        "steps": [
+          {"stepName": "Inventory Forecasting Agent", "time": "< 30 min"},
+          {"stepName": "Proposal Generation Agent", "time": "< 1 hour"},
+          {"stepName": "Campaign Setup Agent", "time": "< 1 hour"},
+          {"stepName": "Performance Optimization Agent", "time": "Continuous"},
+          {"stepName": "Reporting Agent", "time": "< 30 min"},
+          {"stepName": "Revenue Reconciliation Agent", "time": "< 2 hours"}
+        ],
+        "bottlenecks": ["Human approval for high-value proposals", "Campaign performance optimization"]
+      },
+      "savings": {
+        "absolute": "7-10 days",
+        "percentage": "40-60%"
+      }
+    }
   },
   {
     "id": "audience-analytics-insights",
@@ -378,11 +1490,51 @@
     "description": "Transform audience analytics from data collection through analysis, insight generation, and action recommendations. Agentic AI automates data aggregation, audience segmentation, behavior analysis, and insight generation—enabling data-driven content and advertising decisions.",
     "businessGoal": "Enable data-driven decision making, improve audience engagement, and optimize content and advertising strategies through intelligent analytics automation.",
     "kpis": [
-      "Audience engagement rate",
-      "Content performance metrics",
-      "Insight generation time",
-      "Data accuracy and completeness",
-      "Actionable insight rate"
+      {
+        "name": "Audience engagement rate",
+        "baseline": 3.5,
+        "target": 5.2,
+        "improvement": "35-50% improvement",
+        "unit": "percentage",
+        "category": "customer-experience",
+        "priority": "primary"
+      },
+      {
+        "name": "Content performance metrics",
+        "baseline": 65,
+        "target": 85,
+        "improvement": "25-35% improvement",
+        "unit": "performance score",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Insight generation time",
+        "baseline": 3,
+        "target": 0.5,
+        "improvement": "70-85% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Data accuracy and completeness",
+        "baseline": 82,
+        "target": 96,
+        "improvement": "30-45% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "secondary"
+      },
+      {
+        "name": "Actionable insight rate",
+        "baseline": 45,
+        "target": 75,
+        "improvement": "50-70% improvement",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["revenue-growth", "customer-experience", "data-driven-decisions", "operational-excellence"],
     "fourW": {
@@ -455,13 +1607,251 @@
       "60-80% reduction in manual data analysis"
     ],
     "risksAndControls": [
-      "Human review of critical insights and strategic recommendations",
-      "Audit trail of all data processing, analysis, and insights",
-      "Policy grounding: agents reference approved analytics methodologies",
-      "Data privacy compliance validation",
-      "Regular review of insight accuracy and model performance",
-      "Escalation workflows for data quality issues and anomalies"
-    ]
+      {
+        "description": "Incorrect insights leading to poor business decisions",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human review of critical insights, model validation",
+        "monitoringApproach": "Monitor insight accuracy, track decision outcomes",
+        "escalationPath": "Escalate to analysts for critical insights",
+        "complianceRequirements": ["Insight validation", "Model review"]
+      },
+      {
+        "description": "Data quality issues affecting analysis accuracy",
+        "category": "technical",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated data quality checks, validation rules",
+        "monitoringApproach": "Monitor data quality metrics, track accuracy",
+        "escalationPath": "Alert data team for quality issues",
+        "complianceRequirements": ["Data quality standards", "Validation rules"]
+      },
+      {
+        "description": "Data privacy violations in analytics processing",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Privacy compliance validation, data anonymization",
+        "monitoringApproach": "Audit data processing, track compliance",
+        "escalationPath": "Alert compliance team for violations",
+        "complianceRequirements": ["Privacy regulations", "Data protection"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Insight Generation Time",
+          "value": "2-4 days",
+          "change": "-80%"
+        },
+        {
+          "label": "Data Accuracy",
+          "value": "78-85%",
+          "change": "+40%"
+        },
+        {
+          "label": "Actionable Insight Rate",
+          "value": "40-50%",
+          "change": "+65%"
+        },
+        {
+          "label": "Audience Engagement Rate",
+          "value": "3.0-4.0%",
+          "change": "+40%"
+        }
+      ],
+      "insights": [
+        "Data-driven decisions improve content performance by 30-40%",
+        "Automated analytics reduces insight generation time by 70-85%",
+        "Actionable insights increase engagement by 35-50%",
+        "Data quality improvements boost accuracy by 30-45%"
+      ],
+      "trends": [
+        "Demand for real-time analytics and insights",
+        "Integration of AI/ML for predictive analytics",
+        "Shift toward automated insight generation",
+        "Privacy-preserving analytics techniques"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Data Collection & Aggregation",
+        "description": "Manual data collection and aggregation",
+        "time": "1-2 days",
+        "actions": ["Collect data from sources", "Aggregate datasets", "Validate data quality", "Clean data"],
+        "inputs": ["Data sources", "Collection rules", "Quality standards"],
+        "outputs": ["Aggregated data", "Quality report"],
+        "dependencies": [],
+        "decisionPoints": ["Data completeness", "Quality threshold"],
+        "errorHandling": "Manual correction if data errors"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Audience Segmentation & Profiling",
+        "description": "Manual audience segmentation and profiling",
+        "time": "2-3 days",
+        "actions": ["Segment audiences", "Create profiles", "Analyze behaviors", "Identify patterns"],
+        "inputs": ["Aggregated data", "Segmentation rules", "Profile templates"],
+        "outputs": ["Audience segments", "Profile data"],
+        "dependencies": ["Data Collection & Aggregation"],
+        "decisionPoints": ["Segmentation approach", "Profile completeness"],
+        "errorHandling": "Re-segment if issues"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Behavior Analysis & Pattern Detection",
+        "description": "Manual behavior analysis and pattern detection",
+        "time": "2-4 days",
+        "actions": ["Analyze behaviors", "Detect patterns", "Identify trends", "Correlate data"],
+        "inputs": ["Audience segments", "Behavior data", "Analysis tools"],
+        "outputs": ["Behavior analysis", "Pattern detection"],
+        "dependencies": ["Audience Segmentation & Profiling"],
+        "decisionPoints": ["Pattern significance", "Trend confidence"],
+        "errorHandling": "Manual review if unclear patterns"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Insight Generation & Recommendations",
+        "description": "Manual insight generation and recommendations",
+        "time": "1-2 days",
+        "actions": ["Generate insights", "Create recommendations", "Prioritize actions", "Document findings"],
+        "inputs": ["Behavior analysis", "Business context", "Insight templates"],
+        "outputs": ["Insights", "Recommendations"],
+        "dependencies": ["Behavior Analysis & Pattern Detection"],
+        "decisionPoints": ["Insight relevance", "Recommendation priority"],
+        "errorHandling": "Re-analyze if insights unclear"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Reporting & Dashboard Updates",
+        "description": "Manual reporting and dashboard updates",
+        "time": "1-2 days",
+        "actions": ["Create reports", "Update dashboards", "Visualize data", "Share insights"],
+        "inputs": ["Insights", "Report templates", "Dashboard tools"],
+        "outputs": ["Reports", "Updated dashboards"],
+        "dependencies": ["Insight Generation & Recommendations"],
+        "decisionPoints": ["Report format", "Visualization approach"],
+        "errorHandling": "Re-generate if errors"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Predictive Analytics & Forecasting",
+        "description": "Manual predictive analytics and forecasting",
+        "time": "2-3 days",
+        "actions": ["Build models", "Generate forecasts", "Validate predictions", "Update models"],
+        "inputs": ["Historical data", "Forecast models", "Validation rules"],
+        "outputs": ["Forecasts", "Predictive models"],
+        "dependencies": ["Reporting & Dashboard Updates"],
+        "decisionPoints": ["Model accuracy", "Forecast confidence"],
+        "errorHandling": "Re-model if accuracy low"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Data Collection Agent",
+        "description": "Automated data collection and aggregation",
+        "time": "< 4 hours",
+        "actions": ["Collect data from sources", "Aggregate datasets", "Validate quality", "Clean data"],
+        "inputs": ["Data sources", "Collection APIs", "Quality rules"],
+        "outputs": ["Aggregated data", "Quality metrics"],
+        "dependencies": [],
+        "decisionPoints": ["Data completeness", "Quality threshold"],
+        "errorHandling": "Alert data team if quality issues"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Segmentation Agent",
+        "description": "Automated audience segmentation and profiling",
+        "time": "< 2 hours",
+        "actions": ["Segment audiences using ML", "Create profiles", "Analyze behaviors", "Identify patterns"],
+        "inputs": ["Aggregated data", "ML models", "Segmentation rules"],
+        "outputs": ["Audience segments", "Profile data"],
+        "dependencies": ["Data Collection Agent"],
+        "decisionPoints": ["Segmentation confidence", "Profile completeness"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Behavior Analysis Agent",
+        "description": "Automated behavior analysis and pattern detection",
+        "time": "< 3 hours",
+        "actions": ["Analyze behaviors", "Detect patterns using ML", "Identify trends", "Correlate data"],
+        "inputs": ["Audience segments", "Behavior data", "ML models"],
+        "outputs": ["Behavior analysis", "Pattern detection"],
+        "dependencies": ["Segmentation Agent"],
+        "decisionPoints": ["Pattern confidence", "Trend significance"],
+        "errorHandling": "Route to analysts if complex patterns"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Insight Generation Agent",
+        "description": "Automated insight generation and recommendations",
+        "time": "< 1 hour",
+        "actions": ["Generate insights", "Create recommendations", "Prioritize actions", "Document findings"],
+        "inputs": ["Behavior analysis", "Business context", "Insight algorithms"],
+        "outputs": ["Insights", "Recommendations"],
+        "dependencies": ["Behavior Analysis Agent"],
+        "decisionPoints": ["Insight relevance", "Recommendation priority"],
+        "errorHandling": "Route to analysts for critical insights"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Reporting Agent",
+        "description": "Automated reporting and dashboard updates",
+        "time": "< 30 min",
+        "actions": ["Create reports", "Update dashboards", "Visualize data", "Send notifications"],
+        "inputs": ["Insights", "Report templates", "Dashboard APIs"],
+        "outputs": ["Reports", "Updated dashboards"],
+        "dependencies": ["Insight Generation Agent"],
+        "decisionPoints": ["Report format", "Update frequency"],
+        "errorHandling": "Regenerate if errors"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Predictive Analytics Agent",
+        "description": "Automated predictive analytics and forecasting",
+        "time": "< 4 hours",
+        "actions": ["Build models", "Generate forecasts", "Validate predictions", "Update models"],
+        "inputs": ["Historical data", "ML models", "Forecast algorithms"],
+        "outputs": ["Forecasts", "Predictive models"],
+        "dependencies": ["Reporting Agent"],
+        "decisionPoints": ["Model accuracy", "Forecast confidence"],
+        "errorHandling": "Alert if model accuracy low"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "9-16 days",
+        "steps": [
+          {"stepName": "Data Collection & Aggregation", "time": "1-2 days"},
+          {"stepName": "Audience Segmentation & Profiling", "time": "2-3 days"},
+          {"stepName": "Behavior Analysis & Pattern Detection", "time": "2-4 days"},
+          {"stepName": "Insight Generation & Recommendations", "time": "1-2 days"},
+          {"stepName": "Reporting & Dashboard Updates", "time": "1-2 days"},
+          {"stepName": "Predictive Analytics & Forecasting", "time": "2-3 days"}
+        ],
+        "bottlenecks": ["Behavior analysis (2-4 days)", "Predictive analytics (2-3 days)", "Manual analysis"]
+      },
+      "agenticProcess": {
+        "totalTime": "0.5-1 day",
+        "steps": [
+          {"stepName": "Data Collection Agent", "time": "< 4 hours"},
+          {"stepName": "Segmentation Agent", "time": "< 2 hours"},
+          {"stepName": "Behavior Analysis Agent", "time": "< 3 hours"},
+          {"stepName": "Insight Generation Agent", "time": "< 1 hour"},
+          {"stepName": "Reporting Agent", "time": "< 30 min"},
+          {"stepName": "Predictive Analytics Agent", "time": "< 4 hours"}
+        ],
+        "bottlenecks": ["Human review for critical insights", "Complex pattern analysis"]
+      },
+      "savings": {
+        "absolute": "8.5-15 days",
+        "percentage": "70-85%"
+      }
+    }
   },
   {
     "id": "content-recommendation-personalization",
@@ -470,11 +1860,51 @@
     "description": "Enhance viewer experience through intelligent content recommendation and personalization. Agentic AI analyzes viewing behavior, preferences, and context to deliver personalized content recommendations, optimize discovery, and improve engagement—increasing viewer satisfaction and retention.",
     "businessGoal": "Improve viewer engagement, increase content discovery, and boost retention through intelligent personalization and recommendation.",
     "kpis": [
-      "Viewer engagement rate",
-      "Content discovery rate",
-      "Session duration",
-      "Retention rate",
-      "Recommendation click-through rate"
+      {
+        "name": "Viewer engagement rate",
+        "baseline": 4.2,
+        "target": 5.8,
+        "improvement": "25-40% improvement",
+        "unit": "percentage",
+        "category": "customer-experience",
+        "priority": "primary"
+      },
+      {
+        "name": "Content discovery rate",
+        "baseline": 35,
+        "target": 55,
+        "improvement": "30-50% improvement",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "primary"
+      },
+      {
+        "name": "Session duration",
+        "baseline": 45,
+        "target": 65,
+        "improvement": "20-35% increase",
+        "unit": "minutes",
+        "category": "customer-experience",
+        "priority": "secondary"
+      },
+      {
+        "name": "Retention rate",
+        "baseline": 75,
+        "target": 88,
+        "improvement": "15-25% improvement",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "secondary"
+      },
+      {
+        "name": "Recommendation click-through rate",
+        "baseline": 12,
+        "target": 20,
+        "improvement": "40-60% increase",
+        "unit": "percentage",
+        "category": "customer-experience",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["customer-experience", "revenue-growth", "data-driven-decisions", "operational-excellence"],
     "fourW": {
@@ -548,13 +1978,251 @@
       "50-70% reduction in manual curation"
     ],
     "risksAndControls": [
-      "Human oversight of recommendation algorithms and content policies",
-      "Audit trail of all recommendations and personalization decisions",
-      "Policy grounding: agents reference approved content guidelines",
-      "Bias detection and mitigation in recommendation algorithms",
-      "Regular review of recommendation performance and user feedback",
-      "Escalation workflows for content policy violations and edge cases"
-    ]
+      {
+        "description": "Algorithm bias causing unfair content recommendations",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Bias detection algorithms, regular model audits, diverse training data",
+        "monitoringApproach": "Monitor recommendation diversity, track bias metrics",
+        "escalationPath": "Alert data science team for bias issues",
+        "complianceRequirements": ["Bias detection", "Model fairness"]
+      },
+      {
+        "description": "Poor recommendations causing user dissatisfaction",
+        "category": "customer-experience",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "A/B testing, performance monitoring, user feedback loops",
+        "monitoringApproach": "Track engagement metrics, monitor user feedback",
+        "escalationPath": "Review algorithms if performance degrades",
+        "complianceRequirements": ["Performance monitoring", "User feedback"]
+      },
+      {
+        "description": "Content policy violations in recommendations",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Content policy filters, validation checks",
+        "monitoringApproach": "Monitor recommendations, track policy compliance",
+        "escalationPath": "Alert content team for violations",
+        "complianceRequirements": ["Content policies", "Validation rules"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Viewer Engagement Rate",
+          "value": "4.0-4.5%",
+          "change": "+35%"
+        },
+        {
+          "label": "Content Discovery Rate",
+          "value": "30-40%",
+          "change": "+45%"
+        },
+        {
+          "label": "Session Duration",
+          "value": "40-50 minutes",
+          "change": "+30%"
+        },
+        {
+          "label": "Recommendation CTR",
+          "value": "10-15%",
+          "change": "+55%"
+        }
+      ],
+      "insights": [
+        "Personalized recommendations increase engagement by 25-40%",
+        "Content discovery improvements boost retention by 15-25%",
+        "A/B testing optimizes recommendation performance by 30-50%",
+        "Real-time personalization improves session duration by 20-35%"
+      ],
+      "trends": [
+        "Demand for real-time personalization",
+        "Integration of AI/ML for recommendation engines",
+        "Shift toward context-aware recommendations",
+        "Focus on algorithm fairness and diversity"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "User Behavior Data Collection",
+        "description": "Manual user behavior data collection",
+        "time": "Ongoing",
+        "actions": ["Collect viewing data", "Track interactions", "Gather preferences", "Store data"],
+        "inputs": ["User interactions", "Viewing history", "Preference data"],
+        "outputs": ["Behavior data", "User profiles"],
+        "dependencies": [],
+        "decisionPoints": ["Data completeness", "Profile accuracy"],
+        "errorHandling": "Manual correction if data errors"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Preference Analysis & Profiling",
+        "description": "Manual preference analysis and profiling",
+        "time": "1-2 days",
+        "actions": ["Analyze preferences", "Create profiles", "Identify patterns", "Update profiles"],
+        "inputs": ["Behavior data", "Profile templates", "Analysis rules"],
+        "outputs": ["User profiles", "Preference analysis"],
+        "dependencies": ["User Behavior Data Collection"],
+        "decisionPoints": ["Profile completeness", "Pattern confidence"],
+        "errorHandling": "Re-analyze if profiles incomplete"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Content Matching & Recommendation Generation",
+        "description": "Manual content matching and recommendation generation",
+        "time": "2-4 hours",
+        "actions": ["Match content to users", "Generate recommendations", "Rank content", "Filter results"],
+        "inputs": ["User profiles", "Content catalog", "Matching algorithms"],
+        "outputs": ["Recommendations", "Ranked content"],
+        "dependencies": ["Preference Analysis & Profiling"],
+        "decisionPoints": ["Matching algorithm", "Ranking criteria"],
+        "errorHandling": "Re-match if quality low"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Personalization & UI Customization",
+        "description": "Manual personalization and UI customization",
+        "time": "1-2 hours",
+        "actions": ["Customize UI", "Personalize experience", "Apply preferences", "Update interface"],
+        "inputs": ["Recommendations", "User preferences", "UI templates"],
+        "outputs": ["Personalized UI", "Customized experience"],
+        "dependencies": ["Content Matching & Recommendation Generation"],
+        "decisionPoints": ["Personalization level", "UI customization"],
+        "errorHandling": "Re-customize if issues"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "A/B Testing & Optimization",
+        "description": "Manual A/B testing and optimization",
+        "time": "1-2 weeks",
+        "actions": ["Set up tests", "Monitor performance", "Analyze results", "Optimize algorithms"],
+        "inputs": ["Test configurations", "Performance data", "Optimization rules"],
+        "outputs": ["Test results", "Optimized algorithms"],
+        "dependencies": ["Personalization & UI Customization"],
+        "decisionPoints": ["Test design", "Optimization approach"],
+        "errorHandling": "Adjust tests if inconclusive"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Performance Monitoring & Feedback Loop",
+        "description": "Manual performance monitoring and feedback collection",
+        "time": "Ongoing",
+        "actions": ["Monitor performance", "Collect feedback", "Analyze metrics", "Update algorithms"],
+        "inputs": ["Performance data", "User feedback", "Metrics dashboards"],
+        "outputs": ["Performance reports", "Algorithm updates"],
+        "dependencies": ["A/B Testing & Optimization"],
+        "decisionPoints": ["Performance threshold", "Update frequency"],
+        "errorHandling": "Alert if performance degrades"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Behavior Analysis Agent",
+        "description": "Automated user behavior analysis and profiling",
+        "time": "Real-time",
+        "actions": ["Analyze viewing behavior", "Update profiles", "Detect patterns", "Learn preferences"],
+        "inputs": ["User interactions", "ML models", "Behavior data"],
+        "outputs": ["User profiles", "Behavior insights"],
+        "dependencies": [],
+        "decisionPoints": ["Profile confidence", "Pattern significance"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Recommendation Agent",
+        "description": "Automated content recommendation generation",
+        "time": "< 1 min",
+        "actions": ["Match content to users", "Generate recommendations", "Rank content", "Filter results"],
+        "inputs": ["User profiles", "Content catalog", "ML recommendation models"],
+        "outputs": ["Recommendations", "Ranked content"],
+        "dependencies": ["Behavior Analysis Agent"],
+        "decisionPoints": ["Recommendation confidence", "Ranking algorithm"],
+        "errorHandling": "Fallback to popular content if low confidence"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Personalization Agent",
+        "description": "Automated personalization and UI customization",
+        "time": "< 30 sec",
+        "actions": ["Customize UI", "Personalize experience", "Apply preferences", "Update interface"],
+        "inputs": ["Recommendations", "User preferences", "UI templates"],
+        "outputs": ["Personalized UI", "Customized experience"],
+        "dependencies": ["Recommendation Agent"],
+        "decisionPoints": ["Personalization level", "UI customization"],
+        "errorHandling": "Default to standard UI if errors"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Optimization Agent",
+        "description": "Automated A/B testing and algorithm optimization",
+        "time": "Continuous",
+        "actions": ["Set up tests", "Monitor performance", "Analyze results", "Optimize algorithms"],
+        "inputs": ["Test configurations", "Performance data", "Optimization algorithms"],
+        "outputs": ["Test results", "Optimized algorithms"],
+        "dependencies": ["Personalization Agent"],
+        "decisionPoints": ["Test design", "Optimization threshold"],
+        "errorHandling": "Revert if performance degrades"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Curation Agent",
+        "description": "Automated content curation and playlist generation",
+        "time": "< 5 min",
+        "actions": ["Curate content", "Create playlists", "Organize collections", "Update catalogs"],
+        "inputs": ["Content catalog", "User preferences", "Curation rules"],
+        "outputs": ["Curated playlists", "Content collections"],
+        "dependencies": ["Recommendation Agent"],
+        "decisionPoints": ["Curation approach", "Playlist theme"],
+        "errorHandling": "Flag for review if curation quality low"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Performance Monitor Agent",
+        "description": "Automated performance monitoring and feedback loop",
+        "time": "Continuous",
+        "actions": ["Monitor performance", "Collect feedback", "Analyze metrics", "Update algorithms"],
+        "inputs": ["Performance data", "User feedback", "ML models"],
+        "outputs": ["Performance reports", "Algorithm updates"],
+        "dependencies": ["Optimization Agent"],
+        "decisionPoints": ["Performance threshold", "Update criteria"],
+        "errorHandling": "Alert if performance degrades"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "2-3 weeks",
+        "steps": [
+          {"stepName": "User Behavior Data Collection", "time": "Ongoing"},
+          {"stepName": "Preference Analysis & Profiling", "time": "1-2 days"},
+          {"stepName": "Content Matching & Recommendation Generation", "time": "2-4 hours"},
+          {"stepName": "Personalization & UI Customization", "time": "1-2 hours"},
+          {"stepName": "A/B Testing & Optimization", "time": "1-2 weeks"},
+          {"stepName": "Performance Monitoring & Feedback Loop", "time": "Ongoing"}
+        ],
+        "bottlenecks": ["A/B testing (1-2 weeks)", "Manual optimization", "Profile analysis"]
+      },
+      "agenticProcess": {
+        "totalTime": "Real-time",
+        "steps": [
+          {"stepName": "Behavior Analysis Agent", "time": "Real-time"},
+          {"stepName": "Recommendation Agent", "time": "< 1 min"},
+          {"stepName": "Personalization Agent", "time": "< 30 sec"},
+          {"stepName": "Optimization Agent", "time": "Continuous"},
+          {"stepName": "Curation Agent", "time": "< 5 min"},
+          {"stepName": "Performance Monitor Agent", "time": "Continuous"}
+        ],
+        "bottlenecks": ["Human oversight for algorithm changes", "A/B test duration"]
+      },
+      "savings": {
+        "absolute": "2-3 weeks",
+        "percentage": "80-90%"
+      }
+    }
   },
   {
     "id": "subscriber-acquisition-retention",
@@ -563,11 +2231,51 @@
     "description": "Transform subscriber management from acquisition through onboarding, engagement, and retention. Agentic AI automates lead qualification, personalized onboarding, engagement campaigns, churn prediction, and retention offers—maximizing subscriber lifetime value.",
     "businessGoal": "Maximize subscriber acquisition, improve retention rates, and optimize lifetime value through intelligent automation of acquisition and retention workflows.",
     "kpis": [
-      "Subscriber acquisition rate",
-      "Churn rate",
-      "Customer lifetime value (CLV)",
-      "Onboarding completion rate",
-      "Retention rate"
+      {
+        "name": "Subscriber acquisition rate",
+        "baseline": 1200,
+        "target": 1800,
+        "improvement": "40-60% increase",
+        "unit": "subscribers per month",
+        "category": "revenue",
+        "priority": "primary"
+      },
+      {
+        "name": "Churn rate",
+        "baseline": 4.5,
+        "target": 2.8,
+        "improvement": "30-45% reduction",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "primary"
+      },
+      {
+        "name": "Customer lifetime value (CLV)",
+        "baseline": 180,
+        "target": 240,
+        "improvement": "25-35% increase",
+        "unit": "dollars",
+        "category": "revenue",
+        "priority": "secondary"
+      },
+      {
+        "name": "Onboarding completion rate",
+        "baseline": 65,
+        "target": 85,
+        "improvement": "25-35% improvement",
+        "unit": "percentage",
+        "category": "customer-experience",
+        "priority": "secondary"
+      },
+      {
+        "name": "Retention rate",
+        "baseline": 85,
+        "target": 92,
+        "improvement": "15-25% improvement",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["revenue-growth", "customer-experience", "operational-excellence", "data-driven-decisions"],
     "fourW": {
@@ -641,13 +2349,251 @@
       "50-70% reduction in manual campaign management"
     ],
     "risksAndControls": [
-      "Human approval required for high-value retention offers and policy exceptions",
-      "Audit trail of all acquisition, engagement, and retention activities",
-      "Policy grounding: agents reference approved pricing and offer policies",
-      "Data privacy compliance in all customer communications",
-      "Regular review of campaign performance and churn predictions",
-      "Escalation workflows for customer complaints and policy violations"
-    ]
+      {
+        "description": "Incorrect churn prediction leading to unnecessary retention spend",
+        "category": "financial",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Model validation, confidence thresholds, regular calibration",
+        "monitoringApproach": "Track prediction accuracy, monitor false positive rate",
+        "escalationPath": "Review models monthly, adjust thresholds",
+        "complianceRequirements": ["Model validation", "Accuracy monitoring"]
+      },
+      {
+        "description": "Over-discounting in retention offers causing revenue loss",
+        "category": "financial",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Human approval for high-value offers, profitability checks",
+        "monitoringApproach": "Monitor offer economics, track profitability",
+        "escalationPath": "Escalate to retention manager for high-value offers",
+        "complianceRequirements": ["Offer approval", "Economics validation"]
+      },
+      {
+        "description": "Data privacy violations in customer communications",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Privacy compliance validation, consent management",
+        "monitoringApproach": "Audit communications, track consent compliance",
+        "escalationPath": "Alert compliance team for violations",
+        "complianceRequirements": ["Privacy regulations", "Consent management"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Subscriber Acquisition Rate",
+          "value": "1,000-1,400/month",
+          "change": "+50%"
+        },
+        {
+          "label": "Churn Rate",
+          "value": "4.0-5.0%",
+          "change": "-35%"
+        },
+        {
+          "label": "Customer Lifetime Value",
+          "value": "$160-$200",
+          "change": "+30%"
+        },
+        {
+          "label": "Onboarding Completion Rate",
+          "value": "60-70%",
+          "change": "+30%"
+        }
+      ],
+      "insights": [
+        "Subscriber churn costs media companies $2-3B annually in lost revenue",
+        "Personalized onboarding improves completion rates by 40-60%",
+        "Predictive churn models improve retention by 25-40%",
+        "Automated campaigns increase acquisition by 40-60%"
+      ],
+      "trends": [
+        "Demand for personalized onboarding experiences",
+        "Shift toward predictive churn prevention",
+        "Integration of AI for acquisition optimization",
+        "Automated retention campaign orchestration"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Lead Qualification & Scoring",
+        "description": "Manual lead qualification and scoring",
+        "time": "1-2 days",
+        "actions": ["Collect leads", "Qualify prospects", "Score leads", "Prioritize"],
+        "inputs": ["Lead data", "Qualification rules", "Scoring models"],
+        "outputs": ["Qualified leads", "Lead scores"],
+        "dependencies": [],
+        "decisionPoints": ["Qualification criteria", "Score threshold"],
+        "errorHandling": "Manual review if unclear"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Acquisition Campaign Execution",
+        "description": "Manual acquisition campaign execution",
+        "time": "1-2 weeks",
+        "actions": ["Create campaigns", "Target audiences", "Execute campaigns", "Track performance"],
+        "inputs": ["Qualified leads", "Campaign templates", "Targeting rules"],
+        "outputs": ["Campaigns", "Performance data"],
+        "dependencies": ["Lead Qualification & Scoring"],
+        "decisionPoints": ["Campaign strategy", "Targeting approach"],
+        "errorHandling": "Adjust if performance low"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Onboarding Workflow & Personalization",
+        "description": "Manual onboarding workflow and personalization",
+        "time": "2-3 days",
+        "actions": ["Create onboarding", "Personalize content", "Set up workflows", "Track completion"],
+        "inputs": ["New subscribers", "Onboarding templates", "Personalization rules"],
+        "outputs": ["Onboarding workflows", "Personalized content"],
+        "dependencies": ["Acquisition Campaign Execution"],
+        "decisionPoints": ["Onboarding approach", "Personalization level"],
+        "errorHandling": "Re-work if completion low"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Engagement Campaign Orchestration",
+        "description": "Manual engagement campaign orchestration",
+        "time": "Ongoing",
+        "actions": ["Create campaigns", "Orchestrate touchpoints", "Monitor engagement", "Optimize"],
+        "inputs": ["Subscriber data", "Campaign templates", "Engagement rules"],
+        "outputs": ["Engagement campaigns", "Performance metrics"],
+        "dependencies": ["Onboarding Workflow & Personalization"],
+        "decisionPoints": ["Campaign timing", "Engagement strategy"],
+        "errorHandling": "Adjust if engagement low"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Churn Prediction & Risk Scoring",
+        "description": "Manual churn prediction and risk scoring",
+        "time": "2-3 days",
+        "actions": ["Analyze behavior", "Predict churn", "Score risk", "Identify at-risk"],
+        "inputs": ["Subscriber data", "Churn models", "Behavior data"],
+        "outputs": ["Churn predictions", "Risk scores"],
+        "dependencies": ["Engagement Campaign Orchestration"],
+        "decisionPoints": ["Churn threshold", "Risk level"],
+        "errorHandling": "Manual review if predictions unclear"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Retention Offer Generation & Delivery",
+        "description": "Manual retention offer generation and delivery",
+        "time": "1-2 days",
+        "actions": ["Generate offers", "Personalize offers", "Deliver offers", "Track responses"],
+        "inputs": ["At-risk subscribers", "Offer templates", "Pricing rules"],
+        "outputs": ["Retention offers", "Response data"],
+        "dependencies": ["Churn Prediction & Risk Scoring"],
+        "decisionPoints": ["Offer type", "Discount level"],
+        "errorHandling": "Re-generate if response low"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Lead Qualification Agent",
+        "description": "Automated lead qualification and scoring",
+        "time": "< 1 hour",
+        "actions": ["Collect leads", "Qualify using ML", "Score leads", "Prioritize"],
+        "inputs": ["Lead data", "ML models", "Qualification rules"],
+        "outputs": ["Qualified leads", "Lead scores"],
+        "dependencies": [],
+        "decisionPoints": ["Qualification confidence", "Score threshold"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Acquisition Campaign Agent",
+        "description": "Automated acquisition campaign execution",
+        "time": "< 1 day",
+        "actions": ["Create campaigns", "Target audiences", "Execute campaigns", "Track performance"],
+        "inputs": ["Qualified leads", "Campaign templates", "ML targeting models"],
+        "outputs": ["Campaigns", "Performance data"],
+        "dependencies": ["Lead Qualification Agent"],
+        "decisionPoints": ["Campaign optimization", "Targeting strategy"],
+        "errorHandling": "Adjust if performance low"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Onboarding Agent",
+        "description": "Automated onboarding workflow and personalization",
+        "time": "< 1 day",
+        "actions": ["Create onboarding", "Personalize content", "Set up workflows", "Track completion"],
+        "inputs": ["New subscribers", "Onboarding templates", "Personalization ML"],
+        "outputs": ["Onboarding workflows", "Personalized content"],
+        "dependencies": ["Acquisition Campaign Agent"],
+        "decisionPoints": ["Onboarding approach", "Personalization confidence"],
+        "errorHandling": "Flag for review if completion low"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Engagement Orchestrator Agent",
+        "description": "Automated engagement campaign orchestration",
+        "time": "Continuous",
+        "actions": ["Create campaigns", "Orchestrate touchpoints", "Monitor engagement", "Optimize"],
+        "inputs": ["Subscriber data", "Campaign templates", "Orchestration algorithms"],
+        "outputs": ["Engagement campaigns", "Performance metrics"],
+        "dependencies": ["Onboarding Agent"],
+        "decisionPoints": ["Campaign timing", "Engagement optimization"],
+        "errorHandling": "Adjust if engagement low"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Churn Prediction Agent",
+        "description": "Automated churn prediction and risk scoring",
+        "time": "< 2 hours",
+        "actions": ["Analyze behavior", "Predict churn using ML", "Score risk", "Identify at-risk"],
+        "inputs": ["Subscriber data", "Churn ML models", "Behavior data"],
+        "outputs": ["Churn predictions", "Risk scores"],
+        "dependencies": ["Engagement Orchestrator Agent"],
+        "decisionPoints": ["Churn confidence", "Risk threshold"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Retention Agent",
+        "description": "Automated retention offer generation and delivery",
+        "time": "< 1 day",
+        "actions": ["Generate offers", "Personalize offers", "Deliver offers", "Track responses"],
+        "inputs": ["At-risk subscribers", "Offer templates", "Pricing ML models"],
+        "outputs": ["Retention offers", "Response data"],
+        "dependencies": ["Churn Prediction Agent"],
+        "decisionPoints": ["Offer optimization", "Discount threshold"],
+        "errorHandling": "Route to human for high-value offers"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "3-5 weeks",
+        "steps": [
+          {"stepName": "Lead Qualification & Scoring", "time": "1-2 days"},
+          {"stepName": "Acquisition Campaign Execution", "time": "1-2 weeks"},
+          {"stepName": "Onboarding Workflow & Personalization", "time": "2-3 days"},
+          {"stepName": "Engagement Campaign Orchestration", "time": "Ongoing"},
+          {"stepName": "Churn Prediction & Risk Scoring", "time": "2-3 days"},
+          {"stepName": "Retention Offer Generation & Delivery", "time": "1-2 days"}
+        ],
+        "bottlenecks": ["Acquisition campaigns (1-2 weeks)", "Manual optimization", "Churn prediction"]
+      },
+      "agenticProcess": {
+        "totalTime": "1-2 weeks",
+        "steps": [
+          {"stepName": "Lead Qualification Agent", "time": "< 1 hour"},
+          {"stepName": "Acquisition Campaign Agent", "time": "< 1 day"},
+          {"stepName": "Onboarding Agent", "time": "< 1 day"},
+          {"stepName": "Engagement Orchestrator Agent", "time": "Continuous"},
+          {"stepName": "Churn Prediction Agent", "time": "< 2 hours"},
+          {"stepName": "Retention Agent", "time": "< 1 day"}
+        ],
+        "bottlenecks": ["Human approval for high-value offers", "Campaign performance optimization"]
+      },
+      "savings": {
+        "absolute": "2-3 weeks",
+        "percentage": "50-70%"
+      }
+    }
   },
   {
     "id": "content-moderation-compliance",
@@ -656,11 +2602,51 @@
     "description": "Automate content moderation from ingestion through review, classification, and compliance validation. Agentic AI analyzes content for policy violations, inappropriate material, and compliance issues—ensuring brand safety and regulatory compliance while reducing manual review workload.",
     "businessGoal": "Ensure brand safety, maintain regulatory compliance, and protect audiences through intelligent content moderation automation.",
     "kpis": [
-      "Moderation accuracy rate",
-      "False positive rate",
-      "Review cycle time",
-      "Compliance rate",
-      "Content safety score"
+      {
+        "name": "Moderation accuracy rate",
+        "baseline": 88,
+        "target": 96,
+        "improvement": "30-45% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "False positive rate",
+        "baseline": 15,
+        "target": 5,
+        "improvement": "60-75% reduction",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Review cycle time",
+        "baseline": 4,
+        "target": 1,
+        "improvement": "60-80% reduction",
+        "unit": "hours",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Compliance rate",
+        "baseline": 92,
+        "target": 98,
+        "improvement": "25-35% improvement",
+        "unit": "percentage",
+        "category": "compliance",
+        "priority": "secondary"
+      },
+      {
+        "name": "Content safety score",
+        "baseline": 85,
+        "target": 95,
+        "improvement": "30-45% improvement",
+        "unit": "score out of 100",
+        "category": "quality",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["risk-management", "operational-excellence", "brand-safety", "compliance"],
     "fourW": {
@@ -734,13 +2720,251 @@
       "Real-time moderation for live content"
     ],
     "risksAndControls": [
-      "Human review required for edge cases and policy exceptions",
-      "Audit trail of all moderation decisions and policy applications",
-      "Policy grounding: agents reference approved content policies and guidelines",
-      "Regular review of moderation accuracy and false positive rates",
-      "Escalation workflows for complex content and policy questions",
-      "Continuous learning from human reviewer feedback"
-    ]
+      {
+        "description": "False negatives allowing inappropriate content through",
+        "category": "brand-safety",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Multi-stage validation, human review for edge cases, continuous learning",
+        "monitoringApproach": "Monitor moderation accuracy, track false negatives",
+        "escalationPath": "Escalate to moderation team for violations",
+        "complianceRequirements": ["Moderation validation", "Policy enforcement"]
+      },
+      {
+        "description": "False positives blocking legitimate content",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Model calibration, confidence thresholds, human review",
+        "monitoringApproach": "Track false positive rate, monitor blocked content",
+        "escalationPath": "Review blocked content regularly",
+        "complianceRequirements": ["Model validation", "Accuracy monitoring"]
+      },
+      {
+        "description": "Compliance violations causing regulatory issues",
+        "category": "compliance",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Automated compliance checks, validation rules",
+        "monitoringApproach": "Monitor compliance rates, track violations",
+        "escalationPath": "Alert compliance team for violations",
+        "complianceRequirements": ["Regulatory compliance", "Validation rules"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Moderation Accuracy",
+          "value": "85-90%",
+          "change": "+35%"
+        },
+        {
+          "label": "False Positive Rate",
+          "value": "12-18%",
+          "change": "-70%"
+        },
+        {
+          "label": "Review Cycle Time",
+          "value": "3-5 hours",
+          "change": "-75%"
+        },
+        {
+          "label": "Compliance Rate",
+          "value": "90-95%",
+          "change": "+30%"
+        }
+      ],
+      "insights": [
+        "Content moderation costs media companies $500M annually in manual review",
+        "False positives result in 15-20% of legitimate content being blocked",
+        "Automated moderation reduces review time by 60-80%",
+        "Real-time moderation prevents 70% of policy violations"
+      ],
+      "trends": [
+        "Demand for real-time content moderation",
+        "Integration of AI/ML for content analysis",
+        "Shift toward automated policy enforcement",
+        "Focus on reducing false positives"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Content Ingestion & Initial Analysis",
+        "description": "Manual content ingestion and initial analysis",
+        "time": "1-2 hours",
+        "actions": ["Receive content", "Initial review", "Classify content", "Flag issues"],
+        "inputs": ["Content files", "Moderation rules", "Policy guidelines"],
+        "outputs": ["Ingested content", "Initial classification"],
+        "dependencies": [],
+        "decisionPoints": ["Content type", "Initial risk level"],
+        "errorHandling": "Manual review if unclear"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Policy Violation Detection & Analysis",
+        "description": "Manual policy violation detection and analysis",
+        "time": "2-4 hours",
+        "actions": ["Analyze content", "Detect violations", "Assess severity", "Classify issues"],
+        "inputs": ["Content", "Policy rules", "Violation databases"],
+        "outputs": ["Violation analysis", "Severity assessment"],
+        "dependencies": ["Content Ingestion & Initial Analysis"],
+        "decisionPoints": ["Violation type", "Severity level"],
+        "errorHandling": "Escalate if complex violations"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Compliance Validation & Checking",
+        "description": "Manual compliance validation and checking",
+        "time": "1-2 hours",
+        "actions": ["Validate compliance", "Check regulations", "Verify requirements", "Document findings"],
+        "inputs": ["Content", "Compliance rules", "Regulatory requirements"],
+        "outputs": ["Compliance status", "Validation report"],
+        "dependencies": ["Policy Violation Detection & Analysis"],
+        "decisionPoints": ["Compliance pass", "Regulatory requirements"],
+        "errorHandling": "Re-validate if issues"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Review Queue Management & Prioritization",
+        "description": "Manual review queue management and prioritization",
+        "time": "1-2 hours",
+        "actions": ["Prioritize content", "Assign reviewers", "Manage queue", "Track status"],
+        "inputs": ["Content queue", "Priority rules", "Reviewer availability"],
+        "outputs": ["Prioritized queue", "Review assignments"],
+        "dependencies": ["Compliance Validation & Checking"],
+        "decisionPoints": ["Priority level", "Reviewer assignment"],
+        "errorHandling": "Re-prioritize if urgent"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Human Review & Decision",
+        "description": "Manual human review and decision",
+        "time": "2-4 hours",
+        "actions": ["Review content", "Make decision", "Apply policy", "Document decision"],
+        "inputs": ["Content", "Policy guidelines", "Review tools"],
+        "outputs": ["Review decision", "Policy application"],
+        "dependencies": ["Review Queue Management & Prioritization"],
+        "decisionPoints": ["Content approval", "Policy application"],
+        "errorHandling": "Escalate if unclear"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Action Execution & Reporting",
+        "description": "Manual action execution and reporting",
+        "time": "1-2 hours",
+        "actions": ["Execute actions", "Update status", "Generate reports", "Create audit trail"],
+        "inputs": ["Review decisions", "Action rules", "Report templates"],
+        "outputs": ["Executed actions", "Moderation reports"],
+        "dependencies": ["Human Review & Decision"],
+        "decisionPoints": ["Action type", "Report format"],
+        "errorHandling": "Re-execute if failed"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Content Analysis Agent",
+        "description": "Automated content analysis and violation detection",
+        "time": "< 5 min",
+        "actions": ["Analyze content using ML", "Detect violations", "Assess severity", "Classify issues"],
+        "inputs": ["Content files", "ML models", "Policy rules"],
+        "outputs": ["Violation analysis", "Severity scores"],
+        "dependencies": [],
+        "decisionPoints": ["Violation confidence", "Severity threshold"],
+        "errorHandling": "Route to human if low confidence"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Compliance Validation Agent",
+        "description": "Automated compliance validation and checking",
+        "time": "< 2 min",
+        "actions": ["Validate compliance", "Check regulations", "Verify requirements", "Generate report"],
+        "inputs": ["Content", "Compliance rules", "Regulatory databases"],
+        "outputs": ["Compliance status", "Validation report"],
+        "dependencies": ["Content Analysis Agent"],
+        "decisionPoints": ["Compliance rules", "Validation threshold"],
+        "errorHandling": "Flag for review if violations"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Review Queue Agent",
+        "description": "Automated review queue management and prioritization",
+        "time": "< 1 min",
+        "actions": ["Prioritize content", "Assign reviewers", "Manage queue", "Track status"],
+        "inputs": ["Content queue", "Priority algorithms", "Reviewer data"],
+        "outputs": ["Prioritized queue", "Review assignments"],
+        "dependencies": ["Compliance Validation Agent"],
+        "decisionPoints": ["Priority algorithm", "Assignment rules"],
+        "errorHandling": "Alert if queue backlog"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Classification Agent",
+        "description": "Automated content classification and tagging",
+        "time": "< 1 min",
+        "actions": ["Classify content", "Tag metadata", "Categorize", "Update database"],
+        "inputs": ["Content", "Classification ML models", "Tag schemas"],
+        "outputs": ["Classified content", "Metadata tags"],
+        "dependencies": ["Content Analysis Agent"],
+        "decisionPoints": ["Classification confidence", "Tag relevance"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Action Execution Agent",
+        "description": "Automated action execution and enforcement",
+        "time": "< 2 min",
+        "actions": ["Execute actions", "Apply policies", "Update status", "Notify stakeholders"],
+        "inputs": ["Review decisions", "Action rules", "Policy enforcement"],
+        "outputs": ["Executed actions", "Status updates"],
+        "dependencies": ["Review Queue Agent"],
+        "decisionPoints": ["Action type", "Enforcement rules"],
+        "errorHandling": "Route to human for complex actions"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting Agent",
+        "description": "Automated reporting and audit trail generation",
+        "time": "< 5 min",
+        "actions": ["Generate reports", "Create audit trail", "Update dashboards", "Send alerts"],
+        "inputs": ["Moderation data", "Report templates", "Audit requirements"],
+        "outputs": ["Moderation reports", "Audit trails"],
+        "dependencies": ["Action Execution Agent"],
+        "decisionPoints": ["Report format", "Alert thresholds"],
+        "errorHandling": "Regenerate if errors"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "8-15 hours",
+        "steps": [
+          {"stepName": "Content Ingestion & Initial Analysis", "time": "1-2 hours"},
+          {"stepName": "Policy Violation Detection & Analysis", "time": "2-4 hours"},
+          {"stepName": "Compliance Validation & Checking", "time": "1-2 hours"},
+          {"stepName": "Review Queue Management & Prioritization", "time": "1-2 hours"},
+          {"stepName": "Human Review & Decision", "time": "2-4 hours"},
+          {"stepName": "Action Execution & Reporting", "time": "1-2 hours"}
+        ],
+        "bottlenecks": ["Policy violation detection (2-4 hours)", "Human review (2-4 hours)", "Manual analysis"]
+      },
+      "agenticProcess": {
+        "totalTime": "1-2 hours",
+        "steps": [
+          {"stepName": "Content Analysis Agent", "time": "< 5 min"},
+          {"stepName": "Compliance Validation Agent", "time": "< 2 min"},
+          {"stepName": "Review Queue Agent", "time": "< 1 min"},
+          {"stepName": "Classification Agent", "time": "< 1 min"},
+          {"stepName": "Action Execution Agent", "time": "< 2 min"},
+          {"stepName": "Reporting Agent", "time": "< 5 min"}
+        ],
+        "bottlenecks": ["Human review for edge cases", "Complex policy violations"]
+      },
+      "savings": {
+        "absolute": "7-13 hours",
+        "percentage": "60-80%"
+      }
+    }
   },
   {
     "id": "royalty-distribution-payments",
@@ -749,11 +2973,51 @@
     "description": "Automate royalty calculation, distribution, and payment processing from usage data through payment reconciliation. Agentic AI processes usage data, calculates royalties based on contracts, validates payments, and reconciles accounts—ensuring accurate and timely payments to rights holders.",
     "businessGoal": "Ensure accurate royalty payments, reduce processing time, and improve rights holder satisfaction through intelligent automation of calculation and distribution workflows.",
     "kpis": [
-      "Payment accuracy rate",
-      "Payment processing time (days)",
-      "Dispute rate",
-      "Rights holder satisfaction",
-      "Reconciliation accuracy"
+      {
+        "name": "Payment accuracy rate",
+        "baseline": 92,
+        "target": 98,
+        "improvement": "30-45% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Payment processing time",
+        "baseline": 30,
+        "target": 10,
+        "improvement": "50-70% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Dispute rate",
+        "baseline": 8,
+        "target": 3,
+        "improvement": "40-60% reduction",
+        "unit": "percentage",
+        "category": "customer-satisfaction",
+        "priority": "secondary"
+      },
+      {
+        "name": "Rights holder satisfaction",
+        "baseline": 3.6,
+        "target": 4.4,
+        "improvement": "20-30% improvement",
+        "unit": "rating out of 5",
+        "category": "customer-satisfaction",
+        "priority": "secondary"
+      },
+      {
+        "name": "Reconciliation accuracy",
+        "baseline": 88,
+        "target": 97,
+        "improvement": "35-50% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["operational-excellence", "risk-management", "cost-optimization", "compliance"],
     "fourW": {
@@ -827,13 +3091,251 @@
       "90% improvement in reconciliation accuracy"
     ],
     "risksAndControls": [
-      "Human approval required for high-value payments and complex calculations",
-      "Audit trail of all calculations, validations, and payments",
-      "Policy grounding: agents reference approved contract terms and payment policies",
-      "Validation gates prevent incorrect payments",
-      "Regular reconciliation and discrepancy detection",
-      "Escalation workflows for disputes and payment exceptions"
-    ]
+      {
+        "description": "Incorrect royalty calculations causing payment errors",
+        "category": "financial",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human approval for high-value payments, automated validation",
+        "monitoringApproach": "Monitor payment accuracy, track calculation errors",
+        "escalationPath": "Escalate to finance for high-value discrepancies",
+        "complianceRequirements": ["Calculation validation", "Payment approval"]
+      },
+      {
+        "description": "Payment processing errors causing delays",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Automated validation, retry logic, monitoring",
+        "monitoringApproach": "Monitor payment success rates, track processing errors",
+        "escalationPath": "Alert operations for payment failures",
+        "complianceRequirements": ["Payment validation", "Error handling"]
+      },
+      {
+        "description": "Reconciliation failures missing discrepancies",
+        "category": "financial",
+        "severity": "medium",
+        "likelihood": "low",
+        "mitigationStrategy": "Automated reconciliation, exception reporting",
+        "monitoringApproach": "Monitor reconciliation success, track exceptions",
+        "escalationPath": "Flag for finance review if discrepancies",
+        "complianceRequirements": ["Reconciliation controls", "Exception reporting"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Payment Processing Time",
+          "value": "25-35 days",
+          "change": "-65%"
+        },
+        {
+          "label": "Payment Accuracy Rate",
+          "value": "90-95%",
+          "change": "+40%"
+        },
+        {
+          "label": "Dispute Rate",
+          "value": "6-10%",
+          "change": "-55%"
+        },
+        {
+          "label": "Reconciliation Accuracy",
+          "value": "85-92%",
+          "change": "+45%"
+        }
+      ],
+      "insights": [
+        "Royalty payment errors cost media companies $300M annually in disputes and corrections",
+        "Automated calculation reduces errors by 60-70%",
+        "Faster payments improve rights holder satisfaction by 25-35%",
+        "Automated reconciliation improves accuracy by 40-50%"
+      ],
+      "trends": [
+        "Demand for real-time royalty calculations",
+        "Shift toward automated payment processing",
+        "Integration of blockchain for payment transparency",
+        "Automated dispute resolution"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Usage Data Collection & Aggregation",
+        "description": "Manual usage data collection and aggregation",
+        "time": "3-5 days",
+        "actions": ["Collect usage data", "Aggregate from sources", "Validate data", "Process records"],
+        "inputs": ["Usage sources", "Data collection rules", "Validation rules"],
+        "outputs": ["Aggregated usage", "Data quality report"],
+        "dependencies": [],
+        "decisionPoints": ["Data completeness", "Quality threshold"],
+        "errorHandling": "Manual correction if data errors"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Royalty Calculation & Application",
+        "description": "Manual royalty calculation and application",
+        "time": "5-10 days",
+        "actions": ["Calculate royalties", "Apply contract terms", "Validate calculations", "Generate statements"],
+        "inputs": ["Usage data", "Contract terms", "Calculation rules"],
+        "outputs": ["Royalty calculations", "Payment statements"],
+        "dependencies": ["Usage Data Collection & Aggregation"],
+        "decisionPoints": ["Calculation rules", "Contract terms"],
+        "errorHandling": "Re-calculate if errors"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Payment Validation & Approval",
+        "description": "Manual payment validation and approval",
+        "time": "2-3 days",
+        "actions": ["Validate payments", "Check accuracy", "Approve payments", "Flag exceptions"],
+        "inputs": ["Royalty calculations", "Validation rules", "Approval workflows"],
+        "outputs": ["Validated payments", "Approval status"],
+        "dependencies": ["Royalty Calculation & Application"],
+        "decisionPoints": ["Validation pass", "Approval threshold"],
+        "errorHandling": "Re-validate if issues"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Payment Processing & Distribution",
+        "description": "Manual payment processing and distribution",
+        "time": "3-5 days",
+        "actions": ["Process payments", "Distribute to holders", "Update records", "Send notifications"],
+        "inputs": ["Approved payments", "Payment systems", "Rights holder data"],
+        "outputs": ["Processed payments", "Distribution status"],
+        "dependencies": ["Payment Validation & Approval"],
+        "decisionPoints": ["Payment method", "Distribution timing"],
+        "errorHandling": "Retry if payment fails"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Reconciliation & Discrepancy Detection",
+        "description": "Manual reconciliation and discrepancy detection",
+        "time": "2-3 days",
+        "actions": ["Reconcile payments", "Detect discrepancies", "Investigate issues", "Resolve differences"],
+        "inputs": ["Payment records", "Bank statements", "Reconciliation rules"],
+        "outputs": ["Reconciliation report", "Discrepancy list"],
+        "dependencies": ["Payment Processing & Distribution"],
+        "decisionPoints": ["Reconciliation accuracy", "Discrepancy threshold"],
+        "errorHandling": "Re-investigate if discrepancies"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting & Rights Holder Communication",
+        "description": "Manual reporting and rights holder communication",
+        "time": "1-2 days",
+        "actions": ["Generate reports", "Create statements", "Send communications", "Update records"],
+        "inputs": ["Payment data", "Report templates", "Communication templates"],
+        "outputs": ["Payment reports", "Rights holder statements"],
+        "dependencies": ["Reconciliation & Discrepancy Detection"],
+        "decisionPoints": ["Report format", "Communication timing"],
+        "errorHandling": "Re-generate if errors"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Usage Data Agent",
+        "description": "Automated usage data collection and aggregation",
+        "time": "< 1 day",
+        "actions": ["Collect usage data", "Aggregate from sources", "Validate data", "Process records"],
+        "inputs": ["Usage sources", "Data APIs", "Validation rules"],
+        "outputs": ["Aggregated usage", "Quality metrics"],
+        "dependencies": [],
+        "decisionPoints": ["Data completeness", "Quality threshold"],
+        "errorHandling": "Alert data team if quality issues"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Royalty Calculation Agent",
+        "description": "Automated royalty calculation and application",
+        "time": "< 2 days",
+        "actions": ["Calculate royalties", "Apply contract terms", "Validate calculations", "Generate statements"],
+        "inputs": ["Usage data", "Contract terms", "Calculation rules"],
+        "outputs": ["Royalty calculations", "Payment statements"],
+        "dependencies": ["Usage Data Agent"],
+        "decisionPoints": ["Calculation rules", "Contract validation"],
+        "errorHandling": "Route to human for high-value payments"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Payment Validation Agent",
+        "description": "Automated payment validation and approval",
+        "time": "< 1 day",
+        "actions": ["Validate payments", "Check accuracy", "Approve payments", "Flag exceptions"],
+        "inputs": ["Royalty calculations", "Validation rules", "Approval workflows"],
+        "outputs": ["Validated payments", "Approval status"],
+        "dependencies": ["Royalty Calculation Agent"],
+        "decisionPoints": ["Validation confidence", "Approval threshold"],
+        "errorHandling": "Route to human for exceptions"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Reconciliation Agent",
+        "description": "Automated reconciliation and discrepancy detection",
+        "time": "< 1 day",
+        "actions": ["Reconcile payments", "Detect discrepancies", "Investigate issues", "Flag exceptions"],
+        "inputs": ["Payment records", "Bank data", "Reconciliation algorithms"],
+        "outputs": ["Reconciliation report", "Discrepancy list"],
+        "dependencies": ["Payment Validation Agent"],
+        "decisionPoints": ["Reconciliation threshold", "Discrepancy severity"],
+        "errorHandling": "Flag for finance review if discrepancies"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Distribution Agent",
+        "description": "Automated payment processing and distribution",
+        "time": "< 1 day",
+        "actions": ["Process payments", "Distribute to holders", "Update records", "Send notifications"],
+        "inputs": ["Approved payments", "Payment systems", "Rights holder data"],
+        "outputs": ["Processed payments", "Distribution status"],
+        "dependencies": ["Payment Validation Agent"],
+        "decisionPoints": ["Payment method", "Distribution timing"],
+        "errorHandling": "Retry if payment fails"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting Agent",
+        "description": "Automated reporting and rights holder communication",
+        "time": "< 4 hours",
+        "actions": ["Generate reports", "Create statements", "Send communications", "Update records"],
+        "inputs": ["Payment data", "Report templates", "Communication templates"],
+        "outputs": ["Payment reports", "Rights holder statements"],
+        "dependencies": ["Distribution Agent"],
+        "decisionPoints": ["Report format", "Communication channel"],
+        "errorHandling": "Regenerate if errors"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "30-40 days",
+        "steps": [
+          {"stepName": "Usage Data Collection & Aggregation", "time": "3-5 days"},
+          {"stepName": "Royalty Calculation & Application", "time": "5-10 days"},
+          {"stepName": "Payment Validation & Approval", "time": "2-3 days"},
+          {"stepName": "Payment Processing & Distribution", "time": "3-5 days"},
+          {"stepName": "Reconciliation & Discrepancy Detection", "time": "2-3 days"},
+          {"stepName": "Reporting & Rights Holder Communication", "time": "1-2 days"}
+        ],
+        "bottlenecks": ["Royalty calculation (5-10 days)", "Payment processing (3-5 days)", "Manual validation"]
+      },
+      "agenticProcess": {
+        "totalTime": "10-15 days",
+        "steps": [
+          {"stepName": "Usage Data Agent", "time": "< 1 day"},
+          {"stepName": "Royalty Calculation Agent", "time": "< 2 days"},
+          {"stepName": "Payment Validation Agent", "time": "< 1 day"},
+          {"stepName": "Reconciliation Agent", "time": "< 1 day"},
+          {"stepName": "Distribution Agent", "time": "< 1 day"},
+          {"stepName": "Reporting Agent", "time": "< 4 hours"}
+        ],
+        "bottlenecks": ["Human approval for high-value payments", "Complex contract calculations"]
+      },
+      "savings": {
+        "absolute": "20-25 days",
+        "percentage": "50-70%"
+      }
+    }
   },
   {
     "id": "intellectual-property-protection",
@@ -842,11 +3344,51 @@
     "description": "Protect intellectual property through automated monitoring, detection, and enforcement of copyright violations. Agentic AI monitors digital platforms, detects unauthorized content usage, validates copyright ownership, and initiates enforcement actions—protecting content assets and revenue.",
     "businessGoal": "Protect intellectual property, prevent revenue loss from piracy, and ensure copyright compliance through intelligent monitoring and enforcement automation.",
     "kpis": [
-      "Piracy detection rate",
-      "Enforcement success rate",
-      "Revenue recovery",
-      "Response time (hours)",
-      "Copyright compliance rate"
+      {
+        "name": "Piracy detection rate",
+        "baseline": 65,
+        "target": 88,
+        "improvement": "30-45% improvement",
+        "unit": "percentage",
+        "category": "risk-mitigation",
+        "priority": "primary"
+      },
+      {
+        "name": "Enforcement success rate",
+        "baseline": 70,
+        "target": 90,
+        "improvement": "25-35% improvement",
+        "unit": "percentage",
+        "category": "risk-mitigation",
+        "priority": "primary"
+      },
+      {
+        "name": "Revenue recovery",
+        "baseline": 0,
+        "target": 15,
+        "improvement": "15-25% of lost revenue",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "secondary"
+      },
+      {
+        "name": "Response time",
+        "baseline": 48,
+        "target": 6,
+        "improvement": "75-90% reduction",
+        "unit": "hours",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Copyright compliance rate",
+        "baseline": 85,
+        "target": 96,
+        "improvement": "30-45% improvement",
+        "unit": "percentage",
+        "category": "compliance",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["risk-management", "revenue-protection", "compliance", "operational-excellence"],
     "fourW": {
@@ -920,13 +3462,251 @@
       "70-85% reduction in manual monitoring"
     ],
     "risksAndControls": [
-      "Human approval required for takedown requests and legal actions",
-      "Audit trail of all detections, validations, and enforcement actions",
-      "Policy grounding: agents reference approved copyright policies and procedures",
-      "Validation gates prevent false positive takedowns",
-      "Regular review of detection accuracy and enforcement effectiveness",
-      "Escalation workflows for complex cases and legal questions"
-    ]
+      {
+        "description": "False positive detections causing incorrect takedowns",
+        "category": "legal",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human approval for takedowns, validation gates, confidence thresholds",
+        "monitoringApproach": "Monitor detection accuracy, track false positive rate",
+        "escalationPath": "Review detections before takedown",
+        "complianceRequirements": ["Detection validation", "Takedown approval"]
+      },
+      {
+        "description": "Missed violations causing revenue loss",
+        "category": "revenue",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Continuous monitoring, multiple detection methods, regular calibration",
+        "monitoringApproach": "Monitor detection coverage, track missed violations",
+        "escalationPath": "Alert operations for high-priority violations",
+        "complianceRequirements": ["Monitoring coverage", "Detection accuracy"]
+      },
+      {
+        "description": "Incorrect enforcement actions causing legal issues",
+        "category": "legal",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Human approval for legal actions, validation checks",
+        "monitoringApproach": "Monitor enforcement success, track legal issues",
+        "escalationPath": "Escalate to legal for enforcement actions",
+        "complianceRequirements": ["Legal review", "Enforcement approval"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Piracy Detection Rate",
+          "value": "60-70%",
+          "change": "+35%"
+        },
+        {
+          "label": "Enforcement Success Rate",
+          "value": "65-75%",
+          "change": "+30%"
+        },
+        {
+          "label": "Response Time",
+          "value": "40-60 hours",
+          "change": "-85%"
+        },
+        {
+          "label": "Revenue Recovery",
+          "value": "5-10%",
+          "change": "+20%"
+        }
+      ],
+      "insights": [
+        "Piracy costs media companies $6-8B annually in lost revenue",
+        "Faster response times improve enforcement success by 40-60%",
+        "Automated detection increases coverage by 80-90%",
+        "Proactive monitoring prevents 60% of revenue loss"
+      ],
+      "trends": [
+        "Demand for real-time piracy detection",
+        "Integration of AI/ML for content identification",
+        "Shift toward automated enforcement",
+        "Focus on revenue recovery strategies"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Platform Monitoring & Content Scanning",
+        "description": "Manual platform monitoring and content scanning",
+        "time": "Ongoing",
+        "actions": ["Monitor platforms", "Scan for content", "Identify matches", "Flag violations"],
+        "inputs": ["Content library", "Monitoring tools", "Platform APIs"],
+        "outputs": ["Detected violations", "Match reports"],
+        "dependencies": [],
+        "decisionPoints": ["Match confidence", "Violation severity"],
+        "errorHandling": "Manual review if unclear"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Copyright Validation & Ownership Verification",
+        "description": "Manual copyright validation and ownership verification",
+        "time": "2-4 hours",
+        "actions": ["Validate copyright", "Verify ownership", "Check rights", "Document evidence"],
+        "inputs": ["Detected violations", "Copyright database", "Ownership records"],
+        "outputs": ["Validated violations", "Ownership confirmation"],
+        "dependencies": ["Platform Monitoring & Content Scanning"],
+        "decisionPoints": ["Copyright validity", "Ownership confirmation"],
+        "errorHandling": "Escalate if ownership unclear"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Takedown Request Generation & Submission",
+        "description": "Manual takedown request generation and submission",
+        "time": "4-8 hours",
+        "actions": ["Generate request", "Prepare documentation", "Submit to platform", "Track status"],
+        "inputs": ["Validated violations", "Takedown templates", "Platform requirements"],
+        "outputs": ["Takedown requests", "Submission status"],
+        "dependencies": ["Copyright Validation & Ownership Verification"],
+        "decisionPoints": ["Request format", "Platform routing"],
+        "errorHandling": "Re-submit if rejected"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Enforcement Workflow Orchestration",
+        "description": "Manual enforcement workflow orchestration",
+        "time": "1-2 days",
+        "actions": ["Orchestrate workflows", "Coordinate actions", "Monitor progress", "Update status"],
+        "inputs": ["Takedown requests", "Enforcement rules", "Workflow templates"],
+        "outputs": ["Enforcement workflows", "Status updates"],
+        "dependencies": ["Takedown Request Generation & Submission"],
+        "decisionPoints": ["Enforcement approach", "Action priority"],
+        "errorHandling": "Escalate if enforcement fails"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Legal Action Preparation & Execution",
+        "description": "Manual legal action preparation and execution",
+        "time": "5-10 days",
+        "actions": ["Prepare legal documents", "Review with legal", "Execute actions", "Track outcomes"],
+        "inputs": ["Enforcement data", "Legal templates", "Case history"],
+        "outputs": ["Legal actions", "Case outcomes"],
+        "dependencies": ["Enforcement Workflow Orchestration"],
+        "decisionPoints": ["Legal approach", "Action approval"],
+        "errorHandling": "Re-work if legal issues"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting & Trend Analysis",
+        "description": "Manual reporting and trend analysis",
+        "time": "2-3 days",
+        "actions": ["Generate reports", "Analyze trends", "Create insights", "Update dashboards"],
+        "inputs": ["Enforcement data", "Report templates", "Analytics tools"],
+        "outputs": ["Piracy reports", "Trend analysis"],
+        "dependencies": ["Legal Action Preparation & Execution"],
+        "decisionPoints": ["Report format", "Analysis depth"],
+        "errorHandling": "Re-analyze if data issues"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Monitoring Agent",
+        "description": "Automated platform monitoring and content scanning",
+        "time": "Continuous",
+        "actions": ["Monitor platforms", "Scan for content using ML", "Identify matches", "Flag violations"],
+        "inputs": ["Content library", "ML models", "Platform APIs"],
+        "outputs": ["Detected violations", "Match reports"],
+        "dependencies": [],
+        "decisionPoints": ["Match confidence", "Violation threshold"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Detection Agent",
+        "description": "Automated copyright violation detection and validation",
+        "time": "< 2 hours",
+        "actions": ["Validate copyright", "Verify ownership", "Check rights", "Document evidence"],
+        "inputs": ["Detected violations", "Copyright database", "ML validation models"],
+        "outputs": ["Validated violations", "Ownership confirmation"],
+        "dependencies": ["Monitoring Agent"],
+        "decisionPoints": ["Validation confidence", "Ownership verification"],
+        "errorHandling": "Route to legal if ownership unclear"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Takedown Agent",
+        "description": "Automated takedown request generation and submission",
+        "time": "< 1 hour",
+        "actions": ["Generate request", "Prepare documentation", "Submit to platform", "Track status"],
+        "inputs": ["Validated violations", "Takedown templates", "Platform APIs"],
+        "outputs": ["Takedown requests", "Submission status"],
+        "dependencies": ["Detection Agent"],
+        "decisionPoints": ["Request format", "Platform routing"],
+        "errorHandling": "Route to human for approval before submission"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Enforcement Agent",
+        "description": "Automated enforcement workflow orchestration",
+        "time": "< 1 day",
+        "actions": ["Orchestrate workflows", "Coordinate actions", "Monitor progress", "Update status"],
+        "inputs": ["Takedown requests", "Enforcement rules", "Workflow engines"],
+        "outputs": ["Enforcement workflows", "Status updates"],
+        "dependencies": ["Takedown Agent"],
+        "decisionPoints": ["Enforcement approach", "Action priority"],
+        "errorHandling": "Escalate if enforcement fails"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Reporting Agent",
+        "description": "Automated reporting and trend analysis",
+        "time": "< 4 hours",
+        "actions": ["Generate reports", "Analyze trends", "Create insights", "Update dashboards"],
+        "inputs": ["Enforcement data", "Report templates", "Analytics algorithms"],
+        "outputs": ["Piracy reports", "Trend analysis"],
+        "dependencies": ["Enforcement Agent"],
+        "decisionPoints": ["Report format", "Analysis depth"],
+        "errorHandling": "Regenerate if data issues"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Alert Agent",
+        "description": "Automated alerting for high-priority violations",
+        "time": "Real-time",
+        "actions": ["Monitor violations", "Assess priority", "Generate alerts", "Notify stakeholders"],
+        "inputs": ["Violation data", "Priority rules", "Alert templates"],
+        "outputs": ["Priority alerts", "Notifications"],
+        "dependencies": ["Detection Agent"],
+        "decisionPoints": ["Priority threshold", "Alert criteria"],
+        "errorHandling": "Escalate if high-priority violations"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "10-20 days",
+        "steps": [
+          {"stepName": "Platform Monitoring & Content Scanning", "time": "Ongoing"},
+          {"stepName": "Copyright Validation & Ownership Verification", "time": "2-4 hours"},
+          {"stepName": "Takedown Request Generation & Submission", "time": "4-8 hours"},
+          {"stepName": "Enforcement Workflow Orchestration", "time": "1-2 days"},
+          {"stepName": "Legal Action Preparation & Execution", "time": "5-10 days"},
+          {"stepName": "Reporting & Trend Analysis", "time": "2-3 days"}
+        ],
+        "bottlenecks": ["Legal action (5-10 days)", "Manual monitoring", "Enforcement orchestration"]
+      },
+      "agenticProcess": {
+        "totalTime": "6-12 hours",
+        "steps": [
+          {"stepName": "Monitoring Agent", "time": "Continuous"},
+          {"stepName": "Detection Agent", "time": "< 2 hours"},
+          {"stepName": "Takedown Agent", "time": "< 1 hour"},
+          {"stepName": "Enforcement Agent", "time": "< 1 day"},
+          {"stepName": "Reporting Agent", "time": "< 4 hours"},
+          {"stepName": "Alert Agent", "time": "Real-time"}
+        ],
+        "bottlenecks": ["Human approval for takedowns", "Legal action preparation"]
+      },
+      "savings": {
+        "absolute": "9-19 days",
+        "percentage": "60-80%"
+      }
+    }
   },
   {
     "id": "content-licensing-negotiations",
@@ -935,11 +3715,51 @@
     "description": "Streamline content licensing from opportunity identification through negotiation, contract execution, and relationship management. Agentic AI automates market research, opportunity scoring, contract analysis, negotiation support, and relationship tracking—accelerating licensing deals while optimizing terms.",
     "businessGoal": "Accelerate licensing deals, optimize licensing terms, and maximize revenue through intelligent automation of research, negotiation, and contract management.",
     "kpis": [
-      "Licensing deal cycle time (days)",
-      "Deal value optimization",
-      "Contract processing time",
-      "Relationship management efficiency",
-      "Revenue from licensing"
+      {
+        "name": "Licensing deal cycle time",
+        "baseline": 60,
+        "target": 25,
+        "improvement": "50-70% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Deal value optimization",
+        "baseline": 0,
+        "target": 20,
+        "improvement": "15-25% improvement",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "primary"
+      },
+      {
+        "name": "Contract processing time",
+        "baseline": 10,
+        "target": 3,
+        "improvement": "50-70% reduction",
+        "unit": "days",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Relationship management efficiency",
+        "baseline": 65,
+        "target": 85,
+        "improvement": "25-35% improvement",
+        "unit": "percentage",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Revenue from licensing",
+        "baseline": 5000000,
+        "target": 6500000,
+        "improvement": "25-35% increase",
+        "unit": "dollars per year",
+        "category": "revenue",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["revenue-growth", "time-to-market", "operational-excellence", "workforce-productivity"],
     "fourW": {
@@ -1013,13 +3833,251 @@
       "60-80% reduction in manual research and contract work"
     ],
     "risksAndControls": [
-      "Human approval required for high-value contracts and strategic negotiations",
-      "Audit trail of all research, analysis, and contract activities",
-      "Policy grounding: agents reference approved contract templates and legal guidelines",
-      "Validation gates prevent non-compliant contract terms",
-      "Regular review of opportunity scoring and negotiation effectiveness",
-      "Escalation workflows for complex negotiations and legal questions"
-    ]
+      {
+        "description": "Incorrect opportunity scoring leading to poor deal selection",
+        "category": "revenue",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Model validation, human review of high-value opportunities",
+        "monitoringApproach": "Monitor scoring accuracy, track deal outcomes",
+        "escalationPath": "Review scoring models regularly",
+        "complianceRequirements": ["Model validation", "Accuracy monitoring"]
+      },
+      {
+        "description": "Contract generation errors causing unfavorable terms",
+        "category": "legal",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Human approval for contracts, template validation",
+        "monitoringApproach": "Review contract terms, track negotiation outcomes",
+        "escalationPath": "Escalate to legal for high-value contracts",
+        "complianceRequirements": ["Contract approval", "Template validation"]
+      },
+      {
+        "description": "Negotiation strategy errors causing deal failures",
+        "category": "revenue",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human review of strategies, performance monitoring",
+        "monitoringApproach": "Track negotiation success rates, monitor deal outcomes",
+        "escalationPath": "Review strategies if success rate low",
+        "complianceRequirements": ["Strategy validation", "Performance monitoring"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Licensing Deal Cycle Time",
+          "value": "55-70 days",
+          "change": "-60%"
+        },
+        {
+          "label": "Deal Value Optimization",
+          "value": "0-5%",
+          "change": "+20%"
+        },
+        {
+          "label": "Contract Processing Time",
+          "value": "8-12 days",
+          "change": "-65%"
+        },
+        {
+          "label": "Revenue from Licensing",
+          "value": "$4-6M/year",
+          "change": "+30%"
+        }
+      ],
+      "insights": [
+        "Licensing delays cost media companies $1B annually in lost opportunities",
+        "Automated contract processing reduces errors by 70%",
+        "Better opportunity scoring improves deal value by 20-35%",
+        "Faster negotiations increase deal closure rates by 30-40%"
+      ],
+      "trends": [
+        "Demand for faster licensing cycles",
+        "Shift toward automated contract negotiation",
+        "Integration of AI for opportunity scoring",
+        "Automated relationship management"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Market Research & Opportunity Identification",
+        "description": "Manual market research and opportunity identification",
+        "time": "5-10 days",
+        "actions": ["Research markets", "Identify opportunities", "Analyze potential", "Prioritize leads"],
+        "inputs": ["Market data", "Research tools", "Opportunity criteria"],
+        "outputs": ["Market research", "Opportunity list"],
+        "dependencies": [],
+        "decisionPoints": ["Opportunity potential", "Market fit"],
+        "errorHandling": "Manual review if unclear"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Opportunity Scoring & Prioritization",
+        "description": "Manual opportunity scoring and prioritization",
+        "time": "2-3 days",
+        "actions": ["Score opportunities", "Prioritize deals", "Assess value", "Rank opportunities"],
+        "inputs": ["Opportunity data", "Scoring models", "Business criteria"],
+        "outputs": ["Scored opportunities", "Priority ranking"],
+        "dependencies": ["Market Research & Opportunity Identification"],
+        "decisionPoints": ["Scoring criteria", "Priority threshold"],
+        "errorHandling": "Re-score if criteria change"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Contract Analysis & Term Extraction",
+        "description": "Manual contract analysis and term extraction",
+        "time": "3-5 days",
+        "actions": ["Analyze contracts", "Extract terms", "Identify issues", "Document findings"],
+        "inputs": ["Contract documents", "Legal guidelines", "Term databases"],
+        "outputs": ["Term analysis", "Issue identification"],
+        "dependencies": ["Opportunity Scoring & Prioritization"],
+        "decisionPoints": ["Term significance", "Issue severity"],
+        "errorHandling": "Legal review if complex terms"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Negotiation Planning & Strategy Development",
+        "description": "Manual negotiation planning and strategy development",
+        "time": "3-5 days",
+        "actions": ["Plan negotiation", "Develop strategy", "Prepare proposals", "Set objectives"],
+        "inputs": ["Term analysis", "Negotiation history", "Strategy templates"],
+        "outputs": ["Negotiation plan", "Strategy document"],
+        "dependencies": ["Contract Analysis & Term Extraction"],
+        "decisionPoints": ["Strategy approach", "Objective priorities"],
+        "errorHandling": "Re-plan if strategy issues"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Contract Generation & Execution",
+        "description": "Manual contract generation and execution",
+        "time": "5-10 days",
+        "actions": ["Generate contract", "Review terms", "Finalize contract", "Execute agreement"],
+        "inputs": ["Negotiation results", "Contract templates", "Legal guidelines"],
+        "outputs": ["Final contract", "Executed agreement"],
+        "dependencies": ["Negotiation Planning & Strategy Development"],
+        "decisionPoints": ["Contract approval", "Term acceptance"],
+        "errorHandling": "Re-negotiate if terms rejected"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Relationship Management & Tracking",
+        "description": "Manual relationship management and tracking",
+        "time": "Ongoing",
+        "actions": ["Manage relationships", "Track interactions", "Update records", "Maintain contacts"],
+        "inputs": ["Partner data", "Interaction history", "CRM system"],
+        "outputs": ["Relationship records", "Updated CRM"],
+        "dependencies": ["Contract Generation & Execution"],
+        "decisionPoints": ["Relationship priority", "Interaction frequency"],
+        "errorHandling": "Update if data errors"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Market Research Agent",
+        "description": "Automated market research and opportunity identification",
+        "time": "< 1 day",
+        "actions": ["Research markets using AI", "Identify opportunities", "Analyze potential", "Prioritize leads"],
+        "inputs": ["Market data", "ML models", "Research APIs"],
+        "outputs": ["Market research", "Opportunity list"],
+        "dependencies": [],
+        "decisionPoints": ["Opportunity confidence", "Market fit"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Opportunity Scoring Agent",
+        "description": "Automated opportunity scoring and prioritization",
+        "time": "< 2 hours",
+        "actions": ["Score opportunities using ML", "Prioritize deals", "Assess value", "Rank opportunities"],
+        "inputs": ["Opportunity data", "ML scoring models", "Business criteria"],
+        "outputs": ["Scored opportunities", "Priority ranking"],
+        "dependencies": ["Market Research Agent"],
+        "decisionPoints": ["Scoring confidence", "Priority threshold"],
+        "errorHandling": "Flag for review if scoring unclear"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Contract Analysis Agent",
+        "description": "Automated contract analysis and term extraction",
+        "time": "< 4 hours",
+        "actions": ["Analyze contracts using NLP", "Extract terms", "Identify issues", "Generate summary"],
+        "inputs": ["Contract documents", "NLP models", "Legal databases"],
+        "outputs": ["Term analysis", "Issue identification"],
+        "dependencies": ["Opportunity Scoring Agent"],
+        "decisionPoints": ["Term extraction confidence", "Issue severity"],
+        "errorHandling": "Route to legal if complex terms"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Negotiation Support Agent",
+        "description": "Automated negotiation support and strategy generation",
+        "time": "< 1 day",
+        "actions": ["Generate strategies", "Provide recommendations", "Analyze options", "Support negotiation"],
+        "inputs": ["Term analysis", "Negotiation history", "ML strategy models"],
+        "outputs": ["Negotiation strategies", "Recommendations"],
+        "dependencies": ["Contract Analysis Agent"],
+        "decisionPoints": ["Strategy confidence", "Recommendation relevance"],
+        "errorHandling": "Route to managers for strategic deals"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Contract Generation Agent",
+        "description": "Automated contract generation and execution",
+        "time": "< 1 day",
+        "actions": ["Generate contract", "Apply templates", "Validate terms", "Prepare execution"],
+        "inputs": ["Negotiation results", "Contract templates", "Legal guidelines"],
+        "outputs": ["Contract draft", "Execution package"],
+        "dependencies": ["Negotiation Support Agent"],
+        "decisionPoints": ["Template selection", "Term validation"],
+        "errorHandling": "Route to human for high-value contracts"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Relationship Management Agent",
+        "description": "Automated relationship management and tracking",
+        "time": "Continuous",
+        "actions": ["Manage relationships", "Track interactions", "Update records", "Maintain contacts"],
+        "inputs": ["Partner data", "Interaction history", "CRM APIs"],
+        "outputs": ["Relationship records", "Updated CRM"],
+        "dependencies": ["Contract Generation Agent"],
+        "decisionPoints": ["Relationship priority", "Interaction timing"],
+        "errorHandling": "Flag for review if data issues"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "60-80 days",
+        "steps": [
+          {"stepName": "Market Research & Opportunity Identification", "time": "5-10 days"},
+          {"stepName": "Opportunity Scoring & Prioritization", "time": "2-3 days"},
+          {"stepName": "Contract Analysis & Term Extraction", "time": "3-5 days"},
+          {"stepName": "Negotiation Planning & Strategy Development", "time": "3-5 days"},
+          {"stepName": "Contract Generation & Execution", "time": "5-10 days"},
+          {"stepName": "Relationship Management & Tracking", "time": "Ongoing"}
+        ],
+        "bottlenecks": ["Market research (5-10 days)", "Contract generation (5-10 days)", "Manual negotiation"]
+      },
+      "agenticProcess": {
+        "totalTime": "25-35 days",
+        "steps": [
+          {"stepName": "Market Research Agent", "time": "< 1 day"},
+          {"stepName": "Opportunity Scoring Agent", "time": "< 2 hours"},
+          {"stepName": "Contract Analysis Agent", "time": "< 4 hours"},
+          {"stepName": "Negotiation Support Agent", "time": "< 1 day"},
+          {"stepName": "Contract Generation Agent", "time": "< 1 day"},
+          {"stepName": "Relationship Management Agent", "time": "Continuous"}
+        ],
+        "bottlenecks": ["Human approval for high-value contracts", "Negotiation duration"]
+      },
+      "savings": {
+        "absolute": "35-45 days",
+        "percentage": "50-70%"
+      }
+    }
   },
   {
     "id": "platform-operations-monitoring",
@@ -1028,11 +4086,51 @@
     "description": "Ensure platform reliability and performance through automated monitoring, incident detection, and resolution. Agentic AI monitors system health, detects anomalies, predicts failures, and orchestrates remediation—minimizing downtime and ensuring optimal viewer experience.",
     "businessGoal": "Maximize platform uptime, ensure optimal performance, and minimize viewer impact through intelligent monitoring and automated incident resolution.",
     "kpis": [
-      "Platform uptime",
-      "Mean time to resolution (MTTR)",
-      "Incident detection time",
-      "Performance optimization",
-      "Viewer experience metrics"
+      {
+        "name": "Platform uptime",
+        "baseline": 99.5,
+        "target": 99.9,
+        "improvement": "30-45% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Mean time to resolution (MTTR)",
+        "baseline": 30,
+        "target": 10,
+        "improvement": "50-70% reduction",
+        "unit": "minutes",
+        "category": "efficiency",
+        "priority": "primary"
+      },
+      {
+        "name": "Incident detection time",
+        "baseline": 10,
+        "target": 2,
+        "improvement": "60-80% reduction",
+        "unit": "minutes",
+        "category": "efficiency",
+        "priority": "secondary"
+      },
+      {
+        "name": "Performance optimization",
+        "baseline": 85,
+        "target": 95,
+        "improvement": "30-45% improvement",
+        "unit": "performance score",
+        "category": "quality",
+        "priority": "secondary"
+      },
+      {
+        "name": "Viewer experience metrics",
+        "baseline": 3.8,
+        "target": 4.5,
+        "improvement": "15-25% improvement",
+        "unit": "rating out of 5",
+        "category": "customer-experience",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["operational-excellence", "customer-experience", "cost-optimization", "risk-management"],
     "fourW": {
@@ -1106,13 +4204,251 @@
       "50-70% reduction in manual monitoring and troubleshooting"
     ],
     "risksAndControls": [
-      "Human approval required for critical system changes and escalations",
-      "Audit trail of all monitoring, detection, and remediation activities",
-      "Policy grounding: agents reference approved operational procedures",
-      "Validation gates prevent unsafe automated actions",
-      "Real-time alerting for critical incidents",
-      "Escalation workflows for complex incidents and policy violations"
-    ]
+      {
+        "description": "Incorrect automated remediation causing service disruption",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human approval for critical changes, validation before execution",
+        "monitoringApproach": "Monitor remediation success rate, track service disruptions",
+        "escalationPath": "Escalate to operations manager for critical incidents",
+        "complianceRequirements": ["Change management", "Audit trail"]
+      },
+      {
+        "description": "False positive alerts causing unnecessary interventions",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "Anomaly correlation, confidence thresholds, model calibration",
+        "monitoringApproach": "Track false positive rate, monitor alert accuracy",
+        "escalationPath": "Review alert rules monthly",
+        "complianceRequirements": ["Alert validation", "Accuracy monitoring"]
+      },
+      {
+        "description": "Missed critical incidents due to monitoring gaps",
+        "category": "operational",
+        "severity": "high",
+        "likelihood": "low",
+        "mitigationStrategy": "Comprehensive monitoring, multiple detection methods, escalation triggers",
+        "monitoringApproach": "Monitor detection coverage, track missed incidents",
+        "escalationPath": "Alert operations manager for critical incidents",
+        "complianceRequirements": ["Monitoring coverage", "Incident detection"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Platform Uptime",
+          "value": "99.4-99.6%",
+          "change": "+0.3%"
+        },
+        {
+          "label": "Mean Time to Resolution",
+          "value": "25-35 minutes",
+          "change": "-65%"
+        },
+        {
+          "label": "Incident Detection Time",
+          "value": "8-12 minutes",
+          "change": "-75%"
+        },
+        {
+          "label": "Performance Score",
+          "value": "82-88",
+          "change": "+40%"
+        }
+      ],
+      "insights": [
+        "Platform downtime costs media companies $5,000 per minute",
+        "Proactive monitoring prevents 70% of viewer-impacting incidents",
+        "Automated remediation reduces MTTR by 60-80%",
+        "Predictive failure detection prevents 50% of outages"
+      ],
+      "trends": [
+        "Demand for 99.9%+ uptime",
+        "Shift toward predictive operations",
+        "Integration of AI for anomaly detection",
+        "Automated incident response"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "System Health Monitoring & Data Collection",
+        "description": "Manual system health monitoring and data collection",
+        "time": "Continuous",
+        "actions": ["Monitor systems", "Collect metrics", "Track performance", "Identify issues"],
+        "inputs": ["System metrics", "Monitoring tools", "Performance baselines"],
+        "outputs": ["Health status", "Performance data"],
+        "dependencies": [],
+        "decisionPoints": ["Health threshold", "Issue severity"],
+        "errorHandling": "Manual review if unclear"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Anomaly Detection & Alert Generation",
+        "description": "Manual anomaly detection and alert generation",
+        "time": "15-30 minutes",
+        "actions": ["Detect anomalies", "Analyze patterns", "Generate alerts", "Prioritize issues"],
+        "inputs": ["Performance data", "Anomaly rules", "Alert thresholds"],
+        "outputs": ["Anomaly alerts", "Priority ranking"],
+        "dependencies": ["System Health Monitoring & Data Collection"],
+        "decisionPoints": ["Anomaly threshold", "Alert priority"],
+        "errorHandling": "Manual review if unclear"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Root Cause Analysis & Diagnosis",
+        "description": "Manual root cause analysis and diagnosis",
+        "time": "20-40 minutes",
+        "actions": ["Analyze incidents", "Identify root cause", "Diagnose issues", "Assess impact"],
+        "inputs": ["Anomaly alerts", "System logs", "Diagnostic tools"],
+        "outputs": ["Root cause", "Diagnosis report"],
+        "dependencies": ["Anomaly Detection & Alert Generation"],
+        "decisionPoints": ["Root cause confidence", "Impact severity"],
+        "errorHandling": "Escalate if cannot diagnose"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Incident Response & Remediation",
+        "description": "Manual incident response and remediation",
+        "time": "30-60 minutes",
+        "actions": ["Plan remediation", "Execute fixes", "Test resolution", "Verify recovery"],
+        "inputs": ["Root cause", "Remediation procedures", "System access"],
+        "outputs": ["Remediation actions", "Recovery status"],
+        "dependencies": ["Root Cause Analysis & Diagnosis"],
+        "decisionPoints": ["Remediation approach", "Fix approval"],
+        "errorHandling": "Try alternative if fix fails"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Performance Optimization & Capacity Planning",
+        "description": "Manual performance optimization and capacity planning",
+        "time": "1-2 days",
+        "actions": ["Analyze performance", "Optimize systems", "Plan capacity", "Implement changes"],
+        "inputs": ["Performance data", "Optimization tools", "Capacity models"],
+        "outputs": ["Optimization plan", "Capacity recommendations"],
+        "dependencies": ["Incident Response & Remediation"],
+        "decisionPoints": ["Optimization approach", "Capacity threshold"],
+        "errorHandling": "Re-optimize if issues"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting & Dashboard Updates",
+        "description": "Manual reporting and dashboard updates",
+        "time": "1-2 hours",
+        "actions": ["Generate reports", "Update dashboards", "Create insights", "Share status"],
+        "inputs": ["Operational data", "Report templates", "Dashboard tools"],
+        "outputs": ["Operational reports", "Updated dashboards"],
+        "dependencies": ["Performance Optimization & Capacity Planning"],
+        "decisionPoints": ["Report format", "Update frequency"],
+        "errorHandling": "Re-generate if errors"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Monitoring Agent",
+        "description": "Automated system health monitoring and data collection",
+        "time": "Real-time",
+        "actions": ["Monitor systems", "Collect metrics", "Track performance", "Detect issues"],
+        "inputs": ["System metrics", "Monitoring APIs", "ML models"],
+        "outputs": ["Health status", "Performance data"],
+        "dependencies": [],
+        "decisionPoints": ["Health threshold", "Issue detection"],
+        "errorHandling": "Alert if monitoring fails"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Anomaly Detection Agent",
+        "description": "Automated anomaly detection and alert generation",
+        "time": "< 2 min",
+        "actions": ["Detect anomalies using ML", "Analyze patterns", "Generate alerts", "Prioritize issues"],
+        "inputs": ["Performance data", "ML anomaly models", "Alert rules"],
+        "outputs": ["Anomaly alerts", "Priority scores"],
+        "dependencies": ["Monitoring Agent"],
+        "decisionPoints": ["Anomaly confidence", "Alert threshold"],
+        "errorHandling": "Flag for review if low confidence"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Root Cause Analysis Agent",
+        "description": "Automated root cause analysis and diagnosis",
+        "time": "< 5 min",
+        "actions": ["Analyze incidents", "Identify root cause", "Diagnose issues", "Assess impact"],
+        "inputs": ["Anomaly alerts", "System logs", "ML diagnostic models"],
+        "outputs": ["Root cause", "Diagnosis report"],
+        "dependencies": ["Anomaly Detection Agent"],
+        "decisionPoints": ["Root cause confidence", "Impact severity"],
+        "errorHandling": "Escalate to engineers if complex"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "Remediation Agent",
+        "description": "Automated incident response and remediation",
+        "time": "< 10 min",
+        "actions": ["Select remediation", "Execute fixes", "Test resolution", "Verify recovery"],
+        "inputs": ["Root cause", "Remediation procedures", "System APIs"],
+        "outputs": ["Remediation actions", "Recovery status"],
+        "dependencies": ["Root Cause Analysis Agent"],
+        "decisionPoints": ["Remediation confidence", "Fix approval"],
+        "errorHandling": "Route to human for critical fixes"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Optimization Agent",
+        "description": "Automated performance optimization and capacity planning",
+        "time": "Continuous",
+        "actions": ["Analyze performance", "Optimize systems", "Plan capacity", "Implement changes"],
+        "inputs": ["Performance data", "Optimization algorithms", "Capacity models"],
+        "outputs": ["Optimization actions", "Capacity recommendations"],
+        "dependencies": ["Remediation Agent"],
+        "decisionPoints": ["Optimization threshold", "Capacity threshold"],
+        "errorHandling": "Alert if optimization issues"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting Agent",
+        "description": "Automated reporting and dashboard updates",
+        "time": "< 5 min",
+        "actions": ["Generate reports", "Update dashboards", "Create insights", "Send alerts"],
+        "inputs": ["Operational data", "Report templates", "Dashboard APIs"],
+        "outputs": ["Operational reports", "Updated dashboards"],
+        "dependencies": ["Optimization Agent"],
+        "decisionPoints": ["Report format", "Alert thresholds"],
+        "errorHandling": "Regenerate if errors"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "1.5-3 hours",
+        "steps": [
+          {"stepName": "System Health Monitoring & Data Collection", "time": "Continuous"},
+          {"stepName": "Anomaly Detection & Alert Generation", "time": "15-30 minutes"},
+          {"stepName": "Root Cause Analysis & Diagnosis", "time": "20-40 minutes"},
+          {"stepName": "Incident Response & Remediation", "time": "30-60 minutes"},
+          {"stepName": "Performance Optimization & Capacity Planning", "time": "1-2 days"},
+          {"stepName": "Reporting & Dashboard Updates", "time": "1-2 hours"}
+        ],
+        "bottlenecks": ["Root cause analysis (20-40 min)", "Remediation (30-60 min)", "Manual optimization"]
+      },
+      "agenticProcess": {
+        "totalTime": "10-20 minutes",
+        "steps": [
+          {"stepName": "Monitoring Agent", "time": "Real-time"},
+          {"stepName": "Anomaly Detection Agent", "time": "< 2 min"},
+          {"stepName": "Root Cause Analysis Agent", "time": "< 5 min"},
+          {"stepName": "Remediation Agent", "time": "< 10 min"},
+          {"stepName": "Optimization Agent", "time": "Continuous"},
+          {"stepName": "Reporting Agent", "time": "< 5 min"}
+        ],
+        "bottlenecks": ["Human approval for critical fixes", "Complex root cause analysis"]
+      },
+      "savings": {
+        "absolute": "1.3-2.7 hours",
+        "percentage": "60-80%"
+      }
+    }
   },
   {
     "id": "advertising-campaign-optimization",
@@ -1121,11 +4457,51 @@
     "description": "Optimize advertising campaigns through real-time performance monitoring, audience targeting refinement, and budget allocation. Agentic AI analyzes performance data, identifies optimization opportunities, adjusts targeting and bidding, and reallocates budgets—maximizing ROI and campaign effectiveness.",
     "businessGoal": "Maximize advertising ROI, improve campaign performance, and optimize budget allocation through intelligent real-time optimization.",
     "kpis": [
-      "Campaign ROI",
-      "Click-through rate (CTR)",
-      "Conversion rate",
-      "Cost per acquisition (CPA)",
-      "Budget utilization efficiency"
+      {
+        "name": "Campaign ROI",
+        "baseline": 2.5,
+        "target": 4.2,
+        "improvement": "40-60% improvement",
+        "unit": "ratio",
+        "category": "revenue",
+        "priority": "primary"
+      },
+      {
+        "name": "Click-through rate (CTR)",
+        "baseline": 0.8,
+        "target": 1.3,
+        "improvement": "35-50% improvement",
+        "unit": "percentage",
+        "category": "quality",
+        "priority": "primary"
+      },
+      {
+        "name": "Conversion rate",
+        "baseline": 2.5,
+        "target": 4.0,
+        "improvement": "40-60% improvement",
+        "unit": "percentage",
+        "category": "revenue",
+        "priority": "secondary"
+      },
+      {
+        "name": "Cost per acquisition (CPA)",
+        "baseline": 45,
+        "target": 28,
+        "improvement": "30-45% reduction",
+        "unit": "dollars",
+        "category": "cost-optimization",
+        "priority": "secondary"
+      },
+      {
+        "name": "Budget utilization efficiency",
+        "baseline": 75,
+        "target": 92,
+        "improvement": "20-30% improvement",
+        "unit": "percentage",
+        "category": "cost-optimization",
+        "priority": "secondary"
+      }
     ],
     "valueThemes": ["revenue-growth", "operational-excellence", "data-driven-decisions", "cost-optimization"],
     "fourW": {
@@ -1199,12 +4575,250 @@
       "60-80% reduction in manual optimization tasks"
     ],
     "risksAndControls": [
-      "Human approval required for significant budget reallocations and strategy changes",
-      "Audit trail of all optimizations, adjustments, and performance changes",
-      "Policy grounding: agents reference approved optimization strategies and budgets",
-      "Validation gates prevent unsafe budget allocations",
-      "Regular review of optimization effectiveness and ROI",
-      "Escalation workflows for performance issues and policy exceptions"
-    ]
+      {
+        "description": "Incorrect budget reallocation causing campaign underperformance",
+        "category": "financial",
+        "severity": "high",
+        "likelihood": "medium",
+        "mitigationStrategy": "Human approval for significant reallocations, validation rules",
+        "monitoringApproach": "Monitor budget utilization, track campaign performance",
+        "escalationPath": "Escalate to campaign manager for significant changes",
+        "complianceRequirements": ["Budget approval", "Performance validation"]
+      },
+      {
+        "description": "Optimization errors causing performance degradation",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "medium",
+        "mitigationStrategy": "A/B testing, performance monitoring, rollback capabilities",
+        "monitoringApproach": "Track optimization impact, monitor performance metrics",
+        "escalationPath": "Revert if performance degrades",
+        "complianceRequirements": ["Performance monitoring", "Optimization validation"]
+      },
+      {
+        "description": "Targeting errors causing poor audience match",
+        "category": "operational",
+        "severity": "medium",
+        "likelihood": "low",
+        "mitigationStrategy": "Targeting validation, audience quality checks",
+        "monitoringApproach": "Monitor targeting accuracy, track audience match",
+        "escalationPath": "Review targeting if match quality low",
+        "complianceRequirements": ["Targeting validation", "Audience quality"]
+      }
+    ],
+    "industryContext": {
+      "statistics": [
+        {
+          "label": "Average Campaign ROI",
+          "value": "2.2-2.8",
+          "change": "+55%"
+        },
+        {
+          "label": "Click-Through Rate",
+          "value": "0.7-0.9%",
+          "change": "+45%"
+        },
+        {
+          "label": "Conversion Rate",
+          "value": "2.0-2.8%",
+          "change": "+50%"
+        },
+        {
+          "label": "Cost per Acquisition",
+          "value": "$40-$55",
+          "change": "-38%"
+        }
+      ],
+      "insights": [
+        "Campaign optimization improves ROI by 40-60%",
+        "Real-time bid adjustment increases CTR by 35-50%",
+        "Automated budget reallocation improves utilization by 20-30%",
+        "A/B testing optimization improves conversion by 40-60%"
+      ],
+      "trends": [
+        "Demand for real-time campaign optimization",
+        "Shift toward automated bid management",
+        "Integration of AI for audience targeting",
+        "Automated creative optimization"
+      ]
+    },
+    "currentSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Performance Data Collection & Analysis",
+        "description": "Manual performance data collection and analysis",
+        "time": "2-4 hours",
+        "actions": ["Collect performance data", "Analyze metrics", "Identify trends", "Assess performance"],
+        "inputs": ["Campaign data", "Analytics tools", "Performance metrics"],
+        "outputs": ["Performance analysis", "Trend identification"],
+        "dependencies": [],
+        "decisionPoints": ["Performance threshold", "Trend significance"],
+        "errorHandling": "Manual review if data issues"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Audience Targeting Analysis & Refinement",
+        "description": "Manual audience targeting analysis and refinement",
+        "time": "2-3 hours",
+        "actions": ["Analyze targeting", "Identify segments", "Refine audiences", "Update targeting"],
+        "inputs": ["Audience data", "Targeting rules", "Segment analysis"],
+        "outputs": ["Refined targeting", "Audience segments"],
+        "dependencies": ["Performance Data Collection & Analysis"],
+        "decisionPoints": ["Targeting approach", "Segment selection"],
+        "errorHandling": "Re-analyze if targeting issues"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Bid Adjustment & Budget Reallocation",
+        "description": "Manual bid adjustment and budget reallocation",
+        "time": "1-2 hours",
+        "actions": ["Adjust bids", "Reallocate budgets", "Optimize spend", "Update settings"],
+        "inputs": ["Performance data", "Bid rules", "Budget constraints"],
+        "outputs": ["Adjusted bids", "Reallocated budgets"],
+        "dependencies": ["Audience Targeting Analysis & Refinement"],
+        "decisionPoints": ["Bid strategy", "Budget allocation"],
+        "errorHandling": "Re-adjust if performance degrades"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "A/B Testing & Creative Optimization",
+        "description": "Manual A/B testing and creative optimization",
+        "time": "1-2 weeks",
+        "actions": ["Set up tests", "Monitor performance", "Analyze results", "Optimize creatives"],
+        "inputs": ["Creative assets", "Test configurations", "Performance data"],
+        "outputs": ["Test results", "Optimized creatives"],
+        "dependencies": ["Bid Adjustment & Budget Reallocation"],
+        "decisionPoints": ["Test design", "Optimization approach"],
+        "errorHandling": "Adjust tests if inconclusive"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Performance Forecasting & Planning",
+        "description": "Manual performance forecasting and planning",
+        "time": "2-3 hours",
+        "actions": ["Forecast performance", "Plan optimizations", "Set targets", "Update strategies"],
+        "inputs": ["Historical data", "Forecast models", "Business targets"],
+        "outputs": ["Performance forecasts", "Optimization plans"],
+        "dependencies": ["A/B Testing & Creative Optimization"],
+        "decisionPoints": ["Forecast confidence", "Target setting"],
+        "errorHandling": "Re-forecast if accuracy low"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting & Insights Generation",
+        "description": "Manual reporting and insights generation",
+        "time": "1-2 hours",
+        "actions": ["Generate reports", "Create insights", "Update dashboards", "Share findings"],
+        "inputs": ["Performance data", "Report templates", "Insight tools"],
+        "outputs": ["Campaign reports", "Insights"],
+        "dependencies": ["Performance Forecasting & Planning"],
+        "decisionPoints": ["Report format", "Insight relevance"],
+        "errorHandling": "Re-generate if errors"
+      }
+    ],
+    "agenticSteps": [
+      {
+        "stepNumber": 1,
+        "stepName": "Performance Monitoring Agent",
+        "description": "Automated real-time performance monitoring and analysis",
+        "time": "Real-time",
+        "actions": ["Monitor performance", "Analyze metrics", "Identify trends", "Assess performance"],
+        "inputs": ["Campaign data", "Analytics APIs", "ML models"],
+        "outputs": ["Performance analysis", "Trend alerts"],
+        "dependencies": [],
+        "decisionPoints": ["Performance threshold", "Trend significance"],
+        "errorHandling": "Alert if performance issues"
+      },
+      {
+        "stepNumber": 2,
+        "stepName": "Optimization Agent",
+        "description": "Automated optimization and bid adjustment",
+        "time": "Continuous",
+        "actions": ["Optimize targeting", "Adjust bids", "Reallocate budgets", "Update settings"],
+        "inputs": ["Performance data", "Optimization algorithms", "ML models"],
+        "outputs": ["Optimization actions", "Updated settings"],
+        "dependencies": ["Performance Monitoring Agent"],
+        "decisionPoints": ["Optimization threshold", "Bid strategy"],
+        "errorHandling": "Revert if performance degrades"
+      },
+      {
+        "stepNumber": 3,
+        "stepName": "Audience Targeting Agent",
+        "description": "Automated audience targeting optimization",
+        "time": "Continuous",
+        "actions": ["Analyze targeting", "Identify segments", "Refine audiences", "Update targeting"],
+        "inputs": ["Audience data", "ML targeting models", "Segment analysis"],
+        "outputs": ["Refined targeting", "Audience segments"],
+        "dependencies": ["Performance Monitoring Agent"],
+        "decisionPoints": ["Targeting confidence", "Segment quality"],
+        "errorHandling": "Flag for review if targeting quality low"
+      },
+      {
+        "stepNumber": 4,
+        "stepName": "A/B Testing Agent",
+        "description": "Automated A/B testing and creative optimization",
+        "time": "Continuous",
+        "actions": ["Set up tests", "Monitor performance", "Analyze results", "Optimize creatives"],
+        "inputs": ["Creative assets", "Test configurations", "ML optimization models"],
+        "outputs": ["Test results", "Optimized creatives"],
+        "dependencies": ["Optimization Agent"],
+        "decisionPoints": ["Test design", "Optimization threshold"],
+        "errorHandling": "Adjust tests if performance degrades"
+      },
+      {
+        "stepNumber": 5,
+        "stepName": "Forecasting Agent",
+        "description": "Automated performance forecasting and planning",
+        "time": "< 1 hour",
+        "actions": ["Forecast performance", "Plan optimizations", "Set targets", "Update strategies"],
+        "inputs": ["Historical data", "ML forecast models", "Business targets"],
+        "outputs": ["Performance forecasts", "Optimization plans"],
+        "dependencies": ["A/B Testing Agent"],
+        "decisionPoints": ["Forecast confidence", "Target optimization"],
+        "errorHandling": "Alert if forecast accuracy low"
+      },
+      {
+        "stepNumber": 6,
+        "stepName": "Reporting Agent",
+        "description": "Automated reporting and insights generation",
+        "time": "< 30 min",
+        "actions": ["Generate reports", "Create insights", "Update dashboards", "Send notifications"],
+        "inputs": ["Performance data", "Report templates", "Insight algorithms"],
+        "outputs": ["Campaign reports", "Insights"],
+        "dependencies": ["Forecasting Agent"],
+        "decisionPoints": ["Report format", "Insight relevance"],
+        "errorHandling": "Regenerate if errors"
+      }
+    ],
+    "timeEstimates": {
+      "currentProcess": {
+        "totalTime": "2-3 weeks",
+        "steps": [
+          {"stepName": "Performance Data Collection & Analysis", "time": "2-4 hours"},
+          {"stepName": "Audience Targeting Analysis & Refinement", "time": "2-3 hours"},
+          {"stepName": "Bid Adjustment & Budget Reallocation", "time": "1-2 hours"},
+          {"stepName": "A/B Testing & Creative Optimization", "time": "1-2 weeks"},
+          {"stepName": "Performance Forecasting & Planning", "time": "2-3 hours"},
+          {"stepName": "Reporting & Insights Generation", "time": "1-2 hours"}
+        ],
+        "bottlenecks": ["A/B testing (1-2 weeks)", "Manual optimization", "Performance analysis"]
+      },
+      "agenticProcess": {
+        "totalTime": "Real-time",
+        "steps": [
+          {"stepName": "Performance Monitoring Agent", "time": "Real-time"},
+          {"stepName": "Optimization Agent", "time": "Continuous"},
+          {"stepName": "Audience Targeting Agent", "time": "Continuous"},
+          {"stepName": "A/B Testing Agent", "time": "Continuous"},
+          {"stepName": "Forecasting Agent", "time": "< 1 hour"},
+          {"stepName": "Reporting Agent", "time": "< 30 min"}
+        ],
+        "bottlenecks": ["Human approval for significant budget changes", "A/B test duration"]
+      },
+      "savings": {
+        "absolute": "2-3 weeks",
+        "percentage": "80-90%"
+      }
+    }
   }
 ]

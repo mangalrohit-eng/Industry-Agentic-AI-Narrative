@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Process } from '@/lib/types';
 
 interface WorkforcePersonasProps {
@@ -32,7 +32,51 @@ function getInitials(name: string): string {
     .slice(0, 2);
 }
 
-// Generate a deterministic AI-generated photorealistic face URL for a persona
+// Determine gender from first name
+function getGenderFromName(name: string): 'men' | 'women' {
+  const firstName = name.split(' ')[0].toLowerCase();
+  
+  // Common female first names
+  const femaleNames = [
+    'sarah', 'jennifer', 'emily', 'lisa', 'patricia', 'amanda', 'nicole', 'rachel',
+    'alex', 'alexandra', 'alexis', 'jessica', 'michelle', 'stephanie', 'rebecca',
+    'laura', 'kimberly', 'deborah', 'sandra', 'ashley', 'donna', 'carol', 'nancy',
+    'betty', 'helen', 'sharon', 'cynthia', 'kathleen', 'amy', 'angela', 'anna',
+    'brenda', 'pamela', 'maria', 'victoria', 'kathryn', 'christine', 'samantha',
+    'debra', 'rachel', 'carolyn', 'janet', 'virginia', 'maria', 'heather', 'diane',
+    'julie', 'joyce', 'evelyn', 'joan', 'christina', 'kelly', 'jean', 'alice'
+  ];
+  
+  // Common male first names
+  const maleNames = [
+    'michael', 'david', 'james', 'robert', 'thomas', 'christopher', 'daniel',
+    'john', 'william', 'richard', 'joseph', 'charles', 'matthew', 'mark',
+    'donald', 'anthony', 'paul', 'steven', 'andrew', 'kenneth', 'joshua',
+    'kevin', 'brian', 'george', 'timothy', 'ronald', 'jason', 'edward',
+    'jeffrey', 'ryan', 'jacob', 'gary', 'nicholas', 'eric', 'jonathan',
+    'stephen', 'larry', 'justin', 'scott', 'brandon', 'benjamin', 'samuel',
+    'frank', 'gregory', 'raymond', 'alexander', 'patrick', 'jack', 'dennis'
+  ];
+  
+  // Check if name matches known patterns
+  if (femaleNames.includes(firstName)) {
+    return 'women';
+  }
+  if (maleNames.includes(firstName)) {
+    return 'men';
+  }
+  
+  // Default fallback: use hash-based determination for unknown names
+  // This ensures consistency for names not in our list
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = ((hash << 5) - hash) + name.charCodeAt(i);
+    hash = hash & hash;
+  }
+  return Math.abs(hash) % 2 === 0 ? 'women' : 'men';
+}
+
+// Generate a deterministic realistic human face URL for a persona
 function getPersonaPhoto(name: string): string {
   // Create a hash from the name for consistent face generation
   let hash = 0;
@@ -42,14 +86,11 @@ function getPersonaPhoto(name: string): string {
   }
   const seed = Math.abs(hash);
   
-  // Use AI face generation service that creates photorealistic faces
-  // Using a deterministic seed ensures the same persona always gets the same face
-  // This generates realistic AI-created faces (not real people, not cartoons)
-  // Using seed-based photorealistic face generation
-  // The seed ensures each persona gets a consistent, unique photorealistic face
-  // Using a service that generates realistic-looking AI-generated human faces
-  // This service generates photorealistic AI faces (not real people) based on seed
-  return `https://api.dicebear.com/7.x/personas/png?seed=${encodeURIComponent(name)}&backgroundColor=transparent&size=300&radius=50`;
+  // Determine gender from name to match the photo
+  const gender = getGenderFromName(name);
+  const photoIndex = seed % 100; // Use 0-99 range for variety
+  
+  return `https://randomuser.me/api/portraits/${gender}/${photoIndex}.jpg`;
 }
 
 // Extract and generate personas from workforce data
@@ -429,172 +470,319 @@ function generatePersonas(process: Process): Persona[] {
 }
 
 export default function WorkforcePersonas({ process }: WorkforcePersonasProps) {
-  const personas = generatePersonas(process);
+  // Use enhanced personas if available, otherwise generate from workforce data
+  const personas = process.workforcePersonas || generatePersonas(process);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  // Calculate card width based on viewport - sized to show ~25% of next card
+  const getCardWidth = () => {
+    if (typeof window === 'undefined') return 400;
+    const viewportWidth = window.innerWidth;
+    const containerPadding = 32; // Account for container padding (px-4 = 16px each side)
+    const availableWidth = viewportWidth - containerPadding;
+    
+    // Use 75% of available width to show ~25% of next card
+    return Math.floor(availableWidth * 0.75);
+  };
+
+  const [cardWidth, setCardWidth] = useState(getCardWidth());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCardWidth(getCardWidth());
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Scroll to specific card
+  const scrollToCard = (index: number) => {
+    if (carouselRef.current && cardRefs.current[index]) {
+      const card = cardRefs.current[index];
+      const container = carouselRef.current;
+      const cardLeft = card.offsetLeft;
+      const containerWidth = container.offsetWidth;
+      const containerPadding = 16; // px-4 = 16px
+      // Center the card in the visible area, accounting for padding
+      const scrollPosition = cardLeft - containerPadding - (containerWidth / 2) + (cardWidth / 2);
+      
+      container.scrollTo({
+        left: Math.max(0, scrollPosition),
+        behavior: 'smooth'
+      });
+      setCurrentIndex(index);
+    }
+  };
+
+  // Update current index based on scroll position
+  useEffect(() => {
+    const container = carouselRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollPos = container.scrollLeft + container.offsetWidth / 2;
+      // Find which card is closest to the center
+      let closestIndex = 0;
+      let minDistance = Infinity;
+      
+      cardRefs.current.forEach((card, index) => {
+        if (card) {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const distance = Math.abs(scrollPos - cardCenter);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestIndex = index;
+          }
+        }
+      });
+      
+      setCurrentIndex(closestIndex);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [cardWidth, personas.length]);
+
+  // Touch/swipe handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!carouselRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !carouselRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!carouselRef.current) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !carouselRef.current) return;
+    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
 
   const nextPersona = () => {
-    setCurrentIndex((prev) => (prev + 1) % personas.length);
+    const nextIndex = (currentIndex + 1) % personas.length;
+    scrollToCard(nextIndex);
   };
 
   const prevPersona = () => {
-    setCurrentIndex((prev) => (prev - 1 + personas.length) % personas.length);
+    const prevIndex = (currentIndex - 1 + personas.length) % personas.length;
+    scrollToCard(prevIndex);
   };
 
   const goToPersona = (index: number) => {
-    setCurrentIndex(index);
+    scrollToCard(index);
   };
 
   if (personas.length === 0) return null;
 
-  const currentPersona = personas[currentIndex];
-
   return (
     <div>
-
       {/* Carousel Container */}
       <div className="relative">
-        {/* Persona Card */}
-        <div className="min-h-[500px] rounded-lg border-2 border-primary-200 bg-gradient-to-br from-white to-primary-50/20 p-8 shadow-lg">
-          {/* Header with Avatar and Name */}
-          <div className="mb-8 flex items-start space-x-6">
-            {/* Avatar */}
-            <div className="relative flex-shrink-0">
-              <div className={`absolute -inset-1 rounded-full ${
-                currentPersona.isNew 
-                  ? 'bg-accent' 
-                  : 'bg-primary-400'
-              }`}></div>
-              <img
-                src={getPersonaPhoto(currentPersona.name)}
-                alt={currentPersona.name}
-                className="relative h-28 w-28 rounded-full border-4 border-white object-cover shadow-lg"
-                onError={(e) => {
-                  // Fallback to another professional photo service if primary fails
-                  const target = e.target as HTMLImageElement;
-                  const hash = currentPersona.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-                  target.src = `https://i.pravatar.cc/300?img=${(Math.abs(hash) % 70) + 1}`;
-                }}
-              />
-            </div>
-            
-            {/* Name and Title */}
-            <div className="flex-1">
-              <div className="mb-2 flex items-center space-x-3">
-                <h4 className="text-3xl font-semibold tracking-tight text-primary-900">
-                  {currentPersona.name}
-                </h4>
-                {currentPersona.isNew && (
-                  <span className="rounded-full border border-accent bg-accent-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
-                    New Role
-                  </span>
-                )}
+        {/* Scrollable Carousel */}
+        <div
+          ref={carouselRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4"
+          style={{
+            scrollSnapType: 'x proximity',
+            cursor: isDragging ? 'grabbing' : 'grab',
+            WebkitOverflowScrolling: 'touch',
+          }}
+        >
+          {personas.map((persona, index) => (
+            <div
+              key={index}
+              ref={(el) => (cardRefs.current[index] = el)}
+              className="flex-shrink-0 rounded-lg border-2 border-primary-200 bg-gradient-to-br from-white to-primary-50/20 p-6 sm:p-8 shadow-lg"
+              style={{
+                width: `${cardWidth}px`,
+                minHeight: '500px',
+                scrollSnapAlign: 'start',
+              }}
+            >
+              {/* Header with Avatar and Name */}
+              <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-start sm:space-x-6 space-y-4 sm:space-y-0">
+                {/* Avatar */}
+                <div className="relative flex-shrink-0">
+                  <div className={`absolute -inset-1 rounded-full ${
+                    persona.isNew 
+                      ? 'bg-accent' 
+                      : 'bg-primary-400'
+                  }`}></div>
+                  <img
+                    src={getPersonaPhoto(persona.name)}
+                    alt={persona.name}
+                    className="relative h-24 w-24 sm:h-28 sm:w-28 rounded-full border-4 border-white object-cover shadow-lg"
+                    onError={(e) => {
+                      // Fallback to alternative realistic face service if primary fails
+                      const target = e.target as HTMLImageElement;
+                      const hash = persona.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                      const gender = getGenderFromName(persona.name); // Use gender-aware fallback
+                      const photoIndex = (Math.abs(hash) % 50) + 50; // Use different range (50-99) for fallback
+                      target.src = `https://randomuser.me/api/portraits/${gender}/${photoIndex}.jpg`;
+                    }}
+                  />
+                </div>
+                
+                {/* Name and Title */}
+                <div className="flex-1">
+                  <div className="mb-2 flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                    <h4 className="text-2xl sm:text-3xl font-semibold tracking-tight text-primary-900">
+                      {persona.name}
+                    </h4>
+                    {persona.isNew && (
+                      <span className="self-start rounded-full border border-accent bg-accent-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                        New Role
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-base sm:text-lg font-medium text-primary-600">{persona.title}</p>
+                </div>
               </div>
-              <p className="text-lg font-medium text-primary-600">{currentPersona.title}</p>
-            </div>
-            
-            {/* Counter */}
-            <div className="text-right">
-              <div className="text-sm font-medium text-primary-500">
-                {currentIndex + 1} of {personas.length}
-              </div>
-            </div>
-          </div>
 
-          {/* Stats Cards */}
-          <div className="mb-8 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-lg border-2 border-primary-300 bg-white p-4">
-              <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary-600">Routine Tasks</div>
-              <div className="text-2xl font-bold text-primary-900">
-                {currentPersona.stats.routineTaskReduction}
+              {/* Stats Cards */}
+              <div className="mb-6 sm:mb-8 grid gap-3 sm:gap-4 grid-cols-3">
+                <div className="rounded-lg border-2 border-primary-300 bg-white p-3 sm:p-4">
+                  <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary-600">Routine Tasks</div>
+                  <div className="text-xl sm:text-2xl font-bold text-primary-900">
+                    {persona.stats.routineTaskReduction}
+                  </div>
+                  <div className="mt-1 text-xs text-primary-600">Reduction</div>
+                </div>
+                
+                <div className="rounded-lg border-2 border-accent bg-white p-3 sm:p-4">
+                  <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-accent-600">Strategic Work</div>
+                  <div className="text-xl sm:text-2xl font-bold text-accent">
+                    {persona.stats.strategicWorkIncrease}
+                  </div>
+                  <div className="mt-1 text-xs text-accent-600">Increase</div>
+                </div>
+                
+                <div className="rounded-lg border-2 border-primary-200 bg-white p-3 sm:p-4">
+                  <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary-600">Time Saved</div>
+                  <div className="text-xl sm:text-2xl font-bold text-primary-900">
+                    {persona.stats.timeSaved}
+                  </div>
+                  <div className="mt-1 text-xs text-primary-600">Per Week</div>
+                </div>
               </div>
-              <div className="mt-1 text-xs text-primary-600">Reduction</div>
-            </div>
-            
-            <div className="rounded-lg border-2 border-accent bg-white p-4">
-              <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-accent-600">Strategic Work</div>
-              <div className="text-2xl font-bold text-accent">
-                {currentPersona.stats.strategicWorkIncrease}
-              </div>
-              <div className="mt-1 text-xs text-accent-600">Increase</div>
-            </div>
-            
-            <div className="rounded-lg border-2 border-primary-200 bg-white p-4">
-              <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary-600">Time Saved</div>
-              <div className="text-2xl font-bold text-primary-900">
-                {currentPersona.stats.timeSaved}
-              </div>
-              <div className="mt-1 text-xs text-primary-600">Per Week</div>
-            </div>
-          </div>
 
-          {/* Role Comparison */}
-          <div className="grid gap-6 md:grid-cols-2">
-            {/* Current Role */}
-            <div className="rounded-lg border border-primary-200 bg-primary-50/30 p-6">
-              <div className="mb-4 flex items-center space-x-2">
-                <div className="h-1 w-8 bg-primary-400"></div>
-                <h5 className="text-sm font-semibold uppercase tracking-wider text-primary-900">Current Role</h5>
-              </div>
-              <p className="text-sm leading-relaxed text-primary-700">{currentPersona.currentRole}</p>
-            </div>
+              {/* Role Comparison */}
+              <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
+                {/* Current Role */}
+                <div className="rounded-lg border border-primary-200 bg-primary-50/30 p-4 sm:p-6">
+                  <div className="mb-3 sm:mb-4 flex items-center space-x-2">
+                    <div className="h-1 w-8 bg-primary-400"></div>
+                    <h5 className="text-sm font-semibold uppercase tracking-wider text-primary-900">Current Role</h5>
+                  </div>
+                  <p className="text-sm leading-relaxed text-primary-700">{persona.currentRole}</p>
+                </div>
 
-            {/* Transformed Role */}
-            <div className="rounded-lg border-2 border-accent bg-accent-50/20 p-6">
-              <div className="mb-4 flex items-center space-x-2">
-                <div className="h-1 w-8 bg-accent"></div>
-                <h5 className="text-sm font-semibold uppercase tracking-wider text-primary-900">Transformed Role</h5>
+                {/* Transformed Role */}
+                <div className="rounded-lg border-2 border-accent bg-accent-50/20 p-4 sm:p-6">
+                  <div className="mb-3 sm:mb-4 flex items-center space-x-2">
+                    <div className="h-1 w-8 bg-accent"></div>
+                    <h5 className="text-sm font-semibold uppercase tracking-wider text-primary-900">Transformed Role</h5>
+                  </div>
+                  <p className="text-sm leading-relaxed text-primary-700">{persona.transformedRole}</p>
+                </div>
               </div>
-              <p className="text-sm leading-relaxed text-primary-700">{currentPersona.transformedRole}</p>
-            </div>
-          </div>
 
-          {/* Key Changes */}
-          <div className="mt-8 rounded-lg border border-primary-200 bg-white p-6">
-            <div className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-900">Key Changes</div>
-            <ul className="grid gap-3 sm:grid-cols-2">
-              {currentPersona.keyChanges.map((change, index) => (
-                <li key={index} className="flex items-start text-sm text-primary-700">
-                  <span className="mr-3 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>
-                  <span>{change}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+              {/* Key Changes */}
+              <div className="mt-6 sm:mt-8 rounded-lg border border-primary-200 bg-white p-4 sm:p-6">
+                <div className="mb-3 sm:mb-4 text-sm font-semibold uppercase tracking-wider text-primary-900">Key Changes</div>
+                <ul className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2">
+                  {persona.keyChanges.map((change, changeIndex) => (
+                    <li key={changeIndex} className="flex items-start text-sm text-primary-700">
+                      <span className="mr-3 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>
+                      <span>{change}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Navigation Controls */}
-        <div className="mt-8 flex items-center justify-between">
+        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <button
             onClick={prevPersona}
-            className="flex items-center space-x-2 rounded-md border border-primary-300 bg-white px-6 py-3 text-sm font-semibold text-primary-700 shadow-sm transition-colors hover:bg-primary-50"
+            disabled={currentIndex === 0}
+            className="flex items-center space-x-2 rounded-md border border-primary-300 bg-white px-4 sm:px-6 py-2 sm:py-3 text-sm font-semibold text-primary-700 shadow-sm transition-colors hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            <span>Previous</span>
+            <span className="hidden sm:inline">Previous</span>
           </button>
 
-          {/* Dots Indicator */}
-          <div className="flex items-center space-x-2">
-            {personas.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToPersona(index)}
-                className={`h-2.5 rounded-full transition-all ${
-                  index === currentIndex
-                    ? 'w-10 bg-accent'
-                    : 'w-2.5 bg-primary-300 hover:bg-primary-400'
-                }`}
-                aria-label={`Go to persona ${index + 1}`}
-              />
-            ))}
+          {/* Counter and Dots Indicator */}
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <div className="text-sm font-medium text-primary-500">
+              {currentIndex + 1} of {personas.length}
+            </div>
+            <div className="flex items-center space-x-2">
+              {personas.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToPersona(index)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    index === currentIndex
+                      ? 'w-10 bg-accent'
+                      : 'w-2.5 bg-primary-300 hover:bg-primary-400'
+                  }`}
+                  aria-label={`Go to persona ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
           <button
             onClick={nextPersona}
-            className="flex items-center space-x-2 rounded-md border border-accent bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-400"
+            disabled={currentIndex === personas.length - 1}
+            className="flex items-center space-x-2 rounded-md border border-accent bg-accent px-4 sm:px-6 py-2 sm:py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-400 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <span>Next</span>
+            <span className="hidden sm:inline">Next</span>
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

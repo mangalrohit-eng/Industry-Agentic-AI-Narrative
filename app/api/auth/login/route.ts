@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const PROD_PASSWORD = 'LetsGoCMT2026!';
+const PROD_PASSWORD = 'AccentureCMT2026';
 
 export async function POST(request: NextRequest) {
   const { password, redirect } = await request.json();

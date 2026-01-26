@@ -12,20 +12,32 @@ export default function ProcessSummaryCard({
   processNumber, 
   totalProcesses 
 }: ProcessSummaryCardProps) {
-  // Extract key metrics from benefits (look for percentage ranges)
+  // Extract key metrics from benefits (look for percentage ranges or enhanced data)
   const keyMetrics = process.benefits
-    .filter(b => /\d+[-–]\d+%/.test(b))
-    .slice(0, 3)
     .map(b => {
-      const match = b.match(/(\d+[-–]\d+)%/);
+      // Handle enhanced benefit object
+      if (typeof b === 'object' && 'description' in b) {
+        const match = b.description.match(/(\d+[-–]\d+)%/);
+        if (match) {
+          return {
+            value: match[1] + '%',
+            text: b.description.replace(/\d+[-–]\d+%/, '').trim(),
+          };
+        }
+        return null;
+      }
+      // Handle string benefit
+      const match = (b as string).match(/(\d+[-–]\d+)%/);
       if (match) {
-        const value = match[1] + '%';
-        const text = b.replace(/\d+[-–]\d+%/, '').trim();
-        return { value, text };
+        return {
+          value: match[1] + '%',
+          text: (b as string).replace(/\d+[-–]\d+%/, '').trim(),
+        };
       }
       return null;
     })
-    .filter((m): m is { value: string; text: string } => m !== null);
+    .filter((m): m is { value: string; text: string } => m !== null)
+    .slice(0, 3);
 
   // Calculate automation estimate (agents vs total steps)
   const automationEstimate = Math.round((process.agents.length / (process.agents.length + 2)) * 100);

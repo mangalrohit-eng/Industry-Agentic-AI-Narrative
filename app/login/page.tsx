@@ -41,38 +41,25 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="bg-white rounded-lg shadow-xl p-8 border-2 border-primary-200">
-          <div className="mb-6 text-center">
-            <div className="mb-4 h-1 w-16 bg-accent mx-auto"></div>
-            <h1 className="text-3xl font-bold tracking-tight text-primary-900 mb-2">
-              Agentic AI Explorer
-            </h1>
-            <p className="text-sm text-primary-600">
-              Enter password to access
-            </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="w-full max-w-sm">
+        <div className="bg-white rounded-lg shadow-sm p-8 border border-gray-200">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-primary-900 mb-2">
-                Password
-              </label>
               <input
                 id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border-2 border-primary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-primary-900 placeholder-primary-400"
-                placeholder="Enter password"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-gray-400 text-gray-900 placeholder-gray-400"
+                placeholder="Password"
                 autoFocus
                 required
               />
             </div>
 
             {error && (
-              <div className="bg-red-50 border-2 border-red-200 rounded-lg p-3">
+              <div className="bg-red-50 border border-red-200 rounded-md p-3">
                 <p className="text-sm text-red-700">{error}</p>
               </div>
             )}
@@ -80,17 +67,11 @@ function LoginForm() {
             <button
               type="submit"
               disabled={loading || !password}
-              className="w-full bg-accent hover:bg-accent-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gray-800 hover:bg-gray-900 text-white font-medium py-2.5 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Verifying...' : 'Access'}
+              {loading ? 'Verifying...' : 'Submit'}
             </button>
           </form>
-
-          <div className="mt-6 text-center">
-            <p className="text-xs text-primary-500">
-              Protected content - Accenture Confidential
-            </p>
-          </div>
         </div>
       </div>
     </div>

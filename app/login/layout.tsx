@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Login - Agentic AI Explorer',
-  description: 'Enter password to access',
+  title: 'Login',
+  description: 'Password required',
 };
 
 export default function LoginLayout({

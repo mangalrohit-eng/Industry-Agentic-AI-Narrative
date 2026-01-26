@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 // Password for production
-const PROD_PASSWORD = 'LetsGoCMT2026!';
+const PROD_PASSWORD = 'AccentureCMT2026';
 const PASSWORD_COOKIE = 'cmt_auth';
 
 export function middleware(request: NextRequest) {

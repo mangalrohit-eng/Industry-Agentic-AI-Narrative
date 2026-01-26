@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getProcessById, getNextProcessId, getPreviousProcessId, getAllProcesses } from '@/lib/data';
 import ValueThemeBadges from '@/components/ValueThemeBadges';
-import ValueThemeLegend from '@/components/ValueThemeLegend';
 import FourWSection from '@/components/FourWSection';
 import ProcessSummaryCard from '@/components/ProcessSummaryCard';
 import KPICards from '@/components/KPICards';
@@ -64,7 +63,6 @@ export default async function ProcessPage({ params }: ProcessPageProps) {
             </h1>
             <div className="mt-6">
               <ValueThemeBadges themeIds={process.valueThemes} />
-              <ValueThemeLegend />
             </div>
           </div>
         </div>
@@ -133,12 +131,42 @@ export default async function ProcessPage({ params }: ProcessPageProps) {
               <p className="mt-2 text-sm text-primary-600">Proven results from agentic AI implementation</p>
             </div>
             <ul className="space-y-4">
-              {process.benefits.map((benefit, index) => (
-                <li key={index} className="flex items-start text-base leading-relaxed text-primary-700">
-                  <span className="mr-3 mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                  <span>{benefit}</span>
-                </li>
-              ))}
+              {process.benefits.map((benefit, index) => {
+                const isEnhanced = typeof benefit === 'object' && 'description' in benefit;
+                const description = isEnhanced ? benefit.description : benefit as string;
+                const enhanced = isEnhanced ? benefit : null;
+                
+                return (
+                  <li key={index} className="space-y-2">
+                    <div className="flex items-start text-base leading-relaxed text-primary-700">
+                      <span className="mr-3 mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                      <span>{description}</span>
+                    </div>
+                    {enhanced && (
+                      <div className="ml-6 space-y-1 text-sm text-primary-600">
+                        {enhanced.baseline && enhanced.target && (
+                          <div className="flex items-baseline space-x-2">
+                            <span>Baseline: {enhanced.baseline}</span>
+                            <span>→</span>
+                            <span className="font-semibold text-accent">Target: {enhanced.target}</span>
+                          </div>
+                        )}
+                        {enhanced.confidence && (
+                          <div className="text-xs">
+                            Confidence: <span className="font-medium">{enhanced.confidence}</span>
+                            {enhanced.timeToRealize && ` • Time to realize: ${enhanced.timeToRealize}`}
+                          </div>
+                        )}
+                        {enhanced.examples && enhanced.examples.length > 0 && (
+                          <div className="mt-2 text-xs italic">
+                            Example: {enhanced.examples[0]}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -150,12 +178,42 @@ export default async function ProcessPage({ params }: ProcessPageProps) {
               <p className="mt-2 text-sm text-primary-600">Built-in guardrails and governance</p>
             </div>
             <ul className="space-y-4">
-              {process.risksAndControls.map((risk, index) => (
-                <li key={index} className="flex items-start text-base leading-relaxed text-primary-700">
-                  <span className="mr-3 mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-400" />
-                  <span>{risk}</span>
-                </li>
-              ))}
+              {process.risksAndControls.map((risk, index) => {
+                const isEnhanced = typeof risk === 'object' && 'description' in risk;
+                const description = isEnhanced ? risk.description : risk as string;
+                const enhanced = isEnhanced ? risk : null;
+                
+                return (
+                  <li key={index} className="space-y-2">
+                    <div className="flex items-start text-base leading-relaxed text-primary-700">
+                      <span className="mr-3 mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-400" />
+                      <span>{description}</span>
+                    </div>
+                    {enhanced && (
+                      <div className="ml-6 space-y-1 text-sm text-primary-600">
+                        {enhanced.severity && enhanced.likelihood && (
+                          <div className="flex items-center space-x-3 text-xs">
+                            <span>Severity: <span className="font-medium">{enhanced.severity}</span></span>
+                            <span>•</span>
+                            <span>Likelihood: <span className="font-medium">{enhanced.likelihood}</span></span>
+                            {enhanced.category && (
+                              <>
+                                <span>•</span>
+                                <span>Category: <span className="font-medium">{enhanced.category}</span></span>
+                              </>
+                            )}
+                          </div>
+                        )}
+                        {enhanced.mitigationStrategy && (
+                          <div className="text-xs">
+                            <span className="font-medium">Mitigation:</span> {enhanced.mitigationStrategy}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

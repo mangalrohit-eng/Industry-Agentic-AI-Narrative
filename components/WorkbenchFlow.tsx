@@ -117,9 +117,9 @@ export default function WorkbenchFlow({ process }: WorkbenchFlowProps) {
         </div>
 
         {/* Structured Flow Layout */}
-        <div className="space-y-8">
+        <div className="relative">
           {/* Central Hub */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-12 relative z-10">
             <div className="rounded-lg border-2 border-accent bg-accent-50 p-6 shadow-lg">
               <div className="text-center">
                 <div className="mb-3 flex justify-center">
@@ -136,35 +136,27 @@ export default function WorkbenchFlow({ process }: WorkbenchFlowProps) {
             </div>
           </div>
 
-          {/* Connection Lines */}
-          <div className="flex justify-center">
-            <div className="flex space-x-2">
-              {categories.map((_, index) => (
-                <div key={index} className="flex flex-col items-center">
-                  <div className="h-8 w-0.5 bg-gradient-to-b from-accent-200 to-accent-300"></div>
-                  <div className="h-2 w-2 rounded-full bg-accent"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Tool Categories in Grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((category) => (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 relative">
+            {categories.map((category, index) => (
               <div
                 key={category.key}
                 className={`relative rounded-lg border-2 ${category.borderColor} ${category.bgColor} p-5 shadow-md`}
               >
-                {/* Connection line from top */}
-                <div className="absolute -top-8 left-1/2 -translate-x-1/2">
-                  <div className="h-8 w-0.5 bg-gradient-to-b from-accent-200 to-transparent"></div>
-                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 h-2 w-2 rounded-full bg-accent"></div>
+                {/* Connection line from central hub to category */}
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-0 pointer-events-none">
+                  {/* Vertical line */}
+                  <div className="h-12 w-0.5 bg-accent-400 mx-auto"></div>
+                  {/* Connection dot at top */}
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-accent border-2 border-white shadow-sm"></div>
+                  {/* Connection dot at bottom */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-2 w-2 rounded-full bg-accent"></div>
                 </div>
 
-                <h5 className={`text-sm font-semibold ${category.color} mb-3`}>
+                <h5 className={`text-sm font-semibold ${category.color} mb-3 relative z-10`}>
                   {category.label}
                 </h5>
-                <div className="space-y-2">
+                <div className="space-y-2 relative z-10">
                   {category.tools.slice(0, 4).map((tool, toolIndex) => (
                     <div
                       key={toolIndex}

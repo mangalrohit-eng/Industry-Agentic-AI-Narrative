@@ -500,7 +500,13 @@ function getIndustryMedia(process: Process) {
 }
 
 export default function IndustryMedia({ process }: IndustryMediaProps) {
-  const content = getIndustryMedia(process);
+  // Use process.industryContext if available, otherwise fall back to hardcoded content
+  const content = process.industryContext ? {
+    title: `${process.name} Industry Context`,
+    stats: process.industryContext.statistics,
+    insights: process.industryContext.insights,
+    trends: process.industryContext.trends,
+  } : getIndustryMedia(process);
 
   return (
     <div className="mb-12 rounded-lg border border-primary-200 bg-gradient-to-br from-primary-50/50 to-white p-6 sm:p-8 shadow-sm">
