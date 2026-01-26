@@ -387,16 +387,27 @@ function getAgenticProcessSteps(process: Process) {
     // Extract step name from agent name (remove "Agent" suffix)
     const stepName = agent.name.replace(' Agent', '').replace(' agent', '');
     
-    const stepData = {
+    const stepData: {
+      step: string;
+      agent: typeof agent;
+      time: string;
+      requiresApproval: boolean;
+      index: number;
+      description?: string;
+    } = {
       step: stepName,
       agent: agent,
       time,
       requiresApproval: agent.humanApproval || false,
       index: index + 1,
+      description: getProcessSpecificStepDescription(process, index, true, {
+        step: stepName,
+        agent: agent,
+        time,
+        requiresApproval: agent.humanApproval || false,
+        index: index + 1,
+      }),
     };
-    
-    // Add process-specific description
-    stepData.description = getProcessSpecificStepDescription(process, index, true, stepData);
     
     return stepData;
   });
@@ -428,14 +439,21 @@ function getCurrentProcessSteps(process: Process) {
       time = '2-6 hours';
     }
     
-    const stepData = {
+    const stepData: {
+      step: string;
+      time: string;
+      index: number;
+      description?: string;
+    } = {
       step,
       time,
       index: index + 1,
+      description: getProcessSpecificStepDescription(process, index, false, {
+        step,
+        time,
+        index: index + 1,
+      }),
     };
-    
-    // Add process-specific description
-    stepData.description = getProcessSpecificStepDescription(process, index, false, stepData);
     
     return stepData;
   });

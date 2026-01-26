@@ -628,10 +628,16 @@ export default function WorkforcePersonas({ process }: WorkforcePersonasProps) {
             WebkitOverflowScrolling: 'touch',
           }}
         >
-          {personas.map((persona, index) => (
+          {personas.map((persona, index) => {
+            // Type guard to check if persona has the extended properties
+            const extendedPersona = persona as Persona;
+            const isNew = 'isNew' in persona ? persona.isNew : false;
+            const keyChanges = 'keyChanges' in persona ? persona.keyChanges : [];
+            
+            return (
             <div
               key={index}
-              ref={(el) => (cardRefs.current[index] = el)}
+              ref={(el) => { cardRefs.current[index] = el; }}
               className="flex-shrink-0 rounded-lg border-2 border-primary-200 bg-gradient-to-br from-white to-primary-50/20 p-6 sm:p-8 shadow-lg"
               style={{
                 width: `${cardWidth}px`,
@@ -644,7 +650,7 @@ export default function WorkforcePersonas({ process }: WorkforcePersonasProps) {
                 {/* Avatar */}
                 <div className="relative flex-shrink-0">
                   <div className={`absolute -inset-1 rounded-full ${
-                    persona.isNew 
+                    isNew 
                       ? 'bg-accent' 
                       : 'bg-primary-400'
                   }`}></div>
@@ -669,7 +675,7 @@ export default function WorkforcePersonas({ process }: WorkforcePersonasProps) {
                     <h4 className="text-2xl sm:text-3xl font-semibold tracking-tight text-primary-900">
                       {persona.name}
                     </h4>
-                    {persona.isNew && (
+                    {isNew && (
                       <span className="self-start rounded-full border border-accent bg-accent-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
                         New Role
                       </span>
@@ -731,7 +737,7 @@ export default function WorkforcePersonas({ process }: WorkforcePersonasProps) {
               <div className="mt-6 sm:mt-8 rounded-lg border border-primary-200 bg-white p-4 sm:p-6">
                 <div className="mb-3 sm:mb-4 text-sm font-semibold uppercase tracking-wider text-primary-900">Key Changes</div>
                 <ul className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2">
-                  {persona.keyChanges.map((change, changeIndex) => (
+                  {keyChanges.map((change: string, changeIndex: number) => (
                     <li key={changeIndex} className="flex items-start text-sm text-primary-700">
                       <span className="mr-3 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>
                       <span>{change}</span>
@@ -740,7 +746,8 @@ export default function WorkforcePersonas({ process }: WorkforcePersonasProps) {
                 </ul>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Navigation Controls */}
